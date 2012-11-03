@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-03T02:29:35-05:00</updated>
+  <updated>2012-11-03T11:48:02-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -20,21 +20,29 @@
     <id>http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc</id>
     <content type="html"><![CDATA[<p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn&#8217;t know how to do so until today I found that Octave actually has the function &#8216;uname()&#8217; for the job. Here is an example ~/.octaverc</p>
 
-<p>[sourcecode language=&#8221;python&#8221;]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if strcmp(uname().nodename, 'zandyware')
+</span><span class='line'> addpath("~/octave")
+</span><span class='line'> addpath("~/share/flann/octave")
+</span><span class='line'> addpath("~/octave/niftimatlib-1.2/matlab")
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>PS1 ("\\[\\033[01;31m\\]\\s:\\#&gt; \\[\\033[0m")
+</span><span class='line'>
+</span><span class='line'>function man (name)
+</span><span class='line'> help (char (name))
+</span><span class='line'>endfunction</span></code></pre></td></tr></table></div></figure>
 
-<p>if strcmp(uname().nodename, &#8216;zandyware&#8217;)
- addpath(&#8220;~/octave&#8221;)
- addpath(&#8220;~/share/flann/octave&#8221;)
- addpath(&#8220;~/octave/niftimatlib-1.2/matlab&#8221;)
-end</p>
-
-<p>PS1 (&#8220;\[\033[01;31m\]\s:\#> \[\033[0m&#8221;)</p>
-
-<p>function man (name)
- help (char (name))
-endfunction</p>
-
-<p>[/sourcecode]</p>
 
 <p>You may also notice that I changed the default color of prompt to red for better visual contrast. Also I defined a function &#8216;man&#8217; to alias the built-in command &#8216;help&#8217; since I&#8217;m more used to type &#8216;man&#8217;. This tip was copied from Octave mailinglist. Hope you like today&#8217;s post.</p>
 ]]></content>
