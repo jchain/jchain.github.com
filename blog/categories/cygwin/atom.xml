@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Cygwin | My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/cygwin/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-03T02:06:32-05:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Use command 'reset' to reset your terminal display when output is garbled.]]></title>
+    <link href="http://jchain.github.com/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled/"/>
+    <updated>2011-07-26T16:03:49-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled</id>
+    <content type="html"><![CDATA[<p>I feel shamed that I haven't found this simple command for a decade. Previously, I just closed the window or the terminal and re-opened. But this 'reset' command is the right way to do. Try it next time when your terminal display looks funny and out of control.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wired MinGW Make failure problem]]></title>
+    <link href="http://jchain.github.com/blog/2011/03/28/wired-mingw-make-failure-problem/"/>
+    <updated>2011-03-28T01:47:41-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/03/28/wired-mingw-make-failure-problem</id>
+    <content type="html"><![CDATA[<p>Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem.</p>
+
+<blockquote><p>process_begin: CreateProcess(....) failed.
+make (e=2): The system cannot find the file specified.</p></blockquote>
+
+<p>The problem was solved by reading this post <a href="http://www.allegro.cc/forums/print-thread/593750">http://www.allegro.cc/forums/print-thread/593750</a></p>
+
+<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p>
+]]></content>
+  </entry>
+  
+</feed>

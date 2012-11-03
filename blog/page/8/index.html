@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="Upgraded to Libreoffice-3.3. Many improvements can be seen.
+Upgraded to tmux-1.4. It works very well on openSUSE-11.1. It definitely beats GNU &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/page/8/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/30/updated-to-libreoffice-3-3-and-tmux-1-4/">Updated to Libreoffice-3.3 and Tmux-1.4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-30T17:03:38-06:00" pubdate data-updated="true">Dec 30<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>Upgraded to<a href="http://www.libreoffice.org/"> Libreoffice-3.3</a>. Many improvements can be seen.</p></li>
+<li><p>Upgraded to<a href="http://tmux.sourceforge.net/"> tmux-1.4</a>. It works very well on openSUSE-11.1. It definitely beats GNU Screen(even Git version).</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/21/how-to-install-openoffice-3-without-root-privilege/">How to Install OpenOffice 3 Without Root Privilege</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-21T14:06:02-06:00" pubdate data-updated="true">Dec 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn&#8217;t have the root privilege to do that. The official installer of OpenOffice failed again over again without notifying you that the reason of failure was the lack of root privilege. Finally I found this great <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &#8211;color=never</strong> to disable the color output.</p>
+
+<ol>
+<li><p>Download the installation package from OpenOffice website.</p></li>
+<li><p>Unzip it into a directory.</p></li>
+<li><p><strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
+<li><p>cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
+<li><p>run ./soffice</p></li>
+<li><p>(option) create symbolic link to soffice.</p></li>
+<li><p>(option) set file association in Nautilus. Right click a doc and choose <strong>Properties->Open with -> Add&#8230;</strong></p></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/08/convert-ogv-to-flv-in-linux/">Convert Ogv to Flv in Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-08T16:26:07-06:00" pubdate data-updated="true">Dec 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+
+<p>`</p>
+
+<h1>Convert ogv to flv.</h1>
+
+<h1>Usage: ogv2flv input.ogv -o output.flv</h1>
+
+<h1>add -audiofile yoursound.wav if you need to replace the soundtrack alias ogv2flv=&#8217;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#8217;</h1>
+
+<p>`</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/06/iterative-closest-pointsicp-demo/">Iterative Closest points(ICP) Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-06T15:34:32-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>[youtube=http://www.youtube.com/watch?v=igb8mAJ6F5I]</p>
+
+<p>[caption id=&#8221;attachment_44&#8221; align=&#8221;alignnone&#8221; width=&#8221;640&#8221; caption=&#8221;Benchmark of Iterative Closest Points with OpenMP&#8221;]<a href="http://zandyware.files.wordpress.com/2010/12/out.png"><img src="http://zandyware.files.wordpress.com/2010/12/out.png" alt="" /></a>[/caption]</p>
+
+<p>The Perl code generating the plot is listed below</p>
+
+<p>[sourcecode language=&#8221;perl&#8221;]</p>
+
+<h1>!/usr/bin/perl</h1>
+
+<p>use strict;
+use warnings;
+use Chart::Gnuplot;</p>
+
+<h3>Write running time</h3>
+
+<p>open my $IN, &#8216;&lt;&#8217;, &#8220;benchmark.dat&#8221; or die $!;</p>
+
+<h1>Data</h1>
+
+<p>my @x;
+my @y;</p>
+
+<p>while( &lt;$IN> ) {</p>
+
+<pre><code>chomp;
+my ($t1, $t2) = split /\s/;
+push @x, $t1;
+push @y, $t2;
+</code></pre>
+
+<p>}</p>
+
+<h1>Create chart object and specify the properties of the chart</h1>
+
+<p>my $chart = Chart::Gnuplot->new(</p>
+
+<pre><code>output =&gt; "out.eps",
+title  =&gt; "Iterative Closest Points with Stanford Bunny",
+xlabel =&gt; "Number of threads",
+ylabel =&gt; "Time(s)",
+boxwidth =&gt; "0.8 relative"
+</code></pre>
+
+<p>);</p>
+
+<h1>Create dataset object and specify the properties of the dataset</h1>
+
+<p>my $dataSet = Chart::Gnuplot::DataSet->new(</p>
+
+<pre><code>xdata =&gt; \@x,
+ydata =&gt; \@y,
+title =&gt; "Time",
+#style =&gt; "linespoints",
+style =&gt; "boxes",
+fill =&gt; "0.75",
+</code></pre>
+
+<p>);</p>
+
+<h1>Plot the data set on the chart</h1>
+
+<p>$chart->plot2d($dataSet);</p>
+
+<h6>#</h6>
+
+<h1>Plot many data sets on a single chart</h1>
+
+<h1>$chart->plot2d($dataSet1, $dataSet2, &#8230;);</h1>
+
+<p>[/sourcecode]</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/05/using-openmp-with-cmake/">Using OpenMP With CMake</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-05T20:51:14-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
+
+<h1>Even though -fopenmp won&#8217;t appear in the GUI options, it does take effect</h1>
+
+<p>SET(CMAKE_CXX_FLAGS &#8220;${CMAKE_CXX_FLAGS} -fopenmp&#8221;)
+SET(CMAKE_C_FLAGS &#8220;${CMAKE_C_FLAGS} -fopenmp&#8221;)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/24/backspace-and-delete-in-totalviews-xterm-commandline-interface/">Backspace and Delete in TotalView&#8217;s XTerm Commandline Interface</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-24T16:02:51-06:00" pubdate data-updated="true">Nov 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily I found the solution in a great article as follows:</p>
+
+<p><a href="http://www.ibb.net/~anne/keyboard/keyboard.html">http://www.ibb.net/~anne/keyboard/keyboard.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin/">Install Lighttpd as a Service in Cygwin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-23T22:40:44-06:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>cygrunsrv &#8211;install lighttpd &#8211;path /usr/sbin/lighttpd</p>
+
+<pre><code>--args "-D -f /etc/lighttpd/lighttpd.conf" --disp "CYGWIN lighttpd"
+
+See more
+&lt;a href="http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html" title="http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html"&gt;http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html&lt;/a&gt;
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/14/hello-world/">Hello World!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-14T23:45:40-06:00" pubdate data-updated="true">Nov 14<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Welcome to <a href="http://wordpress.com/">WordPress.com</a>. This is your first post. Edit or delete it and start blogging!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/27/shrink-the-file-size-of-a-pdf/">Shrink the File Size of a Pdf?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-27T00:32:06-05:00" pubdate data-updated="true">Apr 27<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen compresses the images too much.</p>
+
+<p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook[screen, ] -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
+
+<p><strong>-dPDFSETTINGS=</strong><em>configuration</em></p>
+
+<pre><code>Presets the "distiller parameters" to one of four predefined settings:
+</code></pre>
+
+<ul>
+<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller &#8220;Screen Optimized&#8221; setting.</p></li>
+<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller &#8220;eBook&#8221; setting.</p></li>
+<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller &#8220;Print Optimized&#8221; setting.</p></li>
+<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller &#8220;Prepress Optimized&#8221; setting.</p></li>
+<li><p><strong>/default</strong> selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/25/const-overloading-in-c/">Const-overloading in C++</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-25T00:35:39-05:00" pubdate data-updated="true">Apr 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>See more at <a href="http://www.parashift.com/c++-faq-lite/const-correctness.html">http://www.parashift.com/c++-faq-lite/const-correctness.html</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl like sed</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

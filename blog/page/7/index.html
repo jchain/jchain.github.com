@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content=":%s/\%Vold/NEW/g
+">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/page/7/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/01/search-and-replace-in-a-visual-selection/">Search and Replace in a Visual Selection</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-01T01:47:14-06:00" pubdate data-updated="true">Feb 1<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>:%s/\%Vold/NEW/g</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory/">Sbcl Mmap Cannot Allocate Memory?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-28T13:28:53-06:00" pubdate data-updated="true">Jan 28<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I want to give Common Lisp a try. After reading this great <a href="http://common-lisp.net/~dlw/LispSurvey.html">Common Lisp Implementation Survey</a>, I decided to go first with SBCL. After installing the binary package of SBCL-1.0.45 on my openSUSE-11.1 x86-64bit with 8Giga memory, I ran into this annoying error message when I started SBCL in terminal:</p>
+
+<blockquote><p>mmap: Cannot allocate memory
+ensure_space: failed to validate 8589869056 bytes at 0x1000000000
+(hint: Try &#8220;ulimit -a&#8221;; maybe you should increase memory limits.)</p></blockquote>
+
+<p>I researched online for a while and finally I came up a solution(it worked for me at least). Solution: start sbcl like this</p>
+
+<blockquote><p>sbcl &#8211;dynamic-space-size 2028 &#8211;core /local/vol00/software/lib/sbcl/sbcl.core</p></blockquote>
+
+<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use &#8211;dynamic-space-size to change the setting, also use &#8211;core option if your sbcl installation is not in the default location.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/21/start-vim-without-loading-vimrc/">Start Vim Without Loading Vimrc</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-21T21:25:21-06:00" pubdate data-updated="true">Jan 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You can also start it without reading any of the initialization files
+(.vimrc, /etc/vim/vimrc) like this:</p>
+
+<pre><code>vim -u NONE file
+</code></pre>
+
+<p>Credit due to <a href="http://fossplanet.com/f10/open-vim-syntax-off-92829/">Smoot Carl-Mitchell</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">Share My Newly Created Valgrind wxGTK-2.9.1 Suppression File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-21T14:34:21-06:00" pubdate data-updated="true">Jan 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with too many false detections. You need a suppression file to help you focus on the real problem you are dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto"> http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a> to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1 <strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my suppression file.</p>
+
+<p>I suggested using the following command to fire up valgrind:</p>
+
+<pre><code>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes
+--suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
+</code></pre>
+
+<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And <strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+
+<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/20/how-to-quote-long-command-in-perl-system-call/">How to Quote Long Command in Perl System()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-20T00:14:43-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline characters really get in the way.  Here is a good way, IMHO,  to make the code look neat and clean:</p>
+
+<p>[sourcecode language=&#8221;perl&#8221;]</p>
+
+<h1>Annotate the target and landmark image</h1>
+
+<p>system single_line( &#8221;
+ convert -background black -fill white label:&#8217;Target Landmarks&#8217; miff:- | composite -gravity north
+ -geometry +0+3 - $target_with_lmk_filename $target_with_lmk_filename
+&#8221;);</p>
+
+<p>sub single_line {
+ my @strings = @_;
+ foreach ( @strings ) {
+ s/\n/ /g;
+ s/\r/ /g;
+ }
+ return wantarray? @strings : $strings[0];
+}</p>
+
+<p>[/sourcecode]</p>
+
+<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl </a></p>
+
+<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to re-align your code in Vim since your command is not messed with quotation marks.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/17/cautious-about-colorexact-and-colorallocate-in-perl-gd-package/">Cautious About colorExact() and colorAllocate() in Perl GD Package</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-17T00:33:45-06:00" pubdate data-updated="true">Jan 17<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For exising colors, I think it is better to use colorExact() because the color indices would be consistent among images. For new colors, colorAllocate() is the only choice. But colorAllocate() is highly recommended to use after colorExact(). It is safer to the color palette.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/16/the-find-command-that-i-should-keep-in-mind/">The Find Command That I Should Keep in Mind</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-16T01:46:51-06:00" pubdate data-updated="true">Jan 16<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>find . -regex &#8216;.<em>/[0-9]</em>.gif -exec ./filter.pl -i {} \;</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/12/wired-unicode-problem-in-source-code-file/">Wired Unicode Problem in Source Code File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-12T16:27:22-06:00" pubdate data-updated="true">Jan 12<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
+
+<blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
+Evaluator.h:1: error: stray ‘\273’ in program
+Evaluator.h:1: error: stray ‘\277’ in program
+Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
+
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
+
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
+
+<blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
+
+<p>But for the other files in the same directory, &#8216;file&#8217; told me that</p>
+
+<blockquote><p>ASCII C program text</p></blockquote>
+
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal screen</strong> and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the invisible character</strong>.  Copy and Paste!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/11/two-source-code-line-counters-you-should-have/">Two Source Code Line Counters You Should Have</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-11T11:14:52-06:00" pubdate data-updated="true">Jan 11<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li><p><a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
+<li><p><a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
+</ol>
+
+
+<p>So I would recommend every programmers to have both in their arsenal.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/07/colorgcc-and-ccache-work-together/">Colorgcc and Ccache Work Together</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-07T10:52:29-06:00" pubdate data-updated="true">Jan 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
+
+<p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>
+
+<p>I copy the main part right here:</p>
+
+<blockquote><h2>The Short Answer</h2>
+
+<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p></blockquote>
+
+<p>E.g., for <strong>gcc</strong>:</p>
+
+<blockquote><ul>
+<li><p><strong>/usr/local/bin/ccache-gcc.sh:</strong></p>
+
+<p><code>#!/bin/bash
+ccache /usr/bin/gcc "$@"
+</code></p></li>
+<li><p><strong>~/.colorgcc:</strong></p>
+
+<p><code>gcc: /usr/local/bin/ccache-gcc.sh
+</code></p></li>
+</ul>
+</blockquote>
+
+<p>and for <strong>g++</strong>:</p>
+
+<blockquote><ul>
+<li><p><strong>/usr/local/bin/ccache-g++.sh:</strong></p>
+
+<p><code>#!/bin/bash
+ccache /usr/bin/g++ "$@"
+</code></p></li>
+<li><p><strong>~/.colorgcc:</strong></p>
+
+<p><code>gcc: /usr/local/bin/ccache-g++.sh
+</code></p></li>
+</ul>
+</blockquote>
+
+<p>There are ways to clean this up so that you only use a single script,  with symlinks for each variant, but those are beyond the scope of this  answer, and I leave them to you as an excercise :-)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/8/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/6/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl like sed</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
