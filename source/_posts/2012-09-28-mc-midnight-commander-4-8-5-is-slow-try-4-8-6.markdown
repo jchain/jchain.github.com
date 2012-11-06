@@ -11,4 +11,6 @@ tags:
 - Linux
 ---
 
-Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to the negligible (< 1sec).
+Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
+unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to
+the negligible (< 1sec).

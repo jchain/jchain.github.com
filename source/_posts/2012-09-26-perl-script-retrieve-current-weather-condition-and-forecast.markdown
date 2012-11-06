@@ -11,9 +11,14 @@ tags:
 - Perl
 ---
 
-I'm a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading [http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html](http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html), which shows how to use Mojolicious to retrieve the current condition and [http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location](http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.), which shows how to retried the forecast, I finally wrote something like this
+I'm a little tired of checking out the weather condition via the web browser. In many cases I just
+want to see a short report in my terminal. After
+reading [http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html](http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html),
+which shows how to use Mojolicious to retrieve the current condition and
+[http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location](http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.),
+which shows how to retried the forecast, I finally wrote something like this
 
-[sourcecode language="perl"]
+```perl
 #!/usr/bin/env perl
 #===============================================================================
 #
@@ -51,12 +56,12 @@ for my $e ($dom->find('simpleforecast forecastday')->each) {
 
 printf "%s %s %s, Low: %d, High: %d, %s\n", $weekday, $month, $day, $low, $high, $condition;
 }
-[/sourcecode]
+```
 
 
 This is how it runs from the terminal:
 
-[sourcecode language="bash"]
+```bash
 [zandyware@zandyware] bin $ ./weather.pl
 KCID 63.0 F (17.2 C) Fair
 
@@ -66,4 +71,4 @@ Thu Sep 27, Low: 45, High: 70, Clear
 Fri Sep 28, Low: 46, High: 70, Partly Cloudy
 Sat Sep 29, Low: 45, High: 72, Clear
 Sun Sep 30, Low: 41, High: 73, Clear
-[/sourcecode]
+```
