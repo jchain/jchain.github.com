@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-05T21:54:59-06:00</updated>
+  <updated>2012-11-05T21:58:30-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -20,7 +20,7 @@
     <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
     <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my eyes.</p>
 
-<p>[sourcecode language="bash"]</p>
+<p>```bash</p>
 
 <h1>look up on urbandictionary.com</h1>
 
@@ -34,15 +34,14 @@
 <p>fd () {
  a=$@
  elinks www.thefreedictionary.com/${a// /+}
-}</p>
-
-<p>[/sourcecode]</p>
+}
+```</p>
 
 <p>Usage:</p>
 
-<p>ub your_word</p>
-
-<p>fd your_word</p>
+<pre><code>ub your_word
+fd your_word
+</code></pre>
 ]]></content>
   </entry>
   
