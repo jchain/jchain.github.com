@@ -13,7 +13,9 @@ tags:
 - tips
 ---
 
-I wrote two very short Bash functions to help me quickly look up a word or phrase using [elinks](http://elinks.or.cz/). You can use w3m as you wish but elinks shows a better layout in my eyes.
+I wrote two very short Bash functions to help me quickly look up a word or phrase using
+[elinks](http://elinks.or.cz/). You can use w3m as you wish but elinks shows a better layout in my
+eyes.
 
 ```bash
 # look up on urbandictionary.com
