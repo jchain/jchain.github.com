@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-03T12:44:32-05:00</updated>
+  <updated>2012-11-05T21:58:30-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -56,29 +56,38 @@
     <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
     <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my eyes.</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># look up on urbandictionary.com</span>
+</span><span class='line'>
+</span><span class='line'>ub <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'> <span class="nv">a</span><span class="o">=</span><span class="nv">$@</span>
+</span><span class='line'> elinks www.urbandictionary.com/<span class="k">${</span><span class="nv">a</span><span class="p">// /%20</span><span class="k">}</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># look up on thefreedictionary.com</span>
+</span><span class='line'>fd <span class="o">()</span> <span class="o">{</span>
+</span><span class='line'> <span class="nv">a</span><span class="o">=</span><span class="nv">$@</span>
+</span><span class='line'> elinks www.thefreedictionary.com/<span class="k">${</span><span class="nv">a</span><span class="p">// /+</span><span class="k">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>look up on urbandictionary.com</h1>
-
-<p>ub () {
- a=$@
- elinks www.urbandictionary.com/${a// /%20}
-}</p>
-
-<h1>look up on thefreedictionary.com</h1>
-
-<p>fd () {
- a=$@
- elinks www.thefreedictionary.com/${a// /+}
-}</p>
-
-<p>[/sourcecode]</p>
 
 <p>Usage:</p>
 
-<p>ub your_word</p>
-
-<p>fd your_word</p>
+<pre><code>ub your_word
+fd your_word
+</code></pre>
 ]]></content>
   </entry>
   
