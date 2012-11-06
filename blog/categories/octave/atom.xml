@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octave | My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/octave/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-03T12:44:32-05:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octave: Add local repository path based on the hostname, change the color of prompt etc..]]></title>
+    <link href="http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/"/>
+    <updated>2012-10-13T03:38:46-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc</id>
+    <content type="html"><![CDATA[<p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn't know how to do so until today I found that Octave actually has the function 'uname()' for the job. Here is an example ~/.octaverc</p>
+
+<p>```python
+if strcmp(uname().nodename, 'zandyware')
+ addpath("~/octave")
+ addpath("~/share/flann/octave")
+ addpath("~/octave/niftimatlib-1.2/matlab")
+end</p>
+
+<p>PS1 ("\[\033[01;31m\]\s:\#> \[\033[0m")</p>
+
+<p>function man (name)
+ help (char (name))
+endfunction
+```</p>
+
+<p>You may also notice that I changed the default color of prompt to red for better visual contrast. Also I defined a function 'man' to alias the built-in command 'help' since I'm more used to type 'man'. This tip was copied from Octave mailinglist. Hope you like today's post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octave plot legend fontsize?]]></title>
+    <link href="http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize/"/>
+    <updated>2011-10-21T01:50:36-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize</id>
+    <content type="html"><![CDATA[<p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn't change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried '<strong>print('foo.eps','-depsc','-F:14')</strong>'. The option '-F:14' set the default print fontsize to 14. It worked so far so good.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octave: save a figure to a file]]></title>
+    <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
+    <updated>2011-05-03T13:10:44-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
+    <content type="html"><![CDATA[<p>I'm playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the documentation is not complete, or more precisely speaking, not friendly to new user. When I want to save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try several times before get it straight. Here is my example.</p>
+
+<p>[sourcecode language="matlab"]</p>
+
+<p>for i=1:11
+surf(x,y,ue((i-1)*0.2));
+filename = sprintf("us_t%d.png", i-1);
+print(filename, '-dpng'); % Note the quote
+end
+[/sourcecode]</p>
+
+<p>BTW: I'm very grateful for the high compatibility of Octave code with Matlab code.</p>
+]]></content>
+  </entry>
+  
+</feed>

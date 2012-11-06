@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-03T12:44:32-05:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octave: Add local repository path based on the hostname, change the color of prompt etc..]]></title>
+    <link href="http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/"/>
+    <updated>2012-10-13T03:38:46-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc</id>
+    <content type="html"><![CDATA[<p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn&#8217;t know how to do so until today I found that Octave actually has the function &#8216;uname()&#8217; for the job. Here is an example ~/.octaverc</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="p">,</span> <span class="s">&#39;zandyware&#39;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/octave&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/share/flann/octave&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/octave/niftimatlib-1.2/matlab&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PS1</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">033[01;31m</span><span class="se">\\</span><span class="s">]</span><span class="se">\\</span><span class="s">s:</span><span class="se">\\</span><span class="s">#&gt; </span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">033[0m&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">function</span> <span class="n">man</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span class='line'> <span class="n">help</span> <span class="p">(</span><span class="n">char</span> <span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span><span class='line'><span class="n">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You may also notice that I changed the default color of prompt to red for better visual contrast. Also I defined a function &#8216;man&#8217; to alias the built-in command &#8216;help&#8217; since I&#8217;m more used to type &#8216;man&#8217;. This tip was copied from Octave mailinglist. Hope you like today&#8217;s post.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Quickly look up a word or phrase from commandline]]></title>
+    <link href="http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/"/>
+    <updated>2012-09-28T14:46:55-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
+    <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my eyes.</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<h1>look up on urbandictionary.com</h1>
+
+<p>ub () {
+ a=$@
+ elinks www.urbandictionary.com/${a// /%20}
+}</p>
+
+<h1>look up on thefreedictionary.com</h1>
+
+<p>fd () {
+ a=$@
+ elinks www.thefreedictionary.com/${a// /+}
+}</p>
+
+<p>[/sourcecode]</p>
+
+<p>Usage:</p>
+
+<p>ub your_word</p>
+
+<p>fd your_word</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6]]></title>
+    <link href="http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
+    <updated>2012-09-27T23:57:17-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
+    <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to the negligible (&lt; 1sec).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perl script: retrieve current weather condition and forecast]]></title>
+    <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
+    <updated>2012-09-25T21:33:42-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
+    <content type="html"><![CDATA[<p>I&#8217;m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
+
+<p>[sourcecode language=&#8221;perl&#8221;]</p>
+
+<h1>!/usr/bin/env perl</h1>
+
+<h1>===============================================================================</h1>
+
+<p>#</p>
+
+<h1>FILE: weather.pl</h1>
+
+<p>#</p>
+
+<h1>USAGE: ./weather.pl</h1>
+
+<p>#</p>
+
+<h1>VERSION: 1.0</h1>
+
+<h1>CREATED: 09/13/2012 10:31:39 PM</h1>
+
+<h1>REVISION: &#8212;</h1>
+
+<h1>===============================================================================</h1>
+
+<p>use strict;
+use warnings;
+use feature &#8216;say&#8217;;</p>
+
+<p>use Mojolicious;</p>
+
+<p>my $ua = Mojo::UserAgent->new;
+my $dom = $ua->get(&#8216;http://w1.weather.gov/xml/current_obs/KCID.xml&#8217;)->res->dom;
+my $temp = $dom->find(&#8216;temperature_string&#8217;)->[0]->text;
+my $weather = $dom->find(&#8216;weather&#8217;)->[0]->text;
+say &#8220;KCID &#8220;, $temp, &#8221; &#8220;, $weather, &#8220;\n&#8221;;</p>
+
+<p>$dom =
+$ua->get(&#8216;http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids&#8217;)->res->dom;</p>
+
+<p>for my $e ($dom->find(&#8216;simpleforecast forecastday&#8217;)->each) {
+ my $day = $e->date->day->text;
+ my $month = substr $e->date->monthname->text, 0, 3;
+ my $weekday = substr $e->date->weekday->text, 0, 3;
+ my $condition = $e->conditions->text;
+ my $high = $e->high->fahrenheit->text;
+ my $low = $e->low->fahrenheit->text;</p>
+
+<p>printf &#8220;%s %s %s, Low: %d, High: %d, %s\n&#8221;, $weekday, $month, $day, $low, $high, $condition;
+}
+[/sourcecode]</p>
+
+<p>This is how it runs from the terminal:</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]
+[zandyware@zandyware] bin $ ./weather.pl
+KCID 63.0 F (17.2 C) Fair</p>
+
+<p>Tue Sep 25, Low: 46, High: 81, Clear
+Wed Sep 26, Low: 39, High: 70, Clear
+Thu Sep 27, Low: 45, High: 70, Clear
+Fri Sep 28, Low: 46, High: 70, Partly Cloudy
+Sat Sep 29, Low: 45, High: 72, Clear
+Sun Sep 30, Low: 41, High: 73, Clear
+[/sourcecode]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Use Perl like sed]]></title>
+    <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
+    <updated>2012-09-14T11:29:58-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
+    <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use &#8216;sed&#8217; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>find . -name &#8220;*.java&#8221; -print | perl -ne &#8216;s/java/java.old/g &amp;&amp; print&#8217;</p>
+
+<p>[/sourcecode]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
+    <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
+    <updated>2012-08-19T02:06:46-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
+    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to &#8216;auto hide&#8217;. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don&#8217;t like the methods to change the &#8216;gsetting&#8217; or &#8216;gconf&#8217;.</p>
+
+<p>It turns out that the simplest way to to hit &#8216;Alt+F1&#8217; to activate the &#8216;Application&#8217; in the top panel and hit &#8216;Esc&#8217; to hide it again. So simple.</p>
+
+<p>BTW: I&#8217;m using the fallback of GNOME 3.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Add the remote git repository for your open-source collabration]]></title>
+    <link href="http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
+    <updated>2012-07-01T19:39:25-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
+    <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a &#8216;master&#8217; branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted &#8216;master&#8217; branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch &#8216;master&#8217; and I would hack under this branch.</p>
+
+<p>But after my hack right before I fire up the &#8216;git format-patch&#8217; command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command &#8216;git remote&#8217; will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>
+
+<p>Here is a short summary:</p>
+
+<ol>
+<li><p>Suppose the original project is called FOO. We create a new repo called my_FOO by imported the code from the git repo of FOO</p></li>
+<li><p>git clone git://git.github.com/my_FOO.git. You will have a local master branch</p></li>
+<li><p>git remote add FOO_origin git://git.github.com/FOO.git. You will add a new remote repo in your .git/config</p></li>
+<li><p>git fetch FOO_origin. You have to do this to get the branch information about FOO_origin before step 5.</p></li>
+<li><p>git branch &#8211;set-upstream FOO_master FOO_origin/master. Create a local branch named FOO_master to keep track the upstream&#8217;s master branch.</p></li>
+<li><p>Done. use &#8216;git branch&#8217; to check the result.</p></li>
+</ol>
+
+
+<p>OK. After these steps, you can code in the &#8216;master&#8217; branch, commit and push to the repo &#8216;my_FOO&#8217; for the benefit of online backup and sync. You can switch to FOO_master to pull the upstream changes and merge to your &#8216;master&#8217; branch. When you feel ready to format a patch, just type &#8216;git format-patch FOO_master&#8217;.</p>
+
+<p>Of cause there are issues like commit squash but that is another topic so I don&#8217;t mention here. I&#8217;m surprised to see there are tons of git questions flying around on the web. After all git is really a complicated tool with a much higher learning curve than Subversion. For some particular use cases I find it make sense to blog them here for my own future reference instead of searching online but retrieved a lot of partially related answers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fix the broken Bash file and directory name completion on Ubuntu Linux]]></title>
+    <link href="http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux/"/>
+    <updated>2012-06-02T17:12:54-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux</id>
+    <content type="html"><![CDATA[<p>I didn&#8217;t remember ever since when my Bash filename and directory name completion functioned wackily. Everytime I hit &#8216;tab&#8217; to complete a directory name, Bash didn&#8217;t append the backslash nor printed out candidates (just like what it described like <a href="http://ubuntuforums.org/showthread.php?t=1053832">here</a> and <a href="http://timlabath.com/words/2011/05/10/ubuntu-11-04-and-broken-bash-completion/">here</a>). It drove me banana. Meanwhile, my Bash worked very well under other Linux distributions (openSUSE, CentOS). The culprit was the a Bash completion file for adobe acrobat reader under /etc/bash_completion.d/. Delete it and the problem will be solved.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My favorite Makefile for LaTeX]]></title>
+    <link href="http://jchain.github.com/blog/2012/06/02/my-favorite-makefile-for-latex/"/>
+    <updated>2012-06-02T16:33:12-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/06/02/my-favorite-makefile-for-latex</id>
+    <content type="html"><![CDATA[<p>Finally, my search for a good Makefile for LaTeX  document writing  was ended by this <a href="http://code.google.com/p/latex-makefile/">solution</a>. You may have heard about <a href="https://gforge.inria.fr/projects/latex-utils/">latex-makefile</a> or <a href="http://latex-mk.sourceforge.net/">latex-mk</a> or other LaTeX makefiles. But either they are too complicated, dependent on other external programs, need to install before use or not  powerful enough to get the most jobs done. Here, this <a href="http://code.google.com/p/latex-makefile/">latex-makefile</a> is light-weight, self-contained, zero-dependent and powerful to deal with most cases. Simply download it, drop into the same directory with your LaTeX source file and you are ready to go. Its colorful output really makes error-checking much easier. I like it very much. Highly recommend it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Switch your Linux laptop display to a projector]]></title>
+    <link href="http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/"/>
+    <updated>2012-05-03T22:45:31-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector</id>
+    <content type="html"><![CDATA[<p>In a job interview two months ago, no matter how hard I tried I simply couldn&#8217;t export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15&#8221; laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
+
+<p>I searched for a solution for that on the web. It seemed a headache for many Linux users. Finally I ran into <a href="http://willem.engen.nl/projects/disper/">Disper</a>. It solved my problem perfectly.</p>
+
+<p>Read on how to do it in more details <a href="http://www.baibhav.com.np/article/6-computer-tips-a-tricks/32-projector-external-monitor-display-problem-on-ubuntu-1110-solved-.html">here</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[One tip for jhbuild when make error is like this]]></title>
+    <link href="http://jchain.github.com/blog/2012/03/28/one-tip-for-jhbuild-when-make-error-is-like-this/"/>
+    <updated>2012-03-28T16:02:43-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/03/28/one-tip-for-jhbuild-when-make-error-is-like-this</id>
+    <content type="html"><![CDATA[<p>Here is the error message I got today
+*** No rule to make target <code>gtkcolorsel.c', needed by</code>libgtk_3_la-gtkcolorsel.lo&#8217;. Stop</p>
+
+<p>The reason for that is because the output files from previous builds make Automake unhappy.</p>
+
+<p>The solution is
+enter the jhbuild shell, and do: git clean -xdf</p>
+
+<p>More details from GTK+ IRC: automake does not like when files get moved around so you need to clean up the build tree and get it back into a pristine state</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Finally Gnome 3 on openSUSE]]></title>
+    <link href="http://jchain.github.com/blog/2012/02/09/finally-gnome-3-on-opensuse/"/>
+    <updated>2012-02-09T11:08:38-06:00</updated>
+    <id>http://jchain.github.com/blog/2012/02/09/finally-gnome-3-on-opensuse</id>
+    <content type="html"><![CDATA[<p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew.</p>
+
+<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia graphics driver libGL*.so. If you type</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>ldd /usr/bin/gnome-shell</p>
+
+<p>[/sourcecode]</p>
+
+<p>You would notice that libGL.so.1 was pointing to nothing. That was bad.</p>
+
+<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
+
+<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia driver with Clutter and  the work around was to add the following line into .bashrc</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling</p>
+
+<p>[/sourcecode]</p>
+
+<p>Again I didn&#8217;t run into this issue in Ubuntu.</p>
+
+<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my new GNOM 3 was ready for daily use.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perlbrew and openSUSE]]></title>
+    <link href="http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse/"/>
+    <updated>2012-02-05T00:08:45-06:00</updated>
+    <id>http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse</id>
+    <content type="html"><![CDATA[<p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think it is a good idea to have access to multiple Perl distributions and a good management among them. Soon I realized that it was time to give perlbrew a try. I tried to install a locally built Perl-5.14.2 by the command</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>perlbrew install perl-5.14.2</p>
+
+<p>[/sourcecode]</p>
+
+<p>But quickly it failed with the exactly the same error like <a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>perlbrew install perl-5.14.2 -D noextension=ODBM_File</p>
+
+<p>[/sourcecode]</p>
+
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will install modules for difference versions of Perl in separate locations. For example, modules for Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
+
+<p>Happy perlbrewing&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Make apt like zypper]]></title>
+    <link href="http://jchain.github.com/blog/2012/02/01/make-apt-like-zypper/"/>
+    <updated>2012-02-01T17:43:17-06:00</updated>
+    <id>http://jchain.github.com/blog/2012/02/01/make-apt-like-zypper</id>
+    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get upgrade is so verbose. To make life easier, I have stolen some ideas from <a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my .bashrc:</p>
+
+<p>[sourcecode language=&#8221;bash&#8221;]</p>
+
+<p>apt() {
+ if [ &#8220;$1&#8221; = &#8220;se&#8221; ]; then
+ apt-cache search $2
+ fi</p>
+
+<p> if [ &#8220;$1&#8221; = &#8220;if&#8221; ]; then
+ apt-cache show $2
+ fi</p>
+
+<p> if [ &#8220;$1&#8221; = &#8220;up&#8221; ]; then
+ sudo apt-get update
+ fi</p>
+
+<p> if [ &#8220;$1&#8221; = &#8220;upgrade&#8221; ]; then
+ sudo apt-get upgrade
+ fi</p>
+
+<p> if [ &#8220;$1&#8221; = &#8220;in&#8221; ]; then
+ sudo apt-get install $2
+ fi</p>
+
+<p> if [ &#8220;$1&#8221; = &#8220;rm&#8221; ]; then
+ sudo apt-get remove $2
+ fi
+ }</p>
+
+<p>[/sourcecode]</p>
+
+<p>Now you can just type &#8216;apt se&#8217;, &#8216;apt up&#8217;, &#8216;apt upgrade&#8217;, &#8216;apt in&#8217; and &#8216;apt if&#8217; to do the similar things.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[tlmgr is better than those provided by Linux distribution]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution/"/>
+    <updated>2011-12-30T22:08:02-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution</id>
+    <content type="html"><![CDATA[<p>Even though many Linux distributions have provided TeX packages, I still like  <a href="http://www.tug.org/texlive/tlmgr.html">tlmgr</a> to manage everything. It is like apt-get but just for TeX Live. Management and configuration become much more convenient.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Latex \cite{} tolerate white spaces?]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces/"/>
+    <updated>2011-12-20T15:07:34-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces</id>
+    <content type="html"><![CDATA[<p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog}, use package &#8216;cite&#8217;</p>
+
+<p>[sourcecode]</p>
+
+<p>\usepackage{cite}</p>
+
+<p>[/sourcecode]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Yet another rename]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/17/yet-another-rename/"/>
+    <updated>2011-12-17T12:41:51-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/17/yet-another-rename</id>
+    <content type="html"><![CDATA[<p>I had many randomly named files and directories under my working project. Today I wanted to organize them in a more consistent naming convention. So I needed a file rename tool. Even though Linux base installation has a command &#8216;rename&#8217;, I soon found this Perl app <a href="http://search.cpan.org/~pederst/rename-1.8/bin/rename.PL">rename</a> is better thanks to Perl&#8217;s powerful regex. Plus, its dry-run option is also a very good idea.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git format-patch]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/15/git-format-patch/"/>
+    <updated>2011-12-15T11:52:40-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/15/git-format-patch</id>
+    <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch">http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch</a></p>
+
+<p>Check the link above when you want to combine several commits into one patch. It might be needed when you want to submit all your local changes into one changeset to the upstream.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Indent only XML file]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/15/indent-only-xml-file/"/>
+    <updated>2011-12-15T10:48:24-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/15/indent-only-xml-file</id>
+    <content type="html"><![CDATA[<p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
+
+<ul>
+<li><p><a href="http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html">xmllint</a></p></li>
+<li><p><a href="http://xmlindent.sourceforge.net/">xmlindent</a></p></li>
+<li><p><a href="http://www.kitebird.com/software/xmlformat/xmlformat.html">xmlformat</a></p></li>
+<li><p><a href="http://www.qualitybrain.com/?p=37">tidy</a></p></li>
+</ul>
+
+
+<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn&#8217;t have time to look into. So finally I only used &#8216;gg=G&#8217; in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Quick print: a little trick for gdb setting]]></title>
+    <link href="http://jchain.github.com/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting/"/>
+    <updated>2011-12-02T17:10:49-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting</id>
+    <content type="html"><![CDATA[<p>Today I would like to share a little trick that I have adapted and used for a while. It is for <a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have no idea about the customization of gdb, please read <a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
+
+<p>If you use gdb frequently, chances are you have to type the command &#8216;print&#8217; or &#8216;p&#8217; to examine the value of variable many many times. A common case is like this: you type &#8216;p foo&#8217; to see the value of &#8216;foo&#8217;. It turns out that &#8216;foo&#8217; is a pointer, and you have to type &#8216;p *foo&#8217; again in the commandline. Or you have to type &#8216;ptype foo&#8217; to find out the type definition of &#8216;foo&#8217;. Tedious. This small piece of gdb macro to make your life easier. Every time you type &#8216;p foo&#8217;, you just scroll up the history and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or typing &#8216;2&#8217; gives you the type definition of &#8216;foo&#8217;. Copy and paste into your ~/.gdbinit
+[sourcecode lang=&#8221;matlab&#8221;]
+define p
+ if $argc == 1
+   print $arg0
+ else
+   if $arg1 == 1</p>
+
+<pre><code> print *($arg0)
+</code></pre>
+
+<p>   else</p>
+
+<pre><code> if $arg1 == 2
+   ptype $arg0
+ end
+</code></pre>
+
+<p>   end
+ end
+end
+document p
+   Print the variable information quickly
+end</p>
+
+<p>[/sourcecode]</p>
+]]></content>
+  </entry>
+  
+</feed>

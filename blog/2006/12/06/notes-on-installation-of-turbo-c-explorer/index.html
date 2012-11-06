@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Notes on Installation of Turbo C++ Explorer - My Octopress Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="When starting Turbo C++ Explorer, you may get an error message stating: acces violation at adress 51F515BE rtl100.bpl&#8230;.
+error with coreide100. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/2006/12/06/notes-on-installation-of-turbo-c-explorer/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Notes on Installation of Turbo C++ Explorer</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-06T22:48:47-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2006</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>When starting Turbo C++ Explorer, you may get an error message stating:</p>
+
+<ol>
+<li><p>acces violation at adress 51F515BE rtl100.bpl&#8230;.</p></li>
+<li><p>error with coreide100.bpl</p></li>
+<li><p>designeide100.bpl</p></li>
+</ol>
+
+
+<p>The workaround is running &#8220;regasm&#8221; from .NET v1.1 to register the missing  .NET assemblies used by Turbo C++ Explorer IDE. Go to the C:\Program Files\Borland\BDS\4.0\Bin directory  and run</p>
+
+<p>regasm Borland.Studio.Toolsets.dll</p>
+
+<p>Now you should start the IDE successfully. If you still see an error message box, saying that a ClassId is missing or similar errors, you can solve this by registering all possible assemblies manually.</p>
+
+<p>To do this, navigate to the BDS \Bin directory in the command line and type &#8220;dir Borland.Studio.*.tlb&#8221; to list all relevant .tlb files. Then, run &#8220;regasm&#8221; on the corresponding .dll file for each.(see <a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
+
+<p>OK, then you start a new project from the menu File->New&#8230;, if you are unlucky to get an exception Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
+
+<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg, see<strong> </strong><a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zandy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2006-12-06T22:48:47-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2006</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2006/12/06/notes-on-installation-of-turbo-c-explorer/" data-via="" data-counturl="http://jchain.github.com/blog/2006/12/06/notes-on-installation-of-turbo-c-explorer/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2006/09/04/delphi2006-editor-shortcuts/" title="Previous Post: Delphi2006 editor shortcuts">&laquo; Delphi2006 editor shortcuts</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2006/12/12/multithreading-the-delphi-way/" title="Next Post: Multithreading - The Delphi Way">Multithreading - The Delphi Way &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl like sed</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
