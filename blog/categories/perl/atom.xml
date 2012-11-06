@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-05T21:58:30-06:00</updated>
+  <updated>2012-11-05T22:25:07-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,9 +18,14 @@
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
     <updated>2012-09-25T21:33:42-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
-    <content type="html"><![CDATA[<p>I'm a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
+    <content type="html"><![CDATA[<p>I'm a little tired of checking out the weather condition via the web browser. In many cases I just
+want to see a short report in my terminal. After
+reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
+which shows how to use Mojolicious to retrieve the current condition and
+<a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>,
+which shows how to retried the forecast, I finally wrote something like this</p>
 
-<p>[sourcecode language="perl"]</p>
+<p>```perl</p>
 
 <h1>!/usr/bin/env perl</h1>
 
@@ -69,11 +74,11 @@ $ua->get('http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=C
 
 <p>printf "%s %s %s, Low: %d, High: %d, %s\n", $weekday, $month, $day, $low, $high, $condition;
 }
-[/sourcecode]</p>
+```</p>
 
 <p>This is how it runs from the terminal:</p>
 
-<p>[sourcecode language="bash"]
+<p>```bash
 [zandyware@zandyware] bin $ ./weather.pl
 KCID 63.0 F (17.2 C) Fair</p>
 
@@ -83,7 +88,7 @@ Thu Sep 27, Low: 45, High: 70, Clear
 Fri Sep 28, Low: 46, High: 70, Partly Cloudy
 Sat Sep 29, Low: 45, High: 72, Clear
 Sun Sep 30, Low: 41, High: 73, Clear
-[/sourcecode]</p>
+```</p>
 ]]></content>
   </entry>
   

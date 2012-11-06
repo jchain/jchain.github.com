@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-05T21:58:30-06:00</updated>
+  <updated>2012-11-05T22:25:07-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,7 +18,9 @@
     <link href="http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/"/>
     <updated>2012-09-28T14:46:55-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
-    <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my eyes.</p>
+    <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using
+<a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my
+eyes.</p>
 
 <p>```bash</p>
 
@@ -50,7 +52,9 @@ fd your_word
     <link href="http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
     <updated>2012-09-27T23:57:17-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
-    <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to the negligible (&lt; 1sec).</p>
+    <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
+unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to
+the negligible (&lt; 1sec).</p>
 ]]></content>
   </entry>
   
