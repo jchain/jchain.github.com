@@ -15,8 +15,7 @@ tags:
 
 I wrote two very short Bash functions to help me quickly look up a word or phrase using [elinks](http://elinks.or.cz/). You can use w3m as you wish but elinks shows a better layout in my eyes.
 
-[sourcecode language="bash"]
-
+```bash
 # look up on urbandictionary.com
 
 ub () {
@@ -29,11 +28,8 @@ fd () {
  a=$@
  elinks www.thefreedictionary.com/${a// /+}
 }
-
-[/sourcecode]
+```
 
 Usage:
-
-ub your_word
-
-fd your_word
+    ub your_word
+    fd your_word
