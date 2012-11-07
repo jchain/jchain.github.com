@@ -10,13 +10,13 @@ tags:
 - VTK
 ---
 
-[youtube=http://www.youtube.com/watch?v=igb8mAJ6F5I]
+[http://www.youtube.com/watch?v=igb8mAJ6F5I](http://www.youtube.com/watch?v=igb8mAJ6F5I)
 
-[caption id="attachment_44" align="alignnone" width="640" caption="Benchmark of Iterative Closest Points with OpenMP"][![](http://zandyware.files.wordpress.com/2010/12/out.png)](http://zandyware.files.wordpress.com/2010/12/out.png)[/caption]
+![](http://zandyware.files.wordpress.com/2010/12/out.png "Benchmark of Iterative Closest Points with OpenMP")
 
 The Perl code generating the plot is listed below
 
-[sourcecode language="perl"]
+```perl
 #!/usr/bin/perl
 
 use strict;
@@ -63,7 +63,4 @@ $chart->plot2d($dataSet);
  
 # Plot many data sets on a single chart
 #$chart->plot2d($dataSet1, $dataSet2, ...); 
-[/sourcecode]
-
-
-
+```

@@ -12,10 +12,7 @@ tags:
 - tips
 ---
 
-To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog}, use package 'cite'
+To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
+use package 'cite'
 
-[sourcecode]
-
-\usepackage{cite}
-
-[/sourcecode]
+    \usepackage{cite}

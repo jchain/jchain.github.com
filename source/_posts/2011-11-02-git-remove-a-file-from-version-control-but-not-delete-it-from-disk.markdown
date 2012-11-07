@@ -9,6 +9,6 @@ tags:
 - git
 ---
 
-[sourcecode language="bash"]
-git rm --cached foo.bar
-[/sourcecode]
+Today's tip has only one line
+
+    git rm --cached foo.bar
