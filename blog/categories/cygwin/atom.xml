@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cygwin | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/cygwin/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T12:44:08-06:00</updated>
+  <updated>2012-11-07T13:51:09-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -35,6 +35,28 @@ make (e=2): The system cannot find the file specified.</p></blockquote>
 <p>The problem was solved by reading this post <a href="http://www.allegro.cc/forums/print-thread/593750">http://www.allegro.cc/forums/print-thread/593750</a></p>
 
 <p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux 'ldd' equivalence on Cygwin?]]></title>
+    <link href="http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/"/>
+    <updated>2011-02-06T12:25:27-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin</id>
+    <content type="html"><![CDATA[<p>Run "cygcheck " and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Install lighttpd as a service in Cygwin]]></title>
+    <link href="http://jchain.github.com/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin/"/>
+    <updated>2010-11-23T22:40:44-06:00</updated>
+    <id>http://jchain.github.com/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin</id>
+    <content type="html"><![CDATA[<pre><code>cygrunsrv --install lighttpd --path /usr/sbin/lighttpd
+    --args "-D -f /etc/lighttpd/lighttpd.conf" --disp "CYGWIN lighttpd"
+</code></pre>
+
+<p>See more http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</p>
 ]]></content>
   </entry>
   

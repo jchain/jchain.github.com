@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T12:44:08-06:00</updated>
+  <updated>2012-11-07T13:51:09-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -41,6 +41,15 @@ use package 'cite'</p>
 
 <pre><code>\usepackage{cite}
 </code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Check syntax error of latex file with lacheck]]></title>
+    <link href="http://jchain.github.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck/"/>
+    <updated>2011-06-01T11:08:02-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck</id>
+    <content type="html"><![CDATA[<p>Before you make a long wait compilation of your latex file, you can use <strong>lacheck</strong> to check the syntax error first. lacheck is probably already packaged within your tex installation.</p>
 ]]></content>
   </entry>
   

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: wxWidgets | My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/wxwidgets/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-07T13:51:09-06:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Share my newly created Valgrind wxGTK-2.9.1 suppression file]]></title>
+    <link href="http://jchain.github.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/"/>
+    <updated>2011-01-21T14:34:21-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file</id>
+    <content type="html"><![CDATA[<p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
+too many false detections. You need a suppression file to help you focus on the real problem you are
+dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
+http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
+to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
+<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  '64'  in
+suppression file. I tested my suppression file with wxWdgets sample program 'mininal' the error
+number is 2, with sample opengl program 'cube' the error number is 0. I hope I didn't overact in my
+suppression file.</p>
+
+<p>I suggested using the following command to fire up valgrind:</p>
+
+<pre><code>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes
+--suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
+</code></pre>
+
+<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
+<strong>remove the 'doc' extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+
+<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
+]]></content>
+  </entry>
+  
+</feed>

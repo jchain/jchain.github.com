@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this: Evaluator.h:1: error: stray ‘\ &hellip;">
+  <meta name="description" content="Today I ran into a very wired problem when I was trying to compile a C++ source file. What
+I received was like this: Evaluator.h:1: error: stray ‘\ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,16 +103,21 @@
   </header>
 
 
-<div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
+<div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
+I received was like this:</p>
 
 <blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
 Evaluator.h:1: error: stray ‘\273’ in program
 Evaluator.h:1: error: stray ‘\277’ in program
 Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
+source file. I guessed that our team were using different editors and operating systems, and
+someone  accidentally inserted one or two unicode characters. It was so bad that they were
+invisible!</p>
 
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
+So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
 
 <blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
 
@@ -119,9 +125,14 @@ Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 
 <blockquote><p>ASCII C program text</p></blockquote>
 
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal screen</strong> and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
+conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal
+screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
+If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
 
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the invisible character</strong>.  Copy and Paste!</p>
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
+I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the
+invisible character</strong>.  Copy and Paste!</p>
 </div>
 
 
@@ -146,6 +157,12 @@ Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 
 <time datetime="2011-01-12T16:27:22-06:00" pubdate data-updated="true">Jan 12<span>th</span>, 2011</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/c-/'>C++</a>
+  
+</span>
 
 
     </p>
@@ -202,7 +219,7 @@ Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

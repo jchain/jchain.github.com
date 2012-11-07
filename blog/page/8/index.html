@@ -146,7 +146,13 @@ Upgraded to tmux-1.4. It works very well on openSUSE-11.1. It definitely beats G
   </header>
 
 
-  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn&#8217;t have the root privilege to do that. The official installer of OpenOffice failed again over again without notifying you that the reason of failure was the lack of root privilege. Finally I found this great <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &#8211;color=never</strong> to disable the color output.</p>
+  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
+openoffice-3.2. But my problem was I didn&#8217;t have the root privilege to do that. The official
+installer of OpenOffice failed again over again without notifying you that the reason of failure was
+the lack of root privilege. Finally I found this great
+<a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked
+like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &#8211;color=never</strong> to
+disable the color output.</p>
 
 <ol>
 <li><p>Download the installation package from OpenOffice website.</p></li>
@@ -193,17 +199,21 @@ Upgraded to tmux-1.4. It works very well on openSUSE-11.1. It definitely beats G
   </header>
 
 
-  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
+convert to Flash format locally you can use the following command. Feel free to add it in your
+bashrc. If I recall correctly, this method can produce the best conversion in Linux platform.
+Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
 
-<p>`</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Convert ogv to flv.</span>
+</span><span class='line'><span class="c"># Usage: ogv2flv input.ogv -o output.flv</span>
+</span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
+</span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>Convert ogv to flv.</h1>
-
-<h1>Usage: ogv2flv input.ogv -o output.flv</h1>
-
-<h1>add -audiofile yoursound.wav if you need to replace the soundtrack alias ogv2flv=&#8217;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#8217;</h1>
-
-<p>`</p>
 </div>
   
   
@@ -376,10 +386,10 @@ Upgraded to tmux-1.4. It works very well on openSUSE-11.1. It definitely beats G
 
   <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
 
-<h1>Even though -fopenmp won&#8217;t appear in the GUI options, it does take effect</h1>
-
-<p>SET(CMAKE_CXX_FLAGS &#8220;${CMAKE_CXX_FLAGS} -fopenmp&#8221;)
-SET(CMAKE_C_FLAGS &#8220;${CMAKE_C_FLAGS} -fopenmp&#8221;)</p>
+<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+</code></pre>
 </div>
   
   
@@ -415,7 +425,8 @@ SET(CMAKE_C_FLAGS &#8220;${CMAKE_C_FLAGS} -fopenmp&#8221;)</p>
   </header>
 
 
-  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily I found the solution in a great article as follows:</p>
+  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily
+I found the solution in a great article as follows:</p>
 
 <p><a href="http://www.ibb.net/~anne/keyboard/keyboard.html">http://www.ibb.net/~anne/keyboard/keyboard.html</a></p>
 </div>
@@ -453,49 +464,11 @@ SET(CMAKE_C_FLAGS &#8220;${CMAKE_C_FLAGS} -fopenmp&#8221;)</p>
   </header>
 
 
-  <div class="entry-content"><p>cygrunsrv &#8211;install lighttpd &#8211;path /usr/sbin/lighttpd</p>
-
-<pre><code>--args "-D -f /etc/lighttpd/lighttpd.conf" --disp "CYGWIN lighttpd"
-
-See more
-&lt;a href="http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html" title="http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html"&gt;http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html&lt;/a&gt;
+  <div class="entry-content"><pre><code>cygrunsrv --install lighttpd --path /usr/sbin/lighttpd
+    --args "-D -f /etc/lighttpd/lighttpd.conf" --disp "CYGWIN lighttpd"
 </code></pre>
-</div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/11/14/hello-world/">Hello World!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-11-14T23:45:40-06:00" pubdate data-updated="true">Nov 14<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Welcome to <a href="http://wordpress.com/">WordPress.com</a>. This is your first post. Edit or delete it and start blogging!</p>
+<p>See more http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</p>
 </div>
   
   
@@ -591,6 +564,42 @@ See more
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/24/do-you-want-to-debug-a-program-with-command-line-parameters-in-visual-c-2008/">Do You Want to Debug a Program With Command Line Parameters in Visual C++ 2008?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-24T00:33:50-05:00" pubdate data-updated="true">Apr 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Set them in project->configuration properties->Debugging. But there is one more thing to do: Set your project as the Startup Project in the Solution Explorer! If you don&#8217;t do that, the command line parameters won&#8217;t be passed in whatever you try!</p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -631,7 +640,7 @@ See more
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

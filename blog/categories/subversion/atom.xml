@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Subversion | My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/subversion/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-07T13:51:09-06:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Set Subversion auto-props]]></title>
+    <link href="http://jchain.github.com/blog/2011/03/28/set-subversion-auto-props/"/>
+    <updated>2011-03-28T00:38:45-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/03/28/set-subversion-auto-props</id>
+    <content type="html"><![CDATA[<p>Keep you away from the annoying line ending character problem when you are in a cross-platform
+development scenario.  Read this article:
+<a href="http://www.wxwidgets.org/develop/svn.htm">http://www.wxwidgets.org/develop/svn.htm</a></p>
+]]></content>
+  </entry>
+  
+</feed>

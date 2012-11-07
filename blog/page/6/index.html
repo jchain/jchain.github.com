@@ -141,7 +141,11 @@
   </header>
 
 
-  <div class="entry-content"><p>I have used several project management software before. But today I found that the milestone feature in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required features to the issue tracking system for a specific milestone. By viewing the progress bar, I can have a clear big picture about the progress of the project. I like this feature very much. Very helpful.</p>
+  <div class="entry-content"><p>I have used several project management software before. But today I found that the milestone feature
+in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required
+features to the issue tracking system for a specific milestone. By viewing the progress bar, I can
+have a clear big picture about the progress of the project. I like this feature very much. Very
+helpful.</p>
 </div>
   
   
@@ -396,7 +400,9 @@ shows how to call external library(GD) from Perl script.</p>
   </header>
 
 
-  <div class="entry-content"><p>Sometimes I really miss the keyword &#8216;in&#8217; in Python which is very common operation in programming to check if a object is in a set. I&#8217;m very glad to see the smart match ~~ in Perl 5.10 provides the similar feature.</p>
+  <div class="entry-content"><p>Sometimes I really miss the keyword &#8216;in&#8217; in Python which is very common operation in programming to
+check if a object is in a set. I&#8217;m very glad to see the smart match ~~ in Perl 5.10 provides the
+similar feature.</p>
 </div>
   
   
@@ -545,9 +551,17 @@ shows how to call external library(GD) from Perl script.</p>
   </header>
 
 
-  <div class="entry-content"><p>In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and border tracing. I used GD to access the pixels. I ran into a very wired bug that the region labeling code in some cases failed to identify the regions of interest(ROIs) correctly but worked well in other cases.</p>
+  <div class="entry-content"><p>In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and
+border tracing. I used GD to access the pixels. I ran into a very wired bug that the region labeling
+code in some cases failed to identify the regions of interest(ROIs) correctly but worked well in
+other cases.</p>
 
-<p>After a painful debugging I found out the culprit. If $value is used to represent the label value, and I use $img->setPixel($x, $y, $value) to store the value. Any value bigger than 256 will be rounded to the range from 0 to 255 by modulo operator. So the actual value in the label image won&#8217;t be over 255. This means that if you use GD image like a matrix, the value of a element of the matrix can&#8217;t be more than 255.<strong> I think it is due to the physical limit of the colormap which essentially can store no more than 256 colors.</strong></p>
+<p>After a painful debugging I found out the culprit. If $value is used to represent the label value,
+and I use $img->setPixel($x, $y, $value) to store the value. Any value bigger than 256 will be
+rounded to the range from 0 to 255 by modulo operator. So the actual value in the label image won&#8217;t
+be over 255. This means that if you use GD image like a matrix, the value of a element of the matrix
+can&#8217;t be more than 255.<strong> I think it is due to the physical limit of the colormap which essentially
+can store no more than 256 colors.</strong></p>
 
 <p>Finally, my suggestion is using <strong>Math::MatrixReal</strong> package.</p>
 </div>
@@ -633,7 +647,7 @@ shows how to call external library(GD) from Perl script.</p>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

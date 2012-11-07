@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the &hellip;">
+  <meta name="description" content="I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
+convert to Flash format locally you can use the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,17 +103,21 @@
   </header>
 
 
-<div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+<div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
+convert to Flash format locally you can use the following command. Feel free to add it in your
+bashrc. If I recall correctly, this method can produce the best conversion in Linux platform.
+Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
 
-<p>`</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Convert ogv to flv.</span>
+</span><span class='line'><span class="c"># Usage: ogv2flv input.ogv -o output.flv</span>
+</span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
+</span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>Convert ogv to flv.</h1>
-
-<h1>Usage: ogv2flv input.ogv -o output.flv</h1>
-
-<h1>add -audiofile yoursound.wav if you need to replace the soundtrack alias ogv2flv=&#8217;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#8217;</h1>
-
-<p>`</p>
 </div>
 
 
@@ -137,6 +142,12 @@
 
 <time datetime="2010-12-08T16:26:07-06:00" pubdate data-updated="true">Dec 8<span>th</span>, 2010</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
 
 
     </p>
@@ -193,7 +204,7 @@
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

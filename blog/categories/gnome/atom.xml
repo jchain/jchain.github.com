@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GNOME | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Gnome | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T12:44:08-06:00</updated>
+  <updated>2012-11-07T13:51:09-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -14,15 +14,15 @@
 
   
   <entry>
-    <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
-    <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
-    <updated>2012-08-19T02:06:46-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
-    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to 'auto hide'. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don't like the methods to change the 'gsetting' or 'gconf'.</p>
-
-<p>It turns out that the simplest way to to hit 'Alt+F1' to activate the 'Application' in the top panel and hit 'Esc' to hide it again. So simple.</p>
-
-<p>BTW: I'm using the fallback of GNOME 3.</p>
+    <title type="html"><![CDATA[My favorite Gnome terminal font is fixedsys-excelsior]]></title>
+    <link href="http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior/"/>
+    <updated>2011-08-04T23:57:39-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior</id>
+    <content type="html"><![CDATA[<p>Finding a good monospaced font for Gnome terminal was used to be my big wish. I have tried bitstream
+mono, droid sans mono, inconsola. None of them was satisfactory in Gnome terminal with dark
+background(much better in white background but I don't like white background). Finally, my heart has
+been settled down with <a href="http://www.fixedsysexcelsior.com/">fixedsys-excelsior</a>. It just looks very
+comfortable with my black background.</p>
 ]]></content>
   </entry>
   

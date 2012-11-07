@@ -230,7 +230,15 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
   </header>
 
 
-  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with too many false detections. You need a suppression file to help you focus on the real problem you are dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto"> http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a> to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1 <strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my suppression file.</p>
+  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
+too many false detections. You need a suppression file to help you focus on the real problem you are
+dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
+http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
+to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
+<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in
+suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error
+number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my
+suppression file.</p>
 
 <p>I suggested using the following command to fire up valgrind:</p>
 
@@ -238,7 +246,8 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
 --suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
 </code></pre>
 
-<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And <strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
+<strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
 
 <p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
 </div>
@@ -350,7 +359,9 @@ re-align your code in Vim since your command is not messed with quotation marks.
   </header>
 
 
-  <div class="entry-content"><p>For exising colors, I think it is better to use colorExact() because the color indices would be consistent among images. For new colors, colorAllocate() is the only choice. But colorAllocate() is highly recommended to use after colorExact(). It is safer to the color palette.</p>
+  <div class="entry-content"><p>For exising colors, I think it is better to use colorExact() because the color indices would be
+consistent among images. For new colors, colorAllocate() is the only choice. But colorAllocate() is
+highly recommended to use after colorExact(). It is safer to the color palette.</p>
 </div>
   
   
@@ -422,16 +433,21 @@ re-align your code in Vim since your command is not messed with quotation marks.
   </header>
 
 
-  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
+  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
+I received was like this:</p>
 
 <blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
 Evaluator.h:1: error: stray ‘\273’ in program
 Evaluator.h:1: error: stray ‘\277’ in program
 Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
+source file. I guessed that our team were using different editors and operating systems, and
+someone  accidentally inserted one or two unicode characters. It was so bad that they were
+invisible!</p>
 
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
+So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
 
 <blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
 
@@ -439,9 +455,14 @@ Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
 
 <blockquote><p>ASCII C program text</p></blockquote>
 
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal screen</strong> and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
+conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal
+screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
+If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
 
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the invisible character</strong>.  Copy and Paste!</p>
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
+I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the
+invisible character</strong>.  Copy and Paste!</p>
 </div>
   
   
@@ -519,7 +540,10 @@ Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
   </header>
 
 
-  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
+  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
+programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well
+with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like
+to recommend the solution at</p>
 
 <p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>
 
@@ -607,7 +631,7 @@ ccache /usr/bin/g++ "$@"
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

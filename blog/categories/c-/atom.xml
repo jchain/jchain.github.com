@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: C++ | My Octopress Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/c-/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2012-11-07T13:51:09-06:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[XPM and deprecated conversion error]]></title>
+    <link href="http://jchain.github.com/blog/2011/03/31/xpm-and-deprecated-conversion-error/"/>
+    <updated>2011-03-31T17:02:05-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/03/31/xpm-and-deprecated-conversion-error</id>
+    <content type="html"><![CDATA[<p>How to get rid of this warning: deprecated conversion from string constant to `char*'</p>
+
+<p>Change "char<em>" to "const char</em>" in the XPM file.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Recommend to read: Who Moved My State?]]></title>
+    <link href="http://jchain.github.com/blog/2011/02/22/recommend-to-read-who-moved-my-state/"/>
+    <updated>2011-02-22T21:21:40-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/02/22/recommend-to-read-who-moved-my-state</id>
+    <content type="html"><![CDATA[<p>A good article to read. It made me to rethink the GUI programming with event-driven pattern.</p>
+
+<p><a href="http://www.drdobbs.com/184401643"> http://www.drdobbs.com/184401643</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wired Unicode Problem in Source Code File]]></title>
+    <link href="http://jchain.github.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file/"/>
+    <updated>2011-01-12T16:27:22-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file</id>
+    <content type="html"><![CDATA[<p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
+I received was like this:</p>
+
+<blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
+Evaluator.h:1: error: stray ‘\273’ in program
+Evaluator.h:1: error: stray ‘\277’ in program
+Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
+
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
+source file. I guessed that our team were using different editors and operating systems, and
+someone  accidentally inserted one or two unicode characters. It was so bad that they were
+invisible!</p>
+
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
+So so wired. I used Linux command-line tool 'file' to detect the type of the source file</p>
+
+<blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
+
+<p>But for the other files in the same directory, 'file' told me that</p>
+
+<blockquote><p>ASCII C program text</p></blockquote>
+
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
+conversion. So I came up the final idea, use command-line tool 'cat' to<strong> dump it to the terminal
+screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
+If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
+I thought it was the culprit. I also noticed that<strong> 'cat foo.h > bar.h' didn't get rid of the
+invisible character</strong>.  Copy and Paste!</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Set them in project->configuration properties->Debugging. But there is one more thing to do: Set your project as the Startup Project in the Solution &hellip;">
+  <meta name="description" content="For whatever reason add SET_TARGET_PROPERTIES(XYZ PROPERTIES LINKER_LANGUAGE C) ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,42 +76,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/04/24/do-you-want-to-debug-a-program-with-command-line-parameters-in-visual-c-2008/">Do You Want to Debug a Program With Command Line Parameters in Visual C++ 2008?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-04-24T00:33:50-05:00" pubdate data-updated="true">Apr 24<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Set them in project->configuration properties->Debugging. But there is one more thing to do: Set your project as the Startup Project in the Solution Explorer! If you don&#8217;t do that, the command line parameters won&#8217;t be passed in whatever you try!</p>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -225,17 +189,28 @@
 </ol>
 
 
-<p>The workaround is running &#8220;regasm&#8221; from .NET v1.1 to register the missing  .NET assemblies used by Turbo C++ Explorer IDE. Go to the C:\Program Files\Borland\BDS\4.0\Bin directory  and run</p>
+<p>The workaround is running &#8220;regasm&#8221; from .NET v1.1 to register the missing  .NET assemblies used by
+Turbo C++ Explorer IDE. Go to the C:\Program Files\Borland\BDS\4.0\Bin directory  and run</p>
 
-<p>regasm Borland.Studio.Toolsets.dll</p>
+<pre><code>regasm Borland.Studio.Toolsets.dll
+</code></pre>
 
-<p>Now you should start the IDE successfully. If you still see an error message box, saying that a ClassId is missing or similar errors, you can solve this by registering all possible assemblies manually.</p>
+<p>Now you should start the IDE successfully. If you still see an error message box, saying that a
+ClassId is missing or similar errors, you can solve this by registering all possible assemblies
+manually.</p>
 
-<p>To do this, navigate to the BDS \Bin directory in the command line and type &#8220;dir Borland.Studio.*.tlb&#8221; to list all relevant .tlb files. Then, run &#8220;regasm&#8221; on the corresponding .dll file for each.(see <a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
+<p>To do this, navigate to the BDS \Bin directory in the command line and type &#8220;dir
+Borland.Studio.*.tlb&#8221; to list all relevant .tlb files. Then, run &#8220;regasm&#8221; on the corresponding .dll
+file for each.(see
+<a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
 
-<p>OK, then you start a new project from the menu File->New&#8230;, if you are unlucky to get an exception Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
+<p>OK, then you start a new project from the menu File->New&#8230;, if you are unlucky to get an exception
+Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
 
-<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg, see<strong> </strong><a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p>
+<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file
+into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg,
+see<strong>
+</strong><a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p>
 </div>
   
   
@@ -383,7 +358,7 @@
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-c-'>C/C++ (7)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (2)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (1)</a></li><li><a href='/blog/categories/latex'>Latex (3)</a></li><li><a href='/blog/categories/linux'>Linux (25)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (3)</a></li><li><a href='/blog/categories/perl'>Perl (5)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 
