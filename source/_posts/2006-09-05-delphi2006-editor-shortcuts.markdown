@@ -69,10 +69,10 @@ tags:
 
 **CTRL+ALT+UpArrow** : Navigate to previous method implementation in lexical order
 
-**CTRL+ALT+DownArrow** : Navigate to next method implementation in lexical order
+**CTRL+ALT+DownArrow** : Navigate to next method implementation in lexical order  
 
-**CTRL+ALT+Home** : Navigate to the lexically first method implementation in this source unit
+**CTRL+ALT+Home** : Navigate to the lexically first method implementation in this source unit  
 
-**CTRL+ALT+End** : Navigate to the lexically last method implementation in this source unit
+**CTRL+ALT+End** : Navigate to the lexically last method implementation in this source unit  
 
-**CTRL+/** : Toggle comment per line or selected block
+**CTRL+/** : Toggle comment per line or selected block  
