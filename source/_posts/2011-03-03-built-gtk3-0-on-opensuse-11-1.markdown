@@ -5,6 +5,8 @@ layout: post
 slug: built-gtk3-0-on-opensuse-11-1
 title: Built gtk3.0 on openSUSE-11.1
 wordpress_id: 145
+categories:
+- GNOME
 tags:
 - GTK
 - Linux

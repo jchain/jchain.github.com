@@ -5,6 +5,8 @@ layout: post
 slug: message-passing-in-oop
 title: Message passing in OOP?
 wordpress_id: 139
+categories:
+- OOP
 ---
 
 [http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models](http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models)

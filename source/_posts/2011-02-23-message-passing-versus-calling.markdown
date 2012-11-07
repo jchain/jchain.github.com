@@ -5,6 +5,8 @@ layout: post
 slug: message-passing-versus-calling
 title: Message passing versus calling?
 wordpress_id: 132
+categories:
+- OOP
 tags:
 - Event-driven programming
 - OOP

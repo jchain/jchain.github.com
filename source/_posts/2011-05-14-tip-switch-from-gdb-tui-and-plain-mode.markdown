@@ -5,6 +5,9 @@ layout: post
 slug: tip-switch-from-gdb-tui-and-plain-mode
 title: 'Tip: switch from GDB TUI and plain mode'
 wordpress_id: 168
+categories:
+- Linux
+- GDB
 tags:
 - GDB
 - tips

@@ -5,6 +5,8 @@ layout: post
 slug: userful-command-scan-local-ports
 title: 'Userful command: scan local ports '
 wordpress_id: 172
+categories:
+- Linux
 ---
 
-netstat -antuwp | egrep "(^[^t])|(^tcp.*LISTEN)"
+    netstat -antuwp | egrep "(^[^t])|(^tcp.*LISTEN)"

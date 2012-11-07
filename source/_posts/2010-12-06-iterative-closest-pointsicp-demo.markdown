@@ -5,6 +5,8 @@ layout: post
 slug: iterative-closest-pointsicp-demo
 title: Iterative closest points(ICP) demo
 wordpress_id: 41
+categories:
+- OpenMP
 tags:
 - OpenMP
 - VTK

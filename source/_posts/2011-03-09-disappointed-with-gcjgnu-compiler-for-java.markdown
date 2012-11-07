@@ -5,6 +5,8 @@ layout: post
 slug: disappointed-with-gcjgnu-compiler-for-java
 title: Disappointed with GCJ(GNU Compiler for Java)
 wordpress_id: 152
+categories:
+- Java
 tags:
 - Emacs
 - GCJ

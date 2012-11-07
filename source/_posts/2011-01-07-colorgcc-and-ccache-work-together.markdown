@@ -5,11 +5,16 @@ layout: post
 slug: colorgcc-and-ccache-work-together
 title: colorgcc and ccache work together
 wordpress_id: 70
+categories:
+- GCC
 tags:
 - tips
 ---
 
-The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. [colorgcc](http://schlueters.de/colorgcc.html) can make life easier. It can work well with [ccache](http://ccache.samba.org/) but needs a bit trick to connect them together. I would like to recommend the solution at
+The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
+programming. [colorgcc](http://schlueters.de/colorgcc.html) can make life easier. It can work well
+with [ccache](http://ccache.samba.org/) but needs a bit trick to connect them together. I would like
+to recommend the solution at
 
 [http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache](http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache)
 

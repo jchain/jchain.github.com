@@ -5,6 +5,8 @@ layout: post
 slug: gnuplot-how-to-skip-the-first-line-in-the-data-file
 title: 'Gnuplot: how to skip the first line in the data file'
 wordpress_id: 277
+categories:
+- Gnuplot
 tags:
 - Gnuplot
 - tips

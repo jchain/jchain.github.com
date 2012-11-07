@@ -5,6 +5,8 @@ layout: post
 slug: check-syntax-error-of-latex-file-with-lacheck
 title: Check syntax error of latex file with lacheck
 wordpress_id: 194
+categories:
+- Latex
 tags:
 - Latex
 - tips

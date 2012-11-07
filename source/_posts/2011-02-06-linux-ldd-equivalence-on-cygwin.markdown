@@ -5,6 +5,9 @@ layout: post
 slug: linux-ldd-equivalence-on-cygwin
 title: Linux 'ldd' equivalence on Cygwin?
 wordpress_id: 123
+categories:
+- Octave
+- Cygwin
 tags:
 - Cygwin
 - Octave

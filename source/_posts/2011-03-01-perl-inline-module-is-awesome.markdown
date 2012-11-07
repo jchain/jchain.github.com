@@ -5,6 +5,9 @@ layout: post
 slug: perl-inline-module-is-awesome
 title: Perl Inline module is awesome
 wordpress_id: 143
+categories:
+- C/C++
+- Perl
 tags:
 - C++
 - Perl

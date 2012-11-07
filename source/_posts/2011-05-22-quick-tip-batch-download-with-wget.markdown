@@ -5,6 +5,8 @@ layout: post
 slug: quick-tip-batch-download-with-wget
 title: 'Quick tip: batch download with wget'
 wordpress_id: 177
+categories:
+- Web
 tags:
 - tips
 ---

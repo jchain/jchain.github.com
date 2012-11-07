@@ -5,6 +5,10 @@ layout: post
 slug: gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable
 title: 'GDB: How to set a watchpoint to watch the change of variable'
 wordpress_id: 223
+categories:
+- GDB
+- Linux
+- Dev 
 tags:
 - GDB
 - Linux

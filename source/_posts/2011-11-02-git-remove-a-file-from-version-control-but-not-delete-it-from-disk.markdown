@@ -5,6 +5,8 @@ layout: post
 slug: git-remove-a-file-from-version-control-but-not-delete-it-from-disk
 title: 'git: remove a file from version control but not delete it from disk'
 wordpress_id: 271
+categories:
+- git
 tags:
 - git
 ---

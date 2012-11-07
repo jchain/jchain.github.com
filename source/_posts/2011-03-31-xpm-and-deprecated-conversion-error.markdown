@@ -5,6 +5,8 @@ layout: post
 slug: xpm-and-deprecated-conversion-error
 title: XPM and deprecated conversion error
 wordpress_id: 158
+categories:
+- C++
 tags:
 - C++
 ---

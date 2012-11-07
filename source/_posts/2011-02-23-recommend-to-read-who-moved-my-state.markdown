@@ -5,6 +5,8 @@ layout: post
 slug: recommend-to-read-who-moved-my-state
 title: 'Recommend to read: Who Moved My State?'
 wordpress_id: 127
+categories:
+- C++
 tags:
 - C++
 - GUI
