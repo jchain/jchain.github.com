@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I have heard about how great perlbrew is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE &hellip;">
+  <meta name="description" content="I have heard about how great perlbrew is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -90,23 +103,27 @@
   </header>
 
 
-<div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think it is a good idea to have access to multiple Perl distributions and a good management among them. Soon I realized that it was time to give perlbrew a try. I tried to install a locally built Perl-5.14.2 by the command</p>
+<div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
+12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
+it is a good idea to have access to multiple Perl distributions and a good management among them.
+Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
+Perl-5.14.2 by the command</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
+<pre><code>perlbrew install perl-5.14.2
+</code></pre>
 
-<p>perlbrew install perl-5.14.2</p>
+<p>But quickly it failed with the exactly the same error like
+<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
+ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
 
-<p>[/sourcecode]</p>
+<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
+</code></pre>
 
-<p>But quickly it failed with the exactly the same error like <a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
-
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>perlbrew install perl-5.14.2 -D noextension=ODBM_File</p>
-
-<p>[/sourcecode]</p>
-
-<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will install modules for difference versions of Perl in separate locations. For example, modules for Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
+system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will
+install modules for difference versions of Perl in separate locations. For example, modules for
+Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
 
 <p>Happy perlbrewing&#8230;</p>
 </div>

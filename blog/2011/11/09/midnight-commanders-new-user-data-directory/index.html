@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="It seems that the user-specific data/config directory of midnight commander 4.8.x is under $HOME/.local/share/mc and $HOME/.config/mc. However the &hellip;">
+  <meta name="description" content="It seems that the user-specific data/config directory of midnight commander 4.8.x is under
+$HOME/.local/share/mc and $HOME/.config/mc. However the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -90,12 +103,16 @@
   </header>
 
 
-<div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under $HOME/.local/share/mc and $HOME/.config/mc. However the previous version(4.7.x) is looking for $HOME/.mc. You can verify that by typing
-[sourcecode language=&#8221;bash&#8221;]
-mc -F
-[/sourcecode]</p>
+<div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under
+$HOME/.local/share/mc and $HOME/.config/mc. However the previous version(4.7.x) is looking for
+$HOME/.mc. You can verify that by typing</p>
 
-<p>Personally I don&#8217;t like this change since I prefer to a single directory for the convenience of storage and backup of my config files. Your skin setting probably take no effect after upgrading to 4.8.x. Place your skin files to $HOME/.local/share/mc/skins and modify $HOME/.config/mc/ini</p>
+<pre><code>mc -F
+</code></pre>
+
+<p>Personally I don&#8217;t like this change since I prefer to a single directory for the convenience of
+storage and backup of my config files. Your skin setting probably take no effect after upgrading to
+4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p>
 </div>
 
 

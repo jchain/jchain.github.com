@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-05T22:25:07-06:00</updated>
+  <updated>2012-11-07T02:05:25-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -97,13 +97,13 @@ Sun Sep 30, Low: 41, High: 73, Clear
     <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
     <updated>2012-09-14T11:29:58-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
-    <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use 'sed' to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
+    <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
+in-line string substitution to create new shell commands. I vaguely had an idea that I should use
+'sed' to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
+one-liner. It turned out that this is the correct way to do so</p>
 
-<p>[sourcecode language="bash"]</p>
-
-<p>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'</p>
-
-<p>[/sourcecode]</p>
+<pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'
+</code></pre>
 ]]></content>
   </entry>
   
@@ -112,23 +112,27 @@ Sun Sep 30, Low: 41, High: 73, Clear
     <link href="http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse/"/>
     <updated>2012-02-05T00:08:45-06:00</updated>
     <id>http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse</id>
-    <content type="html"><![CDATA[<p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think it is a good idea to have access to multiple Perl distributions and a good management among them. Soon I realized that it was time to give perlbrew a try. I tried to install a locally built Perl-5.14.2 by the command</p>
+    <content type="html"><![CDATA[<p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
+12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
+it is a good idea to have access to multiple Perl distributions and a good management among them.
+Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
+Perl-5.14.2 by the command</p>
 
-<p>[sourcecode language="bash"]</p>
+<pre><code>perlbrew install perl-5.14.2
+</code></pre>
 
-<p>perlbrew install perl-5.14.2</p>
+<p>But quickly it failed with the exactly the same error like
+<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
+ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
 
-<p>[/sourcecode]</p>
+<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
+</code></pre>
 
-<p>But quickly it failed with the exactly the same error like <a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
-
-<p>[sourcecode language="bash"]</p>
-
-<p>perlbrew install perl-5.14.2 -D noextension=ODBM_File</p>
-
-<p>[/sourcecode]</p>
-
-<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the system-wide cpanm. I've found it a better way to install CPAN modules since by doing so cpanm will install modules for difference versions of Perl in separate locations. For example, modules for Perl-5.12 won't conflict with Perl-5.14. This is just what I want.</p>
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
+system-wide cpanm. I've found it a better way to install CPAN modules since by doing so cpanm will
+install modules for difference versions of Perl in separate locations. For example, modules for
+Perl-5.12 won't conflict with Perl-5.14. This is just what I want.</p>
 
 <p>Happy perlbrewing...</p>
 ]]></content>
@@ -148,9 +152,11 @@ Sun Sep 30, Low: 41, High: 73, Clear
     <link href="http://jchain.github.com/blog/2011/01/20/how-to-quote-long-command-in-perl-system-call/"/>
     <updated>2011-01-20T00:14:43-06:00</updated>
     <id>http://jchain.github.com/blog/2011/01/20/how-to-quote-long-command-in-perl-system-call</id>
-    <content type="html"><![CDATA[<p>If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline characters really get in the way.  Here is a good way, IMHO,  to make the code look neat and clean:</p>
+    <content type="html"><![CDATA[<p>If you call external command in your Perl code with system() and your command is very long, you must
+want to break it into multi-line but the newline characters really get in the way.  Here is a good
+way, IMHO,  to make the code look neat and clean:</p>
 
-<p>[sourcecode language="perl"]</p>
+<p>```perl</p>
 
 <h1>Annotate the target and landmark image</h1>
 
@@ -166,13 +172,13 @@ Sun Sep 30, Low: 41, High: 73, Clear
  s/\r/ /g;
  }
  return wantarray? @strings : $strings[0];
-}</p>
+}
+```</p>
 
-<p>[/sourcecode]</p>
+<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
 
-<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl </a></p>
-
-<p>The biggest advantage of this method over string concatenation operator "." is that it is easier to re-align your code in Vim since your command is not messed with quotation marks.</p>
+<p>The biggest advantage of this method over string concatenation operator "." is that it is easier to
+re-align your code in Vim since your command is not messed with quotation marks.</p>
 ]]></content>
   </entry>
   

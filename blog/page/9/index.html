@@ -30,6 +30,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +49,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -259,40 +271,73 @@
   </header>
 
 
-  <div class="entry-content"><p><strong>CTRL+J</strong> : Invoke code templates
-<strong>CTRL+T</strong> : Delete current word
-<strong>CTRL+E</strong> : Incremental search
-<strong>CTRL+Y</strong> : Delete current line
-<strong>CTRL+SHIFT+G</strong> : Insert a new GUID at the cursor position
-<strong>CTRL+SHIFT+I</strong> : Indent the current selected block
-<strong>CTRL+SHIFT+U</strong> : outdent the current selected block
-<strong>CTRL+SHIFT+Y</strong> : delete to the end of line
-<strong>CTRL+SHIFT+J</strong> : Invoke syncedit
-<strong>ALT+[</strong> : match pair forward
-<strong>ALT+]</strong> : match pair backward
-<strong>ALT+RightArrow</strong> : browse forward (hotlink history)
-<strong>ALT+LeftArrow</strong> : browse backward (hotlink history)
-<strong>ALT+UpArrow</strong> : browse to symbol under editor cursor (invoke a hotlink and add it to the hotlink history)
-<strong>F4</strong> : Run program to current cursor position
-<strong>F5</strong> : Toggle breakpoint
-<strong>F7</strong> : Debugger step into
-<strong>F8</strong> : Debugger step over
-<strong>F9</strong> : Run program under debugger
-<strong>CTRL+F12</strong> : View units
-<strong>ALT+G</strong> : Goto line number in editor
-<strong>CTRL+SHIFT+R</strong> : Start/Stop recording editor macro
-<strong>CTRL+SHIFT+P</strong> : Play editor macro
-<strong>CTRL+SPACE</strong> : Invoke code completion
-<strong>CTRL+SHIFT+SPACE</strong> : Invoke code parameter hints
-<strong>CTRL+ENTER</strong> : Open file at cursor
-<strong>CTRL+SHIFT+C</strong> : Invoke class completion for the class that currently contains the cursor
-<strong>CTRL+SHIFT+UpArrow</strong> : Navigate to method implementation/declaration
-<strong>CTRL+SHIFT+DownArrow</strong> : Navigate to method implementation/declaration
-<strong>CTRL+ALT+UpArrow</strong> : Navigate to previous method implementation in lexical order
-<strong>CTRL+ALT+DownArrow</strong> : Navigate to next method implementation in lexical order
-<strong>CTRL+ALT+Home</strong> : Navigate to the lexically first method implementation in this source unit
-<strong>CTRL+ALT+End</strong> : Navigate to the lexically last method implementation in this source unit
-<strong>CTRL+/</strong> : Toggle comment per line or selected block</p>
+  <div class="entry-content"><p><strong>CTRL+J</strong> : Invoke code templates</p>
+
+<p><strong>CTRL+T</strong> : Delete current word</p>
+
+<p><strong>CTRL+E</strong> : Incremental search</p>
+
+<p><strong>CTRL+Y</strong> : Delete current line</p>
+
+<p><strong>CTRL+SHIFT+G</strong> : Insert a new GUID at the cursor position</p>
+
+<p><strong>CTRL+SHIFT+I</strong> : Indent the current selected block</p>
+
+<p><strong>CTRL+SHIFT+U</strong> : outdent the current selected block</p>
+
+<p><strong>CTRL+SHIFT+Y</strong> : delete to the end of line</p>
+
+<p><strong>CTRL+SHIFT+J</strong> : Invoke syncedit</p>
+
+<p><strong>ALT+[</strong> : match pair forward</p>
+
+<p><strong>ALT+]</strong> : match pair backward</p>
+
+<p><strong>ALT+RightArrow</strong> : browse forward (hotlink history)</p>
+
+<p><strong>ALT+LeftArrow</strong> : browse backward (hotlink history)</p>
+
+<p><strong>ALT+UpArrow</strong> : browse to symbol under editor cursor (invoke a hotlink and add it to the hotlink history)</p>
+
+<p><strong>F4</strong> : Run program to current cursor position</p>
+
+<p><strong>F5</strong> : Toggle breakpoint</p>
+
+<p><strong>F7</strong> : Debugger step into</p>
+
+<p><strong>F8</strong> : Debugger step over</p>
+
+<p><strong>F9</strong> : Run program under debugger</p>
+
+<p><strong>CTRL+F12</strong> : View units</p>
+
+<p><strong>ALT+G</strong> : Goto line number in editor</p>
+
+<p><strong>CTRL+SHIFT+R</strong> : Start/Stop recording editor macro</p>
+
+<p><strong>CTRL+SHIFT+P</strong> : Play editor macro</p>
+
+<p><strong>CTRL+SPACE</strong> : Invoke code completion</p>
+
+<p><strong>CTRL+SHIFT+SPACE</strong> : Invoke code parameter hints</p>
+
+<p><strong>CTRL+ENTER</strong> : Open file at cursor</p>
+
+<p><strong>CTRL+SHIFT+C</strong> : Invoke class completion for the class that currently contains the cursor</p>
+
+<p><strong>CTRL+SHIFT+UpArrow</strong> : Navigate to method implementation/declaration</p>
+
+<p><strong>CTRL+SHIFT+DownArrow</strong> : Navigate to method implementation/declaration</p>
+
+<p><strong>CTRL+ALT+UpArrow</strong> : Navigate to previous method implementation in lexical order</p>
+
+<p><strong>CTRL+ALT+DownArrow</strong> : Navigate to next method implementation in lexical order</p>
+
+<p><strong>CTRL+ALT+Home</strong> : Navigate to the lexically first method implementation in this source unit</p>
+
+<p><strong>CTRL+ALT+End</strong> : Navigate to the lexically last method implementation in this source unit</p>
+
+<p><strong>CTRL+/</strong> : Toggle comment per line or selected block</p>
 </div>
   
   

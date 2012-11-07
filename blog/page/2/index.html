@@ -31,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -38,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -138,31 +150,39 @@ enter the jhbuild shell, and do: git clean -xdf</p>
   </header>
 
 
-  <div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew.</p>
+  <div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
+usable. Phew.</p>
 
-<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia graphics driver libGL*.so. If you type</p>
+<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed
+that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia
+graphics driver libGL*.so. If you type</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>ldd /usr/bin/gnome-shell</p>
-
-<p>[/sourcecode]</p>
+<pre><code>ldd /usr/bin/gnome-shell
+</code></pre>
 
 <p>You would notice that libGL.so.1 was pointing to nothing. That was bad.</p>
 
-<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
+<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to
+meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d
+that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was
+missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in
+the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run
+into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
 
-<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia driver with Clutter and  the work around was to add the following line into .bashrc</p>
+<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in
+gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed
+to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was
+related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia
+driver with Clutter and  the work around was to add the following line into .bashrc</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling</p>
-
-<p>[/sourcecode]</p>
+<pre><code>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
+</code></pre>
 
 <p>Again I didn&#8217;t run into this issue in Ubuntu.</p>
 
-<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my new GNOM 3 was ready for daily use.</p>
+<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like
+Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my
+new GNOM 3 was ready for daily use.</p>
 </div>
   
   
@@ -198,23 +218,27 @@ enter the jhbuild shell, and do: git clean -xdf</p>
   </header>
 
 
-  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think it is a good idea to have access to multiple Perl distributions and a good management among them. Soon I realized that it was time to give perlbrew a try. I tried to install a locally built Perl-5.14.2 by the command</p>
+  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
+12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
+it is a good idea to have access to multiple Perl distributions and a good management among them.
+Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
+Perl-5.14.2 by the command</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
+<pre><code>perlbrew install perl-5.14.2
+</code></pre>
 
-<p>perlbrew install perl-5.14.2</p>
+<p>But quickly it failed with the exactly the same error like
+<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
+ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
 
-<p>[/sourcecode]</p>
+<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
+</code></pre>
 
-<p>But quickly it failed with the exactly the same error like <a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
-
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>perlbrew install perl-5.14.2 -D noextension=ODBM_File</p>
-
-<p>[/sourcecode]</p>
-
-<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will install modules for difference versions of Perl in separate locations. For example, modules for Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
+system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will
+install modules for difference versions of Perl in separate locations. For example, modules for
+Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
 
 <p>Happy perlbrewing&#8230;</p>
 </div>
@@ -252,37 +276,64 @@ enter the jhbuild shell, and do: git clean -xdf</p>
   </header>
 
 
-  <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get upgrade is so verbose. To make life easier, I have stolen some ideas from <a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my .bashrc:</p>
+  <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like
+Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
+upgrade is so verbose. To make life easier, I have stolen some ideas from
+<a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my
+.bashrc:</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;se&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>apt-cache search <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;if&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>apt-cache show <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get update
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;upgrade&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get upgrade
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get install <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;rm&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get remove <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'> <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>apt() {
- if [ &#8220;$1&#8221; = &#8220;se&#8221; ]; then
- apt-cache search $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;if&#8221; ]; then
- apt-cache show $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;up&#8221; ]; then
- sudo apt-get update
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;upgrade&#8221; ]; then
- sudo apt-get upgrade
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;in&#8221; ]; then
- sudo apt-get install $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;rm&#8221; ]; then
- sudo apt-get remove $2
- fi
- }</p>
-
-<p>[/sourcecode]</p>
 
 <p>Now you can just type &#8216;apt se&#8217;, &#8216;apt up&#8217;, &#8216;apt upgrade&#8217;, &#8216;apt in&#8217; and &#8216;apt if&#8217; to do the similar things.</p>
 </div>
@@ -356,13 +407,11 @@ enter the jhbuild shell, and do: git clean -xdf</p>
   </header>
 
 
-  <div class="entry-content"><p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog}, use package &#8216;cite&#8217;</p>
+  <div class="entry-content"><p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
+use package &#8216;cite&#8217;</p>
 
-<p>[sourcecode]</p>
-
-<p>\usepackage{cite}</p>
-
-<p>[/sourcecode]</p>
+<pre><code>\usepackage{cite}
+</code></pre>
 </div>
   
   
@@ -518,34 +567,53 @@ enter the jhbuild shell, and do: git clean -xdf</p>
   </header>
 
 
-  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for <a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have no idea about the customization of gdb, please read <a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
+  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for
+<a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have
+no idea about the customization of gdb, please read
+<a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
 
-<p>If you use gdb frequently, chances are you have to type the command &#8216;print&#8217; or &#8216;p&#8217; to examine the value of variable many many times. A common case is like this: you type &#8216;p foo&#8217; to see the value of &#8216;foo&#8217;. It turns out that &#8216;foo&#8217; is a pointer, and you have to type &#8216;p *foo&#8217; again in the commandline. Or you have to type &#8216;ptype foo&#8217; to find out the type definition of &#8216;foo&#8217;. Tedious. This small piece of gdb macro to make your life easier. Every time you type &#8216;p foo&#8217;, you just scroll up the history and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or typing &#8216;2&#8217; gives you the type definition of &#8216;foo&#8217;. Copy and paste into your ~/.gdbinit
-[sourcecode lang=&#8221;matlab&#8221;]
-define p
- if $argc == 1
-   print $arg0
- else
-   if $arg1 == 1</p>
+<p>If you use gdb frequently, chances are you have to type the command &#8216;print&#8217; or &#8216;p&#8217; to examine the
+value of variable many many times. A common case is like this: you type &#8216;p foo&#8217; to see the value of
+&#8216;foo&#8217;. It turns out that &#8216;foo&#8217; is a pointer, and you have to type &#8216;p *foo&#8217; again in the commandline.
+Or you have to type &#8216;ptype foo&#8217; to find out the type definition of &#8216;foo&#8217;. Tedious. This small piece
+of gdb macro to make your life easier. Every time you type &#8216;p foo&#8217;, you just scroll up the history
+and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or typing &#8216;2&#8217; gives you the type definition of
+&#8216;foo&#8217;. Copy and paste into your ~/.gdbinit</p>
 
-<pre><code> print *($arg0)
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">define</span> <span class="n">p</span>
+</span><span class='line'> <span class="k">if</span> <span class="err">$</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>   <span class="k">print</span> <span class="err">$</span><span class="n">arg0</span>
+</span><span class='line'> <span class="k">else</span>
+</span><span class='line'>   <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>     <span class="k">print</span> <span class="o">*</span><span class="p">(</span><span class="err">$</span><span class="n">arg0</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">else</span>
+</span><span class='line'>     <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">2</span>
+</span><span class='line'>       <span class="n">ptype</span> <span class="err">$</span><span class="n">arg0</span>
+</span><span class='line'>     <span class="n">end</span>
+</span><span class='line'>   <span class="n">end</span>
+</span><span class='line'> <span class="n">end</span>
+</span><span class='line'><span class="n">end</span>
+</span><span class='line'><span class="n">document</span> <span class="n">p</span>
+</span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
+</span><span class='line'><span class="n">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>   else</p>
-
-<pre><code> if $arg1 == 2
-   ptype $arg0
- end
-</code></pre>
-
-<p>   end
- end
-end
-document p
-   Print the variable information quickly
-end</p>
-
-<p>[/sourcecode]</p>
 </div>
   
   

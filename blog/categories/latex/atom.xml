@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | My Octopress Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2012-11-05T22:25:07-06:00</updated>
+  <updated>2012-11-07T02:05:25-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -36,13 +36,11 @@
     <link href="http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces/"/>
     <updated>2011-12-20T15:07:34-06:00</updated>
     <id>http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces</id>
-    <content type="html"><![CDATA[<p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog}, use package 'cite'</p>
+    <content type="html"><![CDATA[<p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
+use package 'cite'</p>
 
-<p>[sourcecode]</p>
-
-<p>\usepackage{cite}</p>
-
-<p>[/sourcecode]</p>
+<pre><code>\usepackage{cite}
+</code></pre>
 ]]></content>
   </entry>
   

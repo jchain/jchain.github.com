@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew. Initially, GNOME3 (gnome-shell 3.2 &hellip;">
+  <meta name="description" content="After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
+usable. Phew. Initially, GNOME3 (gnome-shell 3.2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -90,31 +103,39 @@
   </header>
 
 
-<div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew.</p>
+<div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
+usable. Phew.</p>
 
-<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia graphics driver libGL*.so. If you type</p>
+<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed
+that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia
+graphics driver libGL*.so. If you type</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>ldd /usr/bin/gnome-shell</p>
-
-<p>[/sourcecode]</p>
+<pre><code>ldd /usr/bin/gnome-shell
+</code></pre>
 
 <p>You would notice that libGL.so.1 was pointing to nothing. That was bad.</p>
 
-<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
+<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to
+meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d
+that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was
+missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in
+the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run
+into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
 
-<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia driver with Clutter and  the work around was to add the following line into .bashrc</p>
+<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in
+gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed
+to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was
+related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia
+driver with Clutter and  the work around was to add the following line into .bashrc</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
-
-<p>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling</p>
-
-<p>[/sourcecode]</p>
+<pre><code>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
+</code></pre>
 
 <p>Again I didn&#8217;t run into this issue in Ubuntu.</p>
 
-<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my new GNOM 3 was ready for daily use.</p>
+<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like
+Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my
+new GNOM 3 was ready for daily use.</p>
 </div>
 
 

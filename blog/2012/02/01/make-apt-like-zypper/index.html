@@ -9,7 +9,9 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="apt is one of the reasons that I like Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get upgrade is &hellip;">
+  <meta name="description" content="apt is one of the reasons that I like
+Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
+upgrade is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +32,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +51,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -90,37 +104,64 @@
   </header>
 
 
-<div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get upgrade is so verbose. To make life easier, I have stolen some ideas from <a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my .bashrc:</p>
+<div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like
+Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
+upgrade is so verbose. To make life easier, I have stolen some ideas from
+<a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my
+.bashrc:</p>
 
-<p>[sourcecode language=&#8221;bash&#8221;]</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt<span class="o">()</span> <span class="o">{</span>
+</span><span class='line'> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;se&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>apt-cache search <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;if&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>apt-cache show <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get update
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;upgrade&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get upgrade
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get install <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'>
+</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;rm&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+</span><span class='line'><span class="k"> </span>sudo apt-get remove <span class="nv">$2</span>
+</span><span class='line'> <span class="k">fi</span>
+</span><span class='line'> <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>apt() {
- if [ &#8220;$1&#8221; = &#8220;se&#8221; ]; then
- apt-cache search $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;if&#8221; ]; then
- apt-cache show $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;up&#8221; ]; then
- sudo apt-get update
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;upgrade&#8221; ]; then
- sudo apt-get upgrade
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;in&#8221; ]; then
- sudo apt-get install $2
- fi</p>
-
-<p> if [ &#8220;$1&#8221; = &#8220;rm&#8221; ]; then
- sudo apt-get remove $2
- fi
- }</p>
-
-<p>[/sourcecode]</p>
 
 <p>Now you can just type &#8216;apt se&#8217;, &#8216;apt up&#8217;, &#8216;apt upgrade&#8217;, &#8216;apt in&#8217; and &#8216;apt if&#8217; to do the similar things.</p>
 </div>

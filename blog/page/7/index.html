@@ -31,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -38,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -264,31 +276,45 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
   </header>
 
 
-  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline characters really get in the way.  Here is a good way, IMHO,  to make the code look neat and clean:</p>
+  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must
+want to break it into multi-line but the newline characters really get in the way.  Here is a good
+way, IMHO,  to make the code look neat and clean:</p>
 
-<p>[sourcecode language=&#8221;perl&#8221;]</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1"># Annotate the target and landmark image</span>
+</span><span class='line'><span class="nb">system</span> <span class="n">single_line</span><span class="p">(</span> <span class="s">&quot;</span>
+</span><span class='line'><span class="s"> convert -background black -fill white label:&#39;Target Landmarks&#39; miff:- | composite -gravity north</span>
+</span><span class='line'><span class="s"> -geometry +0+3 - $target_with_lmk_filename $target_with_lmk_filename</span>
+</span><span class='line'><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">sub </span><span class="nf">single_line</span> <span class="p">{</span>
+</span><span class='line'> <span class="k">my</span> <span class="nv">@strings</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
+</span><span class='line'> <span class="k">foreach</span> <span class="p">(</span> <span class="nv">@strings</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'> <span class="sr">s/\n/ /g</span><span class="p">;</span>
+</span><span class='line'> <span class="sr">s/\r/ /g</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<h1>Annotate the target and landmark image</h1>
 
-<p>system single_line( &#8221;
- convert -background black -fill white label:&#8217;Target Landmarks&#8217; miff:- | composite -gravity north
- -geometry +0+3 - $target_with_lmk_filename $target_with_lmk_filename
-&#8221;);</p>
+<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
 
-<p>sub single_line {
- my @strings = @_;
- foreach ( @strings ) {
- s/\n/ /g;
- s/\r/ /g;
- }
- return wantarray? @strings : $strings[0];
-}</p>
-
-<p>[/sourcecode]</p>
-
-<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl </a></p>
-
-<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to re-align your code in Vim since your command is not messed with quotation marks.</p>
+<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to
+re-align your code in Vim since your command is not messed with quotation marks.</p>
 </div>
   
   

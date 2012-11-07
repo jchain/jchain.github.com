@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="It is very likely that the data file you are going to visualize has a one line header at the first line. Use &#8216;every&#8217; keyword to skip the &hellip;">
+  <meta name="description" content="It is very likely that the data file you are going to visualize has a one line header at the first
+line. Use &#8216;every&#8217; keyword to skip the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -30,6 +31,18 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
@@ -37,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">My Octopress Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A coding monkey on software.</h2>
   
 </hgroup>
 
@@ -90,11 +103,13 @@
   </header>
 
 
-<div class="entry-content"><p>It is very likely that the data file you are going to visualize has a one line header at the first line. Use &#8216;every&#8217; keyword to skip the first line like this.
-[sourcecode lanuage=&#8221;c&#8221;]
-plot &#8220;foo.dat&#8221; every ::1 using 1:2 with lines
-[/sourcecode]
-Similarly you can skip 2 or 3 or whatever lines using &#8216;every&#8217;</p>
+<div class="entry-content"><p>It is very likely that the data file you are going to visualize has a one line header at the first
+line. Use &#8216;every&#8217; keyword to skip the first line like this.</p>
+
+<pre><code>plot "foo.dat" every ::1 using 1:2 with lines
+</code></pre>
+
+<p>Similarly you can skip 2 or 3 or whatever lines using &#8216;every&#8217;</p>
 </div>
 
 
