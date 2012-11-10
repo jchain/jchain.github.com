@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Linux | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Quickly look up a word or phrase from commandline]]></title>
-    <link href="http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/"/>
+    <link href="http://zandyware.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/"/>
     <updated>2012-09-28T14:46:55-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
+    <id>http://zandyware.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
     <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using
 <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my
 eyes.</p>
@@ -49,9 +49,9 @@ fd your_word
   
   <entry>
     <title type="html"><![CDATA[MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6]]></title>
-    <link href="http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
+    <link href="http://zandyware.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
     <updated>2012-09-27T23:57:17-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
+    <id>http://zandyware.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
     <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
 unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to
 the negligible (&lt; 1sec).</p>
@@ -60,9 +60,9 @@ the negligible (&lt; 1sec).</p>
   
   <entry>
     <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
-    <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
+    <link href="http://zandyware.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
     <updated>2012-08-19T02:06:46-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
+    <id>http://zandyware.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
     <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to 'auto hide'. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don't like the methods to change the 'gsetting' or 'gconf'.</p>
 
 <p>It turns out that the simplest way to to hit 'Alt+F1' to activate the 'Application' in the top panel and hit 'Esc' to hide it again. So simple.</p>
@@ -73,18 +73,18 @@ the negligible (&lt; 1sec).</p>
   
   <entry>
     <title type="html"><![CDATA[Fix the broken Bash file and directory name completion on Ubuntu Linux]]></title>
-    <link href="http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux/"/>
+    <link href="http://zandyware.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux/"/>
     <updated>2012-06-02T17:12:54-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux</id>
+    <id>http://zandyware.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux</id>
     <content type="html"><![CDATA[<p>I didn't remember ever since when my Bash filename and directory name completion functioned wackily. Everytime I hit 'tab' to complete a directory name, Bash didn't append the backslash nor printed out candidates (just like what it described like <a href="http://ubuntuforums.org/showthread.php?t=1053832">here</a> and <a href="http://timlabath.com/words/2011/05/10/ubuntu-11-04-and-broken-bash-completion/">here</a>). It drove me banana. Meanwhile, my Bash worked very well under other Linux distributions (openSUSE, CentOS). The culprit was the a Bash completion file for adobe acrobat reader under /etc/bash_completion.d/. Delete it and the problem will be solved.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Switch your Linux laptop display to a projector]]></title>
-    <link href="http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/"/>
+    <link href="http://zandyware.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/"/>
     <updated>2012-05-03T22:45:31-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector</id>
+    <id>http://zandyware.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector</id>
     <content type="html"><![CDATA[<p>In a job interview two months ago, no matter how hard I tried I simply couldn't export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15" laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
 
 <p>I searched for a solution for that on the web. It seemed a headache for many Linux users. Finally I ran into <a href="http://willem.engen.nl/projects/disper/">Disper</a>. It solved my problem perfectly.</p>

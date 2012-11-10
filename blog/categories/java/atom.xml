@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Java | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/java/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Java | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/java/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disappointed with GCJ(GNU Compiler for Java)]]></title>
-    <link href="http://jchain.github.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java/"/>
+    <link href="http://zandyware.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java/"/>
     <updated>2011-03-09T11:42:05-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java</id>
+    <id>http://zandyware.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java</id>
     <content type="html"><![CDATA[<p>I gave a shot to GCJ to do a tiny project. At the first place I thought the official Sun JDK was bulky and I preferred a lightweight Java SDK. But it turned out that the debugger for GCJ was almost unable to use. I was unable even to inspect an array. So switched to the official JDK and used JDB in Emacs(binding step-in, step-next to F7/F8). I was quite happy with it. I think for any Java novice, JDK is the way to go.</p>
 ]]></content>
   </entry>

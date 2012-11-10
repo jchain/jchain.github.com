@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Gnome | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/gnome/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Gnome | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/gnome/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[My favorite Gnome terminal font is fixedsys-excelsior]]></title>
-    <link href="http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior/"/>
+    <link href="http://zandyware.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior/"/>
     <updated>2011-08-04T23:57:39-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior</id>
+    <id>http://zandyware.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior</id>
     <content type="html"><![CDATA[<p>Finding a good monospaced font for Gnome terminal was used to be my big wish. I have tried bitstream
 mono, droid sans mono, inconsola. None of them was satisfactory in Gnome terminal with dark
 background(much better in white background but I don't like white background). Finally, my heart has

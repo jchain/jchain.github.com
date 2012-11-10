@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Git | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Git | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Add the remote git repository for your open-source collabration]]></title>
-    <link href="http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
+    <link href="http://zandyware.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
     <updated>2012-07-01T19:39:25-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
+    <id>http://zandyware.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
     <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a 'master' branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted 'master' branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch 'master' and I would hack under this branch.</p>
 
 <p>But after my hack right before I fire up the 'git format-patch' command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command 'git remote' will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>

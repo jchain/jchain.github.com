@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Latex | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/latex/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Latex | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/latex/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,27 +15,27 @@
   
   <entry>
     <title type="html"><![CDATA[My favorite Makefile for LaTeX]]></title>
-    <link href="http://jchain.github.com/blog/2012/06/02/my-favorite-makefile-for-latex/"/>
+    <link href="http://zandyware.com/blog/2012/06/02/my-favorite-makefile-for-latex/"/>
     <updated>2012-06-02T16:33:12-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/06/02/my-favorite-makefile-for-latex</id>
+    <id>http://zandyware.com/blog/2012/06/02/my-favorite-makefile-for-latex</id>
     <content type="html"><![CDATA[<p>Finally, my search for a good Makefile for LaTeX  document writing  was ended by this <a href="http://code.google.com/p/latex-makefile/">solution</a>. You may have heard about <a href="https://gforge.inria.fr/projects/latex-utils/">latex-makefile</a> or <a href="http://latex-mk.sourceforge.net/">latex-mk</a> or other LaTeX makefiles. But either they are too complicated, dependent on other external programs, need to install before use or not  powerful enough to get the most jobs done. Here, this <a href="http://code.google.com/p/latex-makefile/">latex-makefile</a> is light-weight, self-contained, zero-dependent and powerful to deal with most cases. Simply download it, drop into the same directory with your LaTeX source file and you are ready to go. Its colorful output really makes error-checking much easier. I like it very much. Highly recommend it.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[tlmgr is better than those provided by Linux distribution]]></title>
-    <link href="http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution/"/>
+    <link href="http://zandyware.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution/"/>
     <updated>2011-12-30T22:08:02-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution</id>
+    <id>http://zandyware.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution</id>
     <content type="html"><![CDATA[<p>Even though many Linux distributions have provided TeX packages, I still like  <a href="http://www.tug.org/texlive/tlmgr.html">tlmgr</a> to manage everything. It is like apt-get but just for TeX Live. Management and configuration become much more convenient.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Latex \cite{} tolerate white spaces?]]></title>
-    <link href="http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces/"/>
+    <link href="http://zandyware.com/blog/2011/12/20/latex-cite-tolerate-white-spaces/"/>
     <updated>2011-12-20T15:07:34-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces</id>
+    <id>http://zandyware.com/blog/2011/12/20/latex-cite-tolerate-white-spaces</id>
     <content type="html"><![CDATA[<p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
 use package 'cite'</p>
 
@@ -46,9 +46,9 @@ use package 'cite'</p>
   
   <entry>
     <title type="html"><![CDATA[Check syntax error of latex file with lacheck]]></title>
-    <link href="http://jchain.github.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck/"/>
+    <link href="http://zandyware.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck/"/>
     <updated>2011-06-01T11:08:02-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck</id>
+    <id>http://zandyware.com/blog/2011/06/01/check-syntax-error-of-latex-file-with-lacheck</id>
     <content type="html"><![CDATA[<p>Before you make a long wait compilation of your latex file, you can use <strong>lacheck</strong> to check the syntax error first. lacheck is probably already packaged within your tex installation.</p>
 ]]></content>
   </entry>

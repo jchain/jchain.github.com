@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: C/C++ | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/c-c-/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: C/C++ | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/c-c-/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arrow keys  don't work properly in Totalview Debugger]]></title>
-    <link href="http://jchain.github.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger/"/>
+    <link href="http://zandyware.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger/"/>
     <updated>2011-11-14T16:21:23-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger</id>
+    <id>http://zandyware.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger</id>
     <content type="html"><![CDATA[<p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow 'Up' key entered [[A char and 'Down' keys gave [[B char. What I really wanted was the 'history-previous' and 'history-next' in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain 'mismatch' between different 'TERM's or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
 
 <p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran 'tclsh' in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run 'rlwrap tclsh' and 'rlwrap tv8cli' and the arrow keys worked like a charm.</p>
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[Debugging memory violation in wxgtk3 with valgrind]]></title>
-    <link href="http://jchain.github.com/blog/2011/08/21/debugging-memory-violation-in-wxgtk3-with-valgrind/"/>
+    <link href="http://zandyware.com/blog/2011/08/21/debugging-memory-violation-in-wxgtk3-with-valgrind/"/>
     <updated>2011-08-21T11:30:39-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/08/21/debugging-memory-violation-in-wxgtk3-with-valgrind</id>
+    <id>http://zandyware.com/blog/2011/08/21/debugging-memory-violation-in-wxgtk3-with-valgrind</id>
     <content type="html"><![CDATA[<p>wxgtk3 is under active development. Today I ran into a <strong>SIGABRT</strong> signal when debugging samples/image. The error message is like this:</p>
 
 <blockquote><p><strong><em> glibc detected </em></strong> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 ***
@@ -93,9 +93,9 @@
   
   <entry>
     <title type="html"><![CDATA[Understand gcc -L option and library search order]]></title>
-    <link href="http://jchain.github.com/blog/2011/07/26/understand-gcc-l-option-and-library-search-order/"/>
+    <link href="http://zandyware.com/blog/2011/07/26/understand-gcc-l-option-and-library-search-order/"/>
     <updated>2011-07-26T11:27:12-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/07/26/understand-gcc-l-option-and-library-search-order</id>
+    <id>http://zandyware.com/blog/2011/07/26/understand-gcc-l-option-and-library-search-order</id>
     <content type="html"><![CDATA[<p>In my project of porting wxGTK from GTK+2 to GTK+3, I built GTK+3 from scratch and installed it at a non-standard location. One of the painful things was that the gcc linker complained about the unknown references to glib or functions. The reason was that I had two parallel glib-2.0.so, one was the system default at /usr/lib64, the other was from my custom build. In the makefile, the gcc linker was given three -L options, something like</p>
 
 <blockquote><p>-L/usr/lib64 blah blah blah -L/home/foo/gtk3/libs blah blah blah -L/usr/lib64</p></blockquote>
@@ -118,9 +118,9 @@
   
   <entry>
     <title type="html"><![CDATA[Nasty bug lurked in the implicite function]]></title>
-    <link href="http://jchain.github.com/blog/2011/06/28/nasty-bug-lurked-in-the-implicite-function/"/>
+    <link href="http://zandyware.com/blog/2011/06/28/nasty-bug-lurked-in-the-implicite-function/"/>
     <updated>2011-06-28T13:16:51-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/06/28/nasty-bug-lurked-in-the-implicite-function</id>
+    <id>http://zandyware.com/blog/2011/06/28/nasty-bug-lurked-in-the-implicite-function</id>
     <content type="html"><![CDATA[<p>I fixed a bug in C code today and it was so nasty that I think it is worth a blog post so that I can keep that in mind.</p>
 
 <p>I called a function which allocated a chunk of memory with malloc() and returned a pointer pointing to that memory. The wired thing is the returned address will change so that the caller get an invalid address(out of the bound of memory). More precisely speaking, the most significant bit changes from 0x7fff.... to 0xffff.... I really had no clue about why it would go like that. I even tried to disassemble the C code to check what was wrong. It turned out that the return address in the callee was correct but after returning the address to the caller, the value changed. I wrote another toy program to verify everything and finally I nailed down the reason. The callee function is defined in another C file and it looks like an implicit function to the caller. Somehow, this implicit function changed the address during the call. The compilation was fine even though GCC threw a warning about it. I ignored it at the first place but eventually this warning bit me. After adding necessary definitions in the header files. My program worked like a charm.</p>
@@ -131,9 +131,9 @@
   
   <entry>
     <title type="html"><![CDATA[wxGTK with gtk+3.0 preview]]></title>
-    <link href="http://jchain.github.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview/"/>
+    <link href="http://zandyware.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview/"/>
     <updated>2011-06-25T20:26:00-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview</id>
+    <id>http://zandyware.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview</id>
     <content type="html"><![CDATA[<p>After about one month porting work on wxWidgets with GTK+3.0, we finally made the wx-gtk+3.0 build possible. The wx/samples/minimal is working as shown below even though the status bar doesn't show up. For preview purpose of course.
 <a href="http://zandyware.files.wordpress.com/2011/06/wxgtk3_minimal.png"><img src="http://zandyware.files.wordpress.com/2011/06/wxgtk3_minimal.png" alt="" /></a>
 Work will continue on porting drawing code with Cairo as what gtk+3.0 does by default. More samples will be built and tested. Stay tune.</p>

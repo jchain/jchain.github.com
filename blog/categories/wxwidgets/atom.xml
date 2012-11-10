@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: wxWidgets | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/wxwidgets/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: wxWidgets | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/wxwidgets/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Share my newly created Valgrind wxGTK-2.9.1 suppression file]]></title>
-    <link href="http://jchain.github.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/"/>
+    <link href="http://zandyware.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/"/>
     <updated>2011-01-21T14:34:21-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file</id>
+    <id>http://zandyware.com/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file</id>
     <content type="html"><![CDATA[<p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
 too many false detections. You need a suppression file to help you focus on the real problem you are
 dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">

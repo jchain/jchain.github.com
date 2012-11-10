@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Vim | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/vim/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: Vim | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Indent only XML file]]></title>
-    <link href="http://jchain.github.com/blog/2011/12/15/indent-only-xml-file/"/>
+    <link href="http://zandyware.com/blog/2011/12/15/indent-only-xml-file/"/>
     <updated>2011-12-15T10:48:24-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/12/15/indent-only-xml-file</id>
+    <id>http://zandyware.com/blog/2011/12/15/indent-only-xml-file</id>
     <content type="html"><![CDATA[<p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
 
 <ul>
@@ -34,18 +34,18 @@
   
   <entry>
     <title type="html"><![CDATA[Search and replace in a visual selection]]></title>
-    <link href="http://jchain.github.com/blog/2011/02/01/search-and-replace-in-a-visual-selection/"/>
+    <link href="http://zandyware.com/blog/2011/02/01/search-and-replace-in-a-visual-selection/"/>
     <updated>2011-02-01T01:47:14-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/02/01/search-and-replace-in-a-visual-selection</id>
+    <id>http://zandyware.com/blog/2011/02/01/search-and-replace-in-a-visual-selection</id>
     <content type="html"><![CDATA[<p>:%s/\%Vold/NEW/g</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Start Vim without loading vimrc]]></title>
-    <link href="http://jchain.github.com/blog/2011/01/21/start-vim-without-loading-vimrc/"/>
+    <link href="http://zandyware.com/blog/2011/01/21/start-vim-without-loading-vimrc/"/>
     <updated>2011-01-21T21:25:21-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/01/21/start-vim-without-loading-vimrc</id>
+    <id>http://zandyware.com/blog/2011/01/21/start-vim-without-loading-vimrc</id>
     <content type="html"><![CDATA[<p>You can also start it without reading any of the initialization files
 (.vimrc, /etc/vim/vimrc) like this:</p>
 

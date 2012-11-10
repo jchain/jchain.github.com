@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GDB | My Octopress Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/gdb/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2012-11-07T13:51:09-06:00</updated>
-  <id>http://jchain.github.com/</id>
+  <title><![CDATA[Category: GDB | A Coding Monkey's Blog]]></title>
+  <link href="http://zandyware.com/blog/categories/gdb/atom.xml" rel="self"/>
+  <link href="http://zandyware.com/"/>
+  <updated>2012-11-09T20:18:42-06:00</updated>
+  <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[GDB: How to set a watchpoint to watch the change of variable]]></title>
-    <link href="http://jchain.github.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable/"/>
+    <link href="http://zandyware.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable/"/>
     <updated>2011-08-10T20:32:32-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable</id>
+    <id>http://zandyware.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable</id>
     <content type="html"><![CDATA[<p>Step 1: Print the address of the variable you are going to watch.
 <code>p *your_variable</code>
 (Suppose the address is 0x12345678
@@ -28,18 +28,18 @@ Step 2: Set watchpoint
   
   <entry>
     <title type="html"><![CDATA[Tip: switch from GDB TUI and plain mode]]></title>
-    <link href="http://jchain.github.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode/"/>
+    <link href="http://zandyware.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode/"/>
     <updated>2011-05-14T02:01:31-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode</id>
+    <id>http://zandyware.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode</id>
     <content type="html"><![CDATA[<p>Try the Ctrl-X A shortcut in GDB.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[GCC-4.5.0 users, upgrade to 4.5.2 or newer]]></title>
-    <link href="http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
+    <link href="http://zandyware.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
     <updated>2011-05-14T01:56:58-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
+    <id>http://zandyware.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
     <content type="html"><![CDATA[<p>I'm debugging a complicated C++ program this week. It used a lot of STL containers, such as
 stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">
 pretty-printing</a> enabled. I got error message like
