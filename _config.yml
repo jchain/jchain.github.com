@@ -3,12 +3,12 @@
 # ----------------------- #
 
 url: http://zandyware.com
-title: My Octopress Blog
-subtitle: A coding monkey on software.
+title: A Coding Monkey's Blog
+subtitle: Think hard and think deep.
 author: Zandy 
-# simple_search: http://google.com/search
-simple_search: http://www.duckduckgo.com
-description:
+simple_search: http://google.com/search
+# simple_search: http://www.duckduckgo.com
+description: Share tips and tricks on Linux, opensource software and software development
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
