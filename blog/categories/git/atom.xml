@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | A Coding Monkey's Blog]]></title>
   <link href="http://zandyware.com/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://zandyware.com/"/>
-  <updated>2012-11-09T20:18:42-06:00</updated>
+  <updated>2012-11-17T01:42:56-06:00</updated>
   <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -37,6 +37,43 @@
 <p>OK. After these steps, you can code in the 'master' branch, commit and push to the repo 'my_FOO' for the benefit of online backup and sync. You can switch to FOO_master to pull the upstream changes and merge to your 'master' branch. When you feel ready to format a patch, just type 'git format-patch FOO_master'.</p>
 
 <p>Of cause there are issues like commit squash but that is another topic so I don't mention here. I'm surprised to see there are tons of git questions flying around on the web. After all git is really a complicated tool with a much higher learning curve than Subversion. For some particular use cases I find it make sense to blog them here for my own future reference instead of searching online but retrieved a lot of partially related answers.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git format-patch]]></title>
+    <link href="http://zandyware.com/blog/2011/12/15/git-format-patch/"/>
+    <updated>2011-12-15T11:52:40-06:00</updated>
+    <id>http://zandyware.com/blog/2011/12/15/git-format-patch</id>
+    <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch">http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch</a></p>
+
+<p>Check the link above when you want to combine several commits into one patch. It might be needed
+when you want to submit all your local changes into one changeset to the upstream.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[git: remove a file from version control but not delete it from disk]]></title>
+    <link href="http://zandyware.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk/"/>
+    <updated>2011-11-02T15:38:28-05:00</updated>
+    <id>http://zandyware.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk</id>
+    <content type="html"><![CDATA[<p>Today's tip has only one line</p>
+
+<pre><code>git rm --cached foo.bar
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating from svn to git]]></title>
+    <link href="http://zandyware.com/blog/2011/06/01/migrating-from-svn-to-git/"/>
+    <updated>2011-06-01T10:46:51-05:00</updated>
+    <id>http://zandyware.com/blog/2011/06/01/migrating-from-svn-to-git</id>
+    <content type="html"><![CDATA[<p>Our project is consider migrating from subversion to git. I'm quite happy that git can totally serve as a svn client. You can use git to branch and merge locally and commit into svn to let other developers know about your changes. It sounds more flexible than centralized repository like CVS and Subversion.</p>
+
+<p>After getting my hands dirty with git for a while, I'm tempted to migrate my personal repository from subversion to git too. Even though git is a decentralized version control system but people still need a remote backup hosting. This is where <a href="http://github.com">github.com</a> sits in. Since I want my repository kept private, <a href="http://github.com">github.com</a> is not my list. Also I wish free git hosting can offer at least 2gb space. <a href="http://bettercodes.org">Bettercodes.org</a> was my previous choice but its host is located in Ireland, the connection speed is very slow and its UI is not very easy to use. Today I found <a href="http://assembla.com">assembla.com</a> located in United States offers 2gb free git hosting. I gave it a short and so far so good. The access  is very fast. It supports https connection, much safer than bettercodes.org and my current free svn hosting.</p>
+
+<p>I found this post is very helpful for svn user switching to git. <a href="http://www.fnokd.com/2008/08/20/mirroring-svn-repository-to-github/">http://www.fnokd.com/2008/08/20/mirroring-svn-repository-to-github/</a></p>
 ]]></content>
   </entry>
   

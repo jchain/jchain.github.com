@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Here is the error message I got today
-*** No rule to make target gtkcolorsel.c', needed bylibgtk_3_la-gtkcolorsel.lo&#8217;. Stop The reason for that &hellip;">
+  <meta name="description" content="In a job interview two months ago, no matter how hard I tried I simply couldn&#8217;t export the screen of my laptop running Ubuntu Linux to a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +82,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/">Switch Your Linux Laptop Display to a Projector</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-03T22:45:31-05:00" pubdate data-updated="true">May 3<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In a job interview two months ago, no matter how hard I tried I simply couldn&#8217;t export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15&#8221; laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
+
+<p>I searched for a solution for that on the web. It seemed a headache for many Linux users. Finally I ran into <a href="http://willem.engen.nl/projects/disper/">Disper</a>. It solved my problem perfectly.</p>
+
+<p>Read on how to do it in more details <a href="http://www.baibhav.com.np/article/6-computer-tips-a-tricks/32-projector-external-monitor-display-problem-on-ubuntu-1110-solved-.html">here</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -546,88 +585,6 @@ when you want to submit all your local changes into one changeset to the upstrea
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting/">Quick Print: A Little Trick for Gdb Setting</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-12-02T17:10:49-06:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for
-<a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have
-no idea about the customization of gdb, please read
-<a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
-
-<p>If you use gdb frequently, chances are you have to type the command &#8216;print&#8217; or &#8216;p&#8217; to examine the
-value of variable many many times. A common case is like this: you type &#8216;p foo&#8217; to see the value of
-&#8216;foo&#8217;. It turns out that &#8216;foo&#8217; is a pointer, and you have to type &#8216;p *foo&#8217; again in the commandline.
-Or you have to type &#8216;ptype foo&#8217; to find out the type definition of &#8216;foo&#8217;. Tedious. This small piece
-of gdb macro to make your life easier. Every time you type &#8216;p foo&#8217;, you just scroll up the history
-and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or typing &#8216;2&#8217; gives you the type definition of
-&#8216;foo&#8217;. Copy and paste into your ~/.gdbinit</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">define</span> <span class="n">p</span>
-</span><span class='line'> <span class="k">if</span> <span class="err">$</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">1</span>
-</span><span class='line'>   <span class="k">print</span> <span class="err">$</span><span class="n">arg0</span>
-</span><span class='line'> <span class="k">else</span>
-</span><span class='line'>   <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">1</span>
-</span><span class='line'>     <span class="k">print</span> <span class="o">*</span><span class="p">(</span><span class="err">$</span><span class="n">arg0</span><span class="p">)</span>
-</span><span class='line'>   <span class="k">else</span>
-</span><span class='line'>     <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">2</span>
-</span><span class='line'>       <span class="n">ptype</span> <span class="err">$</span><span class="n">arg0</span>
-</span><span class='line'>     <span class="n">end</span>
-</span><span class='line'>   <span class="n">end</span>
-</span><span class='line'> <span class="n">end</span>
-</span><span class='line'><span class="n">end</span>
-</span><span class='line'><span class="n">document</span> <span class="n">p</span>
-</span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
-</span><span class='line'><span class="n">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -645,6 +602,10 @@ and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
       </li>
     
@@ -660,15 +621,11 @@ and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or
         <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl like sed</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

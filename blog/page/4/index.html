@@ -9,11 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Step 1: Print the address of the variable you are going to watch.
-p *your_variable
-(Suppose the address is 0x12345678
-Step 2: Set watchpoint
-watch * &hellip;">
+  <meta name="description" content="wxgtk3 is under active development. Today I ran into a SIGABRT signal when debugging samples/image. The error message is like this: glibc detected ./ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +82,98 @@ watch * &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/08/21/debugging-memory-violation-in-wxgtk3-with-valgrind/">Debugging Memory Violation in Wxgtk3 With Valgrind</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-08-21T11:30:39-05:00" pubdate data-updated="true">Aug 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>wxgtk3 is under active development. Today I ran into a <strong>SIGABRT</strong> signal when debugging samples/image. The error message is like this:</p>
+
+<blockquote><p><strong><em> glibc detected </em></strong> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 ***
+======= Backtrace: =========
+/lib64/libc.so.6(+0x73226)[0x7f580b58f226]
+/lib64/libc.so.6(+0x758cf)[0x7f580b5918cf]
+/lib64/libc.so.6(<em><em>libc_malloc+0x79)[0x7f580b593aa9]
+/usr/lib64/libstdc++.so.6(</em>Znwm+0x1d)[0x7f580bd6d3dd]
+/usr/lib64/libstdc++.so.6(</em>Znam+0x9)[0x7f580bd6d4f9]
+./image[0x4a6d2c]
+./image[0x4a8d7c]
+./image[0x4ab21f]
+./image[0x4aaeb6]</p></blockquote>
+
+<p>What is &#8221;<em>malloc(): smallbin double linked list corrupted</em>&#8221; error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having &#8216;new&#8217; operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
+
+<p>I guessed most bug reporters were just common users who were not familiar with valgrind. Anyway, the search results suggested me run valgrind to get more information about the memory violation. Luckly, I played with it several month ago and made a not-bad <a href="http://zandyware.wordpress.com/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">suppression file</a> customized with wxgtk. Again I ran valgrind with the command like this:</p>
+
+<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind &#8211;leak-check=yes &#8211;suppressions=./wx.supp &#8211;log-file=valgrind.log ./image</p>
+
+<p>Valgrind immediately tracked down where the real problem was. The log looked like this</p>
+
+<blockquote><p>==17645== Memcheck, a memory error detector
+==17645== Copyright (C) 2002-2010, and GNU GPL&#8217;d, by Julian Seward et al.
+==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
+==17645== Command: ./image
+==17645== Parent PID: 28951
+==17645==
+==17645== Source and destination overlap in memcpy(0xe004860, 0xe003430, 5600)
+==17645==    at 0x4C289A6: memcpy (mc_replace_strmem.c:635)
+==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
+==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
+==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
+==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow<em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
+==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
+==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
+==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
+==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
+==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
+==17645==    by 0x420A84: main (image.cpp:869)
+==17645==
+==17645== Invalid read of size 8
+==17645==    at 0x4C28B2C: memcpy (mc_replace_strmem.c:635)
+==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
+==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
+==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
+==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow</em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
+==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
+==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
+==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
+==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
+==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
+==17645==    by 0x420A84: main (image.cpp:869)</p></blockquote>
+
+<p>It turned out that memcpy() at the line 500 in bitmap_gtk3.cpp manipulated overlapping memory. That was the actual culprit. Valgrind even showed the call backtrace to help you to reproduce the bug. Awesome.</p>
+
+<p>I hope this blog entry help you to use Valgrind to locate the bug and fix memory error quickly.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -449,42 +537,6 @@ Work will continue on porting drawing code with Cairo as what gtk+3.0 does by de
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/05/22/following-googles-c-coding-style-is-a-good-practice/">Following Google&#8217;s C++ Coding Style Is a Good Practice.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-05-22T14:07:15-05:00" pubdate data-updated="true">May 22<span>nd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Following Google&#8217;s C++ coding <a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml">style</a> is a good practice. Google even open-sourced its coding style checker <a href="http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py">cpplint.py</a>. The suggestion of using const as often as possible is especially a good one. Although there are many coding styles available on the web, following them strictly without a tool won&#8217;t last long in my real case. I particularly appreciate the public release of cpplint.py. A uniform coding style can finally be seen in our team.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -502,6 +554,10 @@ Work will continue on porting drawing code with Cairo as what gtk+3.0 does by de
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
       </li>
     
@@ -517,15 +573,11 @@ Work will continue on porting drawing code with Cairo as what gtk+3.0 does by de
         <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl like sed</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>git (3)</a></li><li><a href='/blog/categories/git'>Git (1)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnome'>GNOME (2)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

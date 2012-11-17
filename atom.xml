@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://zandyware.com/atom.xml" rel="self"/>
   <link href="http://zandyware.com/"/>
-  <updated>2012-11-09T20:18:42-06:00</updated>
+  <updated>2012-11-17T01:31:04-06:00</updated>
   <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Nomachine and GNOME Redraw Problem]]></title>
+    <link href="http://zandyware.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem/"/>
+    <updated>2012-11-16T15:36:00-06:00</updated>
+    <id>http://zandyware.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://www.nomachine.com">Nomachine</a> a lot when I work from home. My home and work Linux desktop are both running
+GNOME 3. There were a problem disturbing me for a while. Everything works fine at workplace probably
+due to the supper fast local internet connection. But when I connected to the remote desktop via
+Nomachine, the GUIs of remote applications were very lagging and the redraws seemed out of sync
+leaving blanks here and there. I&#8217;ve tried many ways to improve that, including upgrading the ISP
+bandwidth, trying the latest NoMachine 4 Preview, tuning the various options in the settings. But
+all efforts were vain. Until one day I aimlessly chose KDE in NoMachine and the redraw issue were
+gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octave: Add local repository path based on the hostname, change the color of prompt etc..]]></title>
@@ -527,61 +543,6 @@ when you want to submit all your local changes into one changeset to the upstrea
 
 
 <p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn&#8217;t have time to look into. So finally I only used &#8216;gg=G&#8217; in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quick print: a little trick for gdb setting]]></title>
-    <link href="http://zandyware.com/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting/"/>
-    <updated>2011-12-02T17:10:49-06:00</updated>
-    <id>http://zandyware.com/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting</id>
-    <content type="html"><![CDATA[<p>Today I would like to share a little trick that I have adapted and used for a while. It is for
-<a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have
-no idea about the customization of gdb, please read
-<a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
-
-<p>If you use gdb frequently, chances are you have to type the command &#8216;print&#8217; or &#8216;p&#8217; to examine the
-value of variable many many times. A common case is like this: you type &#8216;p foo&#8217; to see the value of
-&#8216;foo&#8217;. It turns out that &#8216;foo&#8217; is a pointer, and you have to type &#8216;p *foo&#8217; again in the commandline.
-Or you have to type &#8216;ptype foo&#8217; to find out the type definition of &#8216;foo&#8217;. Tedious. This small piece
-of gdb macro to make your life easier. Every time you type &#8216;p foo&#8217;, you just scroll up the history
-and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or typing &#8216;2&#8217; gives you the type definition of
-&#8216;foo&#8217;. Copy and paste into your ~/.gdbinit</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">define</span> <span class="n">p</span>
-</span><span class='line'> <span class="k">if</span> <span class="err">$</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">1</span>
-</span><span class='line'>   <span class="k">print</span> <span class="err">$</span><span class="n">arg0</span>
-</span><span class='line'> <span class="k">else</span>
-</span><span class='line'>   <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">1</span>
-</span><span class='line'>     <span class="k">print</span> <span class="o">*</span><span class="p">(</span><span class="err">$</span><span class="n">arg0</span><span class="p">)</span>
-</span><span class='line'>   <span class="k">else</span>
-</span><span class='line'>     <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">2</span>
-</span><span class='line'>       <span class="n">ptype</span> <span class="err">$</span><span class="n">arg0</span>
-</span><span class='line'>     <span class="n">end</span>
-</span><span class='line'>   <span class="n">end</span>
-</span><span class='line'> <span class="n">end</span>
-</span><span class='line'><span class="n">end</span>
-</span><span class='line'><span class="n">document</span> <span class="n">p</span>
-</span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
-</span><span class='line'><span class="n">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
