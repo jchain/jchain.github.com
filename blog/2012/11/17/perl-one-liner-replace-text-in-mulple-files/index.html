@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Linux 'ldd' equivalence on Cygwin? - A Coding Monkey's Blog</title>
+  <title>Perl one liner: replace text in mulple files - A Coding Monkey's Blog</title>
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Run &#8220;cygcheck &#8221; and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I &hellip;">
+  <meta name="description" content="Today I got some time to improve my tech blog with Octopress. I found that I couldn&#8217;t use the
+different letter cases as the same category name &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zandyware.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/">
+  <link rel="canonical" href="http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -85,7 +86,7 @@
   
   <header>
     
-      <h1 class="entry-title">Linux 'Ldd' Equivalence on Cygwin?</h1>
+      <h1 class="entry-title">Perl One Liner: Replace Text in Mulple Files</h1>
     
     
       <p class="meta">
@@ -101,14 +102,30 @@
   
 
 
-<time datetime="2011-02-06T12:25:27-06:00" pubdate data-updated="true">Feb 6<span>th</span>, 2011</time>
+<time datetime="2012-11-17T02:10:00-06:00" pubdate data-updated="true">Nov 17<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Run &#8220;cygcheck &#8221; and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
+<div class="entry-content"><p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&#8217;t use the
+different letter cases as the same category name. Otherwise the category page wouldn&#8217;t show correct
+number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
+the meta info of every posts. Here was what I used to get this job done.</p>
+
+<pre><code>ack "\- git" *.markdown -l | xargs perl -p -i -e 's/- git/- Git/g'
+</code></pre>
+
+<p>A little explanation:</p>
+
+<pre><code>-l: ask ack to only show the filename with matched search pattern. You can try first without -l
+    option to make sure you find the correct files. And then run with -l option to make the output
+    suitable for xargs
+-p: read and loop from files instead of STDIN
+-i: in-place edit
+-e: run the command
+</code></pre>
 </div>
 
 
@@ -131,12 +148,12 @@
   
 
 
-<time datetime="2011-02-06T12:25:27-06:00" pubdate data-updated="true">Feb 6<span>th</span>, 2011</time>
+<time datetime="2012-11-17T02:10:00-06:00" pubdate data-updated="true">Nov 17<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/cygwin/'>Cygwin</a>, <a class='category' href='/blog/categories/octave/'>Octave</a>
+    <a class='category' href='/blog/categories/perl/'>Perl</a>
   
 </span>
 
@@ -145,7 +162,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zandyware.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/" data-via="" data-counturl="http://zandyware.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/" data-via="" data-counturl="http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/" >Tweet</a>
   
   
   
@@ -154,10 +171,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/02/01/search-and-replace-in-a-visual-selection/" title="Previous Post: Search and replace in a visual selection">&laquo; Search and replace in a visual selection</a>
+        <a class="basic-alignment left" href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/" title="Previous Post: Nomachine and GNOME Redraw Problem">&laquo; Nomachine and GNOME Redraw Problem</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/02/19/cautious-about-the-limit-of-color-number-in-perl-gd-package/" title="Next Post: Cautious about the limit of color number in Perl GD package">Cautious about the limit of color number in Perl GD package &raquo;</a>
       
     </p>
   </footer>

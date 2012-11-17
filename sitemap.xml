@@ -421,11 +421,17 @@
         <lastmod>2012-11-17T00:19:14-06:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/
+        </loc>
+        <lastmod>2012-11-17T02:34:08-06:00</lastmod>
+    </url>
+    <url>
         <loc>http://zandyware.com/</loc>
-        <lastmod>2012-11-17T01:30:37-06:00</lastmod>
+        <lastmod>2012-11-17T02:34:08-06:00</lastmod>
     </url>
     <url>
         <loc>http://zandyware.com/blog/archives/</loc>
-        <lastmod>2012-11-17T01:30:37-06:00</lastmod>
+        <lastmod>2012-11-17T02:34:08-06:00</lastmod>
     </url>
 </urlset>

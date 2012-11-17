@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://zandyware.com/atom.xml" rel="self"/>
   <link href="http://zandyware.com/"/>
-  <updated>2012-11-17T01:31:04-06:00</updated>
+  <updated>2012-11-17T02:34:32-06:00</updated>
   <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Perl one liner: replace text in mulple files]]></title>
+    <link href="http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
+    <updated>2012-11-17T02:10:00-06:00</updated>
+    <id>http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
+    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&#8217;t use the
+different letter cases as the same category name. Otherwise the category page wouldn&#8217;t show correct
+number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
+the meta info of every posts. Here was what I used to get this job done.</p>
+
+<pre><code>ack "\- git" *.markdown -l | xargs perl -p -i -e 's/- git/- Git/g'
+</code></pre>
+
+<p>A little explanation:</p>
+
+<pre><code>-l: ask ack to only show the filename with matched search pattern. You can try first without -l
+    option to make sure you find the correct files. And then run with -l option to make the output
+    suitable for xargs
+-p: read and loop from files instead of STDIN
+-i: in-place edit
+-e: run the command
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nomachine and GNOME Redraw Problem]]></title>
@@ -524,25 +549,6 @@ use package &#8216;cite&#8217;</p>
 
 <p>Check the link above when you want to combine several commits into one patch. It might be needed
 when you want to submit all your local changes into one changeset to the upstream.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Indent only XML file]]></title>
-    <link href="http://zandyware.com/blog/2011/12/15/indent-only-xml-file/"/>
-    <updated>2011-12-15T10:48:24-06:00</updated>
-    <id>http://zandyware.com/blog/2011/12/15/indent-only-xml-file</id>
-    <content type="html"><![CDATA[<p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
-
-<ul>
-<li><p><a href="http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html">xmllint</a></p></li>
-<li><p><a href="http://xmlindent.sourceforge.net/">xmlindent</a></p></li>
-<li><p><a href="http://www.kitebird.com/software/xmlformat/xmlformat.html">xmlformat</a></p></li>
-<li><p><a href="http://www.qualitybrain.com/?p=37">tidy</a></p></li>
-</ul>
-
-
-<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn&#8217;t have time to look into. So finally I only used &#8216;gg=G&#8217; in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
 ]]></content>
   </entry>
   

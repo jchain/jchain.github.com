@@ -9,8 +9,9 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="If you are Nomachine and GNU Screen user, have you been annoyed by the problem that you can&#8217;t start
-GUI program in a screen session? The reason &hellip;">
+  <meta name="description" content="Keep you away from the annoying line ending character problem when you are in a cross-platform
+development scenario.  Read this article:
+http://www. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +84,44 @@ GUI program in a screen session? The reason &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/28/set-subversion-auto-props/">Set Subversion Auto-props</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-28T00:38:45-05:00" pubdate data-updated="true">Mar 28<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Keep you away from the annoying line ending character problem when you are in a cross-platform
+development scenario.  Read this article:
+<a href="http://www.wxwidgets.org/develop/svn.htm">http://www.wxwidgets.org/develop/svn.htm</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -573,54 +612,6 @@ similar feature.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/19/cautious-about-the-limit-of-color-number-in-perl-gd-package/">Cautious About the Limit of Color Number in Perl GD Package</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-19T18:30:56-06:00" pubdate data-updated="true">Feb 19<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and
-border tracing. I used GD to access the pixels. I ran into a very wired bug that the region labeling
-code in some cases failed to identify the regions of interest(ROIs) correctly but worked well in
-other cases.</p>
-
-<p>After a painful debugging I found out the culprit. If $value is used to represent the label value,
-and I use $img->setPixel($x, $y, $value) to store the value. Any value bigger than 256 will be
-rounded to the range from 0 to 255 by modulo operator. So the actual value in the label image won&#8217;t
-be over 255. This means that if you use GD image like a matrix, the value of a element of the matrix
-can&#8217;t be more than 255.<strong> I think it is due to the physical limit of the colormap which essentially
-can store no more than 256 colors.</strong></p>
-
-<p>Finally, my suggestion is using <strong>Math::MatrixReal</strong> package.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -638,6 +629,10 @@ can store no more than 256 colors.</strong></p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
       </li>
     
@@ -653,15 +648,11 @@ can store no more than 256 colors.</strong></p>
         <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl script: retrieve current weather condition and forecast</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (9)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 
