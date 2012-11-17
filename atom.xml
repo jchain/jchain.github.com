@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://zandyware.com/atom.xml" rel="self"/>
   <link href="http://zandyware.com/"/>
-  <updated>2012-11-17T02:34:32-06:00</updated>
+  <updated>2012-11-17T02:36:20-06:00</updated>
   <id>http://zandyware.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -33,7 +33,7 @@ the meta info of every posts. Here was what I used to get this job done.</p>
     suitable for xargs
 -p: read and loop from files instead of STDIN
 -i: in-place edit
--e: run the command
+-e: run the command. Here we do the search and replace operations.
 </code></pre>
 ]]></content>
   </entry>
