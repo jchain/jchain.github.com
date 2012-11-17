@@ -6,7 +6,7 @@ slug: my-favorite-gnome-terminal-font-is-fixedsys-excelsior
 title: My favorite Gnome terminal font is fixedsys-excelsior
 wordpress_id: 221
 categories:
-- Gnome
+- GNOME
 tags:
 - Linux
 - tips

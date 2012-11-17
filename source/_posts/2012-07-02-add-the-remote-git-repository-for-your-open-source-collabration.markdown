@@ -8,7 +8,7 @@ wordpress_id: 364
 categories:
 - Git
 tags:
-- git
+- Git
 ---
 
 When I hacked on github I would clone the upstream repository FOO into my local disk creating a 'master' branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted 'master' branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch 'master' and I would hack under this branch.

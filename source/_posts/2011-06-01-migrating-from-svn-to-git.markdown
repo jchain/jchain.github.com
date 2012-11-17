@@ -6,9 +6,9 @@ slug: migrating-from-svn-to-git
 title: Migrating from svn to git
 wordpress_id: 198
 categories:
-- git
+- Git
 tags:
-- git
+- Git
 - svn
 ---
 
