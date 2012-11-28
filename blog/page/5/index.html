@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Want to customize your GDB to make it more productive? Read this great article GNU Project Debugger: More fun with GDB Programmers take note: If you &hellip;">
+  <meta name="description" content="Our project is consider migrating from subversion to git. I&#8217;m quite happy that git can totally serve as a svn client. You can use git to branch &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/01/migrating-from-svn-to-git/">Migrating From Svn to Git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-01T10:46:51-05:00" pubdate data-updated="true">Jun 1<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Our project is consider migrating from subversion to git. I&#8217;m quite happy that git can totally serve as a svn client. You can use git to branch and merge locally and commit into svn to let other developers know about your changes. It sounds more flexible than centralized repository like CVS and Subversion.</p>
+
+<p>After getting my hands dirty with git for a while, I&#8217;m tempted to migrate my personal repository from subversion to git too. Even though git is a decentralized version control system but people still need a remote backup hosting. This is where <a href="http://github.com">github.com</a> sits in. Since I want my repository kept private, <a href="http://github.com">github.com</a> is not my list. Also I wish free git hosting can offer at least 2gb space. <a href="http://bettercodes.org">Bettercodes.org</a> was my previous choice but its host is located in Ireland, the connection speed is very slow and its UI is not very easy to use. Today I found <a href="http://assembla.com">assembla.com</a> located in United States offers 2gb free git hosting. I gave it a short and so far so good. The access  is very fast. It supports https connection, much safer than bettercodes.org and my current free svn hosting.</p>
+
+<p>I found this post is very helpful for svn user switching to git. <a href="http://www.fnokd.com/2008/08/20/mirroring-svn-repository-to-github/">http://www.fnokd.com/2008/08/20/mirroring-svn-repository-to-github/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -441,49 +481,6 @@ several times before get it straight. Here is my example.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/03/28/wired-mingw-make-failure-problem/">Wired MinGW Make Failure Problem</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-03-28T01:47:41-05:00" pubdate data-updated="true">Mar 28<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem.</p>
-
-<blockquote><p>process_begin: CreateProcess(&#8230;.) failed.
-make (e=2): The system cannot find the file specified.</p></blockquote>
-
-<p>The problem was solved by reading this post <a href="http://www.allegro.cc/forums/print-thread/593750">http://www.allegro.cc/forums/print-thread/593750</a></p>
-
-<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -501,6 +498,10 @@ make (e=2): The system cannot find the file specified.</p></blockquote>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
       </li>
     
@@ -516,15 +517,11 @@ make (e=2): The system cannot find the file specified.</p></blockquote>
         <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

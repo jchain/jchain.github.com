@@ -9,8 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and
-border tracing. I used GD to access the pixels. I &hellip;">
+  <meta name="description" content="A good article to read. It made me to rethink the GUI programming with event-driven pattern. http://www.drdobbs.com/184401643
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,44 @@ border tracing. I used GD to access the pixels. I &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/22/recommend-to-read-who-moved-my-state/">Recommend to Read: Who Moved My State?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-22T21:21:40-06:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A good article to read. It made me to rethink the GUI programming with event-driven pattern.</p>
+
+<p><a href="http://www.drdobbs.com/184401643"> http://www.drdobbs.com/184401643</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -495,71 +533,6 @@ highly recommended to use after colorExact(). It is safer to the color palette.<
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/12/wired-unicode-problem-in-source-code-file/">Wired Unicode Problem in Source Code File</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-12T16:27:22-06:00" pubdate data-updated="true">Jan 12<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
-I received was like this:</p>
-
-<blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
-Evaluator.h:1: error: stray ‘\273’ in program
-Evaluator.h:1: error: stray ‘\277’ in program
-Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
-
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
-source file. I guessed that our team were using different editors and operating systems, and
-someone  accidentally inserted one or two unicode characters. It was so bad that they were
-invisible!</p>
-
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
-So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
-
-<blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
-
-<p>But for the other files in the same directory, &#8216;file&#8217; told me that</p>
-
-<blockquote><p>ASCII C program text</p></blockquote>
-
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
-conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal
-screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
-If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
-
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
-I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the
-invisible character</strong>.  Copy and Paste!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -577,6 +550,10 @@ invisible character</strong>.  Copy and Paste!</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
       </li>
     
@@ -592,15 +569,11 @@ invisible character</strong>.  Copy and Paste!</p>
         <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

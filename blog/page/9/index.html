@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="See more at http://www.parashift.com/c++-faq-lite/const-correctness.html
-">
+  <meta name="description" content="Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +82,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/27/shrink-the-file-size-of-a-pdf/">Shrink the File Size of a Pdf?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-27T00:32:06-05:00" pubdate data-updated="true">Apr 27<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen compresses the images too much.</p>
+
+<p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook[screen, ] -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
+
+<p><strong>-dPDFSETTINGS=</strong><em>configuration</em></p>
+
+<pre><code>Presets the "distiller parameters" to one of four predefined settings:
+</code></pre>
+
+<ul>
+<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller &#8220;Screen Optimized&#8221; setting.</p></li>
+<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller &#8220;eBook&#8221; setting.</p></li>
+<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller &#8220;Print Optimized&#8221; setting.</p></li>
+<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller &#8220;Prepress Optimized&#8221; setting.</p></li>
+<li><p><strong>/default</strong> selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file.</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -414,6 +465,10 @@ see<strong>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
       </li>
     
@@ -429,15 +484,11 @@ see<strong>
         <a href="/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">Quickly look up a word or phrase from commandline</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (34)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (3)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 

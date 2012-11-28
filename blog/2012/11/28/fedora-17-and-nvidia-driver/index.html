@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Quickly look up a word or phrase from commandline - A Coding Monkey's Blog</title>
+  <title>Install nVidia Driver on Fedora 17: A Non-typical Case - A Coding Monkey's Blog</title>
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I wrote two very short Bash functions to help me quickly look up a word or phrase using
-elinks. You can use w3m as you wish but elinks shows a better &hellip;">
+  <meta name="description" content="Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia
+8300 GS video card running Fedora 17 i386. Here &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ elinks. You can use w3m as you wish but elinks shows a better &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zandyware.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/">
+  <link rel="canonical" href="http://zandyware.com/blog/2012/11/28/fedora-17-and-nvidia-driver/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -86,7 +86,7 @@ elinks. You can use w3m as you wish but elinks shows a better &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Quickly Look Up a Word or Phrase From Commandline</h1>
+      <h1 class="entry-title">Install nVidia Driver on Fedora 17: A Non-typical Case</h1>
     
     
       <p class="meta">
@@ -102,18 +102,58 @@ elinks. You can use w3m as you wish but elinks shows a better &hellip;">
   
 
 
-<time datetime="2012-09-28T14:46:55-05:00" pubdate data-updated="true">Sep 28<span>th</span>, 2012</time>
+<time datetime="2012-11-28T02:10:00-06:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I wrote two very short Bash functions to help me quickly look up a word or phrase using
-<a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my
-eyes.</p>
+<div class="entry-content"><p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia
+8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia
+driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version.
+None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was
+drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver
+either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia.
+But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I
+excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora
+Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a
+kernel bug in the ext4 file system</p>
+
+<pre><code>kernel BUG at fs/ext4/extents.c
+</code></pre>
+
+<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news
+confirmed that the bug in the kernel was the culprit. After several sudden losses of my working
+sessions I couldn&#8217;t wait for any more seconds to update the kernel. And I had to make the Xorg
+server work too.</p>
+
+<p>It really bugged me that the nVidia driver didn&#8217;t work on my Fedora 17. I booted from Ubuntu Linux
+installed on an external USB disk. And the nVidia driver worked fine under it. There must be
+something wrong with <code>akmod-nvidia</code> or the official driver.</p>
+
+<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in
+the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X
+server started this time. In my case, I didn&#8217;t need to do this:</p>
+
+<pre><code>Remove / disable nouveau drivers from kernel initramfs
+</code></pre>
+
+<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL
+library was not automatically loaded. The system still used the mesa GL to do the software
+rendering. A workaround is to put the following line in <code>.bashrc</code></p>
+
+<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH
+</code></pre>
+
+<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code>
+didn&#8217;t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old
+to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here
+is what it looks right now.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -125,26 +165,58 @@ eyes.</p>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># look up on urbandictionary.com</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># RPM Fusion - nvidia-173xx-xorg.conf
+</span><span class='line'># 
+</span><span class='line'>Section "Monitor"
+</span><span class='line'>    # HorizSync source: edid, VertRefresh source: edid
+</span><span class='line'>    Identifier     "Monitor0"
+</span><span class='line'>    VendorName     "Unknown"
+</span><span class='line'>    ModelName      "DELL E228WFP"
+</span><span class='line'>    HorizSync       30.0 - 83.0
+</span><span class='line'>    VertRefresh     56.0 - 75.0
+</span><span class='line'>    Option         "DPMS"
+</span><span class='line'>EndSection
 </span><span class='line'>
-</span><span class='line'>ub <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'> <span class="nv">a</span><span class="o">=</span><span class="nv">$@</span>
-</span><span class='line'> elinks www.urbandictionary.com/<span class="k">${</span><span class="nv">a</span><span class="p">// /%20</span><span class="k">}</span>
-</span><span class='line'><span class="o">}</span>
+</span><span class='line'>Section "Device"
+</span><span class='line'>  Identifier  "Device0"
+</span><span class='line'>  Driver      "nvidia"
+</span><span class='line'>  Option      "AddARGBGLXVisuals" "true"
+</span><span class='line'>EndSection
 </span><span class='line'>
-</span><span class='line'><span class="c"># look up on thefreedictionary.com</span>
-</span><span class='line'>fd <span class="o">()</span> <span class="o">{</span>
-</span><span class='line'> <span class="nv">a</span><span class="o">=</span><span class="nv">$@</span>
-</span><span class='line'> elinks www.thefreedictionary.com/<span class="k">${</span><span class="nv">a</span><span class="p">// /+</span><span class="k">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>Section "Screen"
+</span><span class='line'>    Identifier     "Screen0"
+</span><span class='line'>    Device         "Device0"
+</span><span class='line'>    Monitor        "Monitor0"
+</span><span class='line'>    DefaultDepth    24
+</span><span class='line'>    Option         "TwinView" "1"
+</span><span class='line'>    Option         "TwinViewXineramaInfoOrder" "DFP-0"
+</span><span class='line'>    Option         "metamodes" "DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0"
+</span><span class='line'>    SubSection     "Display"
+</span><span class='line'>        Depth       24
+</span><span class='line'>    EndSubSection
+</span><span class='line'>EndSection</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Usage:</p>
-
-<pre><code>ub your_word
-fd your_word
-</code></pre>
+<p>I&#8217;m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it
+will help you if you are facing the same problem.</p>
 </div>
 
 
@@ -167,7 +239,7 @@ fd your_word
   
 
 
-<time datetime="2012-09-28T14:46:55-05:00" pubdate data-updated="true">Sep 28<span>th</span>, 2012</time>
+<time datetime="2012-11-28T02:10:00-06:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
       
 
 <span class="categories">
@@ -181,7 +253,7 @@ fd your_word
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zandyware.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/" data-via="" data-counturl="http://zandyware.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://zandyware.com/blog/2012/11/28/fedora-17-and-nvidia-driver/" data-via="" data-counturl="http://zandyware.com/blog/2012/11/28/fedora-17-and-nvidia-driver/" >Tweet</a>
   
   
   
@@ -190,10 +262,8 @@ fd your_word
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/" title="Previous Post: MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6">&laquo; MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6</a>
+        <a class="basic-alignment left" href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/" title="Previous Post: Perl one liner: replace text in mulple files">&laquo; Perl one liner: replace text in mulple files</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/" title="Next Post: Octave: Add local repository path based on the hostname, change the color of prompt etc..">Octave: Add local repository path based on the hostname, change the color of prompt etc.. &raquo;</a>
       
     </p>
   </footer>
