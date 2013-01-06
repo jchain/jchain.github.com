@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Uncategorized | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/uncategorized/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/uncategorized/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Trac's milestone feature is helpful to track the progress]]></title>
-    <link href="http://zandyware.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress/"/>
+    <link href="http://jchain.github.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress/"/>
     <updated>2011-03-09T11:31:22-06:00</updated>
-    <id>http://zandyware.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress</id>
+    <id>http://jchain.github.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress</id>
     <content type="html"><![CDATA[<p>I have used several project management software before. But today I found that the milestone feature
 in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required
 features to the issue tracking system for a specific milestone. By viewing the progress bar, I can

@@ -19,7 +19,7 @@ I noticed there was an annoying slowdown when I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://zandyware.com/">
+  <link rel="canonical" href="http://jchain.github.com/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@ I noticed there was an annoying slowdown when I &hellip;">
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:zandyware.com" />
+    <input type="hidden" name="q" value="site:jchain.github.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -130,7 +130,7 @@ set nocursorcolumn
 
 <p>I also notice that cursor movements in the equation environment was very slow partially it was
 because the math equations had so many parentheses, brackets and braces. Matching pairs and syntax
-hightlighting easily ate a good amount of CPU cycles. So I turned off this plugin by</p>
+highlighting easily ate a good amount of CPU cycles. So I turned off this plugin by</p>
 
 <pre><code>:NoMatchParen
 </code></pre>
@@ -144,12 +144,12 @@ equations. So I didn&#8217;t try this in <code>.vimrc</code></p>
 <p>I found some other tweaks by using Vim&#8217;s <code>:profile</code> command and the verbose options <code>vim -V
 foo.bar</code>. They are good ways to try to analyze the slowdown.</p>
 
-<p>The lesson I leared:</p>
+<p>The lesson I learned:</p>
 
 <ol>
 <li>All-around syntax highlighting seems a little bit expensive in Vim. Emacs seems to beat Vim on
 this point.</li>
-<li>Use <code>autocmd FileType</code> to further tweak the perfermance, such as disable the
+<li>Use <code>autocmd FileType</code> to further tweak the performance, such as disable the
 unnecessary plugins.</li>
 </ol>
 
@@ -852,7 +852,7 @@ one-liner. It turned out that this is the correct way to do so</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Zandy -
+  Copyright &copy; 2013 - Zandy -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

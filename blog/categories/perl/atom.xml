@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/perl/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Perl one liner: replace text in mulple files]]></title>
-    <link href="http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
+    <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
     <updated>2012-11-17T02:10:00-06:00</updated>
-    <id>http://zandyware.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
+    <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
     <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn't use the
 different letter cases as the same category name. Otherwise the category page wouldn't show correct
 number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
@@ -40,9 +40,9 @@ the meta info of every posts. Here was what I used to get this job done.</p>
   
   <entry>
     <title type="html"><![CDATA[Perl script: retrieve current weather condition and forecast]]></title>
-    <link href="http://zandyware.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
+    <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
     <updated>2012-09-25T21:33:42-05:00</updated>
-    <id>http://zandyware.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
+    <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
     <content type="html"><![CDATA[<p>I'm a little tired of checking out the weather condition via the web browser. In many cases I just
 want to see a short report in my terminal. After
 reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
@@ -119,9 +119,9 @@ Sun Sep 30, Low: 41, High: 73, Clear
   
   <entry>
     <title type="html"><![CDATA[Use Perl like sed]]></title>
-    <link href="http://zandyware.com/blog/2012/09/14/use-perl-like-sed/"/>
+    <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
     <updated>2012-09-14T11:29:58-05:00</updated>
-    <id>http://zandyware.com/blog/2012/09/14/use-perl-like-sed</id>
+    <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
     <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
 in-line string substitution to create new shell commands. I vaguely had an idea that I should use
 'sed' to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
@@ -134,9 +134,9 @@ one-liner. It turned out that this is the correct way to do so</p>
   
   <entry>
     <title type="html"><![CDATA[Perlbrew and openSUSE]]></title>
-    <link href="http://zandyware.com/blog/2012/02/05/perlbrew-and-opensuse/"/>
+    <link href="http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse/"/>
     <updated>2012-02-05T00:08:45-06:00</updated>
-    <id>http://zandyware.com/blog/2012/02/05/perlbrew-and-opensuse</id>
+    <id>http://jchain.github.com/blog/2012/02/05/perlbrew-and-opensuse</id>
     <content type="html"><![CDATA[<p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
 I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
@@ -165,9 +165,9 @@ Perl-5.12 won't conflict with Perl-5.14. This is just what I want.</p>
   
   <entry>
     <title type="html"><![CDATA[Yet another rename]]></title>
-    <link href="http://zandyware.com/blog/2011/12/17/yet-another-rename/"/>
+    <link href="http://jchain.github.com/blog/2011/12/17/yet-another-rename/"/>
     <updated>2011-12-17T12:41:51-06:00</updated>
-    <id>http://zandyware.com/blog/2011/12/17/yet-another-rename</id>
+    <id>http://jchain.github.com/blog/2011/12/17/yet-another-rename</id>
     <content type="html"><![CDATA[<p>I had many randomly named files and directories under my working project. Today I wanted to organize them in a more consistent naming convention. So I needed a file rename tool. Even though Linux base installation has a command 'rename', I soon found this Perl app <a href="http://search.cpan.org/~pederst/rename-1.8/bin/rename.PL">rename</a> is better thanks to Perl's powerful regex. Plus, its dry-run option is also a very good idea.</p>
 ]]></content>
   </entry>

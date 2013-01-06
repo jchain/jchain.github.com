@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Web | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/web/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/web/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Quick tip: batch download with wget]]></title>
-    <link href="http://zandyware.com/blog/2011/05/22/quick-tip-batch-download-with-wget/"/>
+    <link href="http://jchain.github.com/blog/2011/05/22/quick-tip-batch-download-with-wget/"/>
     <updated>2011-05-22T13:48:09-05:00</updated>
-    <id>http://zandyware.com/blog/2011/05/22/quick-tip-batch-download-with-wget</id>
+    <id>http://jchain.github.com/blog/2011/05/22/quick-tip-batch-download-with-wget</id>
     <content type="html"><![CDATA[<p>Actually, the tip is from here <a href="http://linux.byexamples.com/archives/4/performs-a-batch-download-using-wget/">http://linux.byexamples.com/archives/4/performs-a-batch-download-using-wget/</a></p>
 ]]></content>
   </entry>

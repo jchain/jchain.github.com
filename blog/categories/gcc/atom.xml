@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: GCC | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/gcc/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/gcc/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[GCC-4.5.0 users, upgrade to 4.5.2 or newer]]></title>
-    <link href="http://zandyware.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
+    <link href="http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
     <updated>2011-05-14T01:56:58-05:00</updated>
-    <id>http://zandyware.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
+    <id>http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
     <content type="html"><![CDATA[<p>I'm debugging a complicated C++ program this week. It used a lot of STL containers, such as
 stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">
 pretty-printing</a> enabled. I got error message like
@@ -33,9 +33,9 @@ everything was OK.</p>
   
   <entry>
     <title type="html"><![CDATA[colorgcc and ccache work together]]></title>
-    <link href="http://zandyware.com/blog/2011/01/07/colorgcc-and-ccache-work-together/"/>
+    <link href="http://jchain.github.com/blog/2011/01/07/colorgcc-and-ccache-work-together/"/>
     <updated>2011-01-07T10:52:29-06:00</updated>
-    <id>http://zandyware.com/blog/2011/01/07/colorgcc-and-ccache-work-together</id>
+    <id>http://jchain.github.com/blog/2011/01/07/colorgcc-and-ccache-work-together</id>
     <content type="html"><![CDATA[<p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
 programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well
 with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like

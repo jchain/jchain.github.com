@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Git | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Add the remote git repository for your open-source collabration]]></title>
-    <link href="http://zandyware.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
+    <link href="http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
     <updated>2012-07-01T19:39:25-05:00</updated>
-    <id>http://zandyware.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
+    <id>http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
     <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a 'master' branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted 'master' branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch 'master' and I would hack under this branch.</p>
 
 <p>But after my hack right before I fire up the 'git format-patch' command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command 'git remote' will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>
@@ -42,9 +42,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git format-patch]]></title>
-    <link href="http://zandyware.com/blog/2011/12/15/git-format-patch/"/>
+    <link href="http://jchain.github.com/blog/2011/12/15/git-format-patch/"/>
     <updated>2011-12-15T11:52:40-06:00</updated>
-    <id>http://zandyware.com/blog/2011/12/15/git-format-patch</id>
+    <id>http://jchain.github.com/blog/2011/12/15/git-format-patch</id>
     <content type="html"><![CDATA[<p><a href="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch">http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch</a></p>
 
 <p>Check the link above when you want to combine several commits into one patch. It might be needed
@@ -54,9 +54,9 @@ when you want to submit all your local changes into one changeset to the upstrea
   
   <entry>
     <title type="html"><![CDATA[git: remove a file from version control but not delete it from disk]]></title>
-    <link href="http://zandyware.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk/"/>
+    <link href="http://jchain.github.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk/"/>
     <updated>2011-11-02T15:38:28-05:00</updated>
-    <id>http://zandyware.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk</id>
+    <id>http://jchain.github.com/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk</id>
     <content type="html"><![CDATA[<p>Today's tip has only one line</p>
 
 <pre><code>git rm --cached foo.bar
@@ -66,9 +66,9 @@ when you want to submit all your local changes into one changeset to the upstrea
   
   <entry>
     <title type="html"><![CDATA[Migrating from svn to git]]></title>
-    <link href="http://zandyware.com/blog/2011/06/01/migrating-from-svn-to-git/"/>
+    <link href="http://jchain.github.com/blog/2011/06/01/migrating-from-svn-to-git/"/>
     <updated>2011-06-01T10:46:51-05:00</updated>
-    <id>http://zandyware.com/blog/2011/06/01/migrating-from-svn-to-git</id>
+    <id>http://jchain.github.com/blog/2011/06/01/migrating-from-svn-to-git</id>
     <content type="html"><![CDATA[<p>Our project is consider migrating from subversion to git. I'm quite happy that git can totally serve as a svn client. You can use git to branch and merge locally and commit into svn to let other developers know about your changes. It sounds more flexible than centralized repository like CVS and Subversion.</p>
 
 <p>After getting my hands dirty with git for a while, I'm tempted to migrate my personal repository from subversion to git too. Even though git is a decentralized version control system but people still need a remote backup hosting. This is where <a href="http://github.com">github.com</a> sits in. Since I want my repository kept private, <a href="http://github.com">github.com</a> is not my list. Also I wish free git hosting can offer at least 2gb space. <a href="http://bettercodes.org">Bettercodes.org</a> was my previous choice but its host is located in Ireland, the connection speed is very slow and its UI is not very easy to use. Today I found <a href="http://assembla.com">assembla.com</a> located in United States offers 2gb free git hosting. I gave it a short and so far so good. The access  is very fast. It supports https connection, much safer than bettercodes.org and my current free svn hosting.</p>

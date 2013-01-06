@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: C++ | A Coding Monkey's Blog]]></title>
-  <link href="http://zandyware.com/blog/categories/c-/atom.xml" rel="self"/>
-  <link href="http://zandyware.com/"/>
-  <updated>2012-12-26T05:08:12-06:00</updated>
-  <id>http://zandyware.com/</id>
+  <link href="http://jchain.github.com/blog/categories/c-/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2013-01-06T17:00:03-06:00</updated>
+  <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[XPM and deprecated conversion error]]></title>
-    <link href="http://zandyware.com/blog/2011/03/31/xpm-and-deprecated-conversion-error/"/>
+    <link href="http://jchain.github.com/blog/2011/03/31/xpm-and-deprecated-conversion-error/"/>
     <updated>2011-03-31T17:02:05-05:00</updated>
-    <id>http://zandyware.com/blog/2011/03/31/xpm-and-deprecated-conversion-error</id>
+    <id>http://jchain.github.com/blog/2011/03/31/xpm-and-deprecated-conversion-error</id>
     <content type="html"><![CDATA[<p>How to get rid of this warning: deprecated conversion from string constant to `char*'</p>
 
 <p>Change "char<em>" to "const char</em>" in the XPM file.</p>
@@ -26,9 +26,9 @@
   
   <entry>
     <title type="html"><![CDATA[Recommend to read: Who Moved My State?]]></title>
-    <link href="http://zandyware.com/blog/2011/02/22/recommend-to-read-who-moved-my-state/"/>
+    <link href="http://jchain.github.com/blog/2011/02/22/recommend-to-read-who-moved-my-state/"/>
     <updated>2011-02-22T21:21:40-06:00</updated>
-    <id>http://zandyware.com/blog/2011/02/22/recommend-to-read-who-moved-my-state</id>
+    <id>http://jchain.github.com/blog/2011/02/22/recommend-to-read-who-moved-my-state</id>
     <content type="html"><![CDATA[<p>A good article to read. It made me to rethink the GUI programming with event-driven pattern.</p>
 
 <p><a href="http://www.drdobbs.com/184401643"> http://www.drdobbs.com/184401643</a></p>
@@ -37,9 +37,9 @@
   
   <entry>
     <title type="html"><![CDATA[Wired Unicode Problem in Source Code File]]></title>
-    <link href="http://zandyware.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file/"/>
+    <link href="http://jchain.github.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file/"/>
     <updated>2011-01-12T16:27:22-06:00</updated>
-    <id>http://zandyware.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file</id>
+    <id>http://jchain.github.com/blog/2011/01/12/wired-unicode-problem-in-source-code-file</id>
     <content type="html"><![CDATA[<p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
 I received was like this:</p>
 
