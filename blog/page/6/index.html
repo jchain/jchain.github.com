@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="How to get rid of this warning: deprecated conversion from string constant to `char*&#8217; Change &#8220;char&#8221; to &#8220;const char&#8221; in &hellip;">
+  <meta name="description" content="I&#8217;m playing around Octave recently. As many other open-source projects, the
+documentation is not complete, or more precisely speaking, not &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +83,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/03/octave-save-a-figure-to-a-file/">Octave: Save a Figure to a File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-03T13:10:44-05:00" pubdate data-updated="true">May 3<span>rd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
+documentation is not complete, or more precisely speaking, not friendly to new user. When I want to
+save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try
+several times before get it straight. Here is my example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='matlab'><span class='line'><span class="k">for</span> <span class="nb">i</span><span class="p">=</span>1<span class="p">:</span>11
+</span><span class='line'><span class="n">surf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">ue</span><span class="p">((</span><span class="nb">i</span><span class="o">-</span>1<span class="p">)</span><span class="o">*</span>0<span class="p">.</span>2<span class="p">));</span>
+</span><span class='line'><span class="n">filename</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span>&quot;<span class="n">us_t</span><span class="c">%d.png&quot;, i-1);</span>
+</span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;-dpng&#39;</span><span class="p">);</span> <span class="c">% Note the quote</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>BTW: I&#8217;m very grateful for the high compatibility of Octave code with Matlab code.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -578,44 +633,6 @@ similar feature.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/23/message-passing-in-oop/">Message Passing in OOP?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-23T13:57:55-06:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models">http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models</a></p>
-
-<blockquote><p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -633,6 +650,10 @@ similar feature.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
       </li>
     
@@ -648,15 +669,11 @@ similar feature.</p>
         <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add local repository path based on the hostname, change the color of prompt etc..</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (4)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>
