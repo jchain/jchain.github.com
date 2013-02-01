@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CMake | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/cmake/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-29T01:38:59-06:00</updated>
+  <updated>2013-01-31T21:35:42-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,19 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Using OpenMP with CMake]]></title>
-    <link href="http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake/"/>
-    <updated>2010-12-05T20:51:14-06:00</updated>
-    <id>http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake</id>
-    <content type="html"><![CDATA[<p>Add the following lines into your CMakeLists.txt</p>
-
-<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
-</code></pre>
-]]></content>
-  </entry>
   
 </feed>

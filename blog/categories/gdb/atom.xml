@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GDB | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gdb/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-29T01:38:59-06:00</updated>
+  <updated>2013-01-31T21:35:42-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,45 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[GDB: How to set a watchpoint to watch the change of variable]]></title>
-    <link href="http://jchain.github.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable/"/>
-    <updated>2011-08-10T20:32:32-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/08/10/gdb-how-to-set-a-watchpoint-to-watch-the-change-of-variable</id>
-    <content type="html"><![CDATA[<p>Step 1: Print the address of the variable you are going to watch.
-<code>p *your_variable</code>
-(Suppose the address is 0x12345678
-Step 2: Set watchpoint
-<code>watch *0x12345678</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tip: switch from GDB TUI and plain mode]]></title>
-    <link href="http://jchain.github.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode/"/>
-    <updated>2011-05-14T02:01:31-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/05/14/tip-switch-from-gdb-tui-and-plain-mode</id>
-    <content type="html"><![CDATA[<p>Try the Ctrl-X A shortcut in GDB.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GCC-4.5.0 users, upgrade to 4.5.2 or newer]]></title>
-    <link href="http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
-    <updated>2011-05-14T01:56:58-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
-    <content type="html"><![CDATA[<p>I'm debugging a complicated C++ program this week. It used a lot of STL containers, such as
-stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">
-pretty-printing</a> enabled. I got error message like
-<a href="http://gcc.gnu.org/ml/libstdc++/2010-06/msg00128.html">this</a>. My original thought was it might be
-a bug in GDB, so I upgraded it to the latest version. But the error remained. Without
-pretty-printing, debugging C++ program is really a PITA. So I had to stop my work at hand and
-searched for solution online. After I read this <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=44645">bug report</a>, I realised that it was due to the bug in
-GCC. I did a simple test as mentioned in the bug report and found out that program compiled with
-GCC-4.5.0 would mess up the pretty-printing in GDB. After installing the lastest GCC-4.5.3,
-everything was OK.</p>
-]]></content>
-  </entry>
   
 </feed>

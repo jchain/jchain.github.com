@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-29T01:38:59-06:00</updated>
+  <updated>2013-01-31T21:35:42-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,14 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Disappointed with GCJ(GNU Compiler for Java)]]></title>
-    <link href="http://jchain.github.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java/"/>
-    <updated>2011-03-09T11:42:05-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/03/09/disappointed-with-gcjgnu-compiler-for-java</id>
-    <content type="html"><![CDATA[<p>I gave a shot to GCJ to do a tiny project. At the first place I thought the official Sun JDK was bulky and I preferred a lightweight Java SDK. But it turned out that the debugger for GCJ was almost unable to use. I was unable even to inspect an array. So switched to the official JDK and used JDB in Emacs(binding step-in, step-next to F7/F8). I was quite happy with it. I think for any Java novice, JDK is the way to go.</p>
-]]></content>
-  </entry>
   
 </feed>

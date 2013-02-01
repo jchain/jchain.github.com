@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octave | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/octave/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-29T01:38:59-06:00</updated>
+  <updated>2013-01-31T21:35:42-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,119 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Install RcppOctave if Octave is in user-defined directory]]></title>
-    <link href="http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave/"/>
-    <updated>2013-01-28T23:43:00-06:00</updated>
-    <id>http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave</id>
-    <content type="html"><![CDATA[<p>Even though I have been very busy these days I think I should try to get at least one post published
-per month. My recent job involved a lot of data analysis and statistical computing. I pushed myself
-to get familiar with <a href="http://www.r-project.org">R</a> because some packages from R are indispensable for my work. Meanwhile
-I also wanted to reuse my existing <a href="http://www.octave.org">Octave</a> code. Luckily I get the best of both worlds by using
-<a href="http://cran.r-project.org/web/packages/RcppOctave/">RcppOctave</a> which is a bridging package connecting the R and Octave sessions.</p>
-
-<p>I compiled the latest Octave on the server and installed in my home directory. When installing
-<code>RcppOctave</code> in R by running</p>
-
-<pre><code>install.packages('RcppOctave') 
-</code></pre>
-
-<p>I ran into an error message like this:</p>
-
-<pre><code>** preparing package for lazy loading
-Creating a generic function for ‘show’ from ‘methods’ in package ‘RcppOctave’
-    (from the saved implicit definition)
-** help
-Error : /tmp/Rtmp028JZY/R.INSTALL6dea26e533ee/RcppOctave/man/o_addpath.Rd:40: unable to load
-shared object '/home/zandy/lib64/R/library/RcppOctave/libs/RcppOctave.so':
-liboctinterp.so.1: cannot open shared object file: No such file or directory
-
-ERROR: installing Rd objects failed for package ‘RcppOctave’
-* removing ‘/home/zandy/lib64/R/library/RcppOctave’
-</code></pre>
-
-<p>The build phase seemed OK. Only did the install phase complain. I spent some time and figured out
-a work-around is to specify the library path to your <code>liboctinterp.so</code>:</p>
-
-<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib64/octave/3.6.3
-</code></pre>
-
-<p>I don't know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
-the problem completely.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octave: Add local repository path based on the hostname, change the color of prompt etc..]]></title>
-    <link href="http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/"/>
-    <updated>2012-10-13T03:38:46-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc</id>
-    <content type="html"><![CDATA[<p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross
-different computers (four different Linux machine). I also maintain a list of local M-file repos.
-Not all repos are available on every machine. To get rid of the warning message for missing
-directory every time, I wished I could add my local directories dynamically based on the hostname.
-I didn't know how to do so until today I found that Octave actually has the function 'uname()' for
-the job. Here is an example ~/.octaverc</p>
-
-<p>```python
-if strcmp(uname().nodename, 'zandyware')
- addpath("~/octave")
- addpath("~/share/flann/octave")
- addpath("~/octave/niftimatlib-1.2/matlab")
-end</p>
-
-<p>PS1 ("\[\033[01;31m\]\s:\#> \[\033[0m")</p>
-
-<p>function man (name)
- help (char (name))
-endfunction
-```</p>
-
-<p>You may also notice that I changed the default color of prompt to red for better visual contrast.
-Also I defined a function 'man' to alias the built-in command 'help' since I'm more used to type
-'man'. This tip was copied from Octave mailinglist. Hope you like today's post.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octave plot legend fontsize?]]></title>
-    <link href="http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize/"/>
-    <updated>2011-10-21T01:50:36-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize</id>
-    <content type="html"><![CDATA[<p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn't change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried '<strong>print('foo.eps','-depsc','-F:14')</strong>'. The option '-F:14' set the default print fontsize to 14. It worked so far so good.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octave: save a figure to a file]]></title>
-    <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
-    <updated>2011-05-03T13:10:44-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
-    <content type="html"><![CDATA[<p>I'm playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
-documentation is not complete, or more precisely speaking, not friendly to new user. When I want to
-save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try
-several times before get it straight. Here is my example.</p>
-
-<p><code>matlab
-for i=1:11
-surf(x,y,ue((i-1)*0.2));
-filename = sprintf("us_t%d.png", i-1);
-print(filename, '-dpng'); % Note the quote
-end
-</code></p>
-
-<p>BTW: I'm very grateful for the high compatibility of Octave code with Matlab code.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux 'ldd' equivalence on Cygwin?]]></title>
-    <link href="http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/"/>
-    <updated>2011-02-06T12:25:27-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin</id>
-    <content type="html"><![CDATA[<p>Run "cygcheck " and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
-]]></content>
-  </entry>
   
 </feed>
