@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GNOME | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-31T21:35:42-06:00</updated>
+  <updated>2013-02-03T11:31:10-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,5 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Nomachine and GNOME Redraw Problem]]></title>
+    <link href="http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem/"/>
+    <updated>2012-11-16T15:36:00-06:00</updated>
+    <id>http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem</id>
+    <content type="html"><![CDATA[<p>I use <a href="http://www.nomachine.com">Nomachine</a> a lot when I work from home. My home and work Linux desktop are both running
+GNOME 3. There were a problem disturbing me for a while. Everything works fine at workplace probably
+due to the supper fast local internet connection. But when I connected to the remote desktop via
+Nomachine, the GUIs of remote applications were very lagging and the redraws seemed out of sync
+leaving blanks here and there. I've tried many ways to improve that, including upgrading the ISP
+bandwidth, trying the latest NoMachine 4 Preview, tuning the various options in the settings. But
+all efforts were vain. Until one day I aimlessly chose KDE in NoMachine and the redraw issue were
+gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
+    <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
+    <updated>2012-08-19T02:06:46-05:00</updated>
+    <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
+    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to 'auto hide'. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don't like the methods to change the 'gsetting' or 'gconf'.</p>
+
+<p>It turns out that the simplest way to to hit 'Alt+F1' to activate the 'Application' in the top panel and hit 'Esc' to hide it again. So simple.</p>
+
+<p>BTW: I'm using the fallback of GNOME 3.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My favorite Gnome terminal font is fixedsys-excelsior]]></title>
+    <link href="http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior/"/>
+    <updated>2011-08-04T23:57:39-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior</id>
+    <content type="html"><![CDATA[<p>Finding a good monospaced font for Gnome terminal was used to be my big wish. I have tried bitstream
+mono, droid sans mono, inconsola. None of them was satisfactory in Gnome terminal with dark
+background(much better in white background but I don't like white background). Finally, my heart has
+been settled down with <a href="http://www.fixedsysexcelsior.com/">fixedsys-excelsior</a>. It just looks very
+comfortable with my black background.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Built gtk3.0 on openSUSE-11.1]]></title>
+    <link href="http://jchain.github.com/blog/2011/03/03/built-gtk3-0-on-opensuse-11-1/"/>
+    <updated>2011-03-03T01:48:26-06:00</updated>
+    <id>http://jchain.github.com/blog/2011/03/03/built-gtk3-0-on-opensuse-11-1</id>
+    <content type="html"><![CDATA[<p>I built gtk3.0 from source on openSUSE-11.1 x86-64bit. As expected, I ran into one annoying problem like this:</p>
+
+<blockquote><p>symbol lookup error: /opt/gnome/lib/libcairo-gobject.so.2: undefined symbol: cairo_region_destroy</p></blockquote>
+
+<p>I searched for the solution online. Someone suggested disabling gobject-introspection when compiling gtk3. But the default setting for gtk3 is indeed without gobject-introspection support. I got stuck and very confused. Finally, I got the things done by compiling the latest gobject-introspection(0.10.x) and enabling gobject-introspection support for atk, gdk-pixbuf and any other dependency libraries which could be set to enable this feature. YMMV. Here is the screenshot showing the about dialog from gtk3-demo.</p>
+
+<p>[caption id="attachment_147" align="aligncenter" width="432" caption="gtk3-demo"]<a href="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png"><img src="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png" alt="gtk3-demo" /></a>[/caption]</p>
+]]></content>
+  </entry>
   
 </feed>

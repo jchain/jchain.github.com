@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenMP | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/openmp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-31T21:35:42-06:00</updated>
+  <updated>2013-02-03T11:31:10-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,5 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Iterative closest points(ICP) demo]]></title>
+    <link href="http://jchain.github.com/blog/2010/12/06/iterative-closest-pointsicp-demo/"/>
+    <updated>2010-12-06T15:34:32-06:00</updated>
+    <id>http://jchain.github.com/blog/2010/12/06/iterative-closest-pointsicp-demo</id>
+    <content type="html"><![CDATA[<p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
+
+<p><img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" alt="" /></p>
+
+<p>The Perl code generating the plot is listed below</p>
+
+<p>```perl</p>
+
+<h1>!/usr/bin/perl</h1>
+
+<p>use strict;
+use warnings;
+use Chart::Gnuplot;</p>
+
+<h3>Write running time</h3>
+
+<p>open my $IN, '&lt;', "benchmark.dat" or die $!;</p>
+
+<h1>Data</h1>
+
+<p>my @x;
+my @y;</p>
+
+<p>while( &lt;$IN> ) {</p>
+
+<pre><code>chomp;
+my ($t1, $t2) = split /\s/;
+push @x, $t1;
+push @y, $t2;
+</code></pre>
+
+<p>}</p>
+
+<h1>Create chart object and specify the properties of the chart</h1>
+
+<p>my $chart = Chart::Gnuplot->new(</p>
+
+<pre><code>output =&gt; "out.eps",
+title  =&gt; "Iterative Closest Points with Stanford Bunny",
+xlabel =&gt; "Number of threads",
+ylabel =&gt; "Time(s)",
+boxwidth =&gt; "0.8 relative"
+</code></pre>
+
+<p>);</p>
+
+<h1>Create dataset object and specify the properties of the dataset</h1>
+
+<p>my $dataSet = Chart::Gnuplot::DataSet->new(</p>
+
+<pre><code>xdata =&gt; \@x,
+ydata =&gt; \@y,
+title =&gt; "Time",
+#style =&gt; "linespoints",
+style =&gt; "boxes",
+fill =&gt; "0.75",
+</code></pre>
+
+<p>);</p>
+
+<h1>Plot the data set on the chart</h1>
+
+<p>$chart->plot2d($dataSet);</p>
+
+<h6>#</h6>
+
+<h1>Plot many data sets on a single chart</h1>
+
+<h1>$chart->plot2d($dataSet1, $dataSet2, ...);</h1>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using OpenMP with CMake]]></title>
+    <link href="http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake/"/>
+    <updated>2010-12-05T20:51:14-06:00</updated>
+    <id>http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake</id>
+    <content type="html"><![CDATA[<p>Add the following lines into your CMakeLists.txt</p>
+
+<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+</code></pre>
+]]></content>
+  </entry>
   
 </feed>
