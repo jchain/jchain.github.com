@@ -9,7 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models Alan Kay has argued[1] that message passing is more important &hellip;">
+  <meta name="description" content="As you might know that I&#8217;m doing some image processing with Perl and GD module. However, iterating
+a whole 512x512 image, i.e. every pixels, is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +83,221 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/01/perl-inline-module-is-awesome/">Perl Inline Module Is Awesome</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-01T14:22:50-06:00" pubdate data-updated="true">Mar 1<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As you might know that I&#8217;m doing some image processing with Perl and GD module. However, iterating
+a whole 512x512 image, i.e. every pixels, is prohibitively slow in Perl. Here is the Inline module
+to rescue. After playing around with it in several minutes, yes, only several minutes, my Perl code
+with C Inline function accessing the image boosted up 10 times faster! Every Perl programmer should
+check it out:
+<a href="http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod">http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod</a></p>
+
+<p>Edited: I would like to add a toy example here for anyone who are interested in Perl::Inline. It
+shows how to call external library(GD) from Perl script.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#!/usr/bin/perl</span>
+</span><span class='line'><span class="n">use</span> <span class="n">strict</span><span class="p">;</span>
+</span><span class='line'><span class="n">use</span> <span class="n">warnings</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">print</span> <span class="n">gd_test</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">use</span> <span class="n">Inline</span> <span class="n">C</span> <span class="o">=&gt;</span> <span class="n">Config</span> <span class="o">=&gt;</span>
+</span><span class='line'><span class="n">LIBS</span> <span class="o">=&gt;</span> <span class="err">&#39;</span><span class="o">-</span><span class="n">lgd</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="n">use</span> <span class="n">Inline</span> <span class="n">C</span> <span class="o">=&gt;</span> <span class="o">&lt;&lt;</span><span class="err">&#39;</span><span class="n">END_OF_C_CODE</span><span class="err">&#39;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#include &quot;gd.h&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Bring in standard I/O so we can output the PNG to a file */</span>
+</span><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">gd_test</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Declare the image */</span>
+</span><span class='line'><span class="n">gdImagePtr</span> <span class="n">im</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Declare output files */</span>
+</span><span class='line'><span class="kt">FILE</span> <span class="o">*</span><span class="n">pngout</span><span class="p">,</span> <span class="o">*</span><span class="n">jpegout</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Declare color indexes */</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">black</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">white</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Allocate the image: 64 pixels across by 64 pixels tall */</span>
+</span><span class='line'><span class="n">im</span> <span class="o">=</span> <span class="n">gdImageCreate</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Allocate the color black (red, green and blue all minimum).</span>
+</span><span class='line'><span class="cm">Since this is the first color in a new image, it will</span>
+</span><span class='line'><span class="cm">be the background color. */</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">black</span> <span class="o">=</span> <span class="n">gdImageColorAllocate</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Allocate the color white (red, green and blue all maximum). */</span>
+</span><span class='line'><span class="n">white</span> <span class="o">=</span> <span class="n">gdImageColorAllocate</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Draw a line from the upper left to the lower right,</span>
+</span><span class='line'><span class="cm">using white color index. */</span>
+</span><span class='line'><span class="n">gdImageLine</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="n">white</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Open a file for writing. &quot;wb&quot; means &quot;write binary&quot;, important</span>
+</span><span class='line'><span class="cm">under MSDOS, harmless under Unix. */</span>
+</span><span class='line'><span class="n">pngout</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test.png&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Do the same for a JPEG-format file. */</span>
+</span><span class='line'><span class="n">jpegout</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test.jpg&quot;</span><span class="p">,</span> <span class="s">&quot;wb&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Output the image to the disk file in PNG format. */</span>
+</span><span class='line'><span class="n">gdImagePng</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">pngout</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Output the same image in JPEG format, using the default</span>
+</span><span class='line'><span class="cm">JPEG quality setting. */</span>
+</span><span class='line'><span class="n">gdImageJpeg</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">jpegout</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Close the files. */</span>
+</span><span class='line'><span class="n">fclose</span><span class="p">(</span><span class="n">pngout</span><span class="p">);</span>
+</span><span class='line'><span class="n">fclose</span><span class="p">(</span><span class="n">jpegout</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Destroy the image in memory. */</span>
+</span><span class='line'><span class="n">gdImageDestroy</span><span class="p">(</span><span class="n">im</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="n">END_OF_C_CODE</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/27/smart-match-in-perl-5-10-is-the-equivalence-to-in-in-python/">Smart Match ~~ in Perl 5.10 Is the Equivalence to &#8216;in&#8217; in Python</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-27T11:09:13-06:00" pubdate data-updated="true">Feb 27<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sometimes I really miss the keyword &#8216;in&#8217; in Python which is very common operation in programming to
+check if a object is in a set. I&#8217;m very glad to see the smart match ~~ in Perl 5.10 provides the
+similar feature.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -404,135 +620,6 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">Share My Newly Created Valgrind wxGTK-2.9.1 Suppression File</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-21T14:34:21-06:00" pubdate data-updated="true">Jan 21<span>st</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
-too many false detections. You need a suppression file to help you focus on the real problem you are
-dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
-http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
-to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
-<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in
-suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error
-number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my
-suppression file.</p>
-
-<p>I suggested using the following command to fire up valgrind:</p>
-
-<pre><code>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes
---suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
-</code></pre>
-
-<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
-<strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
-
-<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/20/how-to-quote-long-command-in-perl-system-call/">How to Quote Long Command in Perl System()</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-20T00:14:43-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must
-want to break it into multi-line but the newline characters really get in the way.  Here is a good
-way, IMHO,  to make the code look neat and clean:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1"># Annotate the target and landmark image</span>
-</span><span class='line'><span class="nb">system</span> <span class="n">single_line</span><span class="p">(</span> <span class="s">&quot;</span>
-</span><span class='line'><span class="s"> convert -background black -fill white label:&#39;Target Landmarks&#39; miff:- | composite -gravity north</span>
-</span><span class='line'><span class="s"> -geometry +0+3 - $target_with_lmk_filename $target_with_lmk_filename</span>
-</span><span class='line'><span class="s">&quot;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">sub </span><span class="nf">single_line</span> <span class="p">{</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">@strings</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
-</span><span class='line'> <span class="k">foreach</span> <span class="p">(</span> <span class="nv">@strings</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'> <span class="sr">s/\n/ /g</span><span class="p">;</span>
-</span><span class='line'> <span class="sr">s/\r/ /g</span><span class="p">;</span>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
-
-<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to
-re-align your code in Vim since your command is not messed with quotation marks.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -550,6 +637,14 @@ re-align your code in Vim since your command is not messed with quotation marks.
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
       </li>
     
@@ -561,19 +656,11 @@ re-align your code in Vim since your command is not messed with quotation marks.
         <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>

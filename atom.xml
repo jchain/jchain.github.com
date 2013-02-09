@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-01-29T01:38:59-06:00</updated>
+  <updated>2013-02-08T20:12:56-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,254 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Quickcd]]></title>
+    <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
+    <updated>2013-02-08T14:03:24-06:00</updated>
+    <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
+    <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
+
+<h1>quickcd</h1>
+
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change
+directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
+navigate in many subdirectories with tricky names.</p>
+
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code.
+The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose
+the one you like most.</p>
+
+<h1>Overview</h1>
+
+<p>quickcd enables you to use cd with partial directory names. For example:</p>
+
+<pre><code>$ cd box
+  =&gt; Dropbox
+$ cd ok
+  =&gt; Ebook
+</code></pre>
+
+<p>If there is more than one directory containing your cd path, you just need to type one more letter
+to take you to the target folder.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~ $ cd D
+</span><span class='line'>Make a choice:
+</span><span class='line'>[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
+</span><span class='line'>a
+</span><span class='line'>Desktop $</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Why rewrite?</h1>
+
+<p>The differences:</p>
+
+<ol>
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can
+result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
+the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
+are not always aligned.</p></li>
+<li><p>quickcd doesn&#8217;t support multi-level directory nagivation. Its main focus is current directory.
+fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
+</ol>
+
+
+<h1>Setup</h1>
+
+<p>This following instruction are shamelessly copied from fuzzycd&#8217;s README.</p>
+
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
+This assumes you put fuzzycd in the ~/scripts/ directory.</p>
+
+<pre><code>export PATH=~/scripts/fuzzycd/:$PATH
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
+</code></pre>
+
+<p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
+
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the &#8220;cd&#8221; function (e.g.
+<a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
+<code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
+other bash modification plugins, but it should be loaded last.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Build Feh from source and install to Home directory]]></title>
+    <link href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/"/>
+    <updated>2013-01-31T15:39:00-06:00</updated>
+    <id>http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk</id>
+    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&#8217;t ship the Autoconf script
+and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would
+like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into
+HOME directory before so I have to specify the search path for compiler and linker. Here is what
+I got so far:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+</pre></td><td class='code'><pre><code class='makefile'><span class='line'><span class="nv">PACKAGE</span> <span class="o">?=</span> feh
+</span><span class='line'>VERSION ?<span class="o">=</span> 2.8
+</span><span class='line'>
+</span><span class='line'><span class="c"># Prefix for all installed files</span>
+</span><span class='line'><span class="c"># PREFIX ?= /usr/local</span>
+</span><span class='line'>PREFIX ?<span class="o">=</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Directories for manuals, executables, docs, data, etc.</span>
+</span><span class='line'><span class="nv">main_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">DESTDIR</span><span class="k">}${</span><span class="nv">PREFIX</span><span class="k">}</span>
+</span><span class='line'><span class="nv">man_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/man
+</span><span class='line'><span class="nv">bin_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/bin
+</span><span class='line'><span class="nv">doc_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh
+</span><span class='line'><span class="nv">image_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/images
+</span><span class='line'><span class="nv">font_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/fonts
+</span><span class='line'><span class="nv">example_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh/examples
+</span><span class='line'>
+</span><span class='line'><span class="c"># default CFLAGS</span>
+</span><span class='line'>CFLAGS ?<span class="o">=</span> -g -O2
+</span><span class='line'>CFLAGS +<span class="o">=</span> -Wall -Wextra -pedantic
+</span><span class='line'>
+</span><span class='line'>curl ?<span class="o">=</span> 1
+</span><span class='line'>debug ?<span class="o">=</span> 0
+</span><span class='line'><span class="nb">help</span> ?<span class="o">=</span> 0
+</span><span class='line'>xinerama ?<span class="o">=</span> 1
+</span><span class='line'>exif ?<span class="o">=</span> 0
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${curl},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBCURL
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lcurl
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${debug},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DDEBUG -O0
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span> . This is a debug build.
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span>
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${help},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DINCLUDE_HELP
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${stat64},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -D_FILE_OFFSET_BITS<span class="o">=</span>64
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${xinerama},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBXINERAMA
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lXinerama
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${exif},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBEXIF
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lexif
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Uncomment this to use dmalloc</span>
+</span><span class='line'><span class="c">#CFLAGS += -DWITH_DMALLOC</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span>
+</span><span class='line'>CFLAGS +<span class="o">=</span> -DPREFIX<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span><span class="se">\&quot;</span> <span class="se">\</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span> -I<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/include
+</span><span class='line'>
+</span><span class='line'><span class="c"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
+</span><span class='line'>LDLIBS +<span class="o">=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Install RcppOctave if Octave is in user-defined directory]]></title>
@@ -645,83 +893,6 @@ install modules for difference versions of Perl in separate locations. For examp
 Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
 
 <p>Happy perlbrewing&#8230;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Make apt like zypper]]></title>
-    <link href="http://jchain.github.com/blog/2012/02/01/make-apt-like-zypper/"/>
-    <updated>2012-02-01T17:43:17-06:00</updated>
-    <id>http://jchain.github.com/blog/2012/02/01/make-apt-like-zypper</id>
-    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like
-Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
-upgrade is so verbose. To make life easier, I have stolen some ideas from
-<a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my
-.bashrc:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>apt<span class="o">()</span> <span class="o">{</span>
-</span><span class='line'> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;se&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>apt-cache search <span class="nv">$2</span>
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;if&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>apt-cache show <span class="nv">$2</span>
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>sudo apt-get update
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;upgrade&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>sudo apt-get upgrade
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>sudo apt-get install <span class="nv">$2</span>
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'>
-</span><span class='line'><span class="k"> if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">=</span> <span class="s2">&quot;rm&quot;</span> <span class="o">]</span>; <span class="k">then</span>
-</span><span class='line'><span class="k"> </span>sudo apt-get remove <span class="nv">$2</span>
-</span><span class='line'> <span class="k">fi</span>
-</span><span class='line'> <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now you can just type &#8216;apt se&#8217;, &#8216;apt up&#8217;, &#8216;apt upgrade&#8217;, &#8216;apt in&#8217; and &#8216;apt if&#8217; to do the similar things.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[tlmgr is better than those provided by Linux distribution]]></title>
-    <link href="http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution/"/>
-    <updated>2011-12-30T22:08:02-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/12/30/tlmgr-is-better-than-those-provided-by-linux-distribution</id>
-    <content type="html"><![CDATA[<p>Even though many Linux distributions have provided TeX packages, I still like  <a href="http://www.tug.org/texlive/tlmgr.html">tlmgr</a> to manage everything. It is like apt-get but just for TeX Live. Management and configuration become much more convenient.</p>
 ]]></content>
   </entry>
   

@@ -9,8 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="For exising colors, I think it is better to use colorExact() because the color indices would be
-consistent among images. For new colors, &hellip;">
+  <meta name="description" content="If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
+too many false detections. You need a suppression &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,135 @@ consistent among images. For new colors, &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">Share My Newly Created Valgrind wxGTK-2.9.1 Suppression File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-21T14:34:21-06:00" pubdate data-updated="true">Jan 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
+too many false detections. You need a suppression file to help you focus on the real problem you are
+dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
+http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
+to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
+<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in
+suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error
+number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my
+suppression file.</p>
+
+<p>I suggested using the following command to fire up valgrind:</p>
+
+<pre><code>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes
+--suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
+</code></pre>
+
+<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
+<strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+
+<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/20/how-to-quote-long-command-in-perl-system-call/">How to Quote Long Command in Perl System()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-20T00:14:43-06:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must
+want to break it into multi-line but the newline characters really get in the way.  Here is a good
+way, IMHO,  to make the code look neat and clean:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1"># Annotate the target and landmark image</span>
+</span><span class='line'><span class="nb">system</span> <span class="n">single_line</span><span class="p">(</span> <span class="s">&quot;</span>
+</span><span class='line'><span class="s"> convert -background black -fill white label:&#39;Target Landmarks&#39; miff:- | composite -gravity north</span>
+</span><span class='line'><span class="s"> -geometry +0+3 - $target_with_lmk_filename $target_with_lmk_filename</span>
+</span><span class='line'><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">sub </span><span class="nf">single_line</span> <span class="p">{</span>
+</span><span class='line'> <span class="k">my</span> <span class="nv">@strings</span> <span class="o">=</span> <span class="nv">@_</span><span class="p">;</span>
+</span><span class='line'> <span class="k">foreach</span> <span class="p">(</span> <span class="nv">@strings</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'> <span class="sr">s/\n/ /g</span><span class="p">;</span>
+</span><span class='line'> <span class="sr">s/\r/ /g</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
+
+<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to
+re-align your code in Vim since your command is not messed with quotation marks.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -487,182 +616,6 @@ Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If yo
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/06/iterative-closest-pointsicp-demo/">Iterative Closest points(ICP) Demo</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-06T15:34:32-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
-
-<p><img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" alt="" /></p>
-
-<p>The Perl code generating the plot is listed below</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1">#!/usr/bin/perl</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">### Write running time  </span>
-</span><span class='line'><span class="nb">open</span> <span class="k">my</span> <span class="nv">$IN</span><span class="p">,</span> <span class="s">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s">&quot;benchmark.dat&quot;</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Data</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">@x</span><span class="p">;</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">@y</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="sr">&lt;$IN&gt;</span> <span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nb">chomp</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">my</span> <span class="p">(</span><span class="nv">$t1</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\s/</span><span class="p">;</span>
-</span><span class='line'>    <span class="nb">push</span> <span class="nv">@x</span><span class="p">,</span> <span class="nv">$t1</span><span class="p">;</span>
-</span><span class='line'>    <span class="nb">push</span> <span class="nv">@y</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Create chart object and specify the properties of the chart</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">$chart</span> <span class="o">=</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
-</span><span class='line'>    <span class="n">output</span> <span class="o">=&gt;</span> <span class="s">&quot;out.eps&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">title</span>  <span class="o">=&gt;</span> <span class="s">&quot;Iterative Closest Points with Stanford Bunny&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">xlabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Number of threads&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">ylabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Time(s)&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">boxwidth</span> <span class="o">=&gt;</span> <span class="s">&quot;0.8 relative&quot;</span>
-</span><span class='line'><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Create dataset object and specify the properties of the dataset</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">$dataSet</span> <span class="o">=</span> <span class="nn">Chart::Gnuplot::</span><span class="n">DataSet</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
-</span><span class='line'>    <span class="n">xdata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@x</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">ydata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@y</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">title</span> <span class="o">=&gt;</span> <span class="s">&quot;Time&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="c1">#style =&gt; &quot;linespoints&quot;,</span>
-</span><span class='line'>    <span class="n">style</span> <span class="o">=&gt;</span> <span class="s">&quot;boxes&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="n">fill</span> <span class="o">=&gt;</span> <span class="s">&quot;0.75&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Plot the data set on the chart</span>
-</span><span class='line'><span class="nv">$chart</span><span class="o">-&gt;</span><span class="n">plot2d</span><span class="p">(</span><span class="nv">$dataSet</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">##################################################</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Plot many data sets on a single chart</span>
-</span><span class='line'><span class="c1">#$chart-&gt;plot2d($dataSet1, $dataSet2, ...); </span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/05/using-openmp-with-cmake/">Using OpenMP With CMake</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-05T20:51:14-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
-
-<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -680,6 +633,14 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
       </li>
     
@@ -691,19 +652,11 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
         <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>

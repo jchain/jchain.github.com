@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-02-03T11:31:10-06:00</updated>
+  <updated>2013-02-08T20:12:56-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,80 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Quickcd]]></title>
+    <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
+    <updated>2013-02-08T14:03:24-06:00</updated>
+    <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
+    <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
+
+<h1>quickcd</h1>
+
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change
+directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
+navigate in many subdirectories with tricky names.</p>
+
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code.
+The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose
+the one you like most.</p>
+
+<h1>Overview</h1>
+
+<p>quickcd enables you to use cd with partial directory names. For example:</p>
+
+<pre><code>$ cd box
+  =&gt; Dropbox
+$ cd ok
+  =&gt; Ebook
+</code></pre>
+
+<p>If there is more than one directory containing your cd path, you just need to type one more letter
+to take you to the target folder.</p>
+
+<p><code>
+~ $ cd D
+Make a choice:
+[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
+a
+Desktop $
+</code></p>
+
+<h1>Why rewrite?</h1>
+
+<p>The differences:</p>
+
+<ol>
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can
+result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
+the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
+are not always aligned.</p></li>
+<li><p>quickcd doesn't support multi-level directory nagivation. Its main focus is current directory.
+fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
+</ol>
+
+
+<h1>Setup</h1>
+
+<p>This following instruction are shamelessly copied from fuzzycd's README.</p>
+
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
+This assumes you put fuzzycd in the ~/scripts/ directory.</p>
+
+<pre><code>export PATH=~/scripts/fuzzycd/:$PATH
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
+</code></pre>
+
+<p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
+
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the "cd" function (e.g.
+<a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
+<code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
+other bash modification plugins, but it should be loaded last.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Perl one liner: replace text in mulple files]]></title>
@@ -160,15 +234,6 @@ install modules for difference versions of Perl in separate locations. For examp
 Perl-5.12 won't conflict with Perl-5.14. This is just what I want.</p>
 
 <p>Happy perlbrewing...</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Yet another rename]]></title>
-    <link href="http://jchain.github.com/blog/2011/12/17/yet-another-rename/"/>
-    <updated>2011-12-17T12:41:51-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/12/17/yet-another-rename</id>
-    <content type="html"><![CDATA[<p>I had many randomly named files and directories under my working project. Today I wanted to organize them in a more consistent naming convention. So I needed a file rename tool. Even though Linux base installation has a command 'rename', I soon found this Perl app <a href="http://search.cpan.org/~pederst/rename-1.8/bin/rename.PL">rename</a> is better thanks to Perl's powerful regex. Plus, its dry-run option is also a very good idea.</p>
 ]]></content>
   </entry>
   

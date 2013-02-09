@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Even though I have been very busy these days I think I should try to get at least one post published
-per month. My recent job involved a lot of data &hellip;">
+  <meta name="description" content="I just published the code of quickcd on github. Check it out at https://github.com/jchain/quickcd quickcd A rewrite of fuzzycd in Perl. You only need &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +82,308 @@ per month. My recent job involved a lot of data &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-08T14:03:24-06:00" pubdate data-updated="true">Feb 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
+
+<h1>quickcd</h1>
+
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change
+directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
+navigate in many subdirectories with tricky names.</p>
+
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code.
+The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose
+the one you like most.</p>
+
+<h1>Overview</h1>
+
+<p>quickcd enables you to use cd with partial directory names. For example:</p>
+
+<pre><code>$ cd box
+  =&gt; Dropbox
+$ cd ok
+  =&gt; Ebook
+</code></pre>
+
+<p>If there is more than one directory containing your cd path, you just need to type one more letter
+to take you to the target folder.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~ $ cd D
+</span><span class='line'>Make a choice:
+</span><span class='line'>[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
+</span><span class='line'>a
+</span><span class='line'>Desktop $</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Why rewrite?</h1>
+
+<p>The differences:</p>
+
+<ol>
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can
+result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
+the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
+are not always aligned.</p></li>
+<li><p>quickcd doesn&#8217;t support multi-level directory nagivation. Its main focus is current directory.
+fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
+</ol>
+
+
+<h1>Setup</h1>
+
+<p>This following instruction are shamelessly copied from fuzzycd&#8217;s README.</p>
+
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
+This assumes you put fuzzycd in the ~/scripts/ directory.</p>
+
+<pre><code>export PATH=~/scripts/fuzzycd/:$PATH
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
+</code></pre>
+
+<p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
+
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the &#8220;cd&#8221; function (e.g.
+<a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
+<code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
+other bash modification plugins, but it should be loaded last.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh From Source and Install to Home Directory</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T15:39:00-06:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&#8217;t ship the Autoconf script
+and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would
+like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into
+HOME directory before so I have to specify the search path for compiler and linker. Here is what
+I got so far:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+</pre></td><td class='code'><pre><code class='makefile'><span class='line'><span class="nv">PACKAGE</span> <span class="o">?=</span> feh
+</span><span class='line'>VERSION ?<span class="o">=</span> 2.8
+</span><span class='line'>
+</span><span class='line'><span class="c"># Prefix for all installed files</span>
+</span><span class='line'><span class="c"># PREFIX ?= /usr/local</span>
+</span><span class='line'>PREFIX ?<span class="o">=</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Directories for manuals, executables, docs, data, etc.</span>
+</span><span class='line'><span class="nv">main_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">DESTDIR</span><span class="k">}${</span><span class="nv">PREFIX</span><span class="k">}</span>
+</span><span class='line'><span class="nv">man_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/man
+</span><span class='line'><span class="nv">bin_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/bin
+</span><span class='line'><span class="nv">doc_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh
+</span><span class='line'><span class="nv">image_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/images
+</span><span class='line'><span class="nv">font_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/fonts
+</span><span class='line'><span class="nv">example_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh/examples
+</span><span class='line'>
+</span><span class='line'><span class="c"># default CFLAGS</span>
+</span><span class='line'>CFLAGS ?<span class="o">=</span> -g -O2
+</span><span class='line'>CFLAGS +<span class="o">=</span> -Wall -Wextra -pedantic
+</span><span class='line'>
+</span><span class='line'>curl ?<span class="o">=</span> 1
+</span><span class='line'>debug ?<span class="o">=</span> 0
+</span><span class='line'><span class="nb">help</span> ?<span class="o">=</span> 0
+</span><span class='line'>xinerama ?<span class="o">=</span> 1
+</span><span class='line'>exif ?<span class="o">=</span> 0
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${curl},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBCURL
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lcurl
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${debug},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DDEBUG -O0
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span> . This is a debug build.
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span>
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${help},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DINCLUDE_HELP
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${stat64},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -D_FILE_OFFSET_BITS<span class="o">=</span>64
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${xinerama},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBXINERAMA
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lXinerama
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${exif},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBEXIF
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lexif
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Uncomment this to use dmalloc</span>
+</span><span class='line'><span class="c">#CFLAGS += -DWITH_DMALLOC</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span>
+</span><span class='line'>CFLAGS +<span class="o">=</span> -DPREFIX<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span><span class="se">\&quot;</span> <span class="se">\</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span> -I<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/include
+</span><span class='line'>
+</span><span class='line'><span class="c"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
+</span><span class='line'>LDLIBS +<span class="o">=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -646,189 +947,6 @@ the negligible (&lt; 1sec).</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/">Perl Script: Retrieve Current Weather Condition and Forecast</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-25T21:33:42-05:00" pubdate data-updated="true">Sep 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&#8217;m a little tired of checking out the weather condition via the web browser. In many cases I just
-want to see a short report in my terminal. After
-reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
-which shows how to use Mojolicious to retrieve the current condition and
-<a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>,
-which shows how to retried the forecast, I finally wrote something like this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1">#!/usr/bin/env perl</span>
-</span><span class='line'><span class="c1">#===============================================================================</span>
-</span><span class='line'><span class="c1">#</span>
-</span><span class='line'><span class="c1"># FILE: weather.pl</span>
-</span><span class='line'><span class="c1">#</span>
-</span><span class='line'><span class="c1"># USAGE: ./weather.pl</span>
-</span><span class='line'><span class="c1">#</span>
-</span><span class='line'><span class="c1"># VERSION: 1.0</span>
-</span><span class='line'><span class="c1"># CREATED: 09/13/2012 10:31:39 PM</span>
-</span><span class='line'><span class="c1"># REVISION: ---</span>
-</span><span class='line'><span class="c1">#===============================================================================</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="n">feature</span> <span class="s">&#39;say&#39;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="n">Mojolicious</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">my</span> <span class="nv">$ua</span> <span class="o">=</span> <span class="nn">Mojo::</span><span class="n">UserAgent</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">;</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">$dom</span> <span class="o">=</span> <span class="nv">$ua</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://w1.weather.gov/xml/current_obs/KCID.xml&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">res</span><span class="o">-&gt;</span><span class="n">dom</span><span class="p">;</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">$temp</span> <span class="o">=</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;temperature_string&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'><span class="k">my</span> <span class="nv">$weather</span> <span class="o">=</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;weather&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'><span class="n">say</span> <span class="s">&quot;KCID &quot;</span><span class="p">,</span> <span class="nv">$temp</span><span class="p">,</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="nv">$weather</span><span class="p">,</span> <span class="s">&quot;\n&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$dom</span> <span class="o">=</span>
-</span><span class='line'><span class="nv">$ua</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">res</span><span class="o">-&gt;</span><span class="n">dom</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="k">my</span> <span class="nv">$e</span> <span class="p">(</span><span class="nv">$dom</span><span class="o">-&gt;</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;simpleforecast forecastday&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">each</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$day</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">date</span><span class="o">-&gt;</span><span class="n">day</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$month</span> <span class="o">=</span> <span class="nb">substr</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">date</span><span class="o">-&gt;</span><span class="n">monthname</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$weekday</span> <span class="o">=</span> <span class="nb">substr</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">date</span><span class="o">-&gt;</span><span class="n">weekday</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$condition</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">conditions</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$high</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">high</span><span class="o">-&gt;</span><span class="n">fahrenheit</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'> <span class="k">my</span> <span class="nv">$low</span> <span class="o">=</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="n">low</span><span class="o">-&gt;</span><span class="n">fahrenheit</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">printf</span> <span class="s">&quot;%s %s %s, Low: %d, High: %d, %s\n&quot;</span><span class="p">,</span> <span class="nv">$weekday</span><span class="p">,</span> <span class="nv">$month</span><span class="p">,</span> <span class="nv">$day</span><span class="p">,</span> <span class="nv">$low</span><span class="p">,</span> <span class="nv">$high</span><span class="p">,</span> <span class="nv">$condition</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is how it runs from the terminal:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="o">[</span>zandyware@zandyware<span class="o">]</span> bin <span class="nv">$ </span>./weather.pl
-</span><span class='line'>KCID 63.0 F <span class="o">(</span>17.2 C<span class="o">)</span> Fair
-</span><span class='line'>
-</span><span class='line'>Tue Sep 25, Low: 46, High: 81, Clear
-</span><span class='line'>Wed Sep 26, Low: 39, High: 70, Clear
-</span><span class='line'>Thu Sep 27, Low: 45, High: 70, Clear
-</span><span class='line'>Fri Sep 28, Low: 46, High: 70, Partly Cloudy
-</span><span class='line'>Sat Sep 29, Low: 45, High: 72, Clear
-</span><span class='line'>Sun Sep 30, Low: 41, High: 73, Clear
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/14/use-perl-like-sed/">Use Perl Like Sed</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-14T11:29:58-05:00" pubdate data-updated="true">Sep 14<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
-in-line string substitution to create new shell commands. I vaguely had an idea that I should use
-&#8216;sed&#8217; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
-one-liner. It turned out that this is the correct way to do so</p>
-
-<pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -844,6 +962,14 @@ one-liner. It turned out that this is the correct way to do so</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
       </li>
     
@@ -855,19 +981,11 @@ one-liner. It turned out that this is the correct way to do so</p>
         <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>

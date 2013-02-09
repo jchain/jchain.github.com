@@ -9,8 +9,28 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily
-I found the solution in a great article as follows &hellip;">
+  <meta name="description" content="http://www.youtube.com/watch?v=igb8mAJ6F5I The Perl code generating the plot is listed below 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +103,182 @@ I found the solution in a great article as follows &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/06/iterative-closest-pointsicp-demo/">Iterative Closest points(ICP) Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-06T15:34:32-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
+
+<p><img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" alt="" /></p>
+
+<p>The Perl code generating the plot is listed below</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1">#!/usr/bin/perl</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">### Write running time  </span>
+</span><span class='line'><span class="nb">open</span> <span class="k">my</span> <span class="nv">$IN</span><span class="p">,</span> <span class="s">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s">&quot;benchmark.dat&quot;</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Data</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">@x</span><span class="p">;</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">@y</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="sr">&lt;$IN&gt;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nb">chomp</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">my</span> <span class="p">(</span><span class="nv">$t1</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\s/</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">push</span> <span class="nv">@x</span><span class="p">,</span> <span class="nv">$t1</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">push</span> <span class="nv">@y</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create chart object and specify the properties of the chart</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">$chart</span> <span class="o">=</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
+</span><span class='line'>    <span class="n">output</span> <span class="o">=&gt;</span> <span class="s">&quot;out.eps&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">title</span>  <span class="o">=&gt;</span> <span class="s">&quot;Iterative Closest Points with Stanford Bunny&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">xlabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Number of threads&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">ylabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Time(s)&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">boxwidth</span> <span class="o">=&gt;</span> <span class="s">&quot;0.8 relative&quot;</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create dataset object and specify the properties of the dataset</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">$dataSet</span> <span class="o">=</span> <span class="nn">Chart::Gnuplot::</span><span class="n">DataSet</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
+</span><span class='line'>    <span class="n">xdata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@x</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">ydata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@y</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">title</span> <span class="o">=&gt;</span> <span class="s">&quot;Time&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">#style =&gt; &quot;linespoints&quot;,</span>
+</span><span class='line'>    <span class="n">style</span> <span class="o">=&gt;</span> <span class="s">&quot;boxes&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">fill</span> <span class="o">=&gt;</span> <span class="s">&quot;0.75&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Plot the data set on the chart</span>
+</span><span class='line'><span class="nv">$chart</span><span class="o">-&gt;</span><span class="n">plot2d</span><span class="p">(</span><span class="nv">$dataSet</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">##################################################</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Plot many data sets on a single chart</span>
+</span><span class='line'><span class="c1">#$chart-&gt;plot2d($dataSet1, $dataSet2, ...); </span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/05/using-openmp-with-cmake/">Using OpenMP With CMake</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-05T20:51:14-06:00" pubdate data-updated="true">Dec 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
+
+<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -428,109 +624,9 @@ see<strong>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/09/04/delphi2006-editor-shortcuts/">Delphi2006 Editor Shortcuts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-09-04T23:52:24-05:00" pubdate data-updated="true">Sep 4<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>CTRL+J</strong> : Invoke code templates</p>
-
-<p><strong>CTRL+T</strong> : Delete current word</p>
-
-<p><strong>CTRL+E</strong> : Incremental search</p>
-
-<p><strong>CTRL+Y</strong> : Delete current line</p>
-
-<p><strong>CTRL+SHIFT+G</strong> : Insert a new GUID at the cursor position</p>
-
-<p><strong>CTRL+SHIFT+I</strong> : Indent the current selected block</p>
-
-<p><strong>CTRL+SHIFT+U</strong> : outdent the current selected block</p>
-
-<p><strong>CTRL+SHIFT+Y</strong> : delete to the end of line</p>
-
-<p><strong>CTRL+SHIFT+J</strong> : Invoke syncedit</p>
-
-<p><strong>ALT+[</strong> : match pair forward</p>
-
-<p><strong>ALT+]</strong> : match pair backward</p>
-
-<p><strong>ALT+RightArrow</strong> : browse forward (hotlink history)</p>
-
-<p><strong>ALT+LeftArrow</strong> : browse backward (hotlink history)</p>
-
-<p><strong>ALT+UpArrow</strong> : browse to symbol under editor cursor (invoke a hotlink and add it to the hotlink history)</p>
-
-<p><strong>F4</strong> : Run program to current cursor position</p>
-
-<p><strong>F5</strong> : Toggle breakpoint</p>
-
-<p><strong>F7</strong> : Debugger step into</p>
-
-<p><strong>F8</strong> : Debugger step over</p>
-
-<p><strong>F9</strong> : Run program under debugger</p>
-
-<p><strong>CTRL+F12</strong> : View units</p>
-
-<p><strong>ALT+G</strong> : Goto line number in editor</p>
-
-<p><strong>CTRL+SHIFT+R</strong> : Start/Stop recording editor macro</p>
-
-<p><strong>CTRL+SHIFT+P</strong> : Play editor macro</p>
-
-<p><strong>CTRL+SPACE</strong> : Invoke code completion</p>
-
-<p><strong>CTRL+SHIFT+SPACE</strong> : Invoke code parameter hints</p>
-
-<p><strong>CTRL+ENTER</strong> : Open file at cursor</p>
-
-<p><strong>CTRL+SHIFT+C</strong> : Invoke class completion for the class that currently contains the cursor</p>
-
-<p><strong>CTRL+SHIFT+UpArrow</strong> : Navigate to method implementation/declaration</p>
-
-<p><strong>CTRL+SHIFT+DownArrow</strong> : Navigate to method implementation/declaration</p>
-
-<p><strong>CTRL+ALT+UpArrow</strong> : Navigate to previous method implementation in lexical order</p>
-
-<p><strong>CTRL+ALT+DownArrow</strong> : Navigate to next method implementation in lexical order</p>
-
-<p><strong>CTRL+ALT+Home</strong> : Navigate to the lexically first method implementation in this source unit</p>
-
-<p><strong>CTRL+ALT+End</strong> : Navigate to the lexically last method implementation in this source unit</p>
-
-<p><strong>CTRL+/</strong> : Toggle comment per line or selected block</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -545,6 +641,14 @@ see<strong>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
       </li>
     
@@ -556,19 +660,11 @@ see<strong>
         <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/">Perl one liner: replace text in mulple files</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/16/nomachine-and-gnome-redraw-problem/">Nomachine and GNOME Redraw Problem</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (35)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (10)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>
