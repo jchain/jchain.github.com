@@ -10,40 +10,24 @@ categories:
 ---
 
 I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
-plugin `[neocomplcache][1]`, once you type `.` after an object, the memeber methods will pop up. 
+plugin [`neocomplcache`][1], once you type `.` after an object, the memeber methods will pop up. 
 
 I want this feature for Perl when I type `->`. Actually, until today haven't I realized that
-I already own at my finger tip. The answer is `neocomplcache` and `[perlomni][2]`.
+I already own at my finger tip. The answer is `neocomplcache` and [`perlomni`][2].
 
+The installation of `neocomplcache` and `perlomni` is easy. If you use the settings from the help of
+`neocomplcache`, the key part to triger `neocomplcache` omni-complete by `->` is to change the
+setting in `.vimrc` from  
 
-quickcd
-=======
+    let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-A rewrite of [fuzzycd][1] in Perl. You only need to type partial directory names to change
-directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
-navigate in many subdirectories with tricky names.
+to
 
-This script is inspired by [fuzzycd][1]. Big thanks to the author for sharing his/her great code.
-The way of intercepting the system `cd` is genius. I recommend you to try both scripts and choose
-the one you like most.
+    let g:neocomplcache_omni_patterns.perl = '\h\w*->\|\h\w*::'
 
-quickcd enables you to use cd with partial directory names. For example:
+After this you should see someting like this:
 
-    $ cd box
-      => Dropbox
-    $ cd ok
-      => Ebook
-
-If there is more than one directory containing your cd path, you just need to type one more letter
-to take you to the target folder.
-
-```
-~ $ cd D
-Make a choice:
-[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
-a
-Desktop $
-```
+![alt](https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png)
 
 [1]: https://github.com/Shougo/neocomplcache.vim
 [2]: https://github.com/c9s/perlomni.vim
