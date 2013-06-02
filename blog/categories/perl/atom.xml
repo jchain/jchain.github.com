@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-01T21:53:46-05:00</updated>
+  <updated>2013-06-02T00:07:35-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -33,10 +33,15 @@ setting in <code>.vimrc</code> from</p>
 
 <p>to</p>
 
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*::'
+<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*'
 </code></pre>
 
-<p>After this you should see someting like this:</p>
+<p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
+
+<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
+as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won't
+triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
+<code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
 
 <p><img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /></p>
 ]]></content>
