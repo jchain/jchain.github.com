@@ -23,9 +23,14 @@ setting in `.vimrc` from
 
 to
 
-    let g:neocomplcache_omni_patterns.perl = '\h\w*->\|\h\w*::'
+    let g:neocomplcache_omni_patterns.perl = '\h\w*->\|\h\w*->\h\w*\|\h\w*::\|\h\w*::\h\w*'
 
-After this you should see someting like this:
+Make sure `omnifunc` is `PerlComplete`.
+
+A little explanation: `\h\w*->` will triger the popup window, `\h\w*->\h\w*` will complete
+as-you-type. The similar situation goes to `::` operator. But do remember that sometimes `::` won't
+triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
+`C-X C-O` will always pop up the window.  After this you should see someting like this:
 
 ![alt](https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png)
 
