@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-02-08T20:12:56-06:00</updated>
+  <updated>2013-06-01T21:53:46-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
+    <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
+    <updated>2013-06-01T15:37:24-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
+    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
+plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
+
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven't I realized that
+I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
+
+<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
+<code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the
+setting in <code>.vimrc</code> from</p>
+
+<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\h\w*\|\h\w*::'
+</code></pre>
+
+<p>to</p>
+
+<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*::'
+</code></pre>
+
+<p>After this you should see someting like this:</p>
+
+<p><img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Introducing Quickcd]]></title>
@@ -349,17 +378,6 @@ eyes.</p>
 <pre><code>ub your_word
 fd your_word
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6]]></title>
-    <link href="http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
-    <updated>2012-09-27T23:57:17-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
-    <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
-unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to
-the negligible (&lt; 1sec).</p>
 ]]></content>
   </entry>
   

@@ -9,9 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="apt is one of the reasons that I like
-Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
-upgrade is &hellip;">
+  <meta name="description" content="I have heard about how great perlbrew is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +83,64 @@ upgrade is &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/05/perlbrew-and-opensuse/">Perlbrew and openSUSE</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-05T00:08:45-06:00" pubdate data-updated="true">Feb 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
+I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
+12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
+it is a good idea to have access to multiple Perl distributions and a good management among them.
+Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
+Perl-5.14.2 by the command</p>
+
+<pre><code>perlbrew install perl-5.14.2
+</code></pre>
+
+<p>But quickly it failed with the exactly the same error like
+<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
+ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
+
+<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
+</code></pre>
+
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
+system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will
+install modules for difference versions of Perl in separate locations. For example, modules for
+Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
+
+<p>Happy perlbrewing&#8230;</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -535,51 +592,6 @@ and type &#8216;1&#8217;, &#8216;p foo 1&#8217; shows the dereferenced value, or
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/11/09/midnight-commanders-new-user-data-directory/">Midnight Commander&#8217;s New User Data Directory</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-09T16:00:24-06:00" pubdate data-updated="true">Nov 9<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under
-$HOME/.local/share/mc and $HOME/.config/mc. However the previous version(4.7.x) is looking for
-$HOME/.mc. You can verify that by typing</p>
-
-<pre><code>mc -F
-</code></pre>
-
-<p>Personally I don&#8217;t like this change since I prefer to a single directory for the convenience of
-storage and backup of my config files. Your skin setting probably take no effect after upgrading to
-4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -597,6 +609,10 @@ storage and backup of my config files. Your skin setting probably take no effect
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
       </li>
     
@@ -612,15 +628,11 @@ storage and backup of my config files. Your skin setting probably take no effect
         <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (38)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>

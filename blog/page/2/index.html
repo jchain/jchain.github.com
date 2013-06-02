@@ -9,8 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I&#8217;m a little tired of checking out the weather condition via the web browser. In many cases I just
-want to see a short report in my terminal. &hellip;">
+  <meta name="description" content="Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
+unbearable, around 15 sec to start. I compiled the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,44 @@ want to see a short report in my terminal. &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/">MC (Midnight-Commander) 4.8.5 Is Slow, Try 4.8.6</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-27T23:57:17-05:00" pubdate data-updated="true">Sep 27<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally
+unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to
+the negligible (&lt; 1sec).</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -585,64 +623,6 @@ new GNOM 3 was ready for daily use.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/05/perlbrew-and-opensuse/">Perlbrew and openSUSE</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-05T00:08:45-06:00" pubdate data-updated="true">Feb 5<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
-I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
-12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
-it is a good idea to have access to multiple Perl distributions and a good management among them.
-Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
-Perl-5.14.2 by the command</p>
-
-<pre><code>perlbrew install perl-5.14.2
-</code></pre>
-
-<p>But quickly it failed with the exactly the same error like
-<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
-ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
-
-<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
-</code></pre>
-
-<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
-system-wide cpanm. I&#8217;ve found it a better way to install CPAN modules since by doing so cpanm will
-install modules for difference versions of Perl in separate locations. For example, modules for
-Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
-
-<p>Happy perlbrewing&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -660,6 +640,10 @@ Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
       </li>
     
@@ -675,15 +659,11 @@ Perl-5.12 won&#8217;t conflict with Perl-5.14. This is just what I want.</p>
         <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (38)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>

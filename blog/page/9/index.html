@@ -9,28 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="http://www.youtube.com/watch?v=igb8mAJ6F5I The Perl code generating the plot is listed below 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22 &hellip;">
+  <meta name="description" content="I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
+convert to Flash format locally you can use the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,6 +83,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/08/convert-ogv-to-flv-in-linux/">Convert Ogv to Flv in Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-08T16:26:07-06:00" pubdate data-updated="true">Dec 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
+convert to Flash format locally you can use the following command. Feel free to add it in your
+bashrc. If I recall correctly, this method can produce the best conversion in Linux platform.
+Correct me if I&#8217;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Convert ogv to flv.</span>
+</span><span class='line'><span class="c"># Usage: ogv2flv input.ogv -o output.flv</span>
+</span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
+</span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -558,72 +588,6 @@ I found the solution in a great article as follows:</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2006/12/06/notes-on-installation-of-turbo-c-explorer/">Notes on Installation of Turbo C++ Explorer</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2006-12-06T22:48:47-06:00" pubdate data-updated="true">Dec 6<span>th</span>, 2006</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When starting Turbo C++ Explorer, you may get an error message stating:</p>
-
-<ol>
-<li><p>acces violation at adress 51F515BE rtl100.bpl&#8230;.</p></li>
-<li><p>error with coreide100.bpl</p></li>
-<li><p>designeide100.bpl</p></li>
-</ol>
-
-
-<p>The workaround is running &#8220;regasm&#8221; from .NET v1.1 to register the missing  .NET assemblies used by
-Turbo C++ Explorer IDE. Go to the C:\Program Files\Borland\BDS\4.0\Bin directory  and run</p>
-
-<pre><code>regasm Borland.Studio.Toolsets.dll
-</code></pre>
-
-<p>Now you should start the IDE successfully. If you still see an error message box, saying that a
-ClassId is missing or similar errors, you can solve this by registering all possible assemblies
-manually.</p>
-
-<p>To do this, navigate to the BDS \Bin directory in the command line and type &#8220;dir
-Borland.Studio.*.tlb&#8221; to list all relevant .tlb files. Then, run &#8220;regasm&#8221; on the corresponding .dll
-file for each.(see
-<a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
-
-<p>OK, then you start a new project from the menu File->New&#8230;, if you are unlucky to get an exception
-Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
-
-<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file
-into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg,
-see<strong>
-</strong><a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/10/">&larr; Older</a>
@@ -641,6 +605,10 @@ see<strong>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/08/intro-quickcd/">Introducing Quickcd</a>
       </li>
     
@@ -656,15 +624,11 @@ see<strong>
         <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (37)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (11)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (38)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>
