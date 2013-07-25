@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:17:53-05:00</updated>
+  <updated>2013-07-25T14:51:28-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -51,11 +51,14 @@ enough. I&rsquo;m so happy to settle down with Cinnamon.</p>
 
 <p>Some other issues with GNOME 3.8 are</p>
 
-<pre><code>1. The transparency of the background of GNOME Terminal can't be set. Not a very big deal. But
-some users complained about it. 
-2. The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
-kept.
-</code></pre>
+<ol>
+<li><p>The transparency of the background of GNOME Terminal can&rsquo;t be set. Not a very big deal. But
+some users complained about it.</p></li>
+<li><p>The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
+kept.</p></li>
+<li><p>The theme is broken. Many guys complain about <a href="http://igurublog.wordpress.com/2012/11/05/gnome-et-al-rotting-in-threes/">that</a></p></li>
+</ol>
+
 ]]></content>
   </entry>
   
