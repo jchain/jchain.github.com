@@ -19,13 +19,14 @@ I noticed there was an annoying slowdown when I &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/">
+  <link rel="canonical" href="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -57,14 +58,6 @@ I noticed there was an annoying slowdown when I &hellip;">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
-<!--    -->
-<!-- <form action="http://google.com/search" method="get"> -->
-<!--   <fieldset role="search"> -->
-<!--     <input type="hidden" name="sites" value="zandyware.com" /> -->
-<!--     <input class="search" type="text" name="q" results="0" placeholder="Search&hellip;"/> -->
-<!--   </fieldset> -->
-<!-- </form> -->
-<!--    -->
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
@@ -132,13 +125,13 @@ highlighting easily ate a good amount of CPU cycles. So I turned off this plugin
 <pre><code>:NoMatchParen
 </code></pre>
 
-<p>I didn&#8217;t completely disable this plugin since I found that it was useful when editing long
-equations. So I didn&#8217;t try this in <code>.vimrc</code></p>
+<p>I didn&rsquo;t completely disable this plugin since I found that it was useful when editing long
+equations. So I didn&rsquo;t try this in <code>.vimrc</code></p>
 
 <pre><code>let g:loaded_matchparen=1
 </code></pre>
 
-<p>I found some other tweaks by using Vim&#8217;s <code>:profile</code> command and the verbose options <code>vim -V
+<p>I found some other tweaks by using Vim&rsquo;s <code>:profile</code> command and the verbose options <code>vim -V
 foo.bar</code>. They are good ways to try to analyze the slowdown.</p>
 
 <p>The lesson I learned:</p>
@@ -186,7 +179,7 @@ unnecessary plugins.</li>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/" data-via="" data-counturl="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/" data-via="" data-counturl="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/" >Tweet</a>
   
   
   
@@ -219,6 +212,10 @@ unnecessary plugins.</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
       </li>
     
@@ -227,22 +224,18 @@ unnecessary plugins.</li>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh From Source and Install to Home Directory</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
+        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave Is in User-defined Directory</a>
       </li>
     
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (38)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (39)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>
@@ -254,7 +247,7 @@ unnecessary plugins.</li>
   <a href="https://github.com/jchain">@jchain</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -320,7 +313,7 @@ unnecessary plugins.</li>
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

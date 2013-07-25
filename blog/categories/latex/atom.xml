@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Latex | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/latex/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -37,7 +37,7 @@
     <updated>2011-12-20T15:07:34-06:00</updated>
     <id>http://jchain.github.com/blog/2011/12/20/latex-cite-tolerate-white-spaces</id>
     <content type="html"><![CDATA[<p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
-use package 'cite'</p>
+use package &lsquo;cite&rsquo;</p>
 
 <pre><code>\usepackage{cite}
 </code></pre>

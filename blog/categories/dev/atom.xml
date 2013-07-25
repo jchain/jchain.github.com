@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/dev/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -32,8 +32,8 @@ Step 2: Set watchpoint
     <updated>2011-01-11T11:14:52-06:00</updated>
     <id>http://jchain.github.com/blog/2011/01/11/two-source-code-line-counters-you-should-have</id>
     <content type="html"><![CDATA[<ol>
-<li><p><a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
-<li><p><a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
+<li><p> <a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
+<li><p> <a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
 </ol>
 
 

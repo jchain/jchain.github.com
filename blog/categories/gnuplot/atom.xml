@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gnuplot | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gnuplot/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -19,12 +19,12 @@
     <updated>2011-11-08T22:23:38-06:00</updated>
     <id>http://jchain.github.com/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file</id>
     <content type="html"><![CDATA[<p>It is very likely that the data file you are going to visualize has a one line header at the first
-line. Use 'every' keyword to skip the first line like this.</p>
+line. Use &lsquo;every&rsquo; keyword to skip the first line like this.</p>
 
 <pre><code>plot "foo.dat" every ::1 using 1:2 with lines
 </code></pre>
 
-<p>Similarly you can skip 2 or 3 or whatever lines using 'every'</p>
+<p>Similarly you can skip 2 or 3 or whatever lines using &lsquo;every&rsquo;</p>
 ]]></content>
   </entry>
   

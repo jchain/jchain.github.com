@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: C/C++ | A Coding Monkey's Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/c-c-/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/blog/categories/c-slash-c-plus-plus/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,11 +18,11 @@
     <link href="http://jchain.github.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger/"/>
     <updated>2011-11-14T16:21:23-06:00</updated>
     <id>http://jchain.github.com/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger</id>
-    <content type="html"><![CDATA[<p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow 'Up' key entered [[A char and 'Down' keys gave [[B char. What I really wanted was the 'history-previous' and 'history-next' in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain 'mismatch' between different 'TERM's or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
+    <content type="html"><![CDATA[<p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow &lsquo;Up&rsquo; key entered [[A char and &lsquo;Down&rsquo; keys gave [[B char. What I really wanted was the &lsquo;history-previous&rsquo; and &lsquo;history-next&rsquo; in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain &lsquo;mismatch&rsquo; between different &lsquo;TERM&rsquo;s or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
 
-<p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran 'tclsh' in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run 'rlwrap tclsh' and 'rlwrap tv8cli' and the arrow keys worked like a charm.</p>
+<p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran &lsquo;tclsh&rsquo; in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run &lsquo;rlwrap tclsh&rsquo; and &lsquo;rlwrap tv8cli&rsquo; and the arrow keys worked like a charm.</p>
 
-<p>I further aliased 'tv8cli' as 'rlwrap tv8cli'. But I still couldn't make it work in Totalview's GUI xterm CLI. Is there a way to do that?</p>
+<p>I further aliased &lsquo;tv8cli&rsquo; as &lsquo;rlwrap tv8cli&rsquo;. But I still couldn&rsquo;t make it work in Totalview&rsquo;s GUI xterm CLI. Is there a way to do that?</p>
 ]]></content>
   </entry>
   
@@ -45,16 +45,16 @@
 ./image[0x4ab21f]
 ./image[0x4aaeb6]</p></blockquote>
 
-<p>What is "<em>malloc(): smallbin double linked list corrupted</em>" error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having 'new' operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
+<p>What is &ldquo;<em>malloc(): smallbin double linked list corrupted</em>&rdquo; error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having &lsquo;new&rsquo; operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
 
 <p>I guessed most bug reporters were just common users who were not familiar with valgrind. Anyway, the search results suggested me run valgrind to get more information about the memory violation. Luckly, I played with it several month ago and made a not-bad <a href="http://zandyware.wordpress.com/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">suppression file</a> customized with wxgtk. Again I ran valgrind with the command like this:</p>
 
-<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes --suppressions=./wx.supp --log-file=valgrind.log ./image</p>
+<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind &mdash;leak-check=yes &mdash;suppressions=./wx.supp &mdash;log-file=valgrind.log ./image</p>
 
 <p>Valgrind immediately tracked down where the real problem was. The log looked like this</p>
 
 <blockquote><p>==17645== Memcheck, a memory error detector
-==17645== Copyright (C) 2002-2010, and GNU GPL'd, by Julian Seward et al.
+==17645== Copyright &copy; 2002-2010, and GNU GPL&rsquo;d, by Julian Seward et al.
 ==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
 ==17645== Command: ./image
 ==17645== Parent PID: 28951
@@ -100,15 +100,15 @@
 
 <blockquote><p>-L/usr/lib64 blah blah blah -L/home/foo/gtk3/libs blah blah blah -L/usr/lib64</p></blockquote>
 
-<p>Apparently, one of two options -L/usr/lib64 took higher priority in the library search order so that my custom glib-2.0.so was not found. But which one was the culprit? I did a little experiment and it turned out that the first masked my custom GTK+3 lib path. So the conclusion is if you have several -L<dir> options the library search order will be 'first-come-first-search'.</p>
+<p>Apparently, one of two options -L/usr/lib64 took higher priority in the library search order so that my custom glib-2.0.so was not found. But which one was the culprit? I did a little experiment and it turned out that the first masked my custom GTK+3 lib path. So the conclusion is if you have several -L<dir> options the library search order will be &lsquo;first-come-first-search&rsquo;.</p>
 
 <p>The next question is how to solve it. In the makefile, linker flags were specified by something like this:</p>
 
 <blockquote><p>$(CXX) blah blah blah $(LDFLAGS) $(EXTRALIBS_FOR_GUI) $(LIBS)</p></blockquote>
 
-<p>In my case, the default setting for $(LDFLAGS) is '-L/usr/lib64', $(EXTRALIBS_FOR_GUI)='-L/home/foo/gtk3/libs' and $(LIBS)='-L/usr/lib64'. Since the makefile was generated by configure which is effected by the environmental variables such as LDFLAGS, doing the following solved my problem:</p>
+<p>In my case, the default setting for $(LDFLAGS) is &lsquo;-L/usr/lib64&rsquo;, $(EXTRALIBS_FOR_GUI)=&lsquo;-L/home/foo/gtk3/libs&rsquo; and $(LIBS)=&lsquo;-L/usr/lib64&rsquo;. Since the makefile was generated by configure which is effected by the environmental variables such as LDFLAGS, doing the following solved my problem:</p>
 
-<blockquote><p>export LDFLAGS='-L/home/foo/gtk3/libs'</p></blockquote>
+<blockquote><p>export LDFLAGS=&lsquo;-L/home/foo/gtk3/libs&rsquo;</p></blockquote>
 
 <p>re-run configure</p>
 
@@ -123,9 +123,9 @@
     <id>http://jchain.github.com/blog/2011/06/28/nasty-bug-lurked-in-the-implicite-function</id>
     <content type="html"><![CDATA[<p>I fixed a bug in C code today and it was so nasty that I think it is worth a blog post so that I can keep that in mind.</p>
 
-<p>I called a function which allocated a chunk of memory with malloc() and returned a pointer pointing to that memory. The wired thing is the returned address will change so that the caller get an invalid address(out of the bound of memory). More precisely speaking, the most significant bit changes from 0x7fff.... to 0xffff.... I really had no clue about why it would go like that. I even tried to disassemble the C code to check what was wrong. It turned out that the return address in the callee was correct but after returning the address to the caller, the value changed. I wrote another toy program to verify everything and finally I nailed down the reason. The callee function is defined in another C file and it looks like an implicit function to the caller. Somehow, this implicit function changed the address during the call. The compilation was fine even though GCC threw a warning about it. I ignored it at the first place but eventually this warning bit me. After adding necessary definitions in the header files. My program worked like a charm.</p>
+<p>I called a function which allocated a chunk of memory with malloc() and returned a pointer pointing to that memory. The wired thing is the returned address will change so that the caller get an invalid address(out of the bound of memory). More precisely speaking, the most significant bit changes from 0x7fff&hellip;. to 0xffff&hellip;. I really had no clue about why it would go like that. I even tried to disassemble the C code to check what was wrong. It turned out that the return address in the callee was correct but after returning the address to the caller, the value changed. I wrote another toy program to verify everything and finally I nailed down the reason. The callee function is defined in another C file and it looks like an implicit function to the caller. Somehow, this implicit function changed the address during the call. The compilation was fine even though GCC threw a warning about it. I ignored it at the first place but eventually this warning bit me. After adding necessary definitions in the header files. My program worked like a charm.</p>
 
-<p>The lesson I learned: don't ignore the warning messages of compiler.</p>
+<p>The lesson I learned: don&rsquo;t ignore the warning messages of compiler.</p>
 ]]></content>
   </entry>
   
@@ -134,7 +134,7 @@
     <link href="http://jchain.github.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview/"/>
     <updated>2011-06-25T20:26:00-05:00</updated>
     <id>http://jchain.github.com/blog/2011/06/25/wxgtk-with-gtk3-0-preview</id>
-    <content type="html"><![CDATA[<p>After about one month porting work on wxWidgets with GTK+3.0, we finally made the wx-gtk+3.0 build possible. The wx/samples/minimal is working as shown below even though the status bar doesn't show up. For preview purpose of course.
+    <content type="html"><![CDATA[<p>After about one month porting work on wxWidgets with GTK+3.0, we finally made the wx-gtk+3.0 build possible. The wx/samples/minimal is working as shown below even though the status bar doesn&rsquo;t show up. For preview purpose of course.
 <a href="http://zandyware.files.wordpress.com/2011/06/wxgtk3_minimal.png"><img src="http://zandyware.files.wordpress.com/2011/06/wxgtk3_minimal.png" alt="" /></a>
 Work will continue on porting drawing code with Cairo as what gtk+3.0 does by default. More samples will be built and tested. Stay tune.</p>
 ]]></content>

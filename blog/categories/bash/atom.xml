@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bash | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/bash/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -61,7 +61,7 @@ result in less matches. fuzzycd seems to do case insensitive match all the time.
 <li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
 the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
 are not always aligned.</p></li>
-<li><p>quickcd doesn't support multi-level directory nagivation. Its main focus is current directory.
+<li><p>quickcd doesn&rsquo;t support multi-level directory nagivation. Its main focus is current directory.
 fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
 <li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
 </ol>
@@ -69,7 +69,7 @@ fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feat
 
 <h1>Setup</h1>
 
-<p>This following instruction are shamelessly copied from fuzzycd's README.</p>
+<p>This following instruction are shamelessly copied from fuzzycd&rsquo;s README.</p>
 
 <p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
 This assumes you put fuzzycd in the ~/scripts/ directory.</p>
@@ -80,7 +80,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
 
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
 
-<p><em>Note</em>: If you have any other shell plugins which try to redefine the "cd" function (e.g.
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the &ldquo;cd&rdquo; function (e.g.
 <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
 <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
 other bash modification plugins, but it should be loaded last.</p>

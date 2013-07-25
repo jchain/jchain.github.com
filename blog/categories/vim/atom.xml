@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -41,13 +41,13 @@ highlighting easily ate a good amount of CPU cycles. So I turned off this plugin
 <pre><code>:NoMatchParen
 </code></pre>
 
-<p>I didn't completely disable this plugin since I found that it was useful when editing long
-equations. So I didn't try this in <code>.vimrc</code></p>
+<p>I didn&rsquo;t completely disable this plugin since I found that it was useful when editing long
+equations. So I didn&rsquo;t try this in <code>.vimrc</code></p>
 
 <pre><code>let g:loaded_matchparen=1
 </code></pre>
 
-<p>I found some other tweaks by using Vim's <code>:profile</code> command and the verbose options <code>vim -V
+<p>I found some other tweaks by using Vim&rsquo;s <code>:profile</code> command and the verbose options <code>vim -V
 foo.bar</code>. They are good ways to try to analyze the slowdown.</p>
 
 <p>The lesson I learned:</p>
@@ -77,7 +77,7 @@ unnecessary plugins.</li>
 </ul>
 
 
-<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn't have time to look into. So finally I only used 'gg=G' in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
+<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn&rsquo;t have time to look into. So finally I only used &lsquo;gg=G&rsquo; in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
 ]]></content>
   </entry>
   

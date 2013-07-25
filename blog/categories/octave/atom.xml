@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octave | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/octave/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -50,7 +50,7 @@ a work-around is to specify the library path to your <code>liboctinterp.so</code
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib64/octave/3.6.3
 </code></pre>
 
-<p>I don't know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
+<p>I don&rsquo;t know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
 the problem completely.</p>
 ]]></content>
   </entry>
@@ -64,17 +64,17 @@ the problem completely.</p>
 different computers (four different Linux machine). I also maintain a list of local M-file repos.
 Not all repos are available on every machine. To get rid of the warning message for missing
 directory every time, I wished I could add my local directories dynamically based on the hostname.
-I didn't know how to do so until today I found that Octave actually has the function 'uname()' for
+I didn&rsquo;t know how to do so until today I found that Octave actually has the function &lsquo;uname()&rsquo; for
 the job. Here is an example ~/.octaverc</p>
 
 <p>```python
-if strcmp(uname().nodename, 'zandyware')
- addpath("~/octave")
- addpath("~/share/flann/octave")
- addpath("~/octave/niftimatlib-1.2/matlab")
+if strcmp(uname().nodename, &lsquo;zandyware&rsquo;)
+ addpath(&ldquo;~/octave&rdquo;)
+ addpath(&ldquo;~/share/flann/octave&rdquo;)
+ addpath(&ldquo;~/octave/niftimatlib-1.2/matlab&rdquo;)
 end</p>
 
-<p>PS1 ("\[\033[01;31m\]\s:\#> \[\033[0m")</p>
+<p>PS1 (&ldquo;\[\033[01;31m\]\s:\#> \[\033[0m&rdquo;)</p>
 
 <p>function man (name)
  help (char (name))
@@ -82,8 +82,8 @@ endfunction
 ```</p>
 
 <p>You may also notice that I changed the default color of prompt to red for better visual contrast.
-Also I defined a function 'man' to alias the built-in command 'help' since I'm more used to type
-'man'. This tip was copied from Octave mailinglist. Hope you like today's post.</p>
+Also I defined a function &lsquo;man&rsquo; to alias the built-in command &lsquo;help&rsquo; since I&rsquo;m more used to type
+&lsquo;man&rsquo;. This tip was copied from Octave mailinglist. Hope you like today&rsquo;s post.</p>
 ]]></content>
   </entry>
   
@@ -92,7 +92,7 @@ Also I defined a function 'man' to alias the built-in command 'help' since I'm m
     <link href="http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize/"/>
     <updated>2011-10-21T01:50:36-05:00</updated>
     <id>http://jchain.github.com/blog/2011/10/21/octave-plot-legend-fontsize</id>
-    <content type="html"><![CDATA[<p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn't change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried '<strong>print('foo.eps','-depsc','-F:14')</strong>'. The option '-F:14' set the default print fontsize to 14. It worked so far so good.</p>
+    <content type="html"><![CDATA[<p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn&rsquo;t change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried &lsquo;<strong>print('foo.eps&rsquo;,&lsquo;-depsc&rsquo;,&lsquo;-F:14&rsquo;)</strong>&lsquo;. The option &rsquo;-F:14' set the default print fontsize to 14. It worked so far so good.</p>
 ]]></content>
   </entry>
   
@@ -101,7 +101,7 @@ Also I defined a function 'man' to alias the built-in command 'help' since I'm m
     <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
     <updated>2011-05-03T13:10:44-05:00</updated>
     <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
-    <content type="html"><![CDATA[<p>I'm playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
+    <content type="html"><![CDATA[<p>I&rsquo;m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
 documentation is not complete, or more precisely speaking, not friendly to new user. When I want to
 save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try
 several times before get it straight. Here is my example.</p>
@@ -114,7 +114,7 @@ print(filename, '-dpng'); % Note the quote
 end
 </code></p>
 
-<p>BTW: I'm very grateful for the high compatibility of Octave code with Matlab code.</p>
+<p>BTW: I&rsquo;m very grateful for the high compatibility of Octave code with Matlab code.</p>
 ]]></content>
   </entry>
   
@@ -123,7 +123,7 @@ end
     <link href="http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/"/>
     <updated>2011-02-06T12:25:27-06:00</updated>
     <id>http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin</id>
-    <content type="html"><![CDATA[<p>Run "cygcheck " and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
+    <content type="html"><![CDATA[<p>Run &ldquo;cygcheck &rdquo; and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
 ]]></content>
   </entry>
   

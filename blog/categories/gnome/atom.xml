@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: GNOME | A Coding Monkey's Blog]]></title>
+  <title><![CDATA[Category: Gnome | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gnome/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -14,59 +14,48 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Nomachine and GNOME Redraw Problem]]></title>
-    <link href="http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem/"/>
-    <updated>2012-11-16T15:36:00-06:00</updated>
-    <id>http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem</id>
-    <content type="html"><![CDATA[<p>I use <a href="http://www.nomachine.com">Nomachine</a> a lot when I work from home. My home and work Linux desktop are both running
-GNOME 3. There were a problem disturbing me for a while. Everything works fine at workplace probably
-due to the supper fast local internet connection. But when I connected to the remote desktop via
-Nomachine, the GUIs of remote applications were very lagging and the redraws seemed out of sync
-leaving blanks here and there. I've tried many ways to improve that, including upgrading the ISP
-bandwidth, trying the latest NoMachine 4 Preview, tuning the various options in the settings. But
-all efforts were vain. Until one day I aimlessly chose KDE in NoMachine and the redraw issue were
-gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
-    <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
-    <updated>2012-08-19T02:06:46-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
-    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to 'auto hide'. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don't like the methods to change the 'gsetting' or 'gconf'.</p>
+    <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
+    <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
+    <updated>2013-07-01T16:10:15-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
+    <content type="html"><![CDATA[<p>Last night I didn&rsquo;t resist the temptation to enter</p>
 
-<p>It turns out that the simplest way to to hit 'Alt+F1' to activate the 'Application' in the top panel and hit 'Esc' to hide it again. So simple.</p>
+<pre><code>sudo yum install fedora-upgrade 
+</code></pre>
 
-<p>BTW: I'm using the fallback of GNOME 3.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My favorite Gnome terminal font is fixedsys-excelsior]]></title>
-    <link href="http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior/"/>
-    <updated>2011-08-04T23:57:39-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/08/04/my-favorite-gnome-terminal-font-is-fixedsys-excelsior</id>
-    <content type="html"><![CDATA[<p>Finding a good monospaced font for Gnome terminal was used to be my big wish. I have tried bitstream
-mono, droid sans mono, inconsola. None of them was satisfactory in Gnome terminal with dark
-background(much better in white background but I don't like white background). Finally, my heart has
-been settled down with <a href="http://www.fixedsysexcelsior.com/">fixedsys-excelsior</a>. It just looks very
-comfortable with my black background.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Built gtk3.0 on openSUSE-11.1]]></title>
-    <link href="http://jchain.github.com/blog/2011/03/03/built-gtk3-0-on-opensuse-11-1/"/>
-    <updated>2011-03-03T01:48:26-06:00</updated>
-    <id>http://jchain.github.com/blog/2011/03/03/built-gtk3-0-on-opensuse-11-1</id>
-    <content type="html"><![CDATA[<p>I built gtk3.0 from source on openSUSE-11.1 x86-64bit. As expected, I ran into one annoying problem like this:</p>
+<p>Viola, my journey to Fedora 19 began!</p>
 
-<blockquote><p>symbol lookup error: /opt/gnome/lib/libcairo-gobject.so.2: undefined symbol: cairo_region_destroy</p></blockquote>
+<p>Every time I upgraded my Linux to the latest release, either Ubuntu or Fedora, I would have to spent
+another day to tweak the new system to make it comfortable to use. The biggest challenge was surely
+the transition from GNOME 2 to 3. Two years have passed and I still can&rsquo;t get used to the new UI.
+Accurately speaking, I really like the new UI elements in GNOME 3 but I just don&rsquo;t like the ways
+that GNOME shell asks me to do things. I think GNOME shell is attractive for new users and
+especially good for tablet. But for a senior user, it is too obtrusive. It wanted to be smart but
+overdid.</p>
 
-<p>I searched for the solution online. Someone suggested disabling gobject-introspection when compiling gtk3. But the default setting for gtk3 is indeed without gobject-introspection support. I got stuck and very confused. Finally, I got the things done by compiling the latest gobject-introspection(0.10.x) and enabling gobject-introspection support for atk, gdk-pixbuf and any other dependency libraries which could be set to enable this feature. YMMV. Here is the screenshot showing the about dialog from gtk3-demo.</p>
+<p>I appreciated the fallback mode that GNOME 3 provided. I turned off all the fancy animations and
+sticked to the old-fashioned UI. I used <a href="http://code.google.com/p/tint2/"><code>tint2</code></a> as the window list panel. In Fedora 18 with
+Gnome 3.6, the clock applet surprisingly had a memory leak issue. I disabled the clock applet and
+only used the <code>tint2</code> panel to show the time. However, sometimes, I missed the weather information.</p>
 
-<p>[caption id="attachment_147" align="aligncenter" width="432" caption="gtk3-demo"]<a href="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png"><img src="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png" alt="gtk3-demo" /></a>[/caption]</p>
+<p>With the advent of GNOME 3.8, the fallback was sadly dropped and the 2D GNOME shell was so ugly that
+I had to make a change.</p>
+
+<p>I first tried <a href="http://xfce.org"><code>Xfce</code></a> and <code>MATE Desktop</code>. <code>MATE</code> failed to start on my Fedora 19. I realized that
+I was spoiled by the modern UI of GNOME 3 so the look and feel of <code>Xfce</code> (based on GTK+ 2) became
+intolerable. Thank God there is <a href="http://cinnamon.linuxmint.com/"><code>Cinnamon</code></a>. When Cinnamon was first released, I thought it was
+another flamboyant window manager but it turns out sleek and practical. The status bar is very
+compact but full of useful information. Window list? Check. Weather applet? Check. Start menu?
+Check. Transparency effect? Check. GNOME compatible? Check. I don&rsquo;t need many. These are good
+enough. I&rsquo;m so happy to settle down with Cinnamon.</p>
+
+<p>Some other issues with GNOME 3.8 are</p>
+
+<pre><code>1. The transparency of the background of GNOME Terminal can't be set. Not a very big deal. But
+some users complained about it. 
+2. The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
+kept.
+</code></pre>
 ]]></content>
   </entry>
   

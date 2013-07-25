@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="You can also start it without reading any of the initialization files
-(.vimrc, /etc/vim/vimrc) like this: vim -u NONE file Credit due to Smoot Carl- &hellip;">
+  <meta name="description" content="Recently I want to give Common Lisp a try. After reading this great Common Lisp Implementation Survey, I decided to go first with SBCL. After &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com/blog/page/8/">
+  <link rel="canonical" href="http://jchain.github.com/blog/page/8">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -57,14 +57,6 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
-<!--    -->
-<!-- <form action="http://google.com/search" method="get"> -->
-<!--   <fieldset role="search"> -->
-<!--     <input type="hidden" name="sites" value="zandyware.com" /> -->
-<!--     <input class="search" type="text" name="q" results="0" placeholder="Search&hellip;"/> -->
-<!--   </fieldset> -->
-<!-- </form> -->
-<!--    -->
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
@@ -83,6 +75,52 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory/">Sbcl Mmap Cannot Allocate Memory?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-28T13:28:53-06:00" pubdate data-updated="true">Jan 28<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I want to give Common Lisp a try. After reading this great <a href="http://common-lisp.net/~dlw/LispSurvey.html">Common Lisp Implementation Survey</a>, I decided to go first with SBCL. After installing the binary package of SBCL-1.0.45 on my openSUSE-11.1 x86-64bit with 8Giga memory, I ran into this annoying error message when I started SBCL in terminal:</p>
+
+<blockquote><p>mmap: Cannot allocate memory
+ensure_space: failed to validate 8589869056 bytes at 0x1000000000
+(hint: Try &ldquo;ulimit -a&rdquo;; maybe you should increase memory limits.)</p></blockquote>
+
+<p>I researched online for a while and finally I came up a solution(it worked for me at least). Solution: start sbcl like this</p>
+
+<blockquote><p>sbcl &mdash;dynamic-space-size 2028 &mdash;core /local/vol00/software/lib/sbcl/sbcl.core</p></blockquote>
+
+<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use &mdash;dynamic-space-size to change the setting, also use &mdash;core option if your sbcl installation is not in the default location.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -159,9 +197,9 @@ too many false detections. You need a suppression file to help you focus on the 
 dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
 http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
 to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
-<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &#8216;64&#8217;  in
-suppression file. I tested my suppression file with wxWdgets sample program &#8216;mininal&#8217; the error
-number is 2, with sample opengl program &#8216;cube&#8217; the error number is 0. I hope I didn&#8217;t overact in my
+<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &lsquo;64&rsquo;  in
+suppression file. I tested my suppression file with wxWdgets sample program &lsquo;mininal&rsquo; the error
+number is 2, with sample opengl program &lsquo;cube&rsquo; the error number is 0. I hope I didn&rsquo;t overact in my
 suppression file.</p>
 
 <p>I suggested using the following command to fire up valgrind:</p>
@@ -171,7 +209,7 @@ suppression file.</p>
 </code></pre>
 
 <p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
-<strong>remove the &#8216;doc&#8217; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+<strong>remove the &lsquo;doc&rsquo; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
 
 <p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
 </div>
@@ -246,7 +284,7 @@ way, IMHO,  to make the code look neat and clean:</p>
 
 <p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
 
-<p>The biggest advantage of this method over string concatenation operator &#8220;.&#8221; is that it is easier to
+<p>The biggest advantage of this method over string concatenation operator &ldquo;.&rdquo; is that it is easier to
 re-align your code in Vim since your command is not messed with quotation marks.</p>
 </div>
   
@@ -321,7 +359,7 @@ highly recommended to use after colorExact(). It is safer to the color palette.<
   </header>
 
 
-  <div class="entry-content"><p>find . -regex &#8216;.<em>/[0-9]</em>.gif -exec ./filter.pl -i {} \;</p>
+  <div class="entry-content"><p>find . -regex &lsquo;.<em>/[0-9]</em>.gif -exec ./filter.pl -i {} \;</p>
 </div>
   
   
@@ -371,21 +409,21 @@ someone  accidentally inserted one or two unicode characters. It was so bad tha
 invisible!</p>
 
 <p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
-So so wired. I used Linux command-line tool &#8216;file&#8217; to detect the type of the source file</p>
+So so wired. I used Linux command-line tool &lsquo;file&rsquo; to detect the type of the source file</p>
 
 <blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
 
-<p>But for the other files in the same directory, &#8216;file&#8217; told me that</p>
+<p>But for the other files in the same directory, &lsquo;file&rsquo; told me that</p>
 
 <blockquote><p>ASCII C program text</p></blockquote>
 
 <p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
-conversion. So I came up the final idea, use command-line tool &#8216;cat&#8217; to<strong> dump it to the terminal
+conversion. So I came up the final idea, use command-line tool &lsquo;cat&rsquo; to<strong> dump it to the terminal
 screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
 If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
 
 <p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
-I thought it was the culprit. I also noticed that<strong> &#8216;cat foo.h > bar.h&#8217; didn&#8217;t get rid of the
+I thought it was the culprit. I also noticed that<strong> &lsquo;cat foo.h > bar.h&rsquo; didn&rsquo;t get rid of the
 invisible character</strong>.  Copy and Paste!</p>
 </div>
   
@@ -423,8 +461,8 @@ invisible character</strong>.  Copy and Paste!</p>
 
 
   <div class="entry-content"><ol>
-<li><p><a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
-<li><p><a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
+<li><p> <a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
+<li><p> <a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
 </ol>
 
 
@@ -483,7 +521,7 @@ to recommend the solution at</p>
 <li><p><strong>/usr/local/bin/ccache-gcc.sh:</strong></p>
 
 <p><code>#!/bin/bash
-ccache /usr/bin/gcc "$@"
+ccache /usr/bin/gcc &ldquo;$@&rdquo;
 </code></p></li>
 <li><p><strong>~/.colorgcc:</strong></p>
 
@@ -498,7 +536,7 @@ ccache /usr/bin/gcc "$@"
 <li><p><strong>/usr/local/bin/ccache-g++.sh:</strong></p>
 
 <p><code>#!/bin/bash
-ccache /usr/bin/g++ "$@"
+ccache /usr/bin/g++ &ldquo;$@&rdquo;
 </code></p></li>
 <li><p><strong>~/.colorgcc:</strong></p>
 
@@ -507,7 +545,7 @@ ccache /usr/bin/g++ "$@"
 </ul>
 </blockquote>
 
-<p>There are ways to clean this up so that you only use a single script,  with symlinks for each variant, but those are beyond the scope of this  answer, and I leave them to you as an excercise :-)</p>
+<p>There are ways to clean this up so that you only use a single script,  with symlinks for each variant, but those are beyond the scope of this  answer, and I leave them to you as an excercise :&ndash;)</p>
 </div>
   
   
@@ -555,59 +593,6 @@ ccache /usr/bin/g++ "$@"
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/12/21/how-to-install-openoffice-3-without-root-privilege/">How to Install OpenOffice 3 Without Root Privilege</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-21T14:06:02-06:00" pubdate data-updated="true">Dec 21<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
-openoffice-3.2. But my problem was I didn&#8217;t have the root privilege to do that. The official
-installer of OpenOffice failed again over again without notifying you that the reason of failure was
-the lack of root privilege. Finally I found this great
-<a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked
-like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &#8211;color=never</strong> to
-disable the color output.</p>
-
-<ol>
-<li><p>Download the installation package from OpenOffice website.</p></li>
-<li><p>Unzip it into a directory.</p></li>
-<li><p><strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
-<li><p>cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
-<li><p>run ./soffice</p></li>
-<li><p>(option) create symbolic link to soffice.</p></li>
-<li><p>(option) set file association in Nautilus. Right click a doc and choose <strong>Properties->Open with -> Add&#8230;</strong></p></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -625,6 +610,10 @@ disable the color output.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
       </li>
     
@@ -633,22 +622,18 @@ disable the color output.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh from source and install to Home directory</a>
+        <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh From Source and Install to Home Directory</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave is in user-defined directory</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/">Vim gets slow when editing LaTeX file</a>
+        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave Is in User-defined Directory</a>
       </li>
     
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (38)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash'>Bash (1)</a></li><li><a href='/blog/categories/c-'>C++ (3)</a></li><li><a href='/blog/categories/c-c-'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake'>CMake (1)</a></li><li><a href='/blog/categories/cygwin'>Cygwin (4)</a></li><li><a href='/blog/categories/dev'>Dev (2)</a></li><li><a href='/blog/categories/gcc'>GCC (2)</a></li><li><a href='/blog/categories/gdb'>GDB (3)</a></li><li><a href='/blog/categories/git'>Git (4)</a></li><li><a href='/blog/categories/gnome'>GNOME (4)</a></li><li><a href='/blog/categories/gnome'>Gnome (1)</a></li><li><a href='/blog/categories/gnuplot'>Gnuplot (1)</a></li><li><a href='/blog/categories/java'>Java (1)</a></li><li><a href='/blog/categories/latex'>Latex (4)</a></li><li><a href='/blog/categories/linux'>Linux (39)</a></li><li><a href='/blog/categories/lisp'>Lisp (1)</a></li><li><a href='/blog/categories/math'>Math (1)</a></li><li><a href='/blog/categories/octave'>Octave (5)</a></li><li><a href='/blog/categories/oop'>OOP (2)</a></li><li><a href='/blog/categories/openmp'>OpenMP (2)</a></li><li><a href='/blog/categories/perl'>Perl (12)</a></li><li><a href='/blog/categories/r'>R (1)</a></li><li><a href='/blog/categories/subversion'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim'>Vim (4)</a></li><li><a href='/blog/categories/web'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets'>wxWidgets (1)</a></li></ul>
 </section>
 
 <section>
@@ -660,7 +645,7 @@ disable the color output.</p>
   <a href="https://github.com/jchain">@jchain</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -722,7 +707,7 @@ disable the color output.</p>
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

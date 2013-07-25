@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GDB | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gdb/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -40,7 +40,7 @@ Step 2: Set watchpoint
     <link href="http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
     <updated>2011-05-14T01:56:58-05:00</updated>
     <id>http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
-    <content type="html"><![CDATA[<p>I'm debugging a complicated C++ program this week. It used a lot of STL containers, such as
+    <content type="html"><![CDATA[<p>I&rsquo;m debugging a complicated C++ program this week. It used a lot of STL containers, such as
 stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">
 pretty-printing</a> enabled. I got error message like
 <a href="http://gcc.gnu.org/ml/libstdc++/2010-06/msg00128.html">this</a>. My original thought was it might be

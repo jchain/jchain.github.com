@@ -4,7 +4,7 @@
   <title><![CDATA[Category: R | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/r/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -50,7 +50,7 @@ a work-around is to specify the library path to your <code>liboctinterp.so</code
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib64/octave/3.6.3
 </code></pre>
 
-<p>I don't know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
+<p>I don&rsquo;t know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
 the problem completely.</p>
 ]]></content>
   </entry>

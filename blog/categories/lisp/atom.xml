@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Lisp | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/lisp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -22,13 +22,13 @@
 
 <blockquote><p>mmap: Cannot allocate memory
 ensure_space: failed to validate 8589869056 bytes at 0x1000000000
-(hint: Try "ulimit -a"; maybe you should increase memory limits.)</p></blockquote>
+(hint: Try &ldquo;ulimit -a&rdquo;; maybe you should increase memory limits.)</p></blockquote>
 
 <p>I researched online for a while and finally I came up a solution(it worked for me at least). Solution: start sbcl like this</p>
 
-<blockquote><p>sbcl --dynamic-space-size 2028 --core /local/vol00/software/lib/sbcl/sbcl.core</p></blockquote>
+<blockquote><p>sbcl &mdash;dynamic-space-size 2028 &mdash;core /local/vol00/software/lib/sbcl/sbcl.core</p></blockquote>
 
-<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use --dynamic-space-size to change the setting, also use --core option if your sbcl installation is not in the default location.</p>
+<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use &mdash;dynamic-space-size to change the setting, also use &mdash;core option if your sbcl installation is not in the default location.</p>
 ]]></content>
   </entry>
   

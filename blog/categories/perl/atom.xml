@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
 plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
 
-<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven't I realized that
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&rsquo;t I realized that
 I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
 
 <p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
@@ -39,7 +39,7 @@ setting in <code>.vimrc</code> from</p>
 <p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
 
 <p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
-as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won't
+as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&rsquo;t
 triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
 <code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
 
@@ -95,7 +95,7 @@ result in less matches. fuzzycd seems to do case insensitive match all the time.
 <li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
 the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
 are not always aligned.</p></li>
-<li><p>quickcd doesn't support multi-level directory nagivation. Its main focus is current directory.
+<li><p>quickcd doesn&rsquo;t support multi-level directory nagivation. Its main focus is current directory.
 fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
 <li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
 </ol>
@@ -103,7 +103,7 @@ fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feat
 
 <h1>Setup</h1>
 
-<p>This following instruction are shamelessly copied from fuzzycd's README.</p>
+<p>This following instruction are shamelessly copied from fuzzycd&rsquo;s README.</p>
 
 <p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
 This assumes you put fuzzycd in the ~/scripts/ directory.</p>
@@ -114,7 +114,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
 
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
 
-<p><em>Note</em>: If you have any other shell plugins which try to redefine the "cd" function (e.g.
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the &ldquo;cd&rdquo; function (e.g.
 <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
 <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
 other bash modification plugins, but it should be loaded last.</p>
@@ -126,8 +126,8 @@ other bash modification plugins, but it should be loaded last.</p>
     <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
     <updated>2012-11-17T02:10:00-06:00</updated>
     <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
-    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn't use the
-different letter cases as the same category name. Otherwise the category page wouldn't show correct
+    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&rsquo;t use the
+different letter cases as the same category name. Otherwise the category page wouldn&rsquo;t show correct
 number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
 the meta info of every posts. Here was what I used to get this job done.</p>
 
@@ -151,7 +151,7 @@ the meta info of every posts. Here was what I used to get this job done.</p>
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
     <updated>2012-09-25T21:33:42-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
-    <content type="html"><![CDATA[<p>I'm a little tired of checking out the weather condition via the web browser. In many cases I just
+    <content type="html"><![CDATA[<p>I&rsquo;m a little tired of checking out the weather condition via the web browser. In many cases I just
 want to see a short report in my terminal. After
 reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
 which shows how to use Mojolicious to retrieve the current condition and
@@ -178,26 +178,26 @@ which shows how to retried the forecast, I finally wrote something like this</p>
 
 <h1>CREATED: 09/13/2012 10:31:39 PM</h1>
 
-<h1>REVISION: ---</h1>
+<h1>REVISION: &mdash;&ndash;</h1>
 
 <h1>===============================================================================</h1>
 
 <p>use strict;
 use warnings;
-use feature 'say';</p>
+use feature &lsquo;say&rsquo;;</p>
 
 <p>use Mojolicious;</p>
 
 <p>my $ua = Mojo::UserAgent->new;
-my $dom = $ua->get('http://w1.weather.gov/xml/current_obs/KCID.xml')->res->dom;
-my $temp = $dom->find('temperature_string')->[0]->text;
-my $weather = $dom->find('weather')->[0]->text;
-say "KCID ", $temp, " ", $weather, "\n";</p>
+my $dom = $ua->get(&lsquo;<a href="http://w1.weather.gov/xml/current_obs/KCID.xml">http://w1.weather.gov/xml/current_obs/KCID.xml</a>&rsquo;)&ndash;>res->dom;
+my $temp = $dom->find(&lsquo;temperature_string&rsquo;)&ndash;>[0]&ndash;>text;
+my $weather = $dom->find(&lsquo;weather&rsquo;)&ndash;>[0]&ndash;>text;
+say &ldquo;KCID &rdquo;, $temp, &ldquo; &rdquo;, $weather, &ldquo;\n&rdquo;;</p>
 
 <p>$dom =
-$ua->get('http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids')->res->dom;</p>
+$ua->get(&lsquo;<a href="http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids">http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids</a>&rsquo;)&ndash;>res->dom;</p>
 
-<p>for my $e ($dom->find('simpleforecast forecastday')->each) {
+<p>for my $e ($dom->find(&lsquo;simpleforecast forecastday&rsquo;)&ndash;>each) {
  my $day = $e->date->day->text;
  my $month = substr $e->date->monthname->text, 0, 3;
  my $weekday = substr $e->date->weekday->text, 0, 3;
@@ -205,7 +205,7 @@ $ua->get('http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=C
  my $high = $e->high->fahrenheit->text;
  my $low = $e->low->fahrenheit->text;</p>
 
-<p>printf "%s %s %s, Low: %d, High: %d, %s\n", $weekday, $month, $day, $low, $high, $condition;
+<p>printf &ldquo;%s %s %s, Low: %d, High: %d, %s\n&rdquo;, $weekday, $month, $day, $low, $high, $condition;
 }
 ```</p>
 
@@ -232,7 +232,7 @@ Sun Sep 30, Low: 41, High: 73, Clear
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
     <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
 in-line string substitution to create new shell commands. I vaguely had an idea that I should use
-'sed' to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
+&lsquo;sed&rsquo; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
 one-liner. It turned out that this is the correct way to do so</p>
 
 <pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'

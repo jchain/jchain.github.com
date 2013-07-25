@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-06-02T00:07:35-05:00</updated>
+  <updated>2013-07-25T14:17:53-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -14,6 +14,52 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
+    <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
+    <updated>2013-07-01T16:10:15-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
+    <content type="html"><![CDATA[<p>Last night I didn&rsquo;t resist the temptation to enter</p>
+
+<pre><code>sudo yum install fedora-upgrade 
+</code></pre>
+
+<p>Viola, my journey to Fedora 19 began!</p>
+
+<p>Every time I upgraded my Linux to the latest release, either Ubuntu or Fedora, I would have to spent
+another day to tweak the new system to make it comfortable to use. The biggest challenge was surely
+the transition from GNOME 2 to 3. Two years have passed and I still can&rsquo;t get used to the new UI.
+Accurately speaking, I really like the new UI elements in GNOME 3 but I just don&rsquo;t like the ways
+that GNOME shell asks me to do things. I think GNOME shell is attractive for new users and
+especially good for tablet. But for a senior user, it is too obtrusive. It wanted to be smart but
+overdid.</p>
+
+<p>I appreciated the fallback mode that GNOME 3 provided. I turned off all the fancy animations and
+sticked to the old-fashioned UI. I used <a href="http://code.google.com/p/tint2/"><code>tint2</code></a> as the window list panel. In Fedora 18 with
+Gnome 3.6, the clock applet surprisingly had a memory leak issue. I disabled the clock applet and
+only used the <code>tint2</code> panel to show the time. However, sometimes, I missed the weather information.</p>
+
+<p>With the advent of GNOME 3.8, the fallback was sadly dropped and the 2D GNOME shell was so ugly that
+I had to make a change.</p>
+
+<p>I first tried <a href="http://xfce.org"><code>Xfce</code></a> and <code>MATE Desktop</code>. <code>MATE</code> failed to start on my Fedora 19. I realized that
+I was spoiled by the modern UI of GNOME 3 so the look and feel of <code>Xfce</code> (based on GTK+ 2) became
+intolerable. Thank God there is <a href="http://cinnamon.linuxmint.com/"><code>Cinnamon</code></a>. When Cinnamon was first released, I thought it was
+another flamboyant window manager but it turns out sleek and practical. The status bar is very
+compact but full of useful information. Window list? Check. Weather applet? Check. Start menu?
+Check. Transparency effect? Check. GNOME compatible? Check. I don&rsquo;t need many. These are good
+enough. I&rsquo;m so happy to settle down with Cinnamon.</p>
+
+<p>Some other issues with GNOME 3.8 are</p>
+
+<pre><code>1. The transparency of the background of GNOME Terminal can't be set. Not a very big deal. But
+some users complained about it. 
+2. The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
+kept.
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
     <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
     <updated>2013-06-01T15:37:24-05:00</updated>
@@ -21,7 +67,7 @@
     <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
 plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
 
-<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&#8217;t I realized that
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&rsquo;t I realized that
 I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
 
 <p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
@@ -39,7 +85,7 @@ setting in <code>.vimrc</code> from</p>
 <p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
 
 <p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
-as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&#8217;t
+as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&rsquo;t
 triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
 <code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
 
@@ -99,7 +145,7 @@ result in less matches. fuzzycd seems to do case insensitive match all the time.
 <li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
 the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
 are not always aligned.</p></li>
-<li><p>quickcd doesn&#8217;t support multi-level directory nagivation. Its main focus is current directory.
+<li><p>quickcd doesn&rsquo;t support multi-level directory nagivation. Its main focus is current directory.
 fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
 <li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
 </ol>
@@ -107,7 +153,7 @@ fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feat
 
 <h1>Setup</h1>
 
-<p>This following instruction are shamelessly copied from fuzzycd&#8217;s README.</p>
+<p>This following instruction are shamelessly copied from fuzzycd&rsquo;s README.</p>
 
 <p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
 This assumes you put fuzzycd in the ~/scripts/ directory.</p>
@@ -118,7 +164,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
 
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
 
-<p><em>Note</em>: If you have any other shell plugins which try to redefine the &#8220;cd&#8221; function (e.g.
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the &ldquo;cd&rdquo; function (e.g.
 <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
 <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
 other bash modification plugins, but it should be loaded last.</p>
@@ -130,7 +176,7 @@ other bash modification plugins, but it should be loaded last.</p>
     <link href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/"/>
     <updated>2013-01-31T15:39:00-06:00</updated>
     <id>http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk</id>
-    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&#8217;t ship the Autoconf script
+    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&rsquo;t ship the Autoconf script
 and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would
 like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into
 HOME directory before so I have to specify the search path for compiler and linker. Here is what
@@ -332,7 +378,7 @@ a work-around is to specify the library path to your <code>liboctinterp.so</code
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib64/octave/3.6.3
 </code></pre>
 
-<p>I don&#8217;t know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
+<p>I don&rsquo;t know much about the internal mechanism of <code>install.packages</code> otherwise I may be able to fix
 the problem completely.</p>
 ]]></content>
   </entry>
@@ -365,13 +411,13 @@ highlighting easily ate a good amount of CPU cycles. So I turned off this plugin
 <pre><code>:NoMatchParen
 </code></pre>
 
-<p>I didn&#8217;t completely disable this plugin since I found that it was useful when editing long
-equations. So I didn&#8217;t try this in <code>.vimrc</code></p>
+<p>I didn&rsquo;t completely disable this plugin since I found that it was useful when editing long
+equations. So I didn&rsquo;t try this in <code>.vimrc</code></p>
 
 <pre><code>let g:loaded_matchparen=1
 </code></pre>
 
-<p>I found some other tweaks by using Vim&#8217;s <code>:profile</code> command and the verbose options <code>vim -V
+<p>I found some other tweaks by using Vim&rsquo;s <code>:profile</code> command and the verbose options <code>vim -V
 foo.bar</code>. They are good ways to try to analyze the slowdown.</p>
 
 <p>The lesson I learned:</p>
@@ -409,16 +455,16 @@ kernel bug in the ext4 file system</p>
 
 <p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news
 confirmed that the bug in the kernel was the culprit. After several sudden losses of my working
-sessions I couldn&#8217;t wait for any more seconds to update the kernel. And I had to make the Xorg
+sessions I couldn&rsquo;t wait for any more seconds to update the kernel. And I had to make the Xorg
 server work too.</p>
 
-<p>It really bugged me that the nVidia driver didn&#8217;t work on my Fedora 17. I booted from Ubuntu Linux
+<p>It really bugged me that the nVidia driver didn&rsquo;t work on my Fedora 17. I booted from Ubuntu Linux
 installed on an external USB disk. And the nVidia driver worked fine under it. There must be
 something wrong with <code>akmod-nvidia</code> or the official driver.</p>
 
 <p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in
 the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X
-server started this time. In my case, I didn&#8217;t need to do this:</p>
+server started this time. In my case, I didn&rsquo;t need to do this:</p>
 
 <pre><code>Remove / disable nouveau drivers from kernel initramfs
 </code></pre>
@@ -431,7 +477,7 @@ rendering. A workaround is to put the following line in <code>.bashrc</code></p>
 </code></pre>
 
 <p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code>
-didn&#8217;t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old
+didn&rsquo;t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old
 to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here
 is what it looks right now.</p>
 
@@ -497,7 +543,7 @@ is what it looks right now.</p>
 </span><span class='line'>EndSection</span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&#8217;m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it
+<p>I&rsquo;m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it
 will help you if you are facing the same problem.</p>
 ]]></content>
   </entry>
@@ -507,8 +553,8 @@ will help you if you are facing the same problem.</p>
     <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
     <updated>2012-11-17T02:10:00-06:00</updated>
     <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
-    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&#8217;t use the
-different letter cases as the same category name. Otherwise the category page wouldn&#8217;t show correct
+    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&rsquo;t use the
+different letter cases as the same category name. Otherwise the category page wouldn&rsquo;t show correct
 number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
 the meta info of every posts. Here was what I used to get this job done.</p>
 
@@ -536,7 +582,7 @@ the meta info of every posts. Here was what I used to get this job done.</p>
 GNOME 3. There were a problem disturbing me for a while. Everything works fine at workplace probably
 due to the supper fast local internet connection. But when I connected to the remote desktop via
 Nomachine, the GUIs of remote applications were very lagging and the redraws seemed out of sync
-leaving blanks here and there. I&#8217;ve tried many ways to improve that, including upgrading the ISP
+leaving blanks here and there. I&rsquo;ve tried many ways to improve that, including upgrading the ISP
 bandwidth, trying the latest NoMachine 4 Preview, tuning the various options in the settings. But
 all efforts were vain. Until one day I aimlessly chose KDE in NoMachine and the redraw issue were
 gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.</p>
@@ -552,7 +598,7 @@ gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.
 different computers (four different Linux machine). I also maintain a list of local M-file repos.
 Not all repos are available on every machine. To get rid of the warning message for missing
 directory every time, I wished I could add my local directories dynamically based on the hostname.
-I didn&#8217;t know how to do so until today I found that Octave actually has the function &#8216;uname()&#8217; for
+I didn&rsquo;t know how to do so until today I found that Octave actually has the function &lsquo;uname()&rsquo; for
 the job. Here is an example ~/.octaverc</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -581,8 +627,8 @@ the job. Here is an example ~/.octaverc</p>
 
 
 <p>You may also notice that I changed the default color of prompt to red for better visual contrast.
-Also I defined a function &#8216;man&#8217; to alias the built-in command &#8216;help&#8217; since I&#8217;m more used to type
-&#8216;man&#8217;. This tip was copied from Octave mailinglist. Hope you like today&#8217;s post.</p>
+Also I defined a function &lsquo;man&rsquo; to alias the built-in command &lsquo;help&rsquo; since I&rsquo;m more used to type
+&lsquo;man&rsquo;. This tip was copied from Octave mailinglist. Hope you like today&rsquo;s post.</p>
 ]]></content>
   </entry>
   
@@ -646,7 +692,7 @@ the negligible (&lt; 1sec).</p>
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
     <updated>2012-09-25T21:33:42-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
-    <content type="html"><![CDATA[<p>I&#8217;m a little tired of checking out the weather condition via the web browser. In many cases I just
+    <content type="html"><![CDATA[<p>I&rsquo;m a little tired of checking out the weather condition via the web browser. In many cases I just
 want to see a short report in my terminal. After
 reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
 which shows how to use Mojolicious to retrieve the current condition and
@@ -762,7 +808,7 @@ which shows how to retried the forecast, I finally wrote something like this</p>
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
     <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
 in-line string substitution to create new shell commands. I vaguely had an idea that I should use
-&#8216;sed&#8217; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
+&lsquo;sed&rsquo; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
 one-liner. It turned out that this is the correct way to do so</p>
 
 <pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'
@@ -775,11 +821,11 @@ one-liner. It turned out that this is the correct way to do so</p>
     <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
     <updated>2012-08-19T02:06:46-05:00</updated>
     <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
-    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to &#8216;auto hide&#8217;. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don&#8217;t like the methods to change the &#8216;gsetting&#8217; or &#8216;gconf&#8217;.</p>
+    <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to &lsquo;auto hide&rsquo;. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don&rsquo;t like the methods to change the &lsquo;gsetting&rsquo; or &lsquo;gconf&rsquo;.</p>
 
-<p>It turns out that the simplest way to to hit &#8216;Alt+F1&#8217; to activate the &#8216;Application&#8217; in the top panel and hit &#8216;Esc&#8217; to hide it again. So simple.</p>
+<p>It turns out that the simplest way to to hit &lsquo;Alt+F1&rsquo; to activate the &lsquo;Application&rsquo; in the top panel and hit &lsquo;Esc&rsquo; to hide it again. So simple.</p>
 
-<p>BTW: I&#8217;m using the fallback of GNOME 3.</p>
+<p>BTW: I&rsquo;m using the fallback of GNOME 3.</p>
 ]]></content>
   </entry>
   
@@ -788,25 +834,25 @@ one-liner. It turned out that this is the correct way to do so</p>
     <link href="http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
     <updated>2012-07-01T19:39:25-05:00</updated>
     <id>http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
-    <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a &#8216;master&#8217; branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted &#8216;master&#8217; branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch &#8216;master&#8217; and I would hack under this branch.</p>
+    <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a &lsquo;master&rsquo; branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted &lsquo;master&rsquo; branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch &lsquo;master&rsquo; and I would hack under this branch.</p>
 
-<p>But after my hack right before I fire up the &#8216;git format-patch&#8217; command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command &#8216;git remote&#8217; will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>
+<p>But after my hack right before I fire up the &lsquo;git format-patch&rsquo; command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command &lsquo;git remote&rsquo; will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>
 
 <p>Here is a short summary:</p>
 
 <ol>
-<li><p>Suppose the original project is called FOO. We create a new repo called my_FOO by imported the code from the git repo of FOO</p></li>
-<li><p>git clone git://git.github.com/my_FOO.git. You will have a local master branch</p></li>
-<li><p>git remote add FOO_origin git://git.github.com/FOO.git. You will add a new remote repo in your .git/config</p></li>
-<li><p>git fetch FOO_origin. You have to do this to get the branch information about FOO_origin before step 5.</p></li>
-<li><p>git branch &#8211;set-upstream FOO_master FOO_origin/master. Create a local branch named FOO_master to keep track the upstream&#8217;s master branch.</p></li>
-<li><p>Done. use &#8216;git branch&#8217; to check the result.</p></li>
+<li><p> Suppose the original project is called FOO. We create a new repo called my_FOO by imported the code from the git repo of FOO</p></li>
+<li><p> git clone git://git.github.com/my_FOO.git. You will have a local master branch</p></li>
+<li><p> git remote add FOO_origin git://git.github.com/FOO.git. You will add a new remote repo in your .git/config</p></li>
+<li><p> git fetch FOO_origin. You have to do this to get the branch information about FOO_origin before step 5.</p></li>
+<li><p> git branch &mdash;set-upstream FOO_master FOO_origin/master. Create a local branch named FOO_master to keep track the upstream&rsquo;s master branch.</p></li>
+<li><p> Done. use &lsquo;git branch&rsquo; to check the result.</p></li>
 </ol>
 
 
-<p>OK. After these steps, you can code in the &#8216;master&#8217; branch, commit and push to the repo &#8216;my_FOO&#8217; for the benefit of online backup and sync. You can switch to FOO_master to pull the upstream changes and merge to your &#8216;master&#8217; branch. When you feel ready to format a patch, just type &#8216;git format-patch FOO_master&#8217;.</p>
+<p>OK. After these steps, you can code in the &lsquo;master&rsquo; branch, commit and push to the repo &lsquo;my_FOO&rsquo; for the benefit of online backup and sync. You can switch to FOO_master to pull the upstream changes and merge to your &lsquo;master&rsquo; branch. When you feel ready to format a patch, just type &lsquo;git format-patch FOO_master&rsquo;.</p>
 
-<p>Of cause there are issues like commit squash but that is another topic so I don&#8217;t mention here. I&#8217;m surprised to see there are tons of git questions flying around on the web. After all git is really a complicated tool with a much higher learning curve than Subversion. For some particular use cases I find it make sense to blog them here for my own future reference instead of searching online but retrieved a lot of partially related answers.</p>
+<p>Of cause there are issues like commit squash but that is another topic so I don&rsquo;t mention here. I&rsquo;m surprised to see there are tons of git questions flying around on the web. After all git is really a complicated tool with a much higher learning curve than Subversion. For some particular use cases I find it make sense to blog them here for my own future reference instead of searching online but retrieved a lot of partially related answers.</p>
 ]]></content>
   </entry>
   
@@ -815,7 +861,7 @@ one-liner. It turned out that this is the correct way to do so</p>
     <link href="http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux/"/>
     <updated>2012-06-02T17:12:54-05:00</updated>
     <id>http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux</id>
-    <content type="html"><![CDATA[<p>I didn&#8217;t remember ever since when my Bash filename and directory name completion functioned wackily. Everytime I hit &#8216;tab&#8217; to complete a directory name, Bash didn&#8217;t append the backslash nor printed out candidates (just like what it described like <a href="http://ubuntuforums.org/showthread.php?t=1053832">here</a> and <a href="http://timlabath.com/words/2011/05/10/ubuntu-11-04-and-broken-bash-completion/">here</a>). It drove me banana. Meanwhile, my Bash worked very well under other Linux distributions (openSUSE, CentOS). The culprit was the a Bash completion file for adobe acrobat reader under /etc/bash_completion.d/. Delete it and the problem will be solved.</p>
+    <content type="html"><![CDATA[<p>I didn&rsquo;t remember ever since when my Bash filename and directory name completion functioned wackily. Everytime I hit &lsquo;tab&rsquo; to complete a directory name, Bash didn&rsquo;t append the backslash nor printed out candidates (just like what it described like <a href="http://ubuntuforums.org/showthread.php?t=1053832">here</a> and <a href="http://timlabath.com/words/2011/05/10/ubuntu-11-04-and-broken-bash-completion/">here</a>). It drove me banana. Meanwhile, my Bash worked very well under other Linux distributions (openSUSE, CentOS). The culprit was the a Bash completion file for adobe acrobat reader under /etc/bash_completion.d/. Delete it and the problem will be solved.</p>
 ]]></content>
   </entry>
   
@@ -833,7 +879,7 @@ one-liner. It turned out that this is the correct way to do so</p>
     <link href="http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/"/>
     <updated>2012-05-03T22:45:31-05:00</updated>
     <id>http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector</id>
-    <content type="html"><![CDATA[<p>In a job interview two months ago, no matter how hard I tried I simply couldn&#8217;t export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15&#8221; laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
+    <content type="html"><![CDATA[<p>In a job interview two months ago, no matter how hard I tried I simply couldn&rsquo;t export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15&#8221; laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
 
 <p>I searched for a solution for that on the web. It seemed a headache for many Linux users. Finally I ran into <a href="http://willem.engen.nl/projects/disper/">Disper</a>. It solved my problem perfectly.</p>
 
@@ -855,47 +901,6 @@ one-liner. It turned out that this is the correct way to do so</p>
 enter the jhbuild shell, and do: git clean -xdf</p>
 
 <p>More details from GTK+ IRC: automake does not like when files get moved around so you need to clean up the build tree and get it back into a pristine state</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Finally Gnome 3 on openSUSE]]></title>
-    <link href="http://jchain.github.com/blog/2012/02/09/finally-gnome-3-on-opensuse/"/>
-    <updated>2012-02-09T11:08:38-06:00</updated>
-    <id>http://jchain.github.com/blog/2012/02/09/finally-gnome-3-on-opensuse</id>
-    <content type="html"><![CDATA[<p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
-usable. Phew.</p>
-
-<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed
-that Clutter failed to start. A deeper reason was that Clutter wasn&#8217;t able to find the proper nVidia
-graphics driver libGL*.so. If you type</p>
-
-<pre><code>ldd /usr/bin/gnome-shell
-</code></pre>
-
-<p>You would notice that libGL.so.1 was pointing to nothing. That was bad.</p>
-
-<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to
-meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d
-that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was
-missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in
-the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&#8217;t run
-into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
-
-<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in
-gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed
-to refresh or output.  I hadn&#8217;t seen it in KDE running the same program. So I guess it again was
-related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia
-driver with Clutter and  the work around was to add the following line into .bashrc</p>
-
-<pre><code>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
-</code></pre>
-
-<p>Again I didn&#8217;t run into this issue in Ubuntu.</p>
-
-<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like
-Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my
-new GNOM 3 was ready for daily use.</p>
 ]]></content>
   </entry>
   
