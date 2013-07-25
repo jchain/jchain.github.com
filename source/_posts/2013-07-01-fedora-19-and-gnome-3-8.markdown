@@ -41,11 +41,15 @@ enough. I'm so happy to settle down with Cinnamon.
 
 Some other issues with GNOME 3.8 are
 
-    1. The transparency of the background of GNOME Terminal can't be set. Not a very big deal. But
-    some users complained about it. 
-    2. The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
-    kept.
+1. The transparency of the background of GNOME Terminal can't be set. Not a very big deal. But
+   some users complained about it. 
+
+2. The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
+   kept.
+
+3. The theme is broken. Many guys complain about [that][4] 
 
 [1]: http://code.google.com/p/tint2/
 [2]: http://cinnamon.linuxmint.com/
 [3]: http://xfce.org
+[4]: http://igurublog.wordpress.com/2012/11/05/gnome-et-al-rotting-in-threes/
