@@ -1,4 +1,4 @@
-require 'json'
+# require 'json'
 
 class ConfigTag < Liquid::Tag
   def initialize(tag_name, options, tokens)
