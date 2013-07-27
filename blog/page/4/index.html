@@ -104,12 +104,9 @@
   </header>
 
 
-  <div class="entry-content"><p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow &lsquo;Up&rsquo; key entered [[A char and &lsquo;Down&rsquo; keys gave [[B char. What I really wanted was the &lsquo;history-previous&rsquo; and &lsquo;history-next&rsquo; in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain &lsquo;mismatch&rsquo; between different &lsquo;TERM&rsquo;s or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
-
-<p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran &lsquo;tclsh&rsquo; in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run &lsquo;rlwrap tclsh&rsquo; and &lsquo;rlwrap tv8cli&rsquo; and the arrow keys worked like a charm.</p>
-
-<p>I further aliased &lsquo;tv8cli&rsquo; as &lsquo;rlwrap tv8cli&rsquo;. But I still couldn&rsquo;t make it work in Totalview&rsquo;s GUI xterm CLI. Is there a way to do that?</p>
-</div>
+  <div class="entry-content"><p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow ‘Up’ key entered [[A char and ‘Down’ keys gave [[B char. What I really wanted was the ‘history-previous’ and ‘history-next’ in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain ‘mismatch’ between different ’TERM’s or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
+<p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran ‘tclsh’ in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run ‘rlwrap tclsh’ and ‘rlwrap tv8cli’ and the arrow keys worked like a charm.</p>
+<p>I further aliased ‘tv8cli’ as ‘rlwrap tv8cli’. But I still couldn’t make it work in Totalview’s GUI xterm CLI. Is there a way to do that?</p></div>
   
   
 
@@ -144,17 +141,9 @@
   </header>
 
 
-  <div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under
-$HOME/.local/share/mc and $HOME/.config/mc. However the previous version(4.7.x) is looking for
-$HOME/.mc. You can verify that by typing</p>
-
-<pre><code>mc -F
-</code></pre>
-
-<p>Personally I don&rsquo;t like this change since I prefer to a single directory for the convenience of
-storage and backup of my config files. Your skin setting probably take no effect after upgrading to
-4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p>
-</div>
+  <div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under <span class="math"><em>H</em><em>O</em><em>M</em><em>E</em> / . <em>l</em><em>o</em><em>c</em><em>a</em><em>l</em> / <em>s</em><em>h</em><em>a</em><em>r</em><em>e</em> / <em>m</em><em>c</em><em>a</em><em>n</em><em>d</em></span>HOME/.config/mc. However the previous version(4.7.x) is looking for $HOME/.mc. You can verify that by typing</p>
+<pre><code>mc -F</code></pre>
+<p>Personally I don’t like this change since I prefer to a single directory for the convenience of storage and backup of my config files. Your skin setting probably take no effect after upgrading to 4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p></div>
   
   
 
@@ -189,14 +178,9 @@ storage and backup of my config files. Your skin setting probably take no effect
   </header>
 
 
-  <div class="entry-content"><p>It is very likely that the data file you are going to visualize has a one line header at the first
-line. Use &lsquo;every&rsquo; keyword to skip the first line like this.</p>
-
-<pre><code>plot "foo.dat" every ::1 using 1:2 with lines
-</code></pre>
-
-<p>Similarly you can skip 2 or 3 or whatever lines using &lsquo;every&rsquo;</p>
-</div>
+  <div class="entry-content"><p>It is very likely that the data file you are going to visualize has a one line header at the first line. Use ‘every’ keyword to skip the first line like this.</p>
+<pre><code>plot &quot;foo.dat&quot; every ::1 using 1:2 with lines</code></pre>
+<p>Similarly you can skip 2 or 3 or whatever lines using ‘every’</p></div>
   
   
 
@@ -231,11 +215,8 @@ line. Use &lsquo;every&rsquo; keyword to skip the first line like this.</p>
   </header>
 
 
-  <div class="entry-content"><p>Today&rsquo;s tip has only one line</p>
-
-<pre><code>git rm --cached foo.bar
-</code></pre>
-</div>
+  <div class="entry-content"><p>Today’s tip has only one line</p>
+<pre><code>git rm --cached foo.bar</code></pre></div>
   
   
 
@@ -270,8 +251,7 @@ line. Use &lsquo;every&rsquo; keyword to skip the first line like this.</p>
   </header>
 
 
-  <div class="entry-content"><p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn&rsquo;t change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried &lsquo;<strong>print(&#8216;foo.eps&rsquo;,&lsquo;-depsc&rsquo;,&lsquo;-F:14&rsquo;)</strong>&lsquo;. The option &rsquo;-F:14&#8217; set the default print fontsize to 14. It worked so far so good.</p>
-</div>
+  <div class="entry-content"><p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn’t change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried ‘<strong>print(’foo.eps’,’-depsc’,’-F:14’)</strong>’. The option ‘-F:14’ set the default print fontsize to 14. It worked so far so good.</p></div>
   
   
 
@@ -306,23 +286,10 @@ line. Use &lsquo;every&rsquo; keyword to skip the first line like this.</p>
   </header>
 
 
-  <div class="entry-content"><p>In my research work, I have to run many many times of the same program with different parameters.
-I wrote bash files to make my life easier. But single process of bash is very slow considering
-I have a decent computer with 24 cpu cores. My old way to make better use of multicore CPU was to
-split my jobs into several separate bash files and run them simultaneously. You can imagine that it
-is far from productive when editing these files. They contain overwhelmingly repeated text.</p>
-
-<p>GNU <a href="http://www.gnu.org/s/parallel">parallel</a> comes to rescue. I first ran into this post
-<a href="http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/">http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/</a>.
-But I quickly found GNU parallel was a better choice. Fully loaded with detailed documentation.
-Plus, it was written in Perl. As you may know, I&rsquo;m a Perl fan:&ndash;). Now my batch file has become like
-this:</p>
-
-<pre><code>seq 1 100 | parallel -j 20 single_run.sh {}
-</code></pre>
-
-<p>Voilà!</p>
-</div>
+  <div class="entry-content"><p>In my research work, I have to run many many times of the same program with different parameters. I wrote bash files to make my life easier. But single process of bash is very slow considering I have a decent computer with 24 cpu cores. My old way to make better use of multicore CPU was to split my jobs into several separate bash files and run them simultaneously. You can imagine that it is far from productive when editing these files. They contain overwhelmingly repeated text.</p>
+<p>GNU <a href="http://www.gnu.org/s/parallel">parallel</a> comes to rescue. I first ran into this post <a href="http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/">http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/</a>. But I quickly found GNU parallel was a better choice. Fully loaded with detailed documentation. Plus, it was written in Perl. As you may know, I’m a Perl fan:-). Now my batch file has become like this:</p>
+<pre><code>seq 1 100 | parallel -j 20 single_run.sh {}</code></pre>
+<p>Voilà!</p></div>
   
   
 
@@ -358,13 +325,9 @@ this:</p>
 
 
   <div class="entry-content"><p>As the release of Ubuntu 11.04 is approaching, I took a bold move to upgrade my Ubuntu 11.04 to 11.10 last night. Maybe not that bold, since the Ubuntu 11.10 is supposed to be stable enough at this moment. I played around with Unity and Gnome3 each for a while and finally chose Unity as my default desktop manager.</p>
-
-<p>At the very beginning, my wireless didn&rsquo;t work. It turned out that the wireless adapter drive was buggy with Linux kernel 3.x.x. After switching back to 2.8.x, wireless connection was alive. Both Unity and Gnome3 have impressive visual efftects at first glance. But after a while, especially in term of the usability, I would prefer Unity. Why?</p>
-
-<p>I like the title bar/top panel in Unity very much. It combines the functionality of the conventional window title bar and the top panel. Sure, it mimics Mac OSX but this feature save a lot of laptop screen real estate. While in Gnome3, a time applet seemingly takes up the whole top panel and you can&rsquo;t place app shortcuts into it rendering itself less useful.</p>
-
-<p>Both desktop managers have dropped &lsquo;Window List&rsquo; at the bottom. I have to say I need that back badly. I feel very uncomfortable without it showing. I have no idea how to switch between windows quickly if you have opened 10+ windows. &lsquo;Alt+Tab&rsquo; is not the right solution. I even think of switching to tiling window manager like wmii, xmonad. Luckily someone suggests <a href="http://code.google.com/p/tint2/">tint2</a> as replacement. I will give it a try immediately when back home.</p>
-</div>
+<p>At the very beginning, my wireless didn’t work. It turned out that the wireless adapter drive was buggy with Linux kernel 3.x.x. After switching back to 2.8.x, wireless connection was alive. Both Unity and Gnome3 have impressive visual efftects at first glance. But after a while, especially in term of the usability, I would prefer Unity. Why?</p>
+<p>I like the title bar/top panel in Unity very much. It combines the functionality of the conventional window title bar and the top panel. Sure, it mimics Mac OSX but this feature save a lot of laptop screen real estate. While in Gnome3, a time applet seemingly takes up the whole top panel and you can’t place app shortcuts into it rendering itself less useful.</p>
+<p>Both desktop managers have dropped ‘Window List’ at the bottom. I have to say I need that back badly. I feel very uncomfortable without it showing. I have no idea how to switch between windows quickly if you have opened 10+ windows. ‘Alt+Tab’ is not the right solution. I even think of switching to tiling window manager like wmii, xmonad. Luckily someone suggests <a href="http://code.google.com/p/tint2/">tint2</a> as replacement. I will give it a try immediately when back home.</p></div>
   
   
 
@@ -399,10 +362,10 @@ this:</p>
   </header>
 
 
-  <div class="entry-content"><p>This Linux executable is part of the package &lsquo;libnotify&rsquo;. With it you can notify the finish of long run process, like</p>
-
-<blockquote><p>./LongRunProcess | notify-send Done &ldquo;LongRunProcess is done&rdquo;</p></blockquote>
-</div>
+  <div class="entry-content"><p>This Linux executable is part of the package ‘libnotify’. With it you can notify the finish of long run process, like</p>
+<blockquote>
+<p>./LongRunProcess | notify-send Done “LongRunProcess is done”</p>
+</blockquote></div>
   
   
 
@@ -438,63 +401,18 @@ this:</p>
 
 
   <div class="entry-content"><p>wxgtk3 is under active development. Today I ran into a <strong>SIGABRT</strong> signal when debugging samples/image. The error message is like this:</p>
-
-<blockquote><p><strong><em> glibc detected </em></strong> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 ***
-======= Backtrace: =========
-/lib64/libc.so.6(+0x73226)[0x7f580b58f226]
-/lib64/libc.so.6(+0x758cf)[0x7f580b5918cf]
-/lib64/libc.so.6(<em><em>libc_malloc+0x79)[0x7f580b593aa9]
-/usr/lib64/libstdc++.so.6(</em>Znwm+0x1d)[0x7f580bd6d3dd]
-/usr/lib64/libstdc++.so.6(</em>Znam+0x9)[0x7f580bd6d4f9]
-./image[0x4a6d2c]
-./image[0x4a8d7c]
-./image[0x4ab21f]
-./image[0x4aaeb6]</p></blockquote>
-
-<p>What is &ldquo;<em>malloc(): smallbin double linked list corrupted</em>&rdquo; error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having &lsquo;new&rsquo; operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
-
+<blockquote>
+<p><em>*</em> glibc detected <em>*</em> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 <em>*</em> ======= Backtrace: ========= /lib64/libc.so.6(+0x73226)[0x7f580b58f226] /lib64/libc.so.6(+0x758cf)[0x7f580b5918cf] /lib64/libc.so.6(<em><em>libc</em>malloc+0x79)[0x7f580b593aa9] /usr/lib64/libstdc++.so.6(</em>Znwm+0x1d)[0x7f580bd6d3dd] /usr/lib64/libstdc++.so.6(_Znam+0x9)[0x7f580bd6d4f9] ./image[0x4a6d2c] ./image[0x4a8d7c] ./image[0x4ab21f] ./image[0x4aaeb6]</p>
+</blockquote>
+<p>What is “<em>malloc(): smallbin double linked list corrupted</em>” error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having ‘new’ operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
 <p>I guessed most bug reporters were just common users who were not familiar with valgrind. Anyway, the search results suggested me run valgrind to get more information about the memory violation. Luckly, I played with it several month ago and made a not-bad <a href="http://zandyware.wordpress.com/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">suppression file</a> customized with wxgtk. Again I ran valgrind with the command like this:</p>
-
-<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind &mdash;leak-check=yes &mdash;suppressions=./wx.supp &mdash;log-file=valgrind.log ./image</p>
-
+<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind –leak-check=yes –suppressions=./wx.supp –log-file=valgrind.log ./image</p>
 <p>Valgrind immediately tracked down where the real problem was. The log looked like this</p>
-
-<blockquote><p>==17645== Memcheck, a memory error detector
-==17645== Copyright &copy; 2002-2010, and GNU GPL&rsquo;d, by Julian Seward et al.
-==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
-==17645== Command: ./image
-==17645== Parent PID: 28951
-==17645==
-==17645== Source and destination overlap in memcpy(0xe004860, 0xe003430, 5600)
-==17645==    at 0x4C289A6: memcpy (mc_replace_strmem.c:635)
-==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
-==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
-==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
-==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow<em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
-==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
-==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
-==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
-==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
-==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
-==17645==    by 0x420A84: main (image.cpp:869)
-==17645==
-==17645== Invalid read of size 8
-==17645==    at 0x4C28B2C: memcpy (mc_replace_strmem.c:635)
-==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
-==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
-==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
-==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow</em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
-==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
-==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
-==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
-==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
-==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
-==17645==    by 0x420A84: main (image.cpp:869)</p></blockquote>
-
+<blockquote>
+<p>==17645== Memcheck, a memory error detector ==17645== Copyright (C) 2002-2010, and GNU GPL’d, by Julian Seward et al. ==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info ==17645== Command: ./image ==17645== Parent PID: 28951 ==17645== ==17645== Source and destination overlap in memcpy(0xe004860, 0xe003430, 5600) ==17645==    at 0x4C289A6: memcpy (mc_replace_strmem.c:635) ==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500) ==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383) ==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72) ==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow<em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199) ==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678) ==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878) ==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92) ==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456) ==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484) ==17645==    by 0x420A84: main (image.cpp:869) ==17645== ==17645== Invalid read of size 8 ==17645==    at 0x4C28B2C: memcpy (mc_replace_strmem.c:635) ==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500) ==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383) ==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72) ==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow</em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199) ==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678) ==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878) ==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92) ==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456) ==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484) ==17645==    by 0x420A84: main (image.cpp:869)</p>
+</blockquote>
 <p>It turned out that memcpy() at the line 500 in bitmap_gtk3.cpp manipulated overlapping memory. That was the actual culprit. Valgrind even showed the call backtrace to help you to reproduce the bug. Awesome.</p>
-
-<p>I hope this blog entry help you to use Valgrind to locate the bug and fix memory error quickly.</p>
-</div>
+<p>I hope this blog entry help you to use Valgrind to locate the bug and fix memory error quickly.</p></div>
   
   
 
@@ -529,12 +447,7 @@ this:</p>
   </header>
 
 
-  <div class="entry-content"><p>Step 1: Print the address of the variable you are going to watch.
-<code>p *your_variable</code>
-(Suppose the address is 0x12345678
-Step 2: Set watchpoint
-<code>watch *0x12345678</code></p>
-</div>
+  <div class="entry-content"><p>Step 1: Print the address of the variable you are going to watch. <code>p *your_variable</code> (Suppose the address is 0x12345678 Step 2: Set watchpoint <code>watch *0x12345678</code></p></div>
   
   
 

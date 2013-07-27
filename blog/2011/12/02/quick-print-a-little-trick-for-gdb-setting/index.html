@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Today I would like to share a little trick that I have adapted and used for a while. It is for
-gdb. Before your reading the rest of the post, and if &hellip;">
+  <meta name="description" content="Today I would like to share a little trick that I have adapted and used for a while. It is for gdb. Before your reading the rest of the post, and if &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,20 +101,13 @@ gdb. Before your reading the rest of the post, and if &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for
-<a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have
-no idea about the customization of gdb, please read
-<a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
-
-<p>If you use gdb frequently, chances are you have to type the command &lsquo;print&rsquo; or &lsquo;p&rsquo; to examine the
-value of variable many many times. A common case is like this: you type &lsquo;p foo&rsquo; to see the value of
-&lsquo;foo&rsquo;. It turns out that &lsquo;foo&rsquo; is a pointer, and you have to type &lsquo;p *foo&rsquo; again in the commandline.
-Or you have to type &lsquo;ptype foo&rsquo; to find out the type definition of &lsquo;foo&rsquo;. Tedious. This small piece
-of gdb macro to make your life easier. Every time you type &lsquo;p foo&rsquo;, you just scroll up the history
-and type &lsquo;1&rsquo;, &lsquo;p foo 1&rsquo; shows the dereferenced value, or typing &lsquo;2&rsquo; gives you the type definition of
-&lsquo;foo&rsquo;. Copy and paste into your ~/.gdbinit</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for <a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have no idea about the customization of gdb, please read <a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
+<p>If you use gdb frequently, chances are you have to type the command ‘print’ or ‘p’ to examine the value of variable many many times. A common case is like this: you type ‘p foo’ to see the value of ‘foo’. It turns out that ‘foo’ is a pointer, and you have to type ‘p *foo’ again in the commandline. Or you have to type ‘ptype foo’ to find out the type definition of ‘foo’. Tedious. This small piece of gdb macro to make your life easier. Every time you type ‘p foo’, you just scroll up the history and type ‘1’, ‘p foo 1’ shows the dereferenced value, or typing ‘2’ gives you the type definition of ‘foo’. Copy and paste into your ~/.gdbinit</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -148,8 +140,8 @@ and type &lsquo;1&rsquo;, &lsquo;p foo 1&rsquo; shows the dereferenced value, or
 </span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
 </span><span class='line'><span class="n">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
 
 
   <footer>

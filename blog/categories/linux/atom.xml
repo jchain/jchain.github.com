@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,48 +18,19 @@
     <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
     <updated>2013-07-01T16:10:15-05:00</updated>
     <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
-    <content type="html"><![CDATA[<p>Last night I didn&rsquo;t resist the temptation to enter</p>
-
-<pre><code>sudo yum install fedora-upgrade 
-</code></pre>
-
+    <content type="html"><![CDATA[<p>Last night I didn’t resist the temptation to enter</p>
+<pre><code>sudo yum install fedora-upgrade </code></pre>
 <p>Viola, my journey to Fedora 19 began!</p>
-
-<p>Every time I upgraded my Linux to the latest release, either Ubuntu or Fedora, I would have to spent
-another day to tweak the new system to make it comfortable to use. The biggest challenge was surely
-the transition from GNOME 2 to 3. Two years have passed and I still can&rsquo;t get used to the new UI.
-Accurately speaking, I really like the new UI elements in GNOME 3 but I just don&rsquo;t like the ways
-that GNOME shell asks me to do things. I think GNOME shell is attractive for new users and
-especially good for tablet. But for a senior user, it is too obtrusive. It wanted to be smart but
-overdid.</p>
-
-<p>I appreciated the fallback mode that GNOME 3 provided. I turned off all the fancy animations and
-sticked to the old-fashioned UI. I used <a href="http://code.google.com/p/tint2/"><code>tint2</code></a> as the window list panel. In Fedora 18 with
-Gnome 3.6, the clock applet surprisingly had a memory leak issue. I disabled the clock applet and
-only used the <code>tint2</code> panel to show the time. However, sometimes, I missed the weather information.</p>
-
-<p>With the advent of GNOME 3.8, the fallback was sadly dropped and the 2D GNOME shell was so ugly that
-I had to make a change.</p>
-
-<p>I first tried <a href="http://xfce.org"><code>Xfce</code></a> and <code>MATE Desktop</code>. <code>MATE</code> failed to start on my Fedora 19. I realized that
-I was spoiled by the modern UI of GNOME 3 so the look and feel of <code>Xfce</code> (based on GTK+ 2) became
-intolerable. Thank God there is <a href="http://cinnamon.linuxmint.com/"><code>Cinnamon</code></a>. When Cinnamon was first released, I thought it was
-another flamboyant window manager but it turns out sleek and practical. The status bar is very
-compact but full of useful information. Window list? Check. Weather applet? Check. Start menu?
-Check. Transparency effect? Check. GNOME compatible? Check. I don&rsquo;t need many. These are good
-enough. I&rsquo;m so happy to settle down with Cinnamon.</p>
-
+<p>Every time I upgraded my Linux to the latest release, either Ubuntu or Fedora, I would have to spent another day to tweak the new system to make it comfortable to use. The biggest challenge was surely the transition from GNOME 2 to 3. Two years have passed and I still can’t get used to the new UI. Accurately speaking, I really like the new UI elements in GNOME 3 but I just don’t like the ways that GNOME shell asks me to do things. I think GNOME shell is attractive for new users and especially good for tablet. But for a senior user, it is too obtrusive. It wanted to be smart but overdid.</p>
+<p>I appreciated the fallback mode that GNOME 3 provided. I turned off all the fancy animations and sticked to the old-fashioned UI. I used <a href="http://code.google.com/p/tint2/"><code>tint2</code></a> as the window list panel. In Fedora 18 with Gnome 3.6, the clock applet surprisingly had a memory leak issue. I disabled the clock applet and only used the <code>tint2</code> panel to show the time. However, sometimes, I missed the weather information.</p>
+<p>With the advent of GNOME 3.8, the fallback was sadly dropped and the 2D GNOME shell was so ugly that I had to make a change.</p>
+<p>I first tried <a href="http://xfce.org"><code>Xfce</code></a> and <code>MATE Desktop</code>. <code>MATE</code> failed to start on my Fedora 19. I realized that I was spoiled by the modern UI of GNOME 3 so the look and feel of <code>Xfce</code> (based on GTK+ 2) became intolerable. Thank God there is <a href="http://cinnamon.linuxmint.com/"><code>Cinnamon</code></a>. When Cinnamon was first released, I thought it was another flamboyant window manager but it turns out sleek and practical. The status bar is very compact but full of useful information. Window list? Check. Weather applet? Check. Start menu? Check. Transparency effect? Check. GNOME compatible? Check. I don’t need many. These are good enough. I’m so happy to settle down with Cinnamon.</p>
 <p>Some other issues with GNOME 3.8 are</p>
-
-<ol>
-<li><p>The transparency of the background of GNOME Terminal can&rsquo;t be set. Not a very big deal. But
-some users complained about it.</p></li>
-<li><p>The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be
-kept.</p></li>
+<ol type="1">
+<li><p>The transparency of the background of GNOME Terminal can’t be set. Not a very big deal. But some users complained about it.</p></li>
+<li><p>The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be kept.</p></li>
 <li><p>The theme is broken. Many guys complain about <a href="http://igurublog.wordpress.com/2012/11/05/gnome-et-al-rotting-in-threes/">that</a></p></li>
-</ol>
-
-]]></content>
+</ol>]]></content>
   </entry>
   
   <entry>
@@ -67,33 +38,17 @@ kept.</p></li>
     <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
     <updated>2013-06-01T15:37:24-05:00</updated>
     <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
-    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
-plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
-
-<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&rsquo;t I realized that
-I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
-
-<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
-<code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the
-setting in <code>.vimrc</code> from</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\h\w*\|\h\w*::'
-</code></pre>
-
+    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
+<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of <code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the setting in <code>.vimrc</code> from</p>
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\h\w*\|\h\w*::&#39;</code></pre>
 <p>to</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*'
-</code></pre>
-
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*&#39;</code></pre>
 <p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
-
-<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
-as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&rsquo;t
-triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
-<code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
-
-<p><img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /></p>
-]]></content>
+<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won’t triger neocomplcache if the package is not based on the OO that perlomni supports. In this case, <code>C-X C-O</code> will always pop up the window. After this you should see someting like this:</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /><figcaption>alt</figcaption>
+</figure>]]></content>
   </entry>
   
   <entry>
@@ -102,72 +57,36 @@ triger neocomplcache if the package is not based on the OO that perlomni support
     <updated>2013-02-08T14:03:24-06:00</updated>
     <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
     <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
-
-<h1>quickcd</h1>
-
-<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change
-directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
-navigate in many subdirectories with tricky names.</p>
-
-<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code.
-The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose
-the one you like most.</p>
-
-<h1>Overview</h1>
-
+<h1 id="quickcd">quickcd</h1>
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change directories. It saves you a lot of keystrokes and enhances your productivity, especially when you navigate in many subdirectories with tricky names.</p>
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code. The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose the one you like most.</p>
+<h1 id="overview">Overview</h1>
 <p>quickcd enables you to use cd with partial directory names. For example:</p>
-
 <pre><code>$ cd box
   =&gt; Dropbox
 $ cd ok
-  =&gt; Ebook
-</code></pre>
-
-<p>If there is more than one directory containing your cd path, you just need to type one more letter
-to take you to the target folder.</p>
-
-<p><code>
-~ $ cd D
+  =&gt; Ebook</code></pre>
+<p>If there is more than one directory containing your cd path, you just need to type one more letter to take you to the target folder.</p>
+<pre><code>~ $ cd D
 Make a choice:
 [a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
 a
-Desktop $
-</code></p>
-
-<h1>Why rewrite?</h1>
-
+Desktop $</code></pre>
+<h1 id="why-rewrite">Why rewrite?</h1>
 <p>The differences:</p>
-
-<ol>
-<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can
-result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
-<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
-the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
-are not always aligned.</p></li>
-<li><p>quickcd doesn&rsquo;t support multi-level directory nagivation. Its main focus is current directory.
-fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<ol type="1">
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates are not always aligned.</p></li>
+<li><p>quickcd doesn’t support multi-level directory nagivation. Its main focus is current directory. fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
 <li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
 </ol>
-
-
-<h1>Setup</h1>
-
-<p>This following instruction are shamelessly copied from fuzzycd&rsquo;s README.</p>
-
-<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
-This assumes you put fuzzycd in the ~/scripts/ directory.</p>
-
+<h1 id="setup">Setup</h1>
+<p>This following instruction are shamelessly copied from fuzzycd’s README.</p>
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines. This assumes you put fuzzycd in the ~/scripts/ directory.</p>
 <pre><code>export PATH=~/scripts/fuzzycd/:$PATH
-source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
-</code></pre>
-
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
-
-<p><em>Note</em>: If you have any other shell plugins which try to redefine the &ldquo;cd&rdquo; function (e.g.
-<a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
-<code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
-other bash modification plugins, but it should be loaded last.</p>
-]]></content>
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the “cd” function (e.g. <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with other bash modification plugins, but it should be loaded last.</p>]]></content>
   </entry>
   
   <entry>
@@ -175,131 +94,83 @@ other bash modification plugins, but it should be loaded last.</p>
     <link href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/"/>
     <updated>2013-01-31T15:39:00-06:00</updated>
     <id>http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk</id>
-    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&rsquo;t ship the Autoconf script
-and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would
-like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into
-HOME directory before so I have to specify the search path for compiler and linker. Here is what
-I got so far:</p>
+    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into HOME directory before so I have to specify the search path for compiler and linker. Here is what I got so far:</p>
+<pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dt">PACKAGE </span><span class="ch">?=</span><span class="st"> feh</span>
+<span class="dt">VERSION </span><span class="ch">?=</span><span class="st"> 2.8</span>
 
-<p>```makefile
-PACKAGE ?= feh
-VERSION ?= 2.8</p>
+<span class="co"># Prefix for all installed files</span>
+<span class="co"># PREFIX ?= /usr/local</span>
+<span class="dt">PREFIX </span><span class="ch">?=</span><span class="st"> </span><span class="ch">${</span><span class="dt">HOME</span><span class="ch">}</span>
 
-<h1>Prefix for all installed files</h1>
+<span class="co"># Directories for manuals, executables, docs, data, etc.</span>
+<span class="dt">main_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">DESTDIR</span><span class="ch">}${</span><span class="dt">PREFIX</span><span class="ch">}</span>
+<span class="dt">man_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/man</span>
+<span class="dt">bin_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/bin</span>
+<span class="dt">doc_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/doc/feh</span>
+<span class="dt">image_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/feh/images</span>
+<span class="dt">font_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/feh/fonts</span>
+<span class="dt">example_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/doc/feh/examples</span>
 
-<h1>PREFIX ?= /usr/local</h1>
+<span class="co"># default CFLAGS</span>
+<span class="dt">CFLAGS </span><span class="ch">?=</span><span class="st"> -g -O2</span>
+<span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -Wall -Wextra -pedantic</span>
 
-<p>PREFIX ?= ${HOME}</p>
+<span class="dt">curl </span><span class="ch">?=</span><span class="st"> 1</span>
+<span class="dt">debug </span><span class="ch">?=</span><span class="st"> 0</span>
+<span class="dt">help </span><span class="ch">?=</span><span class="st"> 0</span>
+<span class="dt">xinerama </span><span class="ch">?=</span><span class="st"> 1</span>
+<span class="dt">exif </span><span class="ch">?=</span><span class="st"> 0</span>
 
-<h1>Directories for manuals, executables, docs, data, etc.</h1>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">curl</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBCURL</span>
+    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lcurl</span>
+    <span class="dt">MAN_CURL </span><span class="ch">=</span><span class="st"> enabled</span>
+<span class="kw">else</span>
+    <span class="dt">MAN_CURL </span><span class="ch">=</span><span class="st"> disabled</span>
+<span class="kw">endif</span>
 
-<p>main_dir = ${DESTDIR}${PREFIX}
-man_dir = ${main_dir}/share/man
-bin_dir = ${main_dir}/bin
-doc_dir = ${main_dir}/share/doc/feh
-image_dir = ${main_dir}/share/feh/images
-font_dir = ${main_dir}/share/feh/fonts
-example_dir = ${main_dir}/share/doc/feh/examples</p>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">debug</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DDEBUG -O0</span>
+    <span class="dt">MAN_DEBUG </span><span class="ch">=</span><span class="st"> . This is a debug build.</span>
+<span class="kw">else</span>
+    <span class="dt">MAN_DEBUG </span><span class="ch">=</span>
+<span class="kw">endif</span>
 
-<h1>default CFLAGS</h1>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">help</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DINCLUDE_HELP</span>
+<span class="kw">endif</span>
 
-<p>CFLAGS ?= -g -O2
-CFLAGS += -Wall -Wextra -pedantic</p>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">stat64</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -D_FILE_OFFSET_BITS=64</span>
+<span class="kw">endif</span>
 
-<p>curl ?= 1
-debug ?= 0
-help ?= 0
-xinerama ?= 1
-exif ?= 0</p>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">xinerama</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBXINERAMA</span>
+    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lXinerama</span>
+    <span class="dt">MAN_XINERAMA </span><span class="ch">=</span><span class="st"> enabled</span>
+<span class="kw">else</span>
+    <span class="dt">MAN_XINERAMA </span><span class="ch">=</span><span class="st"> disabled</span>
+<span class="kw">endif</span>
 
-<p>ifeq (${curl},1)</p>
+<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">exif</span><span class="ch">}</span>,1)
+    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBEXIF</span>
+    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lexif</span>
+    <span class="dt">MAN_EXIF </span><span class="ch">=</span><span class="st"> enabled</span>
+<span class="kw">else</span>
+    <span class="dt">MAN_EXIF </span><span class="ch">=</span><span class="st"> disabled</span>
+<span class="kw">endif</span>
 
-<pre><code>CFLAGS += -DHAVE_LIBCURL
-LDLIBS += -lcurl
-MAN_CURL = enabled
-</code></pre>
 
-<p>else</p>
+<span class="co"># Uncomment this to use dmalloc</span>
+<span class="dt">#CFLAGS </span><span class="ch">+=</span><span class="st"> -DWITH_DMALLOC</span>
 
-<pre><code>MAN_CURL = disabled
-</code></pre>
+<span class="co"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
+    <span class="dt">-DPACKAGE</span><span class="ch">=</span><span class="st">\&quot;</span><span class="ch">${</span><span class="dt">PACKAGE</span><span class="ch">}</span><span class="st">\&quot; -DVERSION=\&quot;</span><span class="ch">${</span><span class="dt">VERSION</span><span class="ch">}</span><span class="st">\&quot;</span>
+<span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DPREFIX=\&quot;</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">\&quot; </span><span class="ch">\</span>
+    <span class="dt">-DPACKAGE</span><span class="ch">=</span><span class="st">\&quot;</span><span class="ch">${</span><span class="dt">PACKAGE</span><span class="ch">}</span><span class="st">\&quot; -DVERSION=\&quot;</span><span class="ch">${</span><span class="dt">VERSION</span><span class="ch">}</span><span class="st">\&quot; -I</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">/include</span>
 
-<p>endif</p>
-
-<p>ifeq (${debug},1)</p>
-
-<pre><code>CFLAGS += -DDEBUG -O0
-MAN_DEBUG = . This is a debug build.
-</code></pre>
-
-<p>else</p>
-
-<pre><code>MAN_DEBUG =
-</code></pre>
-
-<p>endif</p>
-
-<p>ifeq (${help},1)</p>
-
-<pre><code>CFLAGS += -DINCLUDE_HELP
-</code></pre>
-
-<p>endif</p>
-
-<p>ifeq (${stat64},1)</p>
-
-<pre><code>CFLAGS += -D_FILE_OFFSET_BITS=64
-</code></pre>
-
-<p>endif</p>
-
-<p>ifeq (${xinerama},1)</p>
-
-<pre><code>CFLAGS += -DHAVE_LIBXINERAMA
-LDLIBS += -lXinerama
-MAN_XINERAMA = enabled
-</code></pre>
-
-<p>else</p>
-
-<pre><code>MAN_XINERAMA = disabled
-</code></pre>
-
-<p>endif</p>
-
-<p>ifeq (${exif},1)</p>
-
-<pre><code>CFLAGS += -DHAVE_LIBEXIF
-LDLIBS += -lexif
-MAN_EXIF = enabled
-</code></pre>
-
-<p>else</p>
-
-<pre><code>MAN_EXIF = disabled
-</code></pre>
-
-<p>endif</p>
-
-<h1>Uncomment this to use dmalloc</h1>
-
-<h1>CFLAGS += -DWITH_DMALLOC</h1>
-
-<h1>CFLAGS += -DPREFIX=\&ldquo;${PREFIX}\&rdquo; \</h1>
-
-<pre><code>-DPACKAGE=\"${PACKAGE}\" -DVERSION=\"${VERSION}\"
-</code></pre>
-
-<p>CFLAGS += -DPREFIX=\&ldquo;${PREFIX}\&rdquo; \</p>
-
-<pre><code>-DPACKAGE=\"${PACKAGE}\" -DVERSION=\"${VERSION}\" -I${PREFIX}/include
-</code></pre>
-
-<h1>LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</h1>
-
-<p>LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib -L${PREFIX}/lib64/
-```</p>
-]]></content>
+<span class="co"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
+<span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lm -lpng -lX11 -lImlib2 -lgiblib -L</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">/lib64/</span></code></pre>]]></content>
   </entry>
   
   <entry>
@@ -307,98 +178,47 @@ MAN_EXIF = enabled
     <link href="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/"/>
     <updated>2012-11-28T02:10:00-06:00</updated>
     <id>http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver</id>
-    <content type="html"><![CDATA[<p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia
-8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
+    <content type="html"><![CDATA[<p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
+<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version. None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia. But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a kernel bug in the ext4 file system</p>
+<pre><code>kernel BUG at fs/ext4/extents.c</code></pre>
+<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news confirmed that the bug in the kernel was the culprit. After several sudden losses of my working sessions I couldn’t wait for any more seconds to update the kernel. And I had to make the Xorg server work too.</p>
+<p>It really bugged me that the nVidia driver didn’t work on my Fedora 17. I booted from Ubuntu Linux installed on an external USB disk. And the nVidia driver worked fine under it. There must be something wrong with <code>akmod-nvidia</code> or the official driver.</p>
+<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X server started this time. In my case, I didn’t need to do this:</p>
+<pre><code>Remove / disable nouveau drivers from kernel initramfs</code></pre>
+<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL library was not automatically loaded. The system still used the mesa GL to do the software rendering. A workaround is to put the following line in <code>.bashrc</code></p>
+<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH</code></pre>
+<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code> didn’t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here is what it looks right now.</p>
+<pre><code># RPM Fusion - nvidia-173xx-xorg.conf
+# 
+Section &quot;Monitor&quot;
+    # HorizSync source: edid, VertRefresh source: edid
+    Identifier     &quot;Monitor0&quot;
+    VendorName     &quot;Unknown&quot;
+    ModelName      &quot;DELL E228WFP&quot;
+    HorizSync       30.0 - 83.0
+    VertRefresh     56.0 - 75.0
+    Option         &quot;DPMS&quot;
+EndSection
 
-<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia
-driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version.
-None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was
-drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver
-either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia.
-But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I
-excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora
-Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a
-kernel bug in the ext4 file system</p>
+Section &quot;Device&quot;
+    Identifier  &quot;Device0&quot;
+    Driver      &quot;nvidia&quot;
+    Option      &quot;AddARGBGLXVisuals&quot; &quot;true&quot;
+EndSection
 
-<pre><code>kernel BUG at fs/ext4/extents.c
-</code></pre>
-
-<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news
-confirmed that the bug in the kernel was the culprit. After several sudden losses of my working
-sessions I couldn&rsquo;t wait for any more seconds to update the kernel. And I had to make the Xorg
-server work too.</p>
-
-<p>It really bugged me that the nVidia driver didn&rsquo;t work on my Fedora 17. I booted from Ubuntu Linux
-installed on an external USB disk. And the nVidia driver worked fine under it. There must be
-something wrong with <code>akmod-nvidia</code> or the official driver.</p>
-
-<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in
-the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X
-server started this time. In my case, I didn&rsquo;t need to do this:</p>
-
-<pre><code>Remove / disable nouveau drivers from kernel initramfs
-</code></pre>
-
-<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL
-library was not automatically loaded. The system still used the mesa GL to do the software
-rendering. A workaround is to put the following line in <code>.bashrc</code></p>
-
-<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH
-</code></pre>
-
-<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code>
-didn&rsquo;t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old
-to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here
-is what it looks right now.</p>
-
-<p>```</p>
-
-<h1>RPM Fusion &ndash; nvidia-173xx-xorg.conf</h1>
-
-<h1></h1>
-
-<p>Section &ldquo;Monitor&rdquo;</p>
-
-<pre><code># HorizSync source: edid, VertRefresh source: edid
-Identifier     "Monitor0"
-VendorName     "Unknown"
-ModelName      "DELL E228WFP"
-HorizSync       30.0 - 83.0
-VertRefresh     56.0 - 75.0
-Option         "DPMS"
-</code></pre>
-
-<p>EndSection</p>
-
-<p>Section &ldquo;Device&rdquo;</p>
-
-<pre><code>Identifier  "Device0"
-Driver      "nvidia"
-Option      "AddARGBGLXVisuals" "true"
-</code></pre>
-
-<p>EndSection</p>
-
-<p>Section &ldquo;Screen&rdquo;</p>
-
-<pre><code>Identifier     "Screen0"
-Device         "Device0"
-Monitor        "Monitor0"
-DefaultDepth    24
-Option         "TwinView" "1"
-Option         "TwinViewXineramaInfoOrder" "DFP-0"
-Option         "metamodes" "DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0"
-SubSection     "Display"
-    Depth       24
-EndSubSection
-</code></pre>
-
-<p>EndSection
-```</p>
-
-<p>I&rsquo;m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it
-will help you if you are facing the same problem.</p>
-]]></content>
+Section &quot;Screen&quot;
+    Identifier     &quot;Screen0&quot;
+    Device         &quot;Device0&quot;
+    Monitor        &quot;Monitor0&quot;
+    DefaultDepth    24
+    Option         &quot;TwinView&quot; &quot;1&quot;
+    Option         &quot;TwinViewXineramaInfoOrder&quot; &quot;DFP-0&quot;
+    Option         &quot;metamodes&quot; &quot;DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0&quot;
+    SubSection     &quot;Display&quot;
+        Depth       24
+    EndSubSection
+EndSection</code></pre>
+<p>I’m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it will help you if you are facing the same problem.</p>]]></content>
   </entry>
   
 </feed>

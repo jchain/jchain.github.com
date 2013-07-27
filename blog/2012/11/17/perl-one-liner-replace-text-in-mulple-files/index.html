@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Today I got some time to improve my tech blog with Octopress. I found that I couldn&rsquo;t use the
-different letter cases as the same category name &hellip;">
+  <meta name="description" content="Today I got some time to improve my tech blog with Octopress. I found that I couldn’t use the different letter cases as the same category name. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,24 +101,15 @@ different letter cases as the same category name &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&rsquo;t use the
-different letter cases as the same category name. Otherwise the category page wouldn&rsquo;t show correct
-number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
-the meta info of every posts. Here was what I used to get this job done.</p>
-
-<pre><code>ack "\- git" *.markdown -l | xargs perl -p -i -e 's/- git/- Git/g'
-</code></pre>
-
+<div class="entry-content"><p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn’t use the different letter cases as the same category name. Otherwise the category page wouldn’t show correct number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in the meta info of every posts. Here was what I used to get this job done.</p>
+<pre><code>ack &quot;\- git&quot; *.markdown -l | xargs perl -p -i -e &#39;s/- git/- Git/g&#39;</code></pre>
 <p>A little explanation:</p>
-
 <pre><code>-l: ask ack to only show the filename with matched search pattern. You can try first without -l
     option to make sure you find the correct files. And then run with -l option to make the output
     suitable for xargs
 -p: read and loop from files instead of STDIN
 -i: in-place edit
--e: run the command. Here we do the search and replace operations.
-</code></pre>
-</div>
+-e: run the command. Here we do the search and replace operations.</code></pre></div>
 
 
   <footer>

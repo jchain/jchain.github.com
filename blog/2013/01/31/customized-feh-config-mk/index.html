@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Feh is a lightweight image viewer for Linux. Its source code doesn&rsquo;t ship the Autoconf script
-and only Makefile. The customization is done by &hellip;">
+  <meta name="description" content="Feh is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,13 +101,12 @@ and only Makefile. The customization is done by &hellip;">
   </header>
 
 
-<div class="entry-content"><p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn&rsquo;t ship the Autoconf script
-and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would
-like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into
-HOME directory before so I have to specify the search path for compiler and linker. Here is what
-I got so far:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into HOME directory before so I have to specify the search path for compiler and linker. Here is what I got so far:</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -261,10 +259,8 @@ I got so far:</p>
 </span><span class='line'><span class="c"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
 </span><span class='line'>LDLIBS +<span class="o">=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
 </span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
+</notextile>
+</div></div>
 
 
   <footer>

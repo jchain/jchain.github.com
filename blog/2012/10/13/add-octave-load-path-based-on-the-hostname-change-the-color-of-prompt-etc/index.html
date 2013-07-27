@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross
-different computers (four different Linux &hellip;">
+  <meta name="description" content="In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,14 +101,12 @@ different computers (four different Linux &hellip;">
   </header>
 
 
-<div class="entry-content"><p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross
-different computers (four different Linux machine). I also maintain a list of local M-file repos.
-Not all repos are available on every machine. To get rid of the warning message for missing
-directory every time, I wished I could add my local directories dynamically based on the hostname.
-I didn&rsquo;t know how to do so until today I found that Octave actually has the function &lsquo;uname()&rsquo; for
-the job. Here is an example ~/.octaverc</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn’t know how to do so until today I found that Octave actually has the function ‘uname()’ for the job. Here is an example ~/.octaverc</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -132,12 +129,10 @@ the job. Here is an example ~/.octaverc</p>
 </span><span class='line'> <span class="n">help</span> <span class="p">(</span><span class="n">char</span> <span class="p">(</span><span class="n">name</span><span class="p">))</span>
 </span><span class='line'><span class="n">endfunction</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>You may also notice that I changed the default color of prompt to red for better visual contrast.
-Also I defined a function &lsquo;man&rsquo; to alias the built-in command &lsquo;help&rsquo; since I&rsquo;m more used to type
-&lsquo;man&rsquo;. This tip was copied from Octave mailinglist. Hope you like today&rsquo;s post.</p>
+</notextile>
 </div>
+
+<p>You may also notice that I changed the default color of prompt to red for better visual contrast. Also I defined a function ‘man’ to alias the built-in command ‘help’ since I’m more used to type ‘man’. This tip was copied from Octave mailinglist. Hope you like today’s post.</p></div>
 
 
   <footer>

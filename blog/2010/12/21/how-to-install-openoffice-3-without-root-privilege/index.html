@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
-openoffice-3.2. But my problem was I didn&rsquo;t have &hellip;">
+  <meta name="description" content="The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn’t have the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,25 +101,16 @@ openoffice-3.2. But my problem was I didn&rsquo;t have &hellip;">
   </header>
 
 
-<div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
-openoffice-3.2. But my problem was I didn&rsquo;t have the root privilege to do that. The official
-installer of OpenOffice failed again over again without notifying you that the reason of failure was
-the lack of root privilege. Finally I found this great
-<a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked
-like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &mdash;color=never</strong> to
-disable the color output.</p>
-
-<ol>
-<li><p> Download the installation package from OpenOffice website.</p></li>
-<li><p> Unzip it into a directory.</p></li>
-<li><p> <strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
-<li><p> cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
-<li><p> run ./soffice</p></li>
-<li><p> (option) create symbolic link to soffice.</p></li>
-<li><p> (option) set file association in Nautilus. Right click a doc and choose <strong>Properties->Open with &ndash;> Add&hellip;</strong></p></li>
-</ol>
-
-</div>
+<div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn’t have the root privilege to do that. The official installer of OpenOffice failed again over again without notifying you that the reason of failure was the lack of root privilege. Finally I found this great <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls –color=never</strong> to disable the color output.</p>
+<ol type="1">
+<li><p>Download the installation package from OpenOffice website.</p></li>
+<li><p>Unzip it into a directory.</p></li>
+<li><p><strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
+<li><p>cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
+<li><p>run ./soffice</p></li>
+<li><p>(option) create symbolic link to soffice.</p></li>
+<li><p>(option) set file association in Nautilus. Right click a doc and choose <strong>Properties-&gt;Open with -&gt; Add…</strong></p></li>
+</ol></div>
 
 
   <footer>

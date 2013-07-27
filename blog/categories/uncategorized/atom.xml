@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Uncategorized | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/uncategorized/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,12 +18,7 @@
     <link href="http://jchain.github.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress/"/>
     <updated>2011-03-09T11:31:22-06:00</updated>
     <id>http://jchain.github.com/blog/2011/03/09/tracs-milestone-feature-is-helpful-to-track-the-progress</id>
-    <content type="html"><![CDATA[<p>I have used several project management software before. But today I found that the milestone feature
-in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required
-features to the issue tracking system for a specific milestone. By viewing the progress bar, I can
-have a clear big picture about the progress of the project. I like this feature very much. Very
-helpful.</p>
-]]></content>
+    <content type="html"><![CDATA[<p>I have used several project management software before. But today I found that the milestone feature in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required features to the issue tracking system for a specific milestone. By viewing the progress bar, I can have a clear big picture about the progress of the project. I like this feature very much. Very helpful.</p>]]></content>
   </entry>
   
 </feed>

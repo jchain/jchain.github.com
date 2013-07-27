@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Today I ran into a very wired problem when I was trying to compile a C++ source file. What
-I received was like this: Evaluator.h:1: error: stray ‘\ &hellip;">
+  <meta name="description" content="Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this: Evaluator.h:1: error: stray ‘57 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,37 +101,21 @@ I received was like this: Evaluator.h:1: error: stray ‘\ &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
-I received was like this:</p>
-
-<blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
-Evaluator.h:1: error: stray ‘\273’ in program
-Evaluator.h:1: error: stray ‘\277’ in program
-Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
-
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
-source file. I guessed that our team were using different editors and operating systems, and
-someone  accidentally inserted one or two unicode characters. It was so bad that they were
-invisible!</p>
-
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
-So so wired. I used Linux command-line tool &lsquo;file&rsquo; to detect the type of the source file</p>
-
-<blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
-
-<p>But for the other files in the same directory, &lsquo;file&rsquo; told me that</p>
-
-<blockquote><p>ASCII C program text</p></blockquote>
-
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
-conversion. So I came up the final idea, use command-line tool &lsquo;cat&rsquo; to<strong> dump it to the terminal
-screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
-If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
-
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
-I thought it was the culprit. I also noticed that<strong> &lsquo;cat foo.h > bar.h&rsquo; didn&rsquo;t get rid of the
-invisible character</strong>.  Copy and Paste!</p>
-</div>
+<div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
+<blockquote>
+<p>Evaluator.h:1: error: stray ‘57’ in program Evaluator.h:1: error: stray ‘73’ in program Evaluator.h:1: error: stray ‘77’ in program Evaluator.h:1: error: stray ‘#’ in program</p>
+</blockquote>
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool ‘file’ to detect the type of the source file</p>
+<blockquote>
+<p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p>
+</blockquote>
+<p>But for the other files in the same directory, ‘file’ told me that</p>
+<blockquote>
+<p>ASCII C program text</p>
+</blockquote>
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool ‘cat’ to<em>* dump it to the terminal screen</em>* and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<em>* ‘cat foo.h &gt; bar.h’ didn’t get rid of the invisible character</em>*.  Copy and Paste!</p></div>
 
 
   <footer>

@@ -104,8 +104,7 @@
   </header>
 
 
-  <div class="entry-content"><p>I was involved in a tedious GUI testing by hand this week. To make my life easier, I researched online some automated GUI testing framework in this weekend. I quickly spotted four opensource tools: <a href="https://fedorahosted.org/dogtail/">dogtail</a>, <a href="http://medsphere.org/community/project/strongwind">strongwind</a>, <a href="http://ldtp.freedesktop.org/wiki/">ldtp</a> and <a href="http://en.wikipedia.org/wiki/Xnee">xnee</a>. After playing around with each of them for a while, I finally picked ldtp as my first choice since it is most active maintained and mature. Moreover, <a href="http://mago.ubuntu.com/">mago</a> makes life even easier.</p>
-</div>
+  <div class="entry-content"><p>I was involved in a tedious GUI testing by hand this week. To make my life easier, I researched online some automated GUI testing framework in this weekend. I quickly spotted four opensource tools: <a href="https://fedorahosted.org/dogtail/">dogtail</a>, <a href="http://medsphere.org/community/project/strongwind">strongwind</a>, <a href="http://ldtp.freedesktop.org/wiki/">ldtp</a> and <a href="http://en.wikipedia.org/wiki/Xnee">xnee</a>. After playing around with each of them for a while, I finally picked ldtp as my first choice since it is most active maintained and mature. Moreover, <a href="http://mago.ubuntu.com/">mago</a> makes life even easier.</p></div>
   
   
 
@@ -140,9 +139,7 @@
   </header>
 
 
-  <div class="entry-content"><pre><code>netstat -antuwp | egrep "(^[^t])|(^tcp.*LISTEN)"
-</code></pre>
-</div>
+  <div class="entry-content"><pre><code>netstat -antuwp | egrep &quot;(^[^t])|(^tcp.*LISTEN)&quot;</code></pre></div>
   
   
 
@@ -177,8 +174,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Try the Ctrl-X A shortcut in GDB.</p>
-</div>
+  <div class="entry-content"><p>Try the Ctrl-X A shortcut in GDB.</p></div>
   
   
 
@@ -213,17 +209,7 @@
   </header>
 
 
-  <div class="entry-content"><p>I&rsquo;m debugging a complicated C++ program this week. It used a lot of STL containers, such as
-stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">
-pretty-printing</a> enabled. I got error message like
-<a href="http://gcc.gnu.org/ml/libstdc++/2010-06/msg00128.html">this</a>. My original thought was it might be
-a bug in GDB, so I upgraded it to the latest version. But the error remained. Without
-pretty-printing, debugging C++ program is really a PITA. So I had to stop my work at hand and
-searched for solution online. After I read this <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=44645">bug report</a>, I realised that it was due to the bug in
-GCC. I did a simple test as mentioned in the bug report and found out that program compiled with
-GCC-4.5.0 would mess up the pretty-printing in GDB. After installing the lastest GCC-4.5.3,
-everything was OK.</p>
-</div>
+  <div class="entry-content"><p>I’m debugging a complicated C++ program this week. It used a lot of STL containers, such as stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">pretty-printing</a> enabled. I got error message like <a href="http://gcc.gnu.org/ml/libstdc++/2010-06/msg00128.html">this</a>. My original thought was it might be a bug in GDB, so I upgraded it to the latest version. But the error remained. Without pretty-printing, debugging C++ program is really a PITA. So I had to stop my work at hand and searched for solution online. After I read this <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=44645">bug report</a>, I realised that it was due to the bug in GCC. I did a simple test as mentioned in the bug report and found out that program compiled with GCC-4.5.0 would mess up the pretty-printing in GDB. After installing the lastest GCC-4.5.3, everything was OK.</p></div>
   
   
 
@@ -258,12 +244,12 @@ everything was OK.</p>
   </header>
 
 
-  <div class="entry-content"><p>I&rsquo;m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
-documentation is not complete, or more precisely speaking, not friendly to new user. When I want to
-save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try
-several times before get it straight. Here is my example.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p>I’m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the documentation is not complete, or more precisely speaking, not friendly to new user. When I want to save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try several times before get it straight. Here is my example.</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -274,10 +260,10 @@ several times before get it straight. Here is my example.</p>
 </span><span class='line'><span class="n">print</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;-dpng&#39;</span><span class="p">);</span> <span class="c">% Note the quote</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>BTW: I&rsquo;m very grateful for the high compatibility of Octave code with Matlab code.</p>
+</notextile>
 </div>
+
+<p>BTW: I’m very grateful for the high compatibility of Octave code with Matlab code.</p></div>
   
   
 
@@ -312,10 +298,8 @@ several times before get it straight. Here is my example.</p>
   </header>
 
 
-  <div class="entry-content"><p>How to get rid of this warning: deprecated conversion from string constant to `char*&#8217;</p>
-
-<p>Change &ldquo;char<em>&rdquo; to &ldquo;const char</em>&rdquo; in the XPM file.</p>
-</div>
+  <div class="entry-content"><p>How to get rid of this warning: deprecated conversion from string constant to `char*’</p>
+<p>Change “char*” to “const char*” in the XPM file.</p></div>
   
   
 
@@ -351,14 +335,11 @@ several times before get it straight. Here is my example.</p>
 
 
   <div class="entry-content"><p>Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem.</p>
-
-<blockquote><p>process_begin: CreateProcess(&hellip;.) failed.
-make (e=2): The system cannot find the file specified.</p></blockquote>
-
+<blockquote>
+<p>process_begin: CreateProcess(….) failed. make (e=2): The system cannot find the file specified.</p>
+</blockquote>
 <p>The problem was solved by reading this post <a href="http://www.allegro.cc/forums/print-thread/593750">http://www.allegro.cc/forums/print-thread/593750</a></p>
-
-<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p>
-</div>
+<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p></div>
   
   
 
@@ -393,10 +374,7 @@ make (e=2): The system cannot find the file specified.</p></blockquote>
   </header>
 
 
-  <div class="entry-content"><p>Keep you away from the annoying line ending character problem when you are in a cross-platform
-development scenario.  Read this article:
-<a href="http://www.wxwidgets.org/develop/svn.htm">http://www.wxwidgets.org/develop/svn.htm</a></p>
-</div>
+  <div class="entry-content"><p>Keep you away from the annoying line ending character problem when you are in a cross-platform development scenario.  Read this article: <a href="http://www.wxwidgets.org/develop/svn.htm">http://www.wxwidgets.org/develop/svn.htm</a></p></div>
   
   
 
@@ -431,15 +409,9 @@ development scenario.  Read this article:
   </header>
 
 
-  <div class="entry-content"><p>If you are Nomachine and GNU Screen user, have you been annoyed by the problem that you can&rsquo;t start
-GUI program in a screen session? The reason to the problem is that the environment variable DISPLAY
-is not properly set when you attach a screen session. There are two posts talking about how to
-update environment variables such as SSH and DISPLAY  to make the life much easier.</p>
-
+  <div class="entry-content"><p>If you are Nomachine and GNU Screen user, have you been annoyed by the problem that you can’t start GUI program in a screen session? The reason to the problem is that the environment variable DISPLAY is not properly set when you attach a screen session. There are two posts talking about how to update environment variables such as SSH and DISPLAY  to make the life much easier.</p>
 <p><a href="http://samrowe.com/wordpress/ssh-agent-and-gnu-screen/">http://samrowe.com/wordpress/ssh-agent-and-gnu-screen</a>/</p>
-
-<p><a href="http://alan.lamielle.net/2009/03/09/environment-variables-and-gnu-screen">http://alan.lamielle.net/2009/03/09/environment-variables-and-gnu-screen </a></p>
-</div>
+<p><a href="http://alan.lamielle.net/2009/03/09/environment-variables-and-gnu-screen">http://alan.lamielle.net/2009/03/09/environment-variables-and-gnu-screen</a></p></div>
   
   
 
@@ -474,8 +446,7 @@ update environment variables such as SSH and DISPLAY  to make the life much eas
   </header>
 
 
-  <div class="entry-content"><p>I gave a shot to GCJ to do a tiny project. At the first place I thought the official Sun JDK was bulky and I preferred a lightweight Java SDK. But it turned out that the debugger for GCJ was almost unable to use. I was unable even to inspect an array. So switched to the official JDK and used JDB in Emacs(binding step-in, step-next to F7/F8). I was quite happy with it. I think for any Java novice, JDK is the way to go.</p>
-</div>
+  <div class="entry-content"><p>I gave a shot to GCJ to do a tiny project. At the first place I thought the official Sun JDK was bulky and I preferred a lightweight Java SDK. But it turned out that the debugger for GCJ was almost unable to use. I was unable even to inspect an array. So switched to the official JDK and used JDB in Emacs(binding step-in, step-next to F7/F8). I was quite happy with it. I think for any Java novice, JDK is the way to go.</p></div>
   
   
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenMP | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/openmp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -19,77 +19,56 @@
     <updated>2010-12-06T15:34:32-06:00</updated>
     <id>http://jchain.github.com/blog/2010/12/06/iterative-closest-pointsicp-demo</id>
     <content type="html"><![CDATA[<p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
-
-<p><img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" alt="" /></p>
-
+<figure>
+<img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" />
+</figure>
 <p>The Perl code generating the plot is listed below</p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 
-<p>```perl</p>
+<span class="kw">use</span> <span class="kw">strict</span>;
+<span class="kw">use</span> <span class="kw">warnings</span>;
+<span class="kw">use</span> <span class="fu">Chart::Gnuplot</span>;
 
-<h1>!/usr/bin/perl</h1>
+<span class="co">### Write running time  </span>
+<span class="fu">open</span> <span class="kw">my</span> <span class="dt">$IN</span>, <span class="kw">&#39;</span><span class="st">&lt;</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">benchmark.dat</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="dt">$!</span>;
 
-<p>use strict;
-use warnings;
-use Chart::Gnuplot;</p>
+<span class="co"># Data</span>
+<span class="kw">my</span> <span class="dt">@x</span>;
+<span class="kw">my</span> <span class="dt">@y</span>;
 
-<h3>Write running time</h3>
+<span class="kw">while</span>( &lt;<span class="dt">$IN</span>&gt; ) {
+    <span class="fu">chomp</span>;
+    <span class="kw">my</span> (<span class="dt">$t1</span>, <span class="dt">$t2</span>) = <span class="fu">split</span> <span class="kw">/</span><span class="bn">\s</span><span class="kw">/</span>;
+    <span class="fu">push</span> <span class="dt">@x</span>, <span class="dt">$t1</span>;
+    <span class="fu">push</span> <span class="dt">@y</span>, <span class="dt">$t2</span>;
+}
 
-<p>open my $IN, &lsquo;&lt;&rsquo;, &ldquo;benchmark.dat&rdquo; or die $!;</p>
+<span class="co"># Create chart object and specify the properties of the chart</span>
+<span class="kw">my</span> <span class="dt">$chart</span> = <span class="fu">Chart::Gnuplot</span>-&gt;new(
+    output =&gt; <span class="kw">&quot;</span><span class="st">out.eps</span><span class="kw">&quot;</span>,
+    title  =&gt; <span class="kw">&quot;</span><span class="st">Iterative Closest Points with Stanford Bunny</span><span class="kw">&quot;</span>,
+    xlabel =&gt; <span class="kw">&quot;</span><span class="st">Number of threads</span><span class="kw">&quot;</span>,
+    ylabel =&gt; <span class="kw">&quot;</span><span class="st">Time(s)</span><span class="kw">&quot;</span>,
+    boxwidth =&gt; <span class="kw">&quot;</span><span class="st">0.8 relative</span><span class="kw">&quot;</span>
+);
 
-<h1>Data</h1>
-
-<p>my @x;
-my @y;</p>
-
-<p>while( &lt;$IN> ) {</p>
-
-<pre><code>chomp;
-my ($t1, $t2) = split /\s/;
-push @x, $t1;
-push @y, $t2;
-</code></pre>
-
-<p>}</p>
-
-<h1>Create chart object and specify the properties of the chart</h1>
-
-<p>my $chart = Chart::Gnuplot->new(</p>
-
-<pre><code>output =&gt; "out.eps",
-title  =&gt; "Iterative Closest Points with Stanford Bunny",
-xlabel =&gt; "Number of threads",
-ylabel =&gt; "Time(s)",
-boxwidth =&gt; "0.8 relative"
-</code></pre>
-
-<p>);</p>
-
-<h1>Create dataset object and specify the properties of the dataset</h1>
-
-<p>my $dataSet = Chart::Gnuplot::DataSet->new(</p>
-
-<pre><code>xdata =&gt; \@x,
-ydata =&gt; \@y,
-title =&gt; "Time",
-#style =&gt; "linespoints",
-style =&gt; "boxes",
-fill =&gt; "0.75",
-</code></pre>
-
-<p>);</p>
-
-<h1>Plot the data set on the chart</h1>
-
-<p>$chart->plot2d($dataSet);</p>
-
-<h6>#</h6>
-
-<h1>Plot many data sets on a single chart</h1>
-
-<h1>$chart->plot2d($dataSet1, $dataSet2, &hellip;);</h1>
-
-<p>```</p>
-]]></content>
+<span class="co"># Create dataset object and specify the properties of the dataset</span>
+<span class="kw">my</span> <span class="dt">$dataSet</span> = <span class="fu">Chart::Gnuplot</span>::<span class="fu">DataSet</span>-&gt;new(
+    xdata =&gt; \<span class="dt">@x</span>,
+    ydata =&gt; \<span class="dt">@y</span>,
+    title =&gt; <span class="kw">&quot;</span><span class="st">Time</span><span class="kw">&quot;</span>,
+    <span class="co">#style =&gt; &quot;linespoints&quot;,</span>
+    style =&gt; <span class="kw">&quot;</span><span class="st">boxes</span><span class="kw">&quot;</span>,
+    fill =&gt; <span class="kw">&quot;</span><span class="st">0.75</span><span class="kw">&quot;</span>,
+);
+ 
+<span class="co"># Plot the data set on the chart</span>
+<span class="dt">$chart</span>-&gt;<span class="dt">plot2d</span>(<span class="dt">$dataSet</span>);
+ 
+<span class="co">##################################################</span>
+ 
+<span class="co"># Plot many data sets on a single chart</span>
+<span class="co">#$chart-&gt;plot2d($dataSet1, $dataSet2, ...); </span></code></pre>]]></content>
   </entry>
   
   <entry>
@@ -98,12 +77,9 @@ fill =&gt; "0.75",
     <updated>2010-12-05T20:51:14-06:00</updated>
     <id>http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake</id>
     <content type="html"><![CDATA[<p>Add the following lines into your CMakeLists.txt</p>
-
-<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
-</code></pre>
-]]></content>
+<pre><code># Even though -fopenmp won&#39;t appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fopenmp&quot;)
+SET(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -fopenmp&quot;)</code></pre>]]></content>
   </entry>
   
 </feed>

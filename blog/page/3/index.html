@@ -9,8 +9,8 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
-usable. Phew. Initially, GNOME3 (gnome-shell 3.2 &hellip;">
+  <meta name="description" content="After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew.
+Initially, GNOME3 (gnome-shell 3.2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,40 +105,15 @@ usable. Phew. Initially, GNOME3 (gnome-shell 3.2 &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it
-usable. Phew.</p>
-
-<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed
-that Clutter failed to start. A deeper reason was that Clutter wasn&rsquo;t able to find the proper nVidia
-graphics driver libGL*.so. If you type</p>
-
-<pre><code>ldd /usr/bin/gnome-shell
-</code></pre>
-
+  <div class="entry-content"><p>After upgrading from openSUSE-11.4 to 12.1, I have spent two days on tweaking GNOME3 to make it usable. Phew.</p>
+<p>Initially, GNOME3 (gnome-shell 3.2 precisely) was unable to start at all. .xsession-errors showed that Clutter failed to start. A deeper reason was that Clutter wasn’t able to find the proper nVidia graphics driver libGL*.so. If you type</p>
+<pre><code>ldd /usr/bin/gnome-shell</code></pre>
 <p>You would notice that libGL.so.1 was pointing to nothing. That was bad.</p>
-
-<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to
-meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d
-that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was
-missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in
-the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn&rsquo;t run
-into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
-
-<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in
-gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed
-to refresh or output.  I hadn&rsquo;t seen it in KDE running the same program. So I guess it again was
-related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia
-driver with Clutter and  the work around was to add the following line into .bashrc</p>
-
-<pre><code>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling
-</code></pre>
-
-<p>Again I didn&rsquo;t run into this issue in Ubuntu.</p>
-
-<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like
-Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my
-new GNOM 3 was ready for daily use.</p>
-</div>
+<p>I narrowed down the culprit in my .bashrc. For some reason I have always modified LD_LIBRARY_PATH to meet my needs. Everything worked fine until upgrade to openSUSE-12.1. I found from /etc/ld.conf.d that the nVidia GL libraries had been installed in /usr/X11R6/lib64 and /usr/X11R6/lib which was missed in my modified LD_LIBRARY_PATH. So the solution was to add /usr/X11R6/lib64:/usr/X11R6/lib in the front of LD_LIBRARY_PATH. It seemed to have to be the first two in my case. YMMV. I didn’t run into the same problem on Ubuntu since the nVidia driver was installed somewhere else.</p>
+<p>OK. Gnome shell started but soon I noticed that there was some screen refresh glitches in gnome-terminal. Every time I typed commands where the cursor was near the bottom, the screen failed to refresh or output.  I hadn’t seen it in KDE running the same program. So I guess it again was related with Gnome-shell. A quick search on the web told me that it was due to some bugs in nVidia driver with Clutter and  the work around was to add the following line into .bashrc</p>
+<pre><code>export CLUTTER_PAINT=disable-clipped-redraws:disable-culling</code></pre>
+<p>Again I didn’t run into this issue in Ubuntu.</p>
+<p>All right. Gnome-terminal worked properly. After further installs of Gnome shell extensions like Application Menu, Places Status Indicator, and <a href="http://code.google.com/p/tint2/">tint2</a>, finally my new GNOM 3 was ready for daily use.</p></div>
   
   
 
@@ -173,30 +148,12 @@ new GNOM 3 was ready for daily use.</p>
   </header>
 
 
-  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but
-I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to
-12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think
-it is a good idea to have access to multiple Perl distributions and a good management among them.
-Soon I realized that it was time to give perlbrew a try. I tried to install a locally built
-Perl-5.14.2 by the command</p>
-
-<pre><code>perlbrew install perl-5.14.2
-</code></pre>
-
-<p>But quickly it failed with the exactly the same error like
-<a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with
-ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
-
-<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File
-</code></pre>
-
-<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the
-system-wide cpanm. I&rsquo;ve found it a better way to install CPAN modules since by doing so cpanm will
-install modules for difference versions of Perl in separate locations. For example, modules for
-Perl-5.12 won&rsquo;t conflict with Perl-5.14. This is just what I want.</p>
-
-<p>Happy perlbrewing&hellip;</p>
-</div>
+  <div class="entry-content"><p>I have heard about how great <a href="http://perlbrew.pl/">perlbrew</a> is from time to time on the web but I have never had a chance to play with it until today. After my openSUSE was upgraded from 11.x to 12.x and system-wide Perl was upgraded from 5.12 to 5.14, my local Perl modules was broken. I think it is a good idea to have access to multiple Perl distributions and a good management among them. Soon I realized that it was time to give perlbrew a try. I tried to install a locally built Perl-5.14.2 by the command</p>
+<pre><code>perlbrew install perl-5.14.2</code></pre>
+<p>But quickly it failed with the exactly the same error like <a href="http://www.gossamer-threads.com/lists/perl/porters/234587">this</a>. It was about something wrong with ODBM_File. And this problem seems specific to openSUSE. As the post link said, the solution is</p>
+<pre><code>perlbrew install perl-5.14.2 -D noextension=ODBM_File</code></pre>
+<p>This made a good build of perl-5.14.2. I further installed cpanm with perlbrew and replaced the system-wide cpanm. I’ve found it a better way to install CPAN modules since by doing so cpanm will install modules for difference versions of Perl in separate locations. For example, modules for Perl-5.12 won’t conflict with Perl-5.14. This is just what I want.</p>
+<p>Happy perlbrewing…</p></div>
   
   
 
@@ -231,13 +188,12 @@ Perl-5.12 won&rsquo;t conflict with Perl-5.14. This is just what I want.</p>
   </header>
 
 
-  <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like
-Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get
-upgrade is so verbose. To make life easier, I have stolen some ideas from
-<a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my
-.bashrc:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool">apt</a> is one of the reasons that I like Debian/Ubuntu, but type apt-cache search, apt-cache show, apt-get install, apt-get update, apt-get upgrade is so verbose. To make life easier, I have stolen some ideas from <a href="http://en.wikipedia.org/wiki/ZYpp">zypper</a> from OpenSUSE by adding the following lines into my .bashrc:</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -288,10 +244,10 @@ upgrade is so verbose. To make life easier, I have stolen some ideas from
 </span><span class='line'> <span class="k">fi</span>
 </span><span class='line'> <span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now you can just type &lsquo;apt se&rsquo;, &lsquo;apt up&rsquo;, &lsquo;apt upgrade&rsquo;, &lsquo;apt in&rsquo; and &lsquo;apt if&rsquo; to do the similar things.</p>
+</notextile>
 </div>
+
+<p>Now you can just type ‘apt se’, ‘apt up’, ‘apt upgrade’, ‘apt in’ and ‘apt if’ to do the similar things.</p></div>
   
   
 
@@ -326,8 +282,7 @@ upgrade is so verbose. To make life easier, I have stolen some ideas from
   </header>
 
 
-  <div class="entry-content"><p>Even though many Linux distributions have provided TeX packages, I still like  <a href="http://www.tug.org/texlive/tlmgr.html">tlmgr</a> to manage everything. It is like apt-get but just for TeX Live. Management and configuration become much more convenient.</p>
-</div>
+  <div class="entry-content"><p>Even though many Linux distributions have provided TeX packages, I still like  <a href="http://www.tug.org/texlive/tlmgr.html">tlmgr</a> to manage everything. It is like apt-get but just for TeX Live. Management and configuration become much more convenient.</p></div>
   
   
 
@@ -362,12 +317,8 @@ upgrade is so verbose. To make life easier, I have stolen some ideas from
   </header>
 
 
-  <div class="entry-content"><p>To make latex/bibtex tolerate the white spaces in your long \cite{foooooo, baaaaaar, loooooooog},
-use package &lsquo;cite&rsquo;</p>
-
-<pre><code>\usepackage{cite}
-</code></pre>
-</div>
+  <div class="entry-content"><p>To make latex/bibtex tolerate the white spaces in your long , use package ‘cite’</p>
+<pre><code>\usepackage{cite}</code></pre></div>
   
   
 
@@ -402,8 +353,7 @@ use package &lsquo;cite&rsquo;</p>
   </header>
 
 
-  <div class="entry-content"><p>I had many randomly named files and directories under my working project. Today I wanted to organize them in a more consistent naming convention. So I needed a file rename tool. Even though Linux base installation has a command &lsquo;rename&rsquo;, I soon found this Perl app <a href="http://search.cpan.org/~pederst/rename-1.8/bin/rename.PL">rename</a> is better thanks to Perl&rsquo;s powerful regex. Plus, its dry-run option is also a very good idea.</p>
-</div>
+  <div class="entry-content"><p>I had many randomly named files and directories under my working project. Today I wanted to organize them in a more consistent naming convention. So I needed a file rename tool. Even though Linux base installation has a command ‘rename’, I soon found this Perl app <a href="http://search.cpan.org/~pederst/rename-1.8/bin/rename.PL">rename</a> is better thanks to Perl’s powerful regex. Plus, its dry-run option is also a very good idea.</p></div>
   
   
 
@@ -439,10 +389,7 @@ use package &lsquo;cite&rsquo;</p>
 
 
   <div class="entry-content"><p><a href="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch">http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch</a></p>
-
-<p>Check the link above when you want to combine several commits into one patch. It might be needed
-when you want to submit all your local changes into one changeset to the upstream.</p>
-</div>
+<p>Check the link above when you want to combine several commits into one patch. It might be needed when you want to submit all your local changes into one changeset to the upstream.</p></div>
   
   
 
@@ -478,17 +425,13 @@ when you want to submit all your local changes into one changeset to the upstrea
 
 
   <div class="entry-content"><p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
-
 <ul>
 <li><p><a href="http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html">xmllint</a></p></li>
 <li><p><a href="http://xmlindent.sourceforge.net/">xmlindent</a></p></li>
 <li><p><a href="http://www.kitebird.com/software/xmlformat/xmlformat.html">xmlformat</a></p></li>
 <li><p><a href="http://www.qualitybrain.com/?p=37">tidy</a></p></li>
 </ul>
-
-
-<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn&rsquo;t have time to look into. So finally I only used &lsquo;gg=G&rsquo; in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p>
-</div>
+<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn’t have time to look into. So finally I only used ‘gg=G’ in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p></div>
   
   
 
@@ -523,20 +466,13 @@ when you want to submit all your local changes into one changeset to the upstrea
   </header>
 
 
-  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for
-<a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have
-no idea about the customization of gdb, please read
-<a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
-
-<p>If you use gdb frequently, chances are you have to type the command &lsquo;print&rsquo; or &lsquo;p&rsquo; to examine the
-value of variable many many times. A common case is like this: you type &lsquo;p foo&rsquo; to see the value of
-&lsquo;foo&rsquo;. It turns out that &lsquo;foo&rsquo; is a pointer, and you have to type &lsquo;p *foo&rsquo; again in the commandline.
-Or you have to type &lsquo;ptype foo&rsquo; to find out the type definition of &lsquo;foo&rsquo;. Tedious. This small piece
-of gdb macro to make your life easier. Every time you type &lsquo;p foo&rsquo;, you just scroll up the history
-and type &lsquo;1&rsquo;, &lsquo;p foo 1&rsquo; shows the dereferenced value, or typing &lsquo;2&rsquo; gives you the type definition of
-&lsquo;foo&rsquo;. Copy and paste into your ~/.gdbinit</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for <a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have no idea about the customization of gdb, please read <a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
+<p>If you use gdb frequently, chances are you have to type the command ‘print’ or ‘p’ to examine the value of variable many many times. A common case is like this: you type ‘p foo’ to see the value of ‘foo’. It turns out that ‘foo’ is a pointer, and you have to type ‘p *foo’ again in the commandline. Or you have to type ‘ptype foo’ to find out the type definition of ‘foo’. Tedious. This small piece of gdb macro to make your life easier. Every time you type ‘p foo’, you just scroll up the history and type ‘1’, ‘p foo 1’ shows the dereferenced value, or typing ‘2’ gives you the type definition of ‘foo’. Copy and paste into your ~/.gdbinit</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -569,8 +505,8 @@ and type &lsquo;1&rsquo;, &lsquo;p foo 1&rsquo; shows the dereferenced value, or
 </span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
 </span><span class='line'><span class="n">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
   
   
 
@@ -605,8 +541,7 @@ and type &lsquo;1&rsquo;, &lsquo;p foo 1&rsquo; shows the dereferenced value, or
   </header>
 
 
-  <div class="entry-content"><p>It is quite annoying when you open a file selection dialog in a typical GTK+ application a pile of hidden files and directories occupy the window. <strong>Solution:</strong> edit ~/.config/gtk-2.0/gtkfilechooser.ini to disable the option &lsquo;ShowHidden&rsquo;</p>
-</div>
+  <div class="entry-content"><p>It is quite annoying when you open a file selection dialog in a typical GTK+ application a pile of hidden files and directories occupy the window. <strong>Solution:</strong> edit ~/.config/gtk-2.0/gtkfilechooser.ini to disable the option ‘ShowHidden’</p></div>
   
   
 

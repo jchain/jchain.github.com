@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
-programming. colorgcc can make life easier. It can &hellip;">
+  <meta name="description" content="The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. colorgcc can make life easier. It can &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,51 +101,79 @@ programming. colorgcc can make life easier. It can &hellip;">
   </header>
 
 
-<div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
-programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well
-with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like
-to recommend the solution at</p>
-
+<div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
 <p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>
-
 <p>I copy the main part right here:</p>
+<blockquote>
 
-<blockquote><h2>The Short Answer</h2>
-
-<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p></blockquote>
-
+</blockquote>
+<blockquote>
+<p>## The Short Answer</p>
+<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p>
+</blockquote>
 <p>E.g., for <strong>gcc</strong>:</p>
+<blockquote>
 
-<blockquote><ul>
-<li><p><strong>/usr/local/bin/ccache-gcc.sh:</strong></p>
-
-<p><code>#!/bin/bash
-ccache /usr/bin/gcc &ldquo;$@&rdquo;
-</code></p></li>
-<li><p><strong>~/.colorgcc:</strong></p>
-
-<p><code>gcc: /usr/local/bin/ccache-gcc.sh
-</code></p></li>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-gcc.sh:</strong></li>
 </ul>
 </blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;#!/bin/bash
+ccache /usr/bin/gcc &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
 
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;gcc: /usr/local/bin/ccache-gcc.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
 <p>and for <strong>g++</strong>:</p>
+<blockquote>
 
-<blockquote><ul>
-<li><p><strong>/usr/local/bin/ccache-g++.sh:</strong></p>
-
-<p><code>#!/bin/bash
-ccache /usr/bin/g++ &ldquo;$@&rdquo;
-</code></p></li>
-<li><p><strong>~/.colorgcc:</strong></p>
-
-<p><code>gcc: /usr/local/bin/ccache-g++.sh
-</code></p></li>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-g++.sh:</strong></li>
 </ul>
 </blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;#!/bin/bash
+ccache /usr/bin/g++ &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
 
-<p>There are ways to clean this up so that you only use a single script,  with symlinks for each variant, but those are beyond the scope of this  answer, and I leave them to you as an excercise :&ndash;)</p>
-</div>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;gcc: /usr/local/bin/ccache-g++.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<p>There are ways to clean this up so that you only use a single script, with symlinks for each variant, but those are beyond the scope of this answer, and I leave them to you as an excercise :-)</p></div>
 
 
   <footer>

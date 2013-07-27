@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I have used several project management software before. But today I found that the milestone feature
-in Trac very impressive. At the beginning of a &hellip;">
+  <meta name="description" content="I have used several project management software before. But today I found that the milestone feature in Trac very impressive. At the beginning of a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,12 +104,7 @@ in Trac very impressive. At the beginning of a &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>I have used several project management software before. But today I found that the milestone feature
-in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required
-features to the issue tracking system for a specific milestone. By viewing the progress bar, I can
-have a clear big picture about the progress of the project. I like this feature very much. Very
-helpful.</p>
-</div>
+  <div class="entry-content"><p>I have used several project management software before. But today I found that the milestone feature in Trac very impressive. At the beginning of a project I can file all the tasks, to-dos, required features to the issue tracking system for a specific milestone. By viewing the progress bar, I can have a clear big picture about the progress of the project. I like this feature very much. Very helpful.</p></div>
   
   
 
@@ -146,13 +140,11 @@ helpful.</p>
 
 
   <div class="entry-content"><p>I built gtk3.0 from source on openSUSE-11.1 x86-64bit. As expected, I ran into one annoying problem like this:</p>
-
-<blockquote><p>symbol lookup error: /opt/gnome/lib/libcairo-gobject.so.2: undefined symbol: cairo_region_destroy</p></blockquote>
-
+<blockquote>
+<p>symbol lookup error: /opt/gnome/lib/libcairo-gobject.so.2: undefined symbol: cairo_region_destroy</p>
+</blockquote>
 <p>I searched for the solution online. Someone suggested disabling gobject-introspection when compiling gtk3. But the default setting for gtk3 is indeed without gobject-introspection support. I got stuck and very confused. Finally, I got the things done by compiling the latest gobject-introspection(0.10.x) and enabling gobject-introspection support for atk, gdk-pixbuf and any other dependency libraries which could be set to enable this feature. YMMV. Here is the screenshot showing the about dialog from gtk3-demo.</p>
-
-<p>[caption id=&ldquo;attachment_147&rdquo; align=&ldquo;aligncenter&rdquo; width=&ldquo;432&rdquo; caption=&ldquo;gtk3-demo&rdquo;]<a href="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png"><img src="http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png" alt="gtk3-demo" /></a>[/caption]</p>
-</div>
+<p>[caption id=“attachment_147” align=“aligncenter” width=“432” caption=“gtk3-demo”][![gtk3-demo](http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png)](http://zandyware.files.wordpress.com/2011/03/gtk3-demo.png)[/caption]</p></div>
   
   
 
@@ -187,17 +179,13 @@ helpful.</p>
   </header>
 
 
-  <div class="entry-content"><p>As you might know that I&rsquo;m doing some image processing with Perl and GD module. However, iterating
-a whole 512x512 image, i.e. every pixels, is prohibitively slow in Perl. Here is the Inline module
-to rescue. After playing around with it in several minutes, yes, only several minutes, my Perl code
-with C Inline function accessing the image boosted up 10 times faster! Every Perl programmer should
-check it out:
-<a href="http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod">http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod</a></p>
-
-<p>Edited: I would like to add a toy example here for anyone who are interested in Perl::Inline. It
-shows how to call external library(GD) from Perl script.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p>As you might know that I’m doing some image processing with Perl and GD module. However, iterating a whole 512x512 image, i.e. every pixels, is prohibitively slow in Perl. Here is the Inline module to rescue. After playing around with it in several minutes, yes, only several minutes, my Perl code with C Inline function accessing the image boosted up 10 times faster! Every Perl programmer should check it out: <a href="http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod">http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod</a></p>
+<p>Edited: I would like to add a toy example here for anyone who are interested in Perl::Inline. It shows how to call external library(GD) from Perl script.</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -328,8 +316,8 @@ shows how to call external library(GD) from Perl script.</p>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'><span class="n">END_OF_C_CODE</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
   
   
 
@@ -364,10 +352,7 @@ shows how to call external library(GD) from Perl script.</p>
   </header>
 
 
-  <div class="entry-content"><p>Sometimes I really miss the keyword &lsquo;in&rsquo; in Python which is very common operation in programming to
-check if a object is in a set. I&rsquo;m very glad to see the smart match ~~ in Perl 5.10 provides the
-similar feature.</p>
-</div>
+  <div class="entry-content"><p>Sometimes I really miss the keyword ‘in’ in Python which is very common operation in programming to check if a object is in a set. I’m very glad to see the smart match ~~ in Perl 5.10 provides the similar feature.</p></div>
   
   
 
@@ -403,9 +388,9 @@ similar feature.</p>
 
 
   <div class="entry-content"><p><a href="http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models">http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models</a></p>
-
-<blockquote><p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p></blockquote>
-</div>
+<blockquote>
+<p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p>
+</blockquote></div>
   
   
 
@@ -440,9 +425,7 @@ similar feature.</p>
   </header>
 
 
-  <div class="entry-content"><p>My long term confusion about the message passing and calling is answered here:
-<a href="http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling">http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling</a></p>
-</div>
+  <div class="entry-content"><p>My long term confusion about the message passing and calling is answered here: <a href="http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling">http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling</a></p></div>
   
   
 
@@ -478,9 +461,7 @@ similar feature.</p>
 
 
   <div class="entry-content"><p>A good article to read. It made me to rethink the GUI programming with event-driven pattern.</p>
-
-<p><a href="http://www.drdobbs.com/184401643"> http://www.drdobbs.com/184401643</a></p>
-</div>
+<p><a href="http://www.drdobbs.com/184401643">http://www.drdobbs.com/184401643</a></p></div>
   
   
 
@@ -515,20 +496,9 @@ similar feature.</p>
   </header>
 
 
-  <div class="entry-content"><p>In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and
-border tracing. I used GD to access the pixels. I ran into a very wired bug that the region labeling
-code in some cases failed to identify the regions of interest(ROIs) correctly but worked well in
-other cases.</p>
-
-<p>After a painful debugging I found out the culprit. If $value is used to represent the label value,
-and I use $img->setPixel($x, $y, $value) to store the value. Any value bigger than 256 will be
-rounded to the range from 0 to 255 by modulo operator. So the actual value in the label image won&rsquo;t
-be over 255. This means that if you use GD image like a matrix, the value of a element of the matrix
-can&rsquo;t be more than 255.<strong> I think it is due to the physical limit of the colormap which essentially
-can store no more than 256 colors.</strong></p>
-
-<p>Finally, my suggestion is using <strong>Math::MatrixReal</strong> package.</p>
-</div>
+  <div class="entry-content"><p>In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and border tracing. I used GD to access the pixels. I ran into a very wired bug that the region labeling code in some cases failed to identify the regions of interest(ROIs) correctly but worked well in other cases.</p>
+<p>After a painful debugging I found out the culprit. If <span class="math"><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em><em>i</em><em>s</em><em>u</em><em>s</em><em>e</em><em>d</em><em>t</em><em>o</em><em>r</em><em>e</em><em>p</em><em>r</em><em>e</em><em>s</em><em>e</em><em>n</em><em>t</em><em>t</em><em>h</em><em>e</em><em>l</em><em>a</em><em>b</em><em>e</em><em>l</em><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em>, <em>a</em><em>n</em><em>d</em><em>I</em><em>u</em><em>s</em><em>e</em></span>img-&gt;setPixel(<span class="math"><em>x</em>, </span>y, $value) to store the value. Any value bigger than 256 will be rounded to the range from 0 to 255 by modulo operator. So the actual value in the label image won’t be over 255. This means that if you use GD image like a matrix, the value of a element of the matrix can’t be more than 255.<em>* I think it is due to the physical limit of the colormap which essentially can store no more than 256 colors.</em>*</p>
+<p>Finally, my suggestion is using <strong>Math::MatrixReal</strong> package.</p></div>
   
   
 
@@ -563,8 +533,7 @@ can store no more than 256 colors.</strong></p>
   </header>
 
 
-  <div class="entry-content"><p>Run &ldquo;cygcheck &rdquo; and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>
-</div>
+  <div class="entry-content"><p>Run “cygcheck” and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p></div>
   
   
 
@@ -599,8 +568,7 @@ can store no more than 256 colors.</strong></p>
   </header>
 
 
-  <div class="entry-content"><p>:%s/\%Vold/NEW/g</p>
-</div>
+  <div class="entry-content"><p>:%s/%Vold/NEW/g</p></div>
   
   
 

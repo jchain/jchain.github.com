@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,21 +18,13 @@
     <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
     <updated>2011-05-03T13:10:44-05:00</updated>
     <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the
-documentation is not complete, or more precisely speaking, not friendly to new user. When I want to
-save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try
-several times before get it straight. Here is my example.</p>
-
-<p><code>matlab
-for i=1:11
-surf(x,y,ue((i-1)*0.2));
-filename = sprintf("us_t%d.png", i-1);
-print(filename, '-dpng'); % Note the quote
-end
-</code></p>
-
-<p>BTW: I&rsquo;m very grateful for the high compatibility of Octave code with Matlab code.</p>
-]]></content>
+    <content type="html"><![CDATA[<p>I’m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the documentation is not complete, or more precisely speaking, not friendly to new user. When I want to save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try several times before get it straight. Here is my example.</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">for i=<span class="fl">1</span>:<span class="fl">11</span>
+surf(x,y,ue((i-<span class="fl">1</span>)*<span class="fl">0.2</span>));
+filename = sprintf(&quot;us_t<span class="co">%d.png&quot;, i-1);</span>
+print(filename, <span class="st">&#39;-dpng&#39;</span>); <span class="co">% Note the quote</span>
+end</code></pre>
+<p>BTW: I’m very grateful for the high compatibility of Octave code with Matlab code.</p>]]></content>
   </entry>
   
 </feed>

@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
-plugin neocomplcache, once you type . after an &hellip;">
+  <meta name="description" content="I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin neocomplcache, once you type . after an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,33 +101,17 @@ plugin neocomplcache, once you type . after an &hellip;">
   </header>
 
 
-<div class="entry-content"><p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
-plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
-
-<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&rsquo;t I realized that
-I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
-
-<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
-<code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the
-setting in <code>.vimrc</code> from</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\h\w*\|\h\w*::'
-</code></pre>
-
+<div class="entry-content"><p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
+<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of <code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the setting in <code>.vimrc</code> from</p>
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\h\w*\|\h\w*::&#39;</code></pre>
 <p>to</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*'
-</code></pre>
-
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*&#39;</code></pre>
 <p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
-
-<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
-as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&rsquo;t
-triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
-<code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
-
-<p><img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /></p>
-</div>
+<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won’t triger neocomplcache if the package is not based on the OO that perlomni supports. In this case, <code>C-X C-O</code> will always pop up the window. After this you should see someting like this:</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /><figcaption>alt</figcaption>
+</figure></div>
 
 
   <footer>

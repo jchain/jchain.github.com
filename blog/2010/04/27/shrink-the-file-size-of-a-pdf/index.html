@@ -102,23 +102,15 @@
 
 
 <div class="entry-content"><p>Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen compresses the images too much.</p>
-
 <p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook[screen, ] -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
-
-<p><strong>-dPDFSETTINGS=</strong><em>configuration</em></p>
-
-<pre><code>Presets the "distiller parameters" to one of four predefined settings:
-</code></pre>
-
+<p><strong>-dPDFSETTINGS=</strong><em>configuration</em> Presets the “distiller parameters” to one of four predefined settings:</p>
 <ul>
-<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller &ldquo;Screen Optimized&rdquo; setting.</p></li>
-<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller &ldquo;eBook&rdquo; setting.</p></li>
-<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller &ldquo;Print Optimized&rdquo; setting.</p></li>
-<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller &ldquo;Prepress Optimized&rdquo; setting.</p></li>
+<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller “Screen Optimized” setting.</p></li>
+<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller “eBook” setting.</p></li>
+<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller “Print Optimized” setting.</p></li>
+<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller “Prepress Optimized” setting.</p></li>
 <li><p><strong>/default</strong> selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file.</p></li>
-</ul>
-
-</div>
+</ul></div>
 
 
   <footer>

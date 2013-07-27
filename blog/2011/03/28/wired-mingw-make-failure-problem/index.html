@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem. process_begin: CreateProcess(&hellip;.) failed.
-make (e=2 &hellip;">
+  <meta name="description" content="Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem. process_begin: CreateProcess(….) failed. make (e=2): The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,14 +102,11 @@ make (e=2 &hellip;">
 
 
 <div class="entry-content"><p>Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem.</p>
-
-<blockquote><p>process_begin: CreateProcess(&hellip;.) failed.
-make (e=2): The system cannot find the file specified.</p></blockquote>
-
+<blockquote>
+<p>process_begin: CreateProcess(….) failed. make (e=2): The system cannot find the file specified.</p>
+</blockquote>
 <p>The problem was solved by reading this post <a href="http://www.allegro.cc/forums/print-thread/593750">http://www.allegro.cc/forums/print-thread/593750</a></p>
-
-<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p>
-</div>
+<p>I put Cygwin bash.exe and sh.exe into Windows PATH environment variable which make MinGW Make unhappy.</p></div>
 
 
   <footer>

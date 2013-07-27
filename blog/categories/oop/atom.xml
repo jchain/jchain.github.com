@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OOP | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/oop/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -19,9 +19,9 @@
     <updated>2011-02-23T13:57:55-06:00</updated>
     <id>http://jchain.github.com/blog/2011/02/23/message-passing-in-oop</id>
     <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models">http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models</a></p>
-
-<blockquote><p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p></blockquote>
-]]></content>
+<blockquote>
+<p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p>
+</blockquote>]]></content>
   </entry>
   
   <entry>
@@ -29,9 +29,7 @@
     <link href="http://jchain.github.com/blog/2011/02/23/message-passing-versus-calling/"/>
     <updated>2011-02-23T13:48:30-06:00</updated>
     <id>http://jchain.github.com/blog/2011/02/23/message-passing-versus-calling</id>
-    <content type="html"><![CDATA[<p>My long term confusion about the message passing and calling is answered here:
-<a href="http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling">http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>My long term confusion about the message passing and calling is answered here: <a href="http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling">http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling</a></p>]]></content>
   </entry>
   
 </feed>

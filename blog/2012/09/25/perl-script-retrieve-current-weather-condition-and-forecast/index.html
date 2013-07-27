@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I&rsquo;m a little tired of checking out the weather condition via the web browser. In many cases I just
-want to see a short report in my terminal. &hellip;">
+  <meta name="description" content="I’m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,14 +101,12 @@ want to see a short report in my terminal. &hellip;">
   </header>
 
 
-<div class="entry-content"><p>I&rsquo;m a little tired of checking out the weather condition via the web browser. In many cases I just
-want to see a short report in my terminal. After
-reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
-which shows how to use Mojolicious to retrieve the current condition and
-<a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>,
-which shows how to retried the forecast, I finally wrote something like this</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>I’m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -184,11 +181,16 @@ which shows how to retried the forecast, I finally wrote something like this</p>
 </span><span class='line'><span class="nb">printf</span> <span class="s">&quot;%s %s %s, Low: %d, High: %d, %s\n&quot;</span><span class="p">,</span> <span class="nv">$weekday</span><span class="p">,</span> <span class="nv">$month</span><span class="p">,</span> <span class="nv">$day</span><span class="p">,</span> <span class="nv">$low</span><span class="p">,</span> <span class="nv">$high</span><span class="p">,</span> <span class="nv">$condition</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div>
 
 
 <p>This is how it runs from the terminal:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -207,8 +209,8 @@ which shows how to retried the forecast, I finally wrote something like this</p>
 </span><span class='line'>Sat Sep 29, Low: 45, High: 72, Clear
 </span><span class='line'>Sun Sep 30, Low: 41, High: 73, Clear
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
 
 
   <footer>

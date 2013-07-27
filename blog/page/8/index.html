@@ -105,17 +105,14 @@
 
 
   <div class="entry-content"><p>Recently I want to give Common Lisp a try. After reading this great <a href="http://common-lisp.net/~dlw/LispSurvey.html">Common Lisp Implementation Survey</a>, I decided to go first with SBCL. After installing the binary package of SBCL-1.0.45 on my openSUSE-11.1 x86-64bit with 8Giga memory, I ran into this annoying error message when I started SBCL in terminal:</p>
-
-<blockquote><p>mmap: Cannot allocate memory
-ensure_space: failed to validate 8589869056 bytes at 0x1000000000
-(hint: Try &ldquo;ulimit -a&rdquo;; maybe you should increase memory limits.)</p></blockquote>
-
+<blockquote>
+<p>mmap: Cannot allocate memory ensure_space: failed to validate 8589869056 bytes at 0x1000000000 (hint: Try “ulimit -a”; maybe you should increase memory limits.)</p>
+</blockquote>
 <p>I researched online for a while and finally I came up a solution(it worked for me at least). Solution: start sbcl like this</p>
-
-<blockquote><p>sbcl &mdash;dynamic-space-size 2028 &mdash;core /local/vol00/software/lib/sbcl/sbcl.core</p></blockquote>
-
-<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use &mdash;dynamic-space-size to change the setting, also use &mdash;core option if your sbcl installation is not in the default location.</p>
-</div>
+<blockquote>
+<p>sbcl –dynamic-space-size 2028 –core /local/vol00/software/lib/sbcl/sbcl.core</p>
+</blockquote>
+<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use –dynamic-space-size to change the setting, also use –core option if your sbcl installation is not in the default location.</p></div>
   
   
 
@@ -150,14 +147,9 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
   </header>
 
 
-  <div class="entry-content"><p>You can also start it without reading any of the initialization files
-(.vimrc, /etc/vim/vimrc) like this:</p>
-
-<pre><code>vim -u NONE file
-</code></pre>
-
-<p>Credit due to <a href="http://fossplanet.com/f10/open-vim-syntax-off-92829/">Smoot Carl-Mitchell</a></p>
-</div>
+  <div class="entry-content"><p>You can also start it without reading any of the initialization files (.vimrc, /etc/vim/vimrc) like this:</p>
+<pre><code>vim -u NONE file</code></pre>
+<p>Credit due to <a href="http://fossplanet.com/f10/open-vim-syntax-off-92829/">Smoot Carl-Mitchell</a></p></div>
   
   
 
@@ -192,27 +184,12 @@ ensure_space: failed to validate 8589869056 bytes at 0x1000000000
   </header>
 
 
-  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with
-too many false detections. You need a suppression file to help you focus on the real problem you are
-dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">
-http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a>
-to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1
-<strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  &lsquo;64&rsquo;  in
-suppression file. I tested my suppression file with wxWdgets sample program &lsquo;mininal&rsquo; the error
-number is 2, with sample opengl program &lsquo;cube&rsquo; the error number is 0. I hope I didn&rsquo;t overact in my
-suppression file.</p>
-
+  <div class="entry-content"><p>If you want use Valgrind to check the memory leak of your wxGTK program, you probably end up with too many false detections. You need a suppression file to help you focus on the real problem you are dealing with. I followed the great article at<a href="http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto">http://wiki.wxwidgets.org/Valgrind_Suppression_File_Howto</a> to create my first wxGTK suppression file. The version of wxGTK is 2.9.1 and my OS is openSUSE-11.1 <strong>x86-64</strong> . If your OS arch is not x86-64, you may need to modify the string occurrences  ‘64’  in suppression file. I tested my suppression file with wxWdgets sample program ‘mininal’ the error number is 2, with sample opengl program ‘cube’ the error number is 0. I hope I didn’t overact in my suppression file.</p>
 <p>I suggested using the following command to fire up valgrind:</p>
-
 <pre><code>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind --leak-check=yes
---suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG
-</code></pre>
-
-<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And
-<strong>remove the &lsquo;doc&rsquo; extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
-
-<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind </a></p>
-</div>
+--suppressions=./wx.supp --log-file=valgrind.log ./YOUR_PROG</code></pre>
+<p>Download it at here <a href="http://zandyware.files.wordpress.com/2011/01/wx-supp.doc">wx.supp</a>. And <strong>remove the ‘doc’ extension or rename to whatever you like since it is a plain txt file per se.</strong></p>
+<p>Read more at <a href="http://live.gnome.org/Valgrind">http://live.gnome.org/Valgrind</a></p></div>
   
   
 
@@ -247,11 +224,12 @@ suppression file.</p>
   </header>
 
 
-  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must
-want to break it into multi-line but the newline characters really get in the way.  Here is a good
-way, IMHO,  to make the code look neat and clean:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline characters really get in the way.  Here is a good way, IMHO,  to make the code look neat and clean:</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -280,13 +258,11 @@ way, IMHO,  to make the code look neat and clean:</p>
 </span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
+</notextile>
+</div>
 
 <p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
-
-<p>The biggest advantage of this method over string concatenation operator &ldquo;.&rdquo; is that it is easier to
-re-align your code in Vim since your command is not messed with quotation marks.</p>
-</div>
+<p>The biggest advantage of this method over string concatenation operator “.” is that it is easier to re-align your code in Vim since your command is not messed with quotation marks.</p></div>
   
   
 
@@ -321,10 +297,7 @@ re-align your code in Vim since your command is not messed with quotation marks.
   </header>
 
 
-  <div class="entry-content"><p>For exising colors, I think it is better to use colorExact() because the color indices would be
-consistent among images. For new colors, colorAllocate() is the only choice. But colorAllocate() is
-highly recommended to use after colorExact(). It is safer to the color palette.</p>
-</div>
+  <div class="entry-content"><p>For exising colors, I think it is better to use colorExact() because the color indices would be consistent among images. For new colors, colorAllocate() is the only choice. But colorAllocate() is highly recommended to use after colorExact(). It is safer to the color palette.</p></div>
   
   
 
@@ -359,8 +332,7 @@ highly recommended to use after colorExact(). It is safer to the color palette.<
   </header>
 
 
-  <div class="entry-content"><p>find . -regex &lsquo;.<em>/[0-9]</em>.gif -exec ./filter.pl -i {} \;</p>
-</div>
+  <div class="entry-content"><p>find . -regex ’.<em>/[0-9]</em>.gif -exec ./filter.pl -i {} ;</p></div>
   
   
 
@@ -395,37 +367,21 @@ highly recommended to use after colorExact(). It is safer to the color palette.<
   </header>
 
 
-  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What
-I received was like this:</p>
-
-<blockquote><p>Evaluator.h:1: error: stray ‘\357’ in program
-Evaluator.h:1: error: stray ‘\273’ in program
-Evaluator.h:1: error: stray ‘\277’ in program
-Evaluator.h:1: error: stray ‘#’ in program</p></blockquote>
-
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the
-source file. I guessed that our team were using different editors and operating systems, and
-someone  accidentally inserted one or two unicode characters. It was so bad that they were
-invisible!</p>
-
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there!
-So so wired. I used Linux command-line tool &lsquo;file&rsquo; to detect the type of the source file</p>
-
-<blockquote><p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p></blockquote>
-
-<p>But for the other files in the same directory, &lsquo;file&rsquo; told me that</p>
-
-<blockquote><p>ASCII C program text</p></blockquote>
-
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the
-conversion. So I came up the final idea, use command-line tool &lsquo;cat&rsquo; to<strong> dump it to the terminal
-screen</strong> and copy whole content without the first blank space and paste into a new file. It worked.
-If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
-
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line.
-I thought it was the culprit. I also noticed that<strong> &lsquo;cat foo.h > bar.h&rsquo; didn&rsquo;t get rid of the
-invisible character</strong>.  Copy and Paste!</p>
-</div>
+  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
+<blockquote>
+<p>Evaluator.h:1: error: stray ‘57’ in program Evaluator.h:1: error: stray ‘73’ in program Evaluator.h:1: error: stray ‘77’ in program Evaluator.h:1: error: stray ‘#’ in program</p>
+</blockquote>
+<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
+<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool ‘file’ to detect the type of the source file</p>
+<blockquote>
+<p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p>
+</blockquote>
+<p>But for the other files in the same directory, ‘file’ told me that</p>
+<blockquote>
+<p>ASCII C program text</p>
+</blockquote>
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool ‘cat’ to<em>* dump it to the terminal screen</em>* and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<em>* ‘cat foo.h &gt; bar.h’ didn’t get rid of the invisible character</em>*.  Copy and Paste!</p></div>
   
   
 
@@ -460,14 +416,11 @@ invisible character</strong>.  Copy and Paste!</p>
   </header>
 
 
-  <div class="entry-content"><ol>
-<li><p> <a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
-<li><p> <a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
+  <div class="entry-content"><ol type="1">
+<li><p><a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
+<li><p><a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
 </ol>
-
-
-<p>So I would recommend every programmers to have both in their arsenal.</p>
-</div>
+<p>So I would recommend every programmers to have both in their arsenal.</p></div>
   
   
 
@@ -502,51 +455,79 @@ invisible character</strong>.  Copy and Paste!</p>
   </header>
 
 
-  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template
-programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well
-with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like
-to recommend the solution at</p>
-
+  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
 <p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>
-
 <p>I copy the main part right here:</p>
+<blockquote>
 
-<blockquote><h2>The Short Answer</h2>
-
-<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p></blockquote>
-
+</blockquote>
+<blockquote>
+<p>## The Short Answer</p>
+<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p>
+</blockquote>
 <p>E.g., for <strong>gcc</strong>:</p>
+<blockquote>
 
-<blockquote><ul>
-<li><p><strong>/usr/local/bin/ccache-gcc.sh:</strong></p>
-
-<p><code>#!/bin/bash
-ccache /usr/bin/gcc &ldquo;$@&rdquo;
-</code></p></li>
-<li><p><strong>~/.colorgcc:</strong></p>
-
-<p><code>gcc: /usr/local/bin/ccache-gcc.sh
-</code></p></li>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-gcc.sh:</strong></li>
 </ul>
 </blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;#!/bin/bash
+ccache /usr/bin/gcc &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
 
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;gcc: /usr/local/bin/ccache-gcc.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
 <p>and for <strong>g++</strong>:</p>
+<blockquote>
 
-<blockquote><ul>
-<li><p><strong>/usr/local/bin/ccache-g++.sh:</strong></p>
-
-<p><code>#!/bin/bash
-ccache /usr/bin/g++ &ldquo;$@&rdquo;
-</code></p></li>
-<li><p><strong>~/.colorgcc:</strong></p>
-
-<p><code>gcc: /usr/local/bin/ccache-g++.sh
-</code></p></li>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-g++.sh:</strong></li>
 </ul>
 </blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;#!/bin/bash
+ccache /usr/bin/g++ &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
 
-<p>There are ways to clean this up so that you only use a single script,  with symlinks for each variant, but those are beyond the scope of this  answer, and I leave them to you as an excercise :&ndash;)</p>
-</div>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>
+&lt;code&gt;gcc: /usr/local/bin/ccache-g++.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<p>There are ways to clean this up so that you only use a single script, with symlinks for each variant, but those are beyond the scope of this answer, and I leave them to you as an excercise :-)</p></div>
   
   
 
@@ -582,11 +563,9 @@ ccache /usr/bin/g++ &ldquo;$@&rdquo;
 
 
   <div class="entry-content"><ul>
-<li><p>Upgraded to<a href="http://www.libreoffice.org/"> Libreoffice-3.3</a>. Many improvements can be seen.</p></li>
-<li><p>Upgraded to<a href="http://tmux.sourceforge.net/"> tmux-1.4</a>. It works very well on openSUSE-11.1. It definitely beats GNU Screen(even Git version).</p></li>
-</ul>
-
-</div>
+<li><p>Upgraded to<a href="http://www.libreoffice.org/">Libreoffice-3.3</a>. Many improvements can be seen.</p></li>
+<li><p>Upgraded to<a href="http://tmux.sourceforge.net/">tmux-1.4</a>. It works very well on openSUSE-11.1. It definitely beats GNU Screen(even Git version).</p></li>
+</ul></div>
   
   
 

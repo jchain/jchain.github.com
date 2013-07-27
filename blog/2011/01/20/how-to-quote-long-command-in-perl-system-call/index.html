@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="If you call external command in your Perl code with system() and your command is very long, you must
-want to break it into multi-line but the newline &hellip;">
+  <meta name="description" content="If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,11 +101,12 @@ want to break it into multi-line but the newline &hellip;">
   </header>
 
 
-<div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must
-want to break it into multi-line but the newline characters really get in the way.  Here is a good
-way, IMHO,  to make the code look neat and clean:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>If you call external command in your Perl code with system() and your command is very long, you must want to break it into multi-line but the newline characters really get in the way.  Here is a good way, IMHO,  to make the code look neat and clean:</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -135,13 +135,11 @@ way, IMHO,  to make the code look neat and clean:</p>
 </span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
-
+</notextile>
+</div>
 
 <p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
-
-<p>The biggest advantage of this method over string concatenation operator &ldquo;.&rdquo; is that it is easier to
-re-align your code in Vim since your command is not messed with quotation marks.</p>
-</div>
+<p>The biggest advantage of this method over string concatenation operator “.” is that it is easier to re-align your code in Vim since your command is not messed with quotation marks.</p></div>
 
 
   <footer>

@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="wxgtk3 is under active development. Today I ran into a SIGABRT signal when debugging samples/image. The error message is like this: glibc detected ./ &hellip;">
+  <meta name="description" content="wxgtk3 is under active development. Today I ran into a SIGABRT signal when debugging samples/image. The error message is like this: * glibc detected &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,63 +102,18 @@
 
 
 <div class="entry-content"><p>wxgtk3 is under active development. Today I ran into a <strong>SIGABRT</strong> signal when debugging samples/image. The error message is like this:</p>
-
-<blockquote><p><strong><em> glibc detected </em></strong> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 ***
-======= Backtrace: =========
-/lib64/libc.so.6(+0x73226)[0x7f580b58f226]
-/lib64/libc.so.6(+0x758cf)[0x7f580b5918cf]
-/lib64/libc.so.6(<em><em>libc_malloc+0x79)[0x7f580b593aa9]
-/usr/lib64/libstdc++.so.6(</em>Znwm+0x1d)[0x7f580bd6d3dd]
-/usr/lib64/libstdc++.so.6(</em>Znam+0x9)[0x7f580bd6d4f9]
-./image[0x4a6d2c]
-./image[0x4a8d7c]
-./image[0x4ab21f]
-./image[0x4aaeb6]</p></blockquote>
-
-<p>What is &ldquo;<em>malloc(): smallbin double linked list corrupted</em>&rdquo; error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having &lsquo;new&rsquo; operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
-
+<blockquote>
+<p><em>*</em> glibc detected <em>*</em> ./image: malloc(): smallbin double linked list corrupted: 0x0000000000c93180 <em>*</em> ======= Backtrace: ========= /lib64/libc.so.6(+0x73226)[0x7f580b58f226] /lib64/libc.so.6(+0x758cf)[0x7f580b5918cf] /lib64/libc.so.6(<em><em>libc</em>malloc+0x79)[0x7f580b593aa9] /usr/lib64/libstdc++.so.6(</em>Znwm+0x1d)[0x7f580bd6d3dd] /usr/lib64/libstdc++.so.6(_Znam+0x9)[0x7f580bd6d4f9] ./image[0x4a6d2c] ./image[0x4a8d7c] ./image[0x4ab21f] ./image[0x4aaeb6]</p>
+</blockquote>
+<p>What is “<em>malloc(): smallbin double linked list corrupted</em>” error? I had no clue. I loaded the program in gdb and saw this error happens when a specific line of code having ‘new’ operator was hit. It should be some memory allocation violation. I searched it in Google. The returned results showed many bug reports containing this error. Interestingly, a good number of the follow-up replies said the bug was not reproducible and suggested the original  bug reporter submit valgrind log but few did that so these bug reports were marked as invalid.</p>
 <p>I guessed most bug reporters were just common users who were not familiar with valgrind. Anyway, the search results suggested me run valgrind to get more information about the memory violation. Luckly, I played with it several month ago and made a not-bad <a href="http://zandyware.wordpress.com/2011/01/21/share-my-newly-created-valgrind-wxgtk-2-9-1-suppression-file/">suppression file</a> customized with wxgtk. Again I ran valgrind with the command like this:</p>
-
-<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind &mdash;leak-check=yes &mdash;suppressions=./wx.supp &mdash;log-file=valgrind.log ./image</p>
-
+<p>G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind –leak-check=yes –suppressions=./wx.supp –log-file=valgrind.log ./image</p>
 <p>Valgrind immediately tracked down where the real problem was. The log looked like this</p>
-
-<blockquote><p>==17645== Memcheck, a memory error detector
-==17645== Copyright &copy; 2002-2010, and GNU GPL&rsquo;d, by Julian Seward et al.
-==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
-==17645== Command: ./image
-==17645== Parent PID: 28951
-==17645==
-==17645== Source and destination overlap in memcpy(0xe004860, 0xe003430, 5600)
-==17645==    at 0x4C289A6: memcpy (mc_replace_strmem.c:635)
-==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
-==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
-==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
-==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow<em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
-==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
-==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
-==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
-==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
-==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
-==17645==    by 0x420A84: main (image.cpp:869)
-==17645==
-==17645== Invalid read of size 8
-==17645==    at 0x4C28B2C: memcpy (mc_replace_strmem.c:635)
-==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500)
-==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383)
-==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72)
-==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow</em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199)
-==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678)
-==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878)
-==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92)
-==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456)
-==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484)
-==17645==    by 0x420A84: main (image.cpp:869)</p></blockquote>
-
+<blockquote>
+<p>==17645== Memcheck, a memory error detector ==17645== Copyright (C) 2002-2010, and GNU GPL’d, by Julian Seward et al. ==17645== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info ==17645== Command: ./image ==17645== Parent PID: 28951 ==17645== ==17645== Source and destination overlap in memcpy(0xe004860, 0xe003430, 5600) ==17645==    at 0x4C289A6: memcpy (mc_replace_strmem.c:635) ==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500) ==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383) ==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72) ==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow<em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199) ==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678) ==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878) ==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92) ==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456) ==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484) ==17645==    by 0x420A84: main (image.cpp:869) ==17645== ==17645== Invalid read of size 8 ==17645==    at 0x4C28B2C: memcpy (mc_replace_strmem.c:635) ==17645==    by 0x447DD0: wxBitmap::CreateFromImageAsPixmap(wxImage const&amp;, int) (bitmap_gtk3.cpp:500) ==17645==    by 0x447910: wxBitmap::CreateFromImage(wxImage const&amp;, int) (bitmap_gtk3.cpp:383) ==17645==    by 0x425694: wxBitmap::wxBitmap(wxImage const&amp;, int) (bitmap.h:72) ==17645==    by 0x42DDEA: MyCanvas::MyCanvas(wxWindow</em>, int, wxPoint const&amp;, wxSize const&amp;) (canvas.cpp:199) ==17645==    by 0x41EE7F: MyFrame::MyFrame() (image.cpp:678) ==17645==    by 0x420B23: MyApp::OnInit() (image.cpp:878) ==17645==    by 0x424A22: wxAppConsoleBase::CallOnInit() (app.h:92) ==17645==    by 0x611002: wxEntry(int&amp;, wchar_t<strong>) (init.cpp:456) ==17645==    by 0x6110F1: wxEntry(int&amp;, char</strong>) (init.cpp:484) ==17645==    by 0x420A84: main (image.cpp:869)</p>
+</blockquote>
 <p>It turned out that memcpy() at the line 500 in bitmap_gtk3.cpp manipulated overlapping memory. That was the actual culprit. Valgrind even showed the call backtrace to help you to reproduce the bug. Awesome.</p>
-
-<p>I hope this blog entry help you to use Valgrind to locate the bug and fix memory error quickly.</p>
-</div>
+<p>I hope this blog entry help you to use Valgrind to locate the bug and fix memory error quickly.</p></div>
 
 
   <footer>

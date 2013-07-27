@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="As you might know that I&rsquo;m doing some image processing with Perl and GD module. However, iterating
-a whole 512x512 image, i.e. every pixels, is &hellip;">
+  <meta name="description" content="As you might know that I’m doing some image processing with Perl and GD module. However, iterating a whole 512x512 image, i.e. every pixels, is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,17 +101,13 @@ a whole 512x512 image, i.e. every pixels, is &hellip;">
   </header>
 
 
-<div class="entry-content"><p>As you might know that I&rsquo;m doing some image processing with Perl and GD module. However, iterating
-a whole 512x512 image, i.e. every pixels, is prohibitively slow in Perl. Here is the Inline module
-to rescue. After playing around with it in several minutes, yes, only several minutes, my Perl code
-with C Inline function accessing the image boosted up 10 times faster! Every Perl programmer should
-check it out:
-<a href="http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod">http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod</a></p>
-
-<p>Edited: I would like to add a toy example here for anyone who are interested in Perl::Inline. It
-shows how to call external library(GD) from Perl script.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>As you might know that I’m doing some image processing with Perl and GD module. However, iterating a whole 512x512 image, i.e. every pixels, is prohibitively slow in Perl. Here is the Inline module to rescue. After playing around with it in several minutes, yes, only several minutes, my Perl code with C Inline function accessing the image boosted up 10 times faster! Every Perl programmer should check it out: <a href="http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod">http://search.cpan.org/~sisyphus/Inline-0.48/Inline.pod</a></p>
+<p>Edited: I would like to add a toy example here for anyone who are interested in Perl::Inline. It shows how to call external library(GD) from Perl script.</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -243,8 +238,8 @@ shows how to call external library(GD) from Perl script.</p>
 </span><span class='line'><span class="p">}</span>
 </span><span class='line'><span class="n">END_OF_C_CODE</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
 
 
   <footer>

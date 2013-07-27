@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
-in-line string substitution to create new shell &hellip;">
+  <meta name="description" content="Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,14 +101,8 @@ in-line string substitution to create new shell &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
-in-line string substitution to create new shell commands. I vaguely had an idea that I should use
-&lsquo;sed&rsquo; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
-one-liner. It turned out that this is the correct way to do so</p>
-
-<pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'
-</code></pre>
-</div>
+<div class="entry-content"><p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use ‘sed’ to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
+<pre><code>find . -name &quot;*.java&quot; -print | perl -ne &#39;s/java/java.old/g &amp;&amp; print&#39;</code></pre></div>
 
 
   <footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-07-25T14:55:35-05:00</updated>
+  <updated>2013-07-26T20:36:14-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -18,33 +18,17 @@
     <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
     <updated>2013-06-01T15:37:24-05:00</updated>
     <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
-    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful
-plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
-
-<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven&rsquo;t I realized that
-I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
-
-<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of
-<code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the
-setting in <code>.vimrc</code> from</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\h\w*\|\h\w*::'
-</code></pre>
-
+    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
+<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of <code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the setting in <code>.vimrc</code> from</p>
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\h\w*\|\h\w*::&#39;</code></pre>
 <p>to</p>
-
-<pre><code>let g:neocomplcache_omni_patterns.perl = '\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*'
-</code></pre>
-
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*&#39;</code></pre>
 <p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
-
-<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete
-as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won&rsquo;t
-triger neocomplcache if the package is not based on the OO that perlomni supports. In this case,
-<code>C-X C-O</code> will always pop up the window.  After this you should see someting like this:</p>
-
-<p><img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /></p>
-]]></content>
+<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won’t triger neocomplcache if the package is not based on the OO that perlomni supports. In this case, <code>C-X C-O</code> will always pop up the window. After this you should see someting like this:</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /><figcaption>alt</figcaption>
+</figure>]]></content>
   </entry>
   
   <entry>
@@ -53,72 +37,36 @@ triger neocomplcache if the package is not based on the OO that perlomni support
     <updated>2013-02-08T14:03:24-06:00</updated>
     <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
     <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
-
-<h1>quickcd</h1>
-
-<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change
-directories. It saves you a lot of keystrokes and enhances your productivity, especially when you
-navigate in many subdirectories with tricky names.</p>
-
-<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code.
-The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose
-the one you like most.</p>
-
-<h1>Overview</h1>
-
+<h1 id="quickcd">quickcd</h1>
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change directories. It saves you a lot of keystrokes and enhances your productivity, especially when you navigate in many subdirectories with tricky names.</p>
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code. The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose the one you like most.</p>
+<h1 id="overview">Overview</h1>
 <p>quickcd enables you to use cd with partial directory names. For example:</p>
-
 <pre><code>$ cd box
   =&gt; Dropbox
 $ cd ok
-  =&gt; Ebook
-</code></pre>
-
-<p>If there is more than one directory containing your cd path, you just need to type one more letter
-to take you to the target folder.</p>
-
-<p><code>
-~ $ cd D
+  =&gt; Ebook</code></pre>
+<p>If there is more than one directory containing your cd path, you just need to type one more letter to take you to the target folder.</p>
+<pre><code>~ $ cd D
 Make a choice:
 [a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
 a
-Desktop $
-</code></p>
-
-<h1>Why rewrite?</h1>
-
+Desktop $</code></pre>
+<h1 id="why-rewrite">Why rewrite?</h1>
 <p>The differences:</p>
-
-<ol>
-<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can
-result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
-<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and
-the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates
-are not always aligned.</p></li>
-<li><p>quickcd doesn&rsquo;t support multi-level directory nagivation. Its main focus is current directory.
-fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<ol type="1">
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates are not always aligned.</p></li>
+<li><p>quickcd doesn’t support multi-level directory nagivation. Its main focus is current directory. fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
 <li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
 </ol>
-
-
-<h1>Setup</h1>
-
-<p>This following instruction are shamelessly copied from fuzzycd&rsquo;s README.</p>
-
-<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines.
-This assumes you put fuzzycd in the ~/scripts/ directory.</p>
-
+<h1 id="setup">Setup</h1>
+<p>This following instruction are shamelessly copied from fuzzycd’s README.</p>
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines. This assumes you put fuzzycd in the ~/scripts/ directory.</p>
 <pre><code>export PATH=~/scripts/fuzzycd/:$PATH
-source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh
-</code></pre>
-
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
-
-<p><em>Note</em>: If you have any other shell plugins which try to redefine the &ldquo;cd&rdquo; function (e.g.
-<a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the
-<code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with
-other bash modification plugins, but it should be loaded last.</p>
-]]></content>
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the “cd” function (e.g. <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with other bash modification plugins, but it should be loaded last.</p>]]></content>
   </entry>
   
   <entry>
@@ -126,24 +74,15 @@ other bash modification plugins, but it should be loaded last.</p>
     <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
     <updated>2012-11-17T02:10:00-06:00</updated>
     <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
-    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn&rsquo;t use the
-different letter cases as the same category name. Otherwise the category page wouldn&rsquo;t show correct
-number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in
-the meta info of every posts. Here was what I used to get this job done.</p>
-
-<pre><code>ack "\- git" *.markdown -l | xargs perl -p -i -e 's/- git/- Git/g'
-</code></pre>
-
+    <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn’t use the different letter cases as the same category name. Otherwise the category page wouldn’t show correct number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in the meta info of every posts. Here was what I used to get this job done.</p>
+<pre><code>ack &quot;\- git&quot; *.markdown -l | xargs perl -p -i -e &#39;s/- git/- Git/g&#39;</code></pre>
 <p>A little explanation:</p>
-
 <pre><code>-l: ask ack to only show the filename with matched search pattern. You can try first without -l
     option to make sure you find the correct files. And then run with -l option to make the output
     suitable for xargs
 -p: read and loop from files instead of STDIN
 -i: in-place edit
--e: run the command. Here we do the search and replace operations.
-</code></pre>
-]]></content>
+-e: run the command. Here we do the search and replace operations.</code></pre>]]></content>
   </entry>
   
   <entry>
@@ -151,78 +90,54 @@ the meta info of every posts. Here was what I used to get this job done.</p>
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
     <updated>2012-09-25T21:33:42-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m a little tired of checking out the weather condition via the web browser. In many cases I just
-want to see a short report in my terminal. After
-reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>,
-which shows how to use Mojolicious to retrieve the current condition and
-<a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>,
-which shows how to retried the forecast, I finally wrote something like this</p>
+    <content type="html"><![CDATA[<p>I’m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/env perl</span>
+<span class="co">#===============================================================================</span>
+<span class="co">#</span>
+<span class="co"># FILE: weather.pl</span>
+<span class="co">#</span>
+<span class="co"># USAGE: ./weather.pl</span>
+<span class="co">#</span>
+<span class="co"># VERSION: 1.0</span>
+<span class="co"># CREATED: 09/13/2012 10:31:39 PM</span>
+<span class="co"># REVISION: ---</span>
+<span class="co">#===============================================================================</span>
 
-<p>```perl</p>
+<span class="kw">use</span> <span class="kw">strict</span>;
+<span class="kw">use</span> <span class="kw">warnings</span>;
+<span class="kw">use</span> feature <span class="kw">&#39;</span><span class="st">say</span><span class="kw">&#39;</span>;
 
-<h1>!/usr/bin/env perl</h1>
+<span class="kw">use</span> Mojolicious;
 
-<h1>===============================================================================</h1>
+<span class="kw">my</span> <span class="dt">$ua</span> = <span class="fu">Mojo::UserAgent</span>-&gt;new;
+<span class="kw">my</span> <span class="dt">$dom</span> = <span class="dt">$ua</span>-&gt;<span class="dt">get</span>(<span class="kw">&#39;</span><span class="st">http://w1.weather.gov/xml/current_obs/KCID.xml</span><span class="kw">&#39;</span>)-&gt;res-&gt;dom;
+<span class="kw">my</span> <span class="dt">$temp</span> = <span class="dt">$dom</span>-&gt;<span class="dt">find</span>(<span class="kw">&#39;</span><span class="st">temperature_string</span><span class="kw">&#39;</span>)-&gt;[<span class="dv">0</span>]-&gt;text;
+<span class="kw">my</span> <span class="dt">$weather</span> = <span class="dt">$dom</span>-&gt;<span class="dt">find</span>(<span class="kw">&#39;</span><span class="st">weather</span><span class="kw">&#39;</span>)-&gt;[<span class="dv">0</span>]-&gt;text;
+say <span class="kw">&quot;</span><span class="st">KCID </span><span class="kw">&quot;</span>, <span class="dt">$temp</span>, <span class="kw">&quot;</span><span class="st"> </span><span class="kw">&quot;</span>, <span class="dt">$weather</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 
-<p>#</p>
+<span class="dt">$dom</span> =
+<span class="dt">$ua</span>-&gt;<span class="dt">get</span>(<span class="kw">&#39;</span><span class="st">http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids</span><span class="kw">&#39;</span>)-&gt;res-&gt;dom;
 
-<h1>FILE: weather.pl</h1>
+<span class="kw">for</span> <span class="kw">my</span> <span class="dt">$e</span> (<span class="dt">$dom</span>-&gt;<span class="dt">find</span>(<span class="kw">&#39;</span><span class="st">simpleforecast forecastday</span><span class="kw">&#39;</span>)-&gt;<span class="kw">each</span>) {
+ <span class="kw">my</span> <span class="dt">$day</span> = <span class="dt">$e</span>-&gt;<span class="dt">date</span>-&gt;<span class="dt">day</span>-&gt;<span class="dt">text</span>;
+ <span class="kw">my</span> <span class="dt">$month</span> = <span class="fu">substr</span> <span class="dt">$e</span>-&gt;<span class="dt">date</span>-&gt;<span class="dt">monthname</span>-&gt;<span class="dt">text</span>, <span class="dv">0</span>, <span class="dv">3</span>;
+ <span class="kw">my</span> <span class="dt">$weekday</span> = <span class="fu">substr</span> <span class="dt">$e</span>-&gt;<span class="dt">date</span>-&gt;<span class="dt">weekday</span>-&gt;<span class="dt">text</span>, <span class="dv">0</span>, <span class="dv">3</span>;
+ <span class="kw">my</span> <span class="dt">$condition</span> = <span class="dt">$e</span>-&gt;<span class="dt">conditions</span>-&gt;<span class="dt">text</span>;
+ <span class="kw">my</span> <span class="dt">$high</span> = <span class="dt">$e</span>-&gt;<span class="dt">high</span>-&gt;<span class="dt">fahrenheit</span>-&gt;<span class="dt">text</span>;
+ <span class="kw">my</span> <span class="dt">$low</span> = <span class="dt">$e</span>-&gt;<span class="dt">low</span>-&gt;<span class="dt">fahrenheit</span>-&gt;<span class="dt">text</span>;
 
-<p>#</p>
-
-<h1>USAGE: ./weather.pl</h1>
-
-<p>#</p>
-
-<h1>VERSION: 1.0</h1>
-
-<h1>CREATED: 09/13/2012 10:31:39 PM</h1>
-
-<h1>REVISION: &mdash;&ndash;</h1>
-
-<h1>===============================================================================</h1>
-
-<p>use strict;
-use warnings;
-use feature &lsquo;say&rsquo;;</p>
-
-<p>use Mojolicious;</p>
-
-<p>my $ua = Mojo::UserAgent->new;
-my $dom = $ua->get(&lsquo;<a href="http://w1.weather.gov/xml/current_obs/KCID.xml">http://w1.weather.gov/xml/current_obs/KCID.xml</a>&rsquo;)&ndash;>res->dom;
-my $temp = $dom->find(&lsquo;temperature_string&rsquo;)&ndash;>[0]&ndash;>text;
-my $weather = $dom->find(&lsquo;weather&rsquo;)&ndash;>[0]&ndash;>text;
-say &ldquo;KCID &rdquo;, $temp, &ldquo; &rdquo;, $weather, &ldquo;\n&rdquo;;</p>
-
-<p>$dom =
-$ua->get(&lsquo;<a href="http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids">http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=Cedar%20Rapids</a>&rsquo;)&ndash;>res->dom;</p>
-
-<p>for my $e ($dom->find(&lsquo;simpleforecast forecastday&rsquo;)&ndash;>each) {
- my $day = $e->date->day->text;
- my $month = substr $e->date->monthname->text, 0, 3;
- my $weekday = substr $e->date->weekday->text, 0, 3;
- my $condition = $e->conditions->text;
- my $high = $e->high->fahrenheit->text;
- my $low = $e->low->fahrenheit->text;</p>
-
-<p>printf &ldquo;%s %s %s, Low: %d, High: %d, %s\n&rdquo;, $weekday, $month, $day, $low, $high, $condition;
-}
-```</p>
-
+<span class="fu">printf</span> <span class="kw">&quot;</span><span class="dt">%s</span><span class="st"> </span><span class="dt">%s</span><span class="st"> </span><span class="dt">%s</span><span class="st">, Low: </span><span class="dt">%d</span><span class="st">, High: </span><span class="dt">%d</span><span class="st">, </span><span class="dt">%s</span><span class="ch">\n</span><span class="kw">&quot;</span>, <span class="dt">$weekday</span>, <span class="dt">$month</span>, <span class="dt">$day</span>, <span class="dt">$low</span>, <span class="dt">$high</span>, <span class="dt">$condition</span>;
+}</code></pre>
 <p>This is how it runs from the terminal:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">[<span class="kw">zandyware@zandyware</span>] bin $ ./weather.pl
+<span class="kw">KCID</span> 63.0 F (17.2 C) <span class="kw">Fair</span>
 
-<p>```bash
-[zandyware@zandyware] bin $ ./weather.pl
-KCID 63.0 F (17.2 C) Fair</p>
-
-<p>Tue Sep 25, Low: 46, High: 81, Clear
-Wed Sep 26, Low: 39, High: 70, Clear
-Thu Sep 27, Low: 45, High: 70, Clear
-Fri Sep 28, Low: 46, High: 70, Partly Cloudy
-Sat Sep 29, Low: 45, High: 72, Clear
-Sun Sep 30, Low: 41, High: 73, Clear
-```</p>
-]]></content>
+<span class="kw">Tue</span> Sep 25, Low: 46, High: 81, Clear
+<span class="kw">Wed</span> Sep 26, Low: 39, High: 70, Clear
+<span class="kw">Thu</span> Sep 27, Low: 45, High: 70, Clear
+<span class="kw">Fri</span> Sep 28, Low: 46, High: 70, Partly Cloudy
+<span class="kw">Sat</span> Sep 29, Low: 45, High: 72, Clear
+<span class="kw">Sun</span> Sep 30, Low: 41, High: 73, Clear</code></pre>]]></content>
   </entry>
   
   <entry>
@@ -230,14 +145,8 @@ Sun Sep 30, Low: 41, High: 73, Clear
     <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
     <updated>2012-09-14T11:29:58-05:00</updated>
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
-    <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing
-in-line string substitution to create new shell commands. I vaguely had an idea that I should use
-&lsquo;sed&rsquo; to do the text transform but by any chance I would like to use Perl. I rarely use Perl as
-one-liner. It turned out that this is the correct way to do so</p>
-
-<pre><code>find . -name "*.java" -print | perl -ne 's/java/java.old/g &amp;&amp; print'
-</code></pre>
-]]></content>
+    <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use ‘sed’ to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
+<pre><code>find . -name &quot;*.java&quot; -print | perl -ne &#39;s/java/java.old/g &amp;&amp; print&#39;</code></pre>]]></content>
   </entry>
   
 </feed>

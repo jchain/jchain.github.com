@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="This is an excellent tutorial on Delphi multi threading programming, see http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html ">
+  <meta name="description" content="This is an excellent tutorial on Delphi multi threading programming, see http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,8 +104,7 @@
   </header>
 
 
-  <div class="entry-content"><p>This is an excellent tutorial on Delphi multi threading programming, see <a href="http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html">http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html </a></p>
-</div>
+  <div class="entry-content"><p>This is an excellent tutorial on Delphi multi threading programming, see <a href="http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html">http://www.eonclash.com/Tutorials/Multithreading/MartinHarvey1.1/ToC.html</a></p></div>
   
   
 
@@ -141,37 +140,17 @@
 
 
   <div class="entry-content"><p>When starting Turbo C++ Explorer, you may get an error message stating:</p>
-
-<ol>
-<li><p> acces violation at adress 51F515BE rtl100.bpl&hellip;.</p></li>
-<li><p> error with coreide100.bpl</p></li>
-<li><p> designeide100.bpl</p></li>
+<ol type="1">
+<li><p>acces violation at adress 51F515BE rtl100.bpl….</p></li>
+<li><p>error with coreide100.bpl</p></li>
+<li><p>designeide100.bpl</p></li>
 </ol>
-
-
-<p>The workaround is running &ldquo;regasm&rdquo; from .NET v1.1 to register the missing  .NET assemblies used by
-Turbo C++ Explorer IDE. Go to the C:\Program Files\Borland\BDS\4.0\Bin directory  and run</p>
-
-<pre><code>regasm Borland.Studio.Toolsets.dll
-</code></pre>
-
-<p>Now you should start the IDE successfully. If you still see an error message box, saying that a
-ClassId is missing or similar errors, you can solve this by registering all possible assemblies
-manually.</p>
-
-<p>To do this, navigate to the BDS \Bin directory in the command line and type &ldquo;dir
-Borland.Studio.*.tlb&rdquo; to list all relevant .tlb files. Then, run &ldquo;regasm&rdquo; on the corresponding .dll
-file for each.(see
-<a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
-
-<p>OK, then you start a new project from the menu File->New&hellip;, if you are unlucky to get an exception
-Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
-
-<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file
-into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg,
-see<strong>
-</strong><a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p>
-</div>
+<p>The workaround is running “regasm” from .NET v1.1 to register the missing .NET assemblies used by Turbo C++ Explorer IDE. Go to the C:Files.0directory and run</p>
+<pre><code>regasm Borland.Studio.Toolsets.dll</code></pre>
+<p>Now you should start the IDE successfully. If you still see an error message box, saying that a ClassId is missing or similar errors, you can solve this by registering all possible assemblies manually.</p>
+<p>To do this, navigate to the BDS directory in the command line and type “dir Borland.Studio.*.tlb” to list all relevant .tlb files. Then, run “regasm” on the corresponding .dll file for each.(see <a href="http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39">http://support.borland.com/entry.jspa?externalID=4102&amp;categoryID=39</a>)</p>
+<p>OK, then you start a new project from the menu File-&gt;New…, if you are unlucky to get an exception Class not registered, ClassID {17CD2E5A-9D11-4BB4-8030-1092F6645714}, here is a way to fix it:</p>
+<p>Save the <a href="http://zhangcheng.johnchain.googlepages.com/fix_turbo_cpp.reg">fix_turbo_cpp.reg</a> file into your hard disk, and double click it to import itself into the Registry.(thanks Tim Lichtenberg, see<em>*</em>*<a href="http://qc.borland.com/wc/qcmain.aspx?d=25744">http://qc.borland.com/wc/qcmain.aspx?d=25744</a>)</p></div>
   
   
 
@@ -207,73 +186,39 @@ see<strong>
 
 
   <div class="entry-content"><p><strong>CTRL+J</strong> : Invoke code templates</p>
-
 <p><strong>CTRL+T</strong> : Delete current word</p>
-
 <p><strong>CTRL+E</strong> : Incremental search</p>
-
 <p><strong>CTRL+Y</strong> : Delete current line</p>
-
 <p><strong>CTRL+SHIFT+G</strong> : Insert a new GUID at the cursor position</p>
-
 <p><strong>CTRL+SHIFT+I</strong> : Indent the current selected block</p>
-
 <p><strong>CTRL+SHIFT+U</strong> : outdent the current selected block</p>
-
 <p><strong>CTRL+SHIFT+Y</strong> : delete to the end of line</p>
-
 <p><strong>CTRL+SHIFT+J</strong> : Invoke syncedit</p>
-
 <p><strong>ALT+[</strong> : match pair forward</p>
-
 <p><strong>ALT+]</strong> : match pair backward</p>
-
 <p><strong>ALT+RightArrow</strong> : browse forward (hotlink history)</p>
-
 <p><strong>ALT+LeftArrow</strong> : browse backward (hotlink history)</p>
-
 <p><strong>ALT+UpArrow</strong> : browse to symbol under editor cursor (invoke a hotlink and add it to the hotlink history)</p>
-
 <p><strong>F4</strong> : Run program to current cursor position</p>
-
 <p><strong>F5</strong> : Toggle breakpoint</p>
-
 <p><strong>F7</strong> : Debugger step into</p>
-
 <p><strong>F8</strong> : Debugger step over</p>
-
 <p><strong>F9</strong> : Run program under debugger</p>
-
 <p><strong>CTRL+F12</strong> : View units</p>
-
 <p><strong>ALT+G</strong> : Goto line number in editor</p>
-
 <p><strong>CTRL+SHIFT+R</strong> : Start/Stop recording editor macro</p>
-
 <p><strong>CTRL+SHIFT+P</strong> : Play editor macro</p>
-
 <p><strong>CTRL+SPACE</strong> : Invoke code completion</p>
-
 <p><strong>CTRL+SHIFT+SPACE</strong> : Invoke code parameter hints</p>
-
 <p><strong>CTRL+ENTER</strong> : Open file at cursor</p>
-
 <p><strong>CTRL+SHIFT+C</strong> : Invoke class completion for the class that currently contains the cursor</p>
-
 <p><strong>CTRL+SHIFT+UpArrow</strong> : Navigate to method implementation/declaration</p>
-
 <p><strong>CTRL+SHIFT+DownArrow</strong> : Navigate to method implementation/declaration</p>
-
 <p><strong>CTRL+ALT+UpArrow</strong> : Navigate to previous method implementation in lexical order</p>
-
 <p><strong>CTRL+ALT+DownArrow</strong> : Navigate to next method implementation in lexical order</p>
-
 <p><strong>CTRL+ALT+Home</strong> : Navigate to the lexically first method implementation in this source unit</p>
-
 <p><strong>CTRL+ALT+End</strong> : Navigate to the lexically last method implementation in this source unit</p>
-
-<p><strong>CTRL+/</strong> : Toggle comment per line or selected block</p>
-</div>
+<p><strong>CTRL+/</strong> : Toggle comment per line or selected block</p></div>
   
   
 

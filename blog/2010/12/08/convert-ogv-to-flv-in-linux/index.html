@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
-convert to Flash format locally you can use the &hellip;">
+  <meta name="description" content="I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,12 +101,12 @@ convert to Flash format locally you can use the &hellip;">
   </header>
 
 
-<div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
-convert to Flash format locally you can use the following command. Feel free to add it in your
-bashrc. If I recall correctly, this method can produce the best conversion in Linux platform.
-Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I’m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -116,8 +115,8 @@ Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If yo
 </span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
 </span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
 
 
   <footer>

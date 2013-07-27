@@ -9,8 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
-openoffice-3.2. But my problem was I didn&rsquo;t have &hellip;">
+  <meta name="description" content="The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn’t have the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,25 +104,16 @@ openoffice-3.2. But my problem was I didn&rsquo;t have &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest
-openoffice-3.2. But my problem was I didn&rsquo;t have the root privilege to do that. The official
-installer of OpenOffice failed again over again without notifying you that the reason of failure was
-the lack of root privilege. Finally I found this great
-<a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked
-like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls &mdash;color=never</strong> to
-disable the color output.</p>
-
-<ol>
-<li><p> Download the installation package from OpenOffice website.</p></li>
-<li><p> Unzip it into a directory.</p></li>
-<li><p> <strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
-<li><p> cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
-<li><p> run ./soffice</p></li>
-<li><p> (option) create symbolic link to soffice.</p></li>
-<li><p> (option) set file association in Nautilus. Right click a doc and choose <strong>Properties->Open with &ndash;> Add&hellip;</strong></p></li>
-</ol>
-
-</div>
+  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn’t have the root privilege to do that. The official installer of OpenOffice failed again over again without notifying you that the reason of failure was the lack of root privilege. Finally I found this great <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls –color=never</strong> to disable the color output.</p>
+<ol type="1">
+<li><p>Download the installation package from OpenOffice website.</p></li>
+<li><p>Unzip it into a directory.</p></li>
+<li><p><strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
+<li><p>cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
+<li><p>run ./soffice</p></li>
+<li><p>(option) create symbolic link to soffice.</p></li>
+<li><p>(option) set file association in Nautilus. Right click a doc and choose <strong>Properties-&gt;Open with -&gt; Add…</strong></p></li>
+</ol></div>
   
   
 
@@ -158,12 +148,12 @@ disable the color output.</p>
   </header>
 
 
-  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to
-convert to Flash format locally you can use the following command. Feel free to add it in your
-bashrc. If I recall correctly, this method can produce the best conversion in Linux platform.
-Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I’m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -172,8 +162,8 @@ Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If yo
 </span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
 </span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
   
   
 
@@ -209,12 +199,15 @@ Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If yo
 
 
   <div class="entry-content"><p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
-
-<p><img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" alt="" /></p>
-
+<figure>
+<img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" />
+</figure>
 <p>The Perl code generating the plot is listed below</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -307,8 +300,8 @@ Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If yo
 </span><span class='line'><span class="c1"># Plot many data sets on a single chart</span>
 </span><span class='line'><span class="c1">#$chart-&gt;plot2d($dataSet1, $dataSet2, ...); </span>
 </span></code></pre></td></tr></table></div></figure>
-
-</div>
+</notextile>
+</div></div>
   
   
 
@@ -344,12 +337,9 @@ Correct me if I&rsquo;m wrong. Also I forgot the source the following tip. If yo
 
 
   <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
-
-<pre><code># Even though -fopenmp won't appear in the GUI options, it does take effect
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
-</code></pre>
-</div>
+<pre><code># Even though -fopenmp won&#39;t appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fopenmp&quot;)
+SET(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -fopenmp&quot;)</code></pre></div>
   
   
 
@@ -384,11 +374,8 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
   </header>
 
 
-  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily
-I found the solution in a great article as follows:</p>
-
-<p><a href="http://www.ibb.net/~anne/keyboard/keyboard.html">http://www.ibb.net/~anne/keyboard/keyboard.html</a></p>
-</div>
+  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily I found the solution in a great article as follows:</p>
+<p><a href="http://www.ibb.net/~anne/keyboard/keyboard.html">http://www.ibb.net/~anne/keyboard/keyboard.html</a></p></div>
   
   
 
@@ -424,11 +411,8 @@ I found the solution in a great article as follows:</p>
 
 
   <div class="entry-content"><pre><code>cygrunsrv --install lighttpd --path /usr/sbin/lighttpd
-    --args "-D -f /etc/lighttpd/lighttpd.conf" --disp "CYGWIN lighttpd"
-</code></pre>
-
-<p>See more <a href="http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html">http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</a></p>
-</div>
+    --args &quot;-D -f /etc/lighttpd/lighttpd.conf&quot; --disp &quot;CYGWIN lighttpd&quot;</code></pre>
+<p>See more http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</p></div>
   
   
 
@@ -464,23 +448,15 @@ I found the solution in a great article as follows:</p>
 
 
   <div class="entry-content"><p>Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen compresses the images too much.</p>
-
 <p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook[screen, ] -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
-
-<p><strong>-dPDFSETTINGS=</strong><em>configuration</em></p>
-
-<pre><code>Presets the "distiller parameters" to one of four predefined settings:
-</code></pre>
-
+<p><strong>-dPDFSETTINGS=</strong><em>configuration</em> Presets the “distiller parameters” to one of four predefined settings:</p>
 <ul>
-<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller &ldquo;Screen Optimized&rdquo; setting.</p></li>
-<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller &ldquo;eBook&rdquo; setting.</p></li>
-<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller &ldquo;Print Optimized&rdquo; setting.</p></li>
-<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller &ldquo;Prepress Optimized&rdquo; setting.</p></li>
+<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller “Screen Optimized” setting.</p></li>
+<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller “eBook” setting.</p></li>
+<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller “Print Optimized” setting.</p></li>
+<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller “Prepress Optimized” setting.</p></li>
 <li><p><strong>/default</strong> selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file.</p></li>
-</ul>
-
-</div>
+</ul></div>
   
   
 
@@ -515,8 +491,7 @@ I found the solution in a great article as follows:</p>
   </header>
 
 
-  <div class="entry-content"><p>See more at <a href="http://www.parashift.com/c++-faq-lite/const-correctness.html">http://www.parashift.com/c++-faq-lite/const-correctness.html</a></p>
-</div>
+  <div class="entry-content"><p>See more at <a href="http://www.parashift.com/c++-faq-lite/const-correctness.html">http://www.parashift.com/c++-faq-lite/const-correctness.html</a></p></div>
   
   
 
@@ -551,8 +526,7 @@ I found the solution in a great article as follows:</p>
   </header>
 
 
-  <div class="entry-content"><p>Set them in project->configuration properties->Debugging. But there is one more thing to do: Set your project as the Startup Project in the Solution Explorer! If you don&rsquo;t do that, the command line parameters won&rsquo;t be passed in whatever you try!</p>
-</div>
+  <div class="entry-content"><p>Set them in project-&gt;configuration properties-&gt;Debugging. But there is one more thing to do: Set your project as the Startup Project in the Solution Explorer! If you don’t do that, the command line parameters won’t be passed in whatever you try!</p></div>
   
   
 
@@ -588,10 +562,7 @@ I found the solution in a great article as follows:</p>
 
 
   <div class="entry-content"><p>For whatever reason add</p>
-
-<pre><code>SET_TARGET_PROPERTIES(XYZ PROPERTIES LINKER_LANGUAGE C)
-</code></pre>
-</div>
+<pre><code>SET_TARGET_PROPERTIES(XYZ PROPERTIES LINKER_LANGUAGE C)</code></pre></div>
   
   
 
