@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="I wrote two very short Bash functions to help me quickly look up a word or phrase using elinks. You can use w3m as you wish but elinks shows a better &hellip;">
+  <meta name="description" content="In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/">Octave: Add Local Repository Path Based on the Hostname, Change the Color of Prompt Etc..</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-13T03:38:46-05:00" pubdate data-updated="true">Oct 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn’t know how to do so until today I found that Octave actually has the function ‘uname()’ for the job. Here is an example ~/.octaverc</p>
+<div class='bogus-wrapper'>
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">uname</span><span class="p">()</span><span class="o">.</span><span class="n">nodename</span><span class="p">,</span> <span class="s">&#39;zandyware&#39;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/octave&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/share/flann/octave&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="n">addpath</span><span class="p">(</span><span class="s">&quot;~/octave/niftimatlib-1.2/matlab&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PS1</span> <span class="p">(</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">033[01;31m</span><span class="se">\\</span><span class="s">]</span><span class="se">\\</span><span class="s">s:</span><span class="se">\\</span><span class="s">#&gt; </span><span class="se">\\</span><span class="s">[</span><span class="se">\\</span><span class="s">033[0m&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">function</span> <span class="n">man</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span class='line'> <span class="n">help</span> <span class="p">(</span><span class="n">char</span> <span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span><span class='line'><span class="n">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div>
+
+<p>You may also notice that I changed the default color of prompt to red for better visual contrast. Also I defined a function ‘man’ to alias the built-in command ‘help’ since I’m more used to type ‘man’. This tip was copied from Octave mailinglist. Hope you like today’s post.</p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -550,44 +616,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/28/one-tip-for-jhbuild-when-make-error-is-like-this/">One Tip for Jhbuild When Make Error Is Like This</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-28T16:02:43-05:00" pubdate data-updated="true">Mar 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Here is the error message I got today <em>*</em> No rule to make target <code>gtkcolorsel.c', needed by</code>libgtk_3_la-gtkcolorsel.lo’. Stop</p>
-<p>The reason for that is because the output files from previous builds make Automake unhappy.</p>
-<p>The solution is enter the jhbuild shell, and do: git clean -xdf</p>
-<p>More details from GTK+ IRC: automake does not like when files get moved around so you need to clean up the build tree and get it back into a pristine state</p></div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -605,6 +633,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/17/fly-with-vim-airline/">Fly With Vim Airline</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
       </li>
     
@@ -620,19 +652,15 @@
         <a href="/blog/2013/01/31/customized-feh-config-mk/">Build Feh From Source and Install to Home Directory</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/01/28/install-rcppoctave-if-octave/">Install RcppOctave if Octave Is in User-defined Directory</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnome/'>Gnome (1)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (39)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (4)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (39)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
 </section>
 <section>
   <h1>Tags</h1>
-    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.53846153846153%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.61538461538461%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 115.38461538461539%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.53846153846153%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 106.15384615384616%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 103.07692307692308%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 103.07692307692308%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.61538461538461%'>GDB</a> <a href='/blog/categories/git' style='font-size: 106.15384615384616%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 106.15384615384616%'>GNOME</a> <a href='/blog/categories/gnome' style='font-size: 101.53846153846153%'>Gnome</a> <a href='/blog/categories/gnuplot' style='font-size: 101.53846153846153%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.53846153846153%'>Java</a> <a href='/blog/categories/latex' style='font-size: 106.15384615384616%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.53846153846153%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.53846153846153%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.6923076923077%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 103.07692307692308%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 103.07692307692308%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 118.46153846153845%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.53846153846153%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.53846153846153%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.53846153846153%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 106.15384615384616%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.53846153846153%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.53846153846153%'>wxWidgets</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.53846153846153%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.61538461538461%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 115.38461538461539%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.53846153846153%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 106.15384615384616%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 103.07692307692308%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 103.07692307692308%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.61538461538461%'>GDB</a> <a href='/blog/categories/git' style='font-size: 106.15384615384616%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 106.15384615384616%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.53846153846153%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.53846153846153%'>Java</a> <a href='/blog/categories/latex' style='font-size: 106.15384615384616%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.53846153846153%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.53846153846153%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.6923076923077%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 103.07692307692308%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 103.07692307692308%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 118.46153846153845%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.53846153846153%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.53846153846153%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.53846153846153%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.6923076923077%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.53846153846153%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.53846153846153%'>wxWidgets</a> </span>
 </section>
 
 <section>

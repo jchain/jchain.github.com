@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git format-patch - A Coding Monkey's Blog</title>
+  <title>Fly with vim airline - A Coding Monkey's Blog</title>
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch
-Check the link above when you want to &hellip;">
+  <meta name="description" content="I recently replaced my vim-powerline with vim-airline. I like vim-airline so much that I can’t help spreading words about it.
+For those who don’t &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Check the link above when you want to &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com/blog/2011/12/15/git-format-patch">
+  <link rel="canonical" href="http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
@@ -79,7 +79,7 @@ Check the link above when you want to &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Git Format-patch</h1>
+      <h1 class="entry-title">Fly With Vim Airline</h1>
     
     
       <p class="meta">
@@ -95,15 +95,45 @@ Check the link above when you want to &hellip;">
   
 
 
-<time datetime="2011-12-15T11:52:40-06:00" pubdate data-updated="true">Dec 15<span>th</span>, 2011</time>
+<time datetime="2013-07-17T11:41:20-05:00" pubdate data-updated="true">Jul 17<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch">http://stackoverflow.com/questions/616556/how-do-you-squash-commits-into-one-patch-with-git-format-patch</a></p>
-<p>Check the link above when you want to combine several commits into one patch. It might be needed when you want to submit all your local changes into one changeset to the upstream.</p></div>
+<div class="entry-content"><p>I recently replaced my <a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a> with <a href="https://github.com/bling/vim-airline">vim-airline</a>. I like vim-airline so much that I can’t help spreading words about it.</p>
+<p>For those who don’t know what vim-powerline is. It is a Vim plugin that can make the statusline of Vim colorful and eye candy. When vim-powerline first came out, it caught on very quickly. The author of vim-powerline even re-wrote it in Python (the project <a href="https://github.com/Lokaltog/powerline">powerline</a>) to make it work for more applications (zsh, Tmux, ipython to name a few). But the current problems are</p>
+<ol type="1">
+<li><p>vim-powerline is deprecated. No feature is added. To support other plugins, extra work needs to be done (see <a href="https://github.com/zhaocai/linepower.vim)">linepower</a>)</p></li>
+<li><p>powerline is too heavy for Vim users who believe <em>less is more</em>. Its dependency in Python complicated the installation and uninstallation. I’ve never set it up successfully. Most importantly, it is unstable. Many issues are open.</p></li>
+</ol>
+<p>I really appreciate the hard work done by the author of vim-powerline. If vim-airline didn’t appear, I would continue to use this plugin.</p>
+<p>Comparing with the former two, vim-airline is lightweight, vimscript-only and actively maintained. It supports many plugins and the number is increasing. I did a very rough statistics on lines of code:</p>
+<pre><code>vim-airline:   935 lines
+vim-powerline: 2638 lines
+powerline:     11067 lines</code></pre>
+<p>It is impressive that vim-airline uses less than half the code of vim-powerline and all the features are covered. Here is my settings in <code>.vimrc</code></p>
+<pre><code>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+&quot; airline
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+let g:airline_theme             = &#39;powerlineish&#39;
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
+
+&quot; vim-powerline symbols
+let g:airline_left_sep          = &#39;⮀&#39;
+let g:airline_left_alt_sep      = &#39;⮁&#39;
+let g:airline_right_sep         = &#39;⮂&#39;
+let g:airline_right_alt_sep     = &#39;⮃&#39;
+let g:airline_branch_prefix     = &#39;⭠&#39;
+let g:airline_readonly_symbol   = &#39;⭤&#39;
+let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
+<p>To view the unicode glyphs correctly, please use the font patched by <code>fontpatcher</code> in the github repo of <a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a> (NOT POWERLINE).</p>
+<p>Another tip. If you start Vim but the statusline is blank like this <img src="https://dl.dropboxusercontent.com/u/309872/blog/vim_lazyredraw_on.png" alt="alt" /> You may check in your .vimrc if you</p>
+<pre><code>set lazyredraw</code></pre>
+<p>Comment it. You will see <img src="https://dl.dropboxusercontent.com/u/309872/blog/vim_lazyredraw_off.png" alt="alt" /></p>
+<p>I strongly recommend this great plugins.</p></div>
 
 
   <footer>
@@ -125,12 +155,12 @@ Check the link above when you want to &hellip;">
   
 
 
-<time datetime="2011-12-15T11:52:40-06:00" pubdate data-updated="true">Dec 15<span>th</span>, 2011</time>
+<time datetime="2013-07-17T11:41:20-05:00" pubdate data-updated="true">Jul 17<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>Git</a>
+    <a class='category' href='/blog/categories/vim/'>Vim</a>
   
 </span>
 
@@ -139,7 +169,7 @@ Check the link above when you want to &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2011/12/15/git-format-patch/" data-via="" data-counturl="http://jchain.github.com/blog/2011/12/15/git-format-patch/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/" data-via="" data-counturl="http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/" >Tweet</a>
   
   
   
@@ -148,10 +178,8 @@ Check the link above when you want to &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/12/15/indent-only-xml-file/" title="Previous Post: Indent only XML file">&laquo; Indent only XML file</a>
+        <a class="basic-alignment left" href="/blog/2013/07/01/fedora-19-and-gnome-3-8/" title="Previous Post: Fedora 19 and Gnome 3.8">&laquo; Fedora 19 and Gnome 3.8</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/12/17/yet-another-rename/" title="Next Post: Yet another rename">Yet another rename &raquo;</a>
       
     </p>
   </footer>
@@ -264,8 +292,8 @@ Check the link above when you want to &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://jchain.github.com/blog/2011/12/15/git-format-patch/';
-        var disqus_url = 'http://jchain.github.com/blog/2011/12/15/git-format-patch/';
+        var disqus_identifier = 'http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/';
+        var disqus_url = 'http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/';
         var disqus_script = 'embed.js';
       
     (function () {
