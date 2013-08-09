@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-08-08T22:48:11-05:00</updated>
+  <updated>2013-08-08T23:05:54-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -49,7 +49,7 @@ let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
 <p>Another tip. If you start Vim but the statusline is blank like this <img src="https://dl.dropboxusercontent.com/u/309872/blog/vim_lazyredraw_on.png" alt="alt" /> You may check in your .vimrc if you</p>
 <pre><code>set lazyredraw</code></pre>
 <p>Comment it. You will see <img src="https://dl.dropboxusercontent.com/u/309872/blog/vim_lazyredraw_off.png" alt="alt" /></p>
-<p>I strongly recommend this great plugins.</p>]]></content>
+<p>I strongly recommend this great plugin.</p>]]></content>
   </entry>
   
   <entry>
