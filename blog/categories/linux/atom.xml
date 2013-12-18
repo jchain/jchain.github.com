@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-08-08T23:05:54-05:00</updated>
+  <updated>2013-12-17T23:51:28-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
+    <link href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/"/>
+    <updated>2013-11-29T07:09:00-06:00</updated>
+    <id>http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux</id>
+    <content type="html"><![CDATA[<p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
+<p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
+<p>Only one thing I found worth mentioning this time is the update. If your Linux distribution updates the version of Wine and your Pipelight doesn’t work, my solution is to completely remove Wine and Pipelight and then reinstall them.</p>
+<p>You can how Netflix looks like in my Linux Firefox: <img src="https://db.tt/T0rNtnou" alt="alt" /></p>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
@@ -171,54 +182,6 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 
 <span class="co"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
 <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lm -lpng -lX11 -lImlib2 -lgiblib -L</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">/lib64/</span></code></pre>]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Install nVidia Driver on Fedora 17: A Non-typical Case]]></title>
-    <link href="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/"/>
-    <updated>2012-11-28T02:10:00-06:00</updated>
-    <id>http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver</id>
-    <content type="html"><![CDATA[<p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
-<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version. None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia. But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a kernel bug in the ext4 file system</p>
-<pre><code>kernel BUG at fs/ext4/extents.c</code></pre>
-<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news confirmed that the bug in the kernel was the culprit. After several sudden losses of my working sessions I couldn’t wait for any more seconds to update the kernel. And I had to make the Xorg server work too.</p>
-<p>It really bugged me that the nVidia driver didn’t work on my Fedora 17. I booted from Ubuntu Linux installed on an external USB disk. And the nVidia driver worked fine under it. There must be something wrong with <code>akmod-nvidia</code> or the official driver.</p>
-<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X server started this time. In my case, I didn’t need to do this:</p>
-<pre><code>Remove / disable nouveau drivers from kernel initramfs</code></pre>
-<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL library was not automatically loaded. The system still used the mesa GL to do the software rendering. A workaround is to put the following line in <code>.bashrc</code></p>
-<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH</code></pre>
-<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code> didn’t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here is what it looks right now.</p>
-<pre><code># RPM Fusion - nvidia-173xx-xorg.conf
-# 
-Section &quot;Monitor&quot;
-    # HorizSync source: edid, VertRefresh source: edid
-    Identifier     &quot;Monitor0&quot;
-    VendorName     &quot;Unknown&quot;
-    ModelName      &quot;DELL E228WFP&quot;
-    HorizSync       30.0 - 83.0
-    VertRefresh     56.0 - 75.0
-    Option         &quot;DPMS&quot;
-EndSection
-
-Section &quot;Device&quot;
-    Identifier  &quot;Device0&quot;
-    Driver      &quot;nvidia&quot;
-    Option      &quot;AddARGBGLXVisuals&quot; &quot;true&quot;
-EndSection
-
-Section &quot;Screen&quot;
-    Identifier     &quot;Screen0&quot;
-    Device         &quot;Device0&quot;
-    Monitor        &quot;Monitor0&quot;
-    DefaultDepth    24
-    Option         &quot;TwinView&quot; &quot;1&quot;
-    Option         &quot;TwinViewXineramaInfoOrder&quot; &quot;DFP-0&quot;
-    Option         &quot;metamodes&quot; &quot;DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0&quot;
-    SubSection     &quot;Display&quot;
-        Depth       24
-    EndSubSection
-EndSection</code></pre>
-<p>I’m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it will help you if you are facing the same problem.</p>]]></content>
   </entry>
   
 </feed>

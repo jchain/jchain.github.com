@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-08-08T23:05:54-05:00</updated>
+  <updated>2013-12-17T23:51:28-06:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
+    <link href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/"/>
+    <updated>2013-11-29T07:09:00-06:00</updated>
+    <id>http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux</id>
+    <content type="html"><![CDATA[<p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
+<p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
+<p>Only one thing I found worth mentioning this time is the update. If your Linux distribution updates the version of Wine and your Pipelight doesn’t work, my solution is to completely remove Wine and Pipelight and then reinstall them.</p>
+<p>You can how Netflix looks like in my Linux Firefox: <img src="https://db.tt/T0rNtnou" alt="alt" /></p>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fly with vim airline]]></title>
@@ -716,16 +727,6 @@ set nocursorcolumn </code></pre>
     <updated>2012-06-02T16:33:12-05:00</updated>
     <id>http://jchain.github.com/blog/2012/06/02/my-favorite-makefile-for-latex</id>
     <content type="html"><![CDATA[<p>Finally, my search for a good Makefile for LaTeX  document writing  was ended by this <a href="http://code.google.com/p/latex-makefile/">solution</a>. You may have heard about <a href="https://gforge.inria.fr/projects/latex-utils/">latex-makefile</a> or <a href="http://latex-mk.sourceforge.net/">latex-mk</a> or other LaTeX makefiles. But either they are too complicated, dependent on other external programs, need to install before use or not  powerful enough to get the most jobs done. Here, this <a href="http://code.google.com/p/latex-makefile/">latex-makefile</a> is light-weight, self-contained, zero-dependent and powerful to deal with most cases. Simply download it, drop into the same directory with your LaTeX source file and you are ready to go. Its colorful output really makes error-checking much easier. I like it very much. Highly recommend it.</p>]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Switch your Linux laptop display to a projector]]></title>
-    <link href="http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector/"/>
-    <updated>2012-05-03T22:45:31-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/05/03/switch-your-linux-laptop-display-to-a-projector</id>
-    <content type="html"><![CDATA[<p>In a job interview two months ago, no matter how hard I tried I simply couldn’t export the screen of my laptop running Ubuntu Linux to a projector. It was the first time that I linked a Linux computer to a projector. Luckily the interviewers were generous enough and the four people of us sat together tightly to watch the slides on my 15&quot; laptop screen. They gave me a job offer in the end but I just hoped that I could have done a better presentation that day.</p>
-<p>I searched for a solution for that on the web. It seemed a headache for many Linux users. Finally I ran into <a href="http://willem.engen.nl/projects/disper/">Disper</a>. It solved my problem perfectly.</p>
-<p>Read on how to do it in more details <a href="http://www.baibhav.com.np/article/6-computer-tips-a-tricks/32-projector-external-monitor-display-problem-on-ubuntu-1110-solved-.html">here</a></p>]]></content>
   </entry>
   
 </feed>

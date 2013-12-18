@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Midnight commander's new user data directory - A Coding Monkey's Blog</title>
+  <title>Watch Netflix in Linux - A Coding Monkey's Blog</title>
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="It seems that the user-specific data/config directory of midnight commander 4.8.x is under HOME / . local / share / mcandHOME/.config/mc. However the &hellip;">
+  <meta name="description" content="I had watched TV shows on Hulu for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com/blog/2011/11/09/midnight-commanders-new-user-data-directory">
+  <link rel="canonical" href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Midnight Commander's New User Data Directory</h1>
+      <h1 class="entry-title">Watch Netflix in Linux</h1>
     
     
       <p class="meta">
@@ -94,16 +94,17 @@
   
 
 
-<time datetime="2011-11-09T16:00:24-06:00" pubdate data-updated="true">Nov 9<span>th</span>, 2011</time>
+<time datetime="2013-11-29T07:09:00-06:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under <span class="math"><em>H</em><em>O</em><em>M</em><em>E</em> / . <em>l</em><em>o</em><em>c</em><em>a</em><em>l</em> / <em>s</em><em>h</em><em>a</em><em>r</em><em>e</em> / <em>m</em><em>c</em><em>a</em><em>n</em><em>d</em></span>HOME/.config/mc. However the previous version(4.7.x) is looking for $HOME/.mc. You can verify that by typing</p>
-<pre><code>mc -F</code></pre>
-<p>Personally I don’t like this change since I prefer to a single directory for the convenience of storage and backup of my config files. Your skin setting probably take no effect after upgrading to 4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p></div>
+<div class="entry-content"><p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
+<p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
+<p>Only one thing I found worth mentioning this time is the update. If your Linux distribution updates the version of Wine and your Pipelight doesn’t work, my solution is to completely remove Wine and Pipelight and then reinstall them.</p>
+<p>You can how Netflix looks like in my Linux Firefox: <img src="https://db.tt/T0rNtnou" alt="alt" /></p></div>
 
 
   <footer>
@@ -125,7 +126,7 @@
   
 
 
-<time datetime="2011-11-09T16:00:24-06:00" pubdate data-updated="true">Nov 9<span>th</span>, 2011</time>
+<time datetime="2013-11-29T07:09:00-06:00" pubdate data-updated="true">Nov 29<span>th</span>, 2013</time>
       
 
 <span class="categories">
@@ -139,7 +140,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2011/11/09/midnight-commanders-new-user-data-directory/" data-via="" data-counturl="http://jchain.github.com/blog/2011/11/09/midnight-commanders-new-user-data-directory/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/" data-via="" data-counturl="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/" >Tweet</a>
   
   
   
@@ -148,10 +149,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file/" title="Previous Post: Gnuplot: how to skip the first line in the data file">&laquo; Gnuplot: how to skip the first line in the data file</a>
+        <a class="basic-alignment left" href="/blog/2013/07/17/fly-with-vim-airline/" title="Previous Post: Fly with vim airline">&laquo; Fly with vim airline</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger/" title="Next Post: Arrow keys  don't work properly in Totalview Debugger">Arrow keys  don't work properly in Totalview Debugger &raquo;</a>
       
     </p>
   </footer>
@@ -264,8 +263,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://jchain.github.com/blog/2011/11/09/midnight-commanders-new-user-data-directory/';
-        var disqus_url = 'http://jchain.github.com/blog/2011/11/09/midnight-commanders-new-user-data-directory/';
+        var disqus_identifier = 'http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/';
+        var disqus_url = 'http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/';
         var disqus_script = 'embed.js';
       
     (function () {
