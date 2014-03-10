@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C++ | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/c-plus-plus/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-12-17T23:51:28-06:00</updated>
+  <updated>2014-03-10T16:43:45-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -19,7 +19,7 @@
     <updated>2011-03-31T17:02:05-05:00</updated>
     <id>http://jchain.github.com/blog/2011/03/31/xpm-and-deprecated-conversion-error</id>
     <content type="html"><![CDATA[<p>How to get rid of this warning: deprecated conversion from string constant to `char*’</p>
-<p>Change “char*” to “const char*” in the XPM file.</p>]]></content>
+<p>Change “char*&quot; to “const char*&quot; in the XPM file.</p>]]></content>
   </entry>
   
   <entry>
@@ -49,8 +49,8 @@
 <blockquote>
 <p>ASCII C program text</p>
 </blockquote>
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool ‘cat’ to<em>* dump it to the terminal screen</em>* and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that<em>* ‘cat foo.h &gt; bar.h’ didn’t get rid of the invisible character</em>*.  Copy and Paste!</p>]]></content>
+<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool ‘cat’ to** dump it to the terminal screen** and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
+<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that** ‘cat foo.h &gt; bar.h’ didn’t get rid of the invisible character**.  Copy and Paste!</p>]]></content>
   </entry>
   
 </feed>

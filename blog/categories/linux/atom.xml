@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-12-17T23:51:28-06:00</updated>
+  <updated>2014-03-10T16:43:45-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Use Juniper VPN Client under Fedora 20 x86-64]]></title>
+    <link href="http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/"/>
+    <updated>2014-03-10T10:59:00-05:00</updated>
+    <id>http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64</id>
+    <content type="html"><![CDATA[<p>This is my first time to use Juniper VPN to connect to the workplace from home. My computer runs Fedora 20 in 64bit and Firefox in 64bit. I had a hard time to establish a connection through the web portal. The client files were downloaded into</p>
+<pre><code>~/.juniper_networks</code></pre>
+<p>I followed the instructions listed <a href="http://tuxdna.wordpress.com/2013/07/04/juniper-networks-vpn-from-fedora-17-x86_64/">here</a>, <a href="https://github.com/rthill/jvpn">here</a>, <a href="https://github.com/rthill/jvpn">here</a> and <a href="http://www.scc.kit.edu/scc/net/juniper-vpn/linux/">here</a>. None of them worked. I got stuck by the error message in <code>ncsvc.log</code>like this:</p>
+<pre><code>ncapp.error Failed to authenticate with IVE.</code></pre>
+<p>Finally this <a href="http://techydodo.wordpress.com/2012/01/17/cracking-the-juniper-network-connect-problem-on-linux-64-bit/">blog post</a> saved my day. I confirmed it solved my issue. It turns out sometimes you have to use the web browser to make the connection. Here is what I did.</p>
+<ol type="1">
+<li>Install 32bit Opera</li>
+<li>Install 32bit JRE. Java plugin is stored in <code>/usr/java/default/i386/libnpjp2.so</code></li>
+<li>Type <code>about:plugins</code> in the address windows of Opera to find out where the plugins is located. In my case it is in <code>/usr/lib/mozilla/plugins</code> .</li>
+<li>Made a symbolic link of 32bit Java plugin to <code>/usr/lib/mozilla/plugins</code> .</li>
+<li>Re-visit the VPN login portal to set up the connection.</li>
+</ol>
+<p>You should see the VPN session window pop up and the connection is up. This is the simplest way to make everything work.</p>]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
@@ -98,90 +118,6 @@ Desktop $</code></pre>
 source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 <p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
 <p><em>Note</em>: If you have any other shell plugins which try to redefine the “cd” function (e.g. <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with other bash modification plugins, but it should be loaded last.</p>]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Build Feh from source and install to Home directory]]></title>
-    <link href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/"/>
-    <updated>2013-01-31T15:39:00-06:00</updated>
-    <id>http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk</id>
-    <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into HOME directory before so I have to specify the search path for compiler and linker. Here is what I got so far:</p>
-<pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dt">PACKAGE </span><span class="ch">?=</span><span class="st"> feh</span>
-<span class="dt">VERSION </span><span class="ch">?=</span><span class="st"> 2.8</span>
-
-<span class="co"># Prefix for all installed files</span>
-<span class="co"># PREFIX ?= /usr/local</span>
-<span class="dt">PREFIX </span><span class="ch">?=</span><span class="st"> </span><span class="ch">${</span><span class="dt">HOME</span><span class="ch">}</span>
-
-<span class="co"># Directories for manuals, executables, docs, data, etc.</span>
-<span class="dt">main_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">DESTDIR</span><span class="ch">}${</span><span class="dt">PREFIX</span><span class="ch">}</span>
-<span class="dt">man_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/man</span>
-<span class="dt">bin_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/bin</span>
-<span class="dt">doc_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/doc/feh</span>
-<span class="dt">image_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/feh/images</span>
-<span class="dt">font_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/feh/fonts</span>
-<span class="dt">example_dir </span><span class="ch">=</span><span class="st"> </span><span class="ch">${</span><span class="dt">main_dir</span><span class="ch">}</span><span class="st">/share/doc/feh/examples</span>
-
-<span class="co"># default CFLAGS</span>
-<span class="dt">CFLAGS </span><span class="ch">?=</span><span class="st"> -g -O2</span>
-<span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -Wall -Wextra -pedantic</span>
-
-<span class="dt">curl </span><span class="ch">?=</span><span class="st"> 1</span>
-<span class="dt">debug </span><span class="ch">?=</span><span class="st"> 0</span>
-<span class="dt">help </span><span class="ch">?=</span><span class="st"> 0</span>
-<span class="dt">xinerama </span><span class="ch">?=</span><span class="st"> 1</span>
-<span class="dt">exif </span><span class="ch">?=</span><span class="st"> 0</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">curl</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBCURL</span>
-    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lcurl</span>
-    <span class="dt">MAN_CURL </span><span class="ch">=</span><span class="st"> enabled</span>
-<span class="kw">else</span>
-    <span class="dt">MAN_CURL </span><span class="ch">=</span><span class="st"> disabled</span>
-<span class="kw">endif</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">debug</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DDEBUG -O0</span>
-    <span class="dt">MAN_DEBUG </span><span class="ch">=</span><span class="st"> . This is a debug build.</span>
-<span class="kw">else</span>
-    <span class="dt">MAN_DEBUG </span><span class="ch">=</span>
-<span class="kw">endif</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">help</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DINCLUDE_HELP</span>
-<span class="kw">endif</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">stat64</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -D_FILE_OFFSET_BITS=64</span>
-<span class="kw">endif</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">xinerama</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBXINERAMA</span>
-    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lXinerama</span>
-    <span class="dt">MAN_XINERAMA </span><span class="ch">=</span><span class="st"> enabled</span>
-<span class="kw">else</span>
-    <span class="dt">MAN_XINERAMA </span><span class="ch">=</span><span class="st"> disabled</span>
-<span class="kw">endif</span>
-
-<span class="kw">ifeq</span> (<span class="ch">${</span><span class="dt">exif</span><span class="ch">}</span>,1)
-    <span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DHAVE_LIBEXIF</span>
-    <span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lexif</span>
-    <span class="dt">MAN_EXIF </span><span class="ch">=</span><span class="st"> enabled</span>
-<span class="kw">else</span>
-    <span class="dt">MAN_EXIF </span><span class="ch">=</span><span class="st"> disabled</span>
-<span class="kw">endif</span>
-
-
-<span class="co"># Uncomment this to use dmalloc</span>
-<span class="dt">#CFLAGS </span><span class="ch">+=</span><span class="st"> -DWITH_DMALLOC</span>
-
-<span class="co"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
-    <span class="dt">-DPACKAGE</span><span class="ch">=</span><span class="st">\&quot;</span><span class="ch">${</span><span class="dt">PACKAGE</span><span class="ch">}</span><span class="st">\&quot; -DVERSION=\&quot;</span><span class="ch">${</span><span class="dt">VERSION</span><span class="ch">}</span><span class="st">\&quot;</span>
-<span class="dt">CFLAGS </span><span class="ch">+=</span><span class="st"> -DPREFIX=\&quot;</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">\&quot; </span><span class="ch">\</span>
-    <span class="dt">-DPACKAGE</span><span class="ch">=</span><span class="st">\&quot;</span><span class="ch">${</span><span class="dt">PACKAGE</span><span class="ch">}</span><span class="st">\&quot; -DVERSION=\&quot;</span><span class="ch">${</span><span class="dt">VERSION</span><span class="ch">}</span><span class="st">\&quot; -I</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">/include</span>
-
-<span class="co"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
-<span class="dt">LDLIBS </span><span class="ch">+=</span><span class="st"> -lm -lpng -lX11 -lImlib2 -lgiblib -L</span><span class="ch">${</span><span class="dt">PREFIX</span><span class="ch">}</span><span class="st">/lib64/</span></code></pre>]]></content>
   </entry>
   
 </feed>

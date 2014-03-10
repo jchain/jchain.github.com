@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenMP | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/openmp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-12-17T23:51:28-06:00</updated>
+  <updated>2014-03-10T16:43:45-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -25,9 +25,9 @@
 <p>The Perl code generating the plot is listed below</p>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 
-<span class="kw">use</span> <span class="kw">strict</span>;
-<span class="kw">use</span> <span class="kw">warnings</span>;
-<span class="kw">use</span> <span class="fu">Chart::Gnuplot</span>;
+<span class="fu">use</span> <span class="kw">strict</span>;
+<span class="fu">use</span> <span class="kw">warnings</span>;
+<span class="fu">use</span> <span class="fu">Chart::Gnuplot</span>;
 
 <span class="co">### Write running time  </span>
 <span class="fu">open</span> <span class="kw">my</span> <span class="dt">$IN</span>, <span class="kw">&#39;</span><span class="st">&lt;</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">benchmark.dat</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="dt">$!</span>;

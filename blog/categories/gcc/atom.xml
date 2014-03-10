@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GCC | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gcc/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2013-12-17T23:51:28-06:00</updated>
+  <updated>2014-03-10T16:43:45-05:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -33,7 +33,7 @@
 
 </blockquote>
 <blockquote>
-<p>## The Short Answer</p>
+<h2>The Short Answer</h2>
 <p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p>
 </blockquote>
 <p>E.g., for <strong>gcc</strong>:</p>
@@ -46,8 +46,7 @@
 </ul>
 </blockquote>
 <blockquote>
-<pre><code>
-&lt;code&gt;#!/bin/bash
+<pre><code>&lt;code&gt;#!/bin/bash
 ccache /usr/bin/gcc &quot;$@&quot;
 &lt;/code&gt;</code></pre>
 </blockquote>
@@ -60,8 +59,7 @@ ccache /usr/bin/gcc &quot;$@&quot;
 </ul>
 </blockquote>
 <blockquote>
-<pre><code>
-&lt;code&gt;gcc: /usr/local/bin/ccache-gcc.sh
+<pre><code>&lt;code&gt;gcc: /usr/local/bin/ccache-gcc.sh
 &lt;/code&gt;</code></pre>
 </blockquote>
 <blockquote>
@@ -77,8 +75,7 @@ ccache /usr/bin/gcc &quot;$@&quot;
 </ul>
 </blockquote>
 <blockquote>
-<pre><code>
-&lt;code&gt;#!/bin/bash
+<pre><code>&lt;code&gt;#!/bin/bash
 ccache /usr/bin/g++ &quot;$@&quot;
 &lt;/code&gt;</code></pre>
 </blockquote>
@@ -91,8 +88,7 @@ ccache /usr/bin/g++ &quot;$@&quot;
 </ul>
 </blockquote>
 <blockquote>
-<pre><code>
-&lt;code&gt;gcc: /usr/local/bin/ccache-g++.sh
+<pre><code>&lt;code&gt;gcc: /usr/local/bin/ccache-g++.sh
 &lt;/code&gt;</code></pre>
 </blockquote>
 <blockquote>
