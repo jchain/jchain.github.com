@@ -4,7 +4,7 @@
   <title><![CDATA[A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Use Juniper VPN Client under Fedora 20 x86-64]]></title>
     <link href="http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/"/>
-    <updated>2014-03-10T10:59:00-05:00</updated>
+    <updated>2014-03-10T11:59:00-04:00</updated>
     <id>http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64</id>
     <content type="html"><![CDATA[<p>This is my first time to use Juniper VPN to connect to the workplace from home. My computer runs Fedora 20 in 64bit and Firefox in 64bit. I had a hard time to establish a connection through the web portal. The client files were downloaded into</p>
 <pre><code>~/.juniper_networks</code></pre>
@@ -36,7 +36,7 @@
   <entry>
     <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
     <link href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/"/>
-    <updated>2013-11-29T07:09:00-06:00</updated>
+    <updated>2013-11-29T08:09:00-05:00</updated>
     <id>http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux</id>
     <content type="html"><![CDATA[<p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
 <p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
@@ -47,7 +47,7 @@
   <entry>
     <title type="html"><![CDATA[Fly with vim airline]]></title>
     <link href="http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/"/>
-    <updated>2013-07-17T11:41:20-05:00</updated>
+    <updated>2013-07-17T12:41:20-04:00</updated>
     <id>http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline</id>
     <content type="html"><![CDATA[<p>I recently replaced my <a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a> with <a href="https://github.com/bling/vim-airline">vim-airline</a>. I like vim-airline so much that I can’t help spreading words about it.</p>
 <p>For those who don’t know what vim-powerline is. It is a Vim plugin that can make the statusline of Vim colorful and eye candy. When vim-powerline first came out, it caught on very quickly. The author of vim-powerline even re-wrote it in Python (the project <a href="https://github.com/Lokaltog/powerline">powerline</a>) to make it work for more applications (zsh, Tmux, ipython to name a few). But the current problems are</p>
@@ -86,7 +86,7 @@ let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
   <entry>
     <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
     <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
-    <updated>2013-07-01T16:10:15-05:00</updated>
+    <updated>2013-07-01T17:10:15-04:00</updated>
     <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
     <content type="html"><![CDATA[<p>Last night I didn’t resist the temptation to enter</p>
 <pre><code>sudo yum install fedora-upgrade </code></pre>
@@ -106,7 +106,7 @@ let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
   <entry>
     <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
     <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
-    <updated>2013-06-01T15:37:24-05:00</updated>
+    <updated>2013-06-01T16:37:24-04:00</updated>
     <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
     <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
 <p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
@@ -124,7 +124,7 @@ let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
   <entry>
     <title type="html"><![CDATA[Introducing Quickcd]]></title>
     <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
-    <updated>2013-02-08T14:03:24-06:00</updated>
+    <updated>2013-02-08T15:03:24-05:00</updated>
     <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
     <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
 <h1 id="quickcd">quickcd</h1>
@@ -171,7 +171,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
   <entry>
     <title type="html"><![CDATA[Build Feh from source and install to Home directory]]></title>
     <link href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/"/>
-    <updated>2013-01-31T15:39:00-06:00</updated>
+    <updated>2013-01-31T15:39:00-05:00</updated>
     <id>http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk</id>
     <content type="html"><![CDATA[<p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into HOME directory before so I have to specify the search path for compiler and linker. Here is what I got so far:</p>
 <div class="bogus-wrapper">
@@ -338,7 +338,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
   <entry>
     <title type="html"><![CDATA[Install RcppOctave if Octave is in user-defined directory]]></title>
     <link href="http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave/"/>
-    <updated>2013-01-28T23:43:00-06:00</updated>
+    <updated>2013-01-28T23:43:00-05:00</updated>
     <id>http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave</id>
     <content type="html"><![CDATA[<p>Even though I have been very busy these days I think I should try to get at least one post published per month. My recent job involved a lot of data analysis and statistical computing. I pushed myself to get familiar with <a href="http://www.r-project.org">R</a> because some packages from R are indispensable for my work. Meanwhile I also wanted to reuse my existing <a href="http://www.octave.org">Octave</a> code. Luckily I get the best of both worlds by using <a href="http://cran.r-project.org/web/packages/RcppOctave/">RcppOctave</a> which is a bridging package connecting the R and Octave sessions.</p>
 <p>I compiled the latest Octave on the server and installed in my home directory. When installing <code>RcppOctave</code> in R by running</p>
@@ -362,7 +362,7 @@ ERROR: installing Rd objects failed for package ‘RcppOctave’
   <entry>
     <title type="html"><![CDATA[Vim gets slow when editing LaTeX file]]></title>
     <link href="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/"/>
-    <updated>2012-12-26T04:10:00-06:00</updated>
+    <updated>2012-12-26T04:10:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex</id>
     <content type="html"><![CDATA[<p>Recently I have been working on editing multiple LaTeX files containing many lines and equations. I noticed there was an annoying slowdown when I moved the cursor around. CPU usage jumped to 100% so frequently that I almost lost patience to focus on the writing itself.</p>
 <p>After tweaking the Vim plugins and configurations for a while, I found out <code>set cursorline</code> and the built-in plugin <code>MatchParen</code> made Vim scrolling very slow. Some people seemed to have run into the same problem as mentioned <a href="http://haerench.blogspot.com/2012/12/cursorline-cursorcolumn-and-syntax.html">here</a> and <a href="https://bbs.archlinux.org/viewtopic.php?id=111647">here</a>. Some complained that Vim got slow when editing Ruby file. And I use Vim in terminal.</p>
@@ -384,7 +384,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Install nVidia Driver on Fedora 17: A Non-typical Case]]></title>
     <link href="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/"/>
-    <updated>2012-11-28T02:10:00-06:00</updated>
+    <updated>2012-11-28T02:10:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver</id>
     <content type="html"><![CDATA[<p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
 <p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version. None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia. But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a kernel bug in the ext4 file system</p>
@@ -466,7 +466,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Perl one liner: replace text in mulple files]]></title>
     <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
-    <updated>2012-11-17T02:10:00-06:00</updated>
+    <updated>2012-11-17T02:10:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
     <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn’t use the different letter cases as the same category name. Otherwise the category page wouldn’t show correct number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in the meta info of every posts. Here was what I used to get this job done.</p>
 <pre><code>ack &quot;\- git&quot; *.markdown -l | xargs perl -p -i -e &#39;s/- git/- Git/g&#39;</code></pre>
@@ -482,7 +482,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Nomachine and GNOME Redraw Problem]]></title>
     <link href="http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem/"/>
-    <updated>2012-11-16T15:36:00-06:00</updated>
+    <updated>2012-11-16T15:36:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/11/16/nomachine-and-gnome-redraw-problem</id>
     <content type="html"><![CDATA[<p>I use <a href="http://www.nomachine.com">Nomachine</a> a lot when I work from home. My home and work Linux desktop are both running GNOME 3. There were a problem disturbing me for a while. Everything works fine at workplace probably due to the supper fast local internet connection. But when I connected to the remote desktop via Nomachine, the GUIs of remote applications were very lagging and the redraws seemed out of sync leaving blanks here and there. I’ve tried many ways to improve that, including upgrading the ISP bandwidth, trying the latest NoMachine 4 Preview, tuning the various options in the settings. But all efforts were vain. Until one day I aimlessly chose KDE in NoMachine and the redraw issue were gone. Every GUI programs ran perfectly in KDE, both GTK+ ones and non-GTK+ ones.</p>]]></content>
   </entry>
@@ -490,7 +490,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Octave: Add local repository path based on the hostname, change the color of prompt etc..]]></title>
     <link href="http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc/"/>
-    <updated>2012-10-13T03:38:46-05:00</updated>
+    <updated>2012-10-13T04:38:46-04:00</updated>
     <id>http://jchain.github.com/blog/2012/10/13/add-octave-load-path-based-on-the-hostname-change-the-color-of-prompt-etc</id>
     <content type="html"><![CDATA[<p>In my everyday work I use Git to do the version control over my dotfiles. I share my .octaverc cross different computers (four different Linux machine). I also maintain a list of local M-file repos. Not all repos are available on every machine. To get rid of the warning message for missing directory every time, I wished I could add my local directories dynamically based on the hostname. I didn’t know how to do so until today I found that Octave actually has the function ‘uname()’ for the job. Here is an example ~/.octaverc</p>
 <div class="bogus-wrapper">
@@ -528,7 +528,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Quickly look up a word or phrase from commandline]]></title>
     <link href="http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline/"/>
-    <updated>2012-09-28T14:46:55-05:00</updated>
+    <updated>2012-09-28T15:46:55-04:00</updated>
     <id>http://jchain.github.com/blog/2012/09/28/quickly-look-up-a-word-or-phrase-from-commandline</id>
     <content type="html"><![CDATA[<p>I wrote two very short Bash functions to help me quickly look up a word or phrase using <a href="http://elinks.or.cz/">elinks</a>. You can use w3m as you wish but elinks shows a better layout in my eyes.</p>
 <div class="bogus-wrapper">
@@ -567,16 +567,16 @@ set nocursorcolumn </code></pre>
   
   <entry>
     <title type="html"><![CDATA[MC (Midnight-Commander) 4.8.5 is slow, try 4.8.6]]></title>
-    <link href="http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
-    <updated>2012-09-27T23:57:17-05:00</updated>
-    <id>http://jchain.github.com/blog/2012/09/27/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
+    <link href="http://jchain.github.com/blog/2012/09/28/mc-midnight-commander-4-8-5-is-slow-try-4-8-6/"/>
+    <updated>2012-09-28T00:57:17-04:00</updated>
+    <id>http://jchain.github.com/blog/2012/09/28/mc-midnight-commander-4-8-5-is-slow-try-4-8-6</id>
     <content type="html"><![CDATA[<p>Recently MC was upgraded from 4.7.x to 4.8.5 on my 32bit Fedora 17. The start-up time was totally unbearable, around 15 sec to start. I compiled the latest release v4.8.6 and that time dropped to the negligible (&lt; 1sec).</p>]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Perl script: retrieve current weather condition and forecast]]></title>
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
-    <updated>2012-09-25T21:33:42-05:00</updated>
+    <updated>2012-09-25T22:33:42-04:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
     <content type="html"><![CDATA[<p>I’m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
 <div class="bogus-wrapper">
@@ -691,7 +691,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Use Perl like sed]]></title>
     <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
-    <updated>2012-09-14T11:29:58-05:00</updated>
+    <updated>2012-09-14T12:29:58-04:00</updated>
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
     <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use ‘sed’ to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
 <pre><code>find . -name &quot;*.java&quot; -print | perl -ne &#39;s/java/java.old/g &amp;&amp; print&#39;</code></pre>]]></content>
@@ -700,7 +700,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[How to show GNOME top panel from keyboard?]]></title>
     <link href="http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard/"/>
-    <updated>2012-08-19T02:06:46-05:00</updated>
+    <updated>2012-08-19T03:06:46-04:00</updated>
     <id>http://jchain.github.com/blog/2012/08/19/how-to-show-gnome-top-panel-from-keyboard</id>
     <content type="html"><![CDATA[<p>My computer display is not big so I have tried ways to save my screen real-estate. It looks to me that the designers of GNOME 3 must have a huge display.  The default window title bar are too high in my view. Besides the top panel is thicker than that in Unity. To make my life easier, I first installed the GTK+ 3.x theme from <a href="http://www.gnome-look.org">gnome-look.org</a> to reduce the height of the title bar. Then I set the top panel of GNOME desktop to ‘auto hide’. But whenever I want to look at the weather or the time I have to move mouse over it to make it show. This is tedious. I searched online for a shortcut to show it. Many of results are prior to GNOME 3. Besides, I don’t like the methods to change the ‘gsetting’ or ‘gconf’.</p>
 <p>It turns out that the simplest way to to hit ‘Alt+F1’ to activate the ‘Application’ in the top panel and hit ‘Esc’ to hide it again. So simple.</p>
@@ -710,7 +710,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Add the remote git repository for your open-source collabration]]></title>
     <link href="http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration/"/>
-    <updated>2012-07-01T19:39:25-05:00</updated>
+    <updated>2012-07-01T20:39:25-04:00</updated>
     <id>http://jchain.github.com/blog/2012/07/01/add-the-remote-git-repository-for-your-open-source-collabration</id>
     <content type="html"><![CDATA[<p>When I hacked on github I would clone the upstream repository FOO into my local disk creating a ‘master’ branch. I hacked there and formatted a patch to the upstream repo owner. But I quickly found the need that I wanted to have my github-hosted ‘master’ branch since I wanted my local hack could be backed up and synced online. So I changed my workflow. For any git project I was interested to hack I would create a new cloned repo my_FOO from the original on github under my owership. Then I git clone this my_FOO/master(origin/master) into a local branch ‘master’ and I would hack under this branch.</p>
 <p>But after my hack right before I fire up the ‘git format-patch’ command, I would like to have  a updated upstream master branch available so that I can format my patch to the latest code base. Also I would like to update the code from the upstream everyday to keep tracking the latest changes. The command ‘git remote’ will help. I found a good documentation on this issue. Check it out <a href="http://gitref.org/remotes/">here</a>.</p>
@@ -730,7 +730,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Fix the broken Bash file and directory name completion on Ubuntu Linux]]></title>
     <link href="http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux/"/>
-    <updated>2012-06-02T17:12:54-05:00</updated>
+    <updated>2012-06-02T18:12:54-04:00</updated>
     <id>http://jchain.github.com/blog/2012/06/02/fix-the-broken-bash-file-and-directory-name-completion-on-ubuntu-linux</id>
     <content type="html"><![CDATA[<p>I didn’t remember ever since when my Bash filename and directory name completion functioned wackily. Everytime I hit ‘tab’ to complete a directory name, Bash didn’t append the backslash nor printed out candidates (just like what it described like <a href="http://ubuntuforums.org/showthread.php?t=1053832">here</a> and <a href="http://timlabath.com/words/2011/05/10/ubuntu-11-04-and-broken-bash-completion/">here</a>). It drove me banana. Meanwhile, my Bash worked very well under other Linux distributions (openSUSE, CentOS). The culprit was the a Bash completion file for adobe acrobat reader under /etc/bash_completion.d/. Delete it and the problem will be solved.</p>]]></content>
   </entry>

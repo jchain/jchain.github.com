@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Lisp | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/lisp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[sbcl mmap cannot allocate memory?]]></title>
     <link href="http://jchain.github.com/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory/"/>
-    <updated>2011-01-28T13:28:53-06:00</updated>
+    <updated>2011-01-28T14:28:53-05:00</updated>
     <id>http://jchain.github.com/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory</id>
     <content type="html"><![CDATA[<p>Recently I want to give Common Lisp a try. After reading this great <a href="http://common-lisp.net/~dlw/LispSurvey.html">Common Lisp Implementation Survey</a>, I decided to go first with SBCL. After installing the binary package of SBCL-1.0.45 on my openSUSE-11.1 x86-64bit with 8Giga memory, I ran into this annoying error message when I started SBCL in terminal:</p>
 <blockquote>

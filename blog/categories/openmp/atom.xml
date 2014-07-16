@@ -4,7 +4,7 @@
   <title><![CDATA[Category: OpenMP | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/openmp/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Iterative closest points(ICP) demo]]></title>
     <link href="http://jchain.github.com/blog/2010/12/06/iterative-closest-pointsicp-demo/"/>
-    <updated>2010-12-06T15:34:32-06:00</updated>
+    <updated>2010-12-06T16:34:32-05:00</updated>
     <id>http://jchain.github.com/blog/2010/12/06/iterative-closest-pointsicp-demo</id>
     <content type="html"><![CDATA[<p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
 <figure>
@@ -74,7 +74,7 @@
   <entry>
     <title type="html"><![CDATA[Using OpenMP with CMake]]></title>
     <link href="http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake/"/>
-    <updated>2010-12-05T20:51:14-06:00</updated>
+    <updated>2010-12-05T21:51:14-05:00</updated>
     <id>http://jchain.github.com/blog/2010/12/05/using-openmp-with-cmake</id>
     <content type="html"><![CDATA[<p>Add the following lines into your CMakeLists.txt</p>
 <pre><code># Even though -fopenmp won&#39;t appear in the GUI options, it does take effect

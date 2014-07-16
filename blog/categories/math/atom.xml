@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Math | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/math/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Octave: save a figure to a file]]></title>
     <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
-    <updated>2011-05-03T13:10:44-05:00</updated>
+    <updated>2011-05-03T14:10:44-04:00</updated>
     <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
     <content type="html"><![CDATA[<p>I’m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the documentation is not complete, or more precisely speaking, not friendly to new user. When I want to save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try several times before get it straight. Here is my example.</p>
 <pre class="sourceCode matlab"><code class="sourceCode matlab">for i=<span class="fl">1</span>:<span class="fl">11</span>

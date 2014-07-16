@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
     <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
-    <updated>2013-06-01T15:37:24-05:00</updated>
+    <updated>2013-06-01T16:37:24-04:00</updated>
     <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
     <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
 <p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
@@ -34,7 +34,7 @@
   <entry>
     <title type="html"><![CDATA[Introducing Quickcd]]></title>
     <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
-    <updated>2013-02-08T14:03:24-06:00</updated>
+    <updated>2013-02-08T15:03:24-05:00</updated>
     <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
     <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
 <h1 id="quickcd">quickcd</h1>
@@ -72,7 +72,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
   <entry>
     <title type="html"><![CDATA[Perl one liner: replace text in mulple files]]></title>
     <link href="http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/"/>
-    <updated>2012-11-17T02:10:00-06:00</updated>
+    <updated>2012-11-17T02:10:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files</id>
     <content type="html"><![CDATA[<p>Today I got some time to improve my tech blog with <a href="http://octopress.org">Octopress</a>. I found that I couldn’t use the different letter cases as the same category name. Otherwise the category page wouldn’t show correct number of links to the posts under that category. For example, I had to change all <code>git</code> to <code>Git</code> in the meta info of every posts. Here was what I used to get this job done.</p>
 <pre><code>ack &quot;\- git&quot; *.markdown -l | xargs perl -p -i -e &#39;s/- git/- Git/g&#39;</code></pre>
@@ -88,7 +88,7 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
   <entry>
     <title type="html"><![CDATA[Perl script: retrieve current weather condition and forecast]]></title>
     <link href="http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast/"/>
-    <updated>2012-09-25T21:33:42-05:00</updated>
+    <updated>2012-09-25T22:33:42-04:00</updated>
     <id>http://jchain.github.com/blog/2012/09/25/perl-script-retrieve-current-weather-condition-and-forecast</id>
     <content type="html"><![CDATA[<p>I’m a little tired of checking out the weather condition via the web browser. In many cases I just want to see a short report in my terminal. After reading <a href="http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html">http://blogs.perl.org/users/zengargoyle/2012/08/not-to-hot-for-mojo.html</a>, which shows how to use Mojolicious to retrieve the current condition and <a href="http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location.">http://www.commandlinefu.com/commands/view/4821/get-the-weather-forecast-for-the-next-24-to-48-for-your-location</a>, which shows how to retried the forecast, I finally wrote something like this</p>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/env perl</span>
@@ -143,7 +143,7 @@ say <span class="kw">&quot;</span><span class="st">KCID </span><span class="kw">
   <entry>
     <title type="html"><![CDATA[Use Perl like sed]]></title>
     <link href="http://jchain.github.com/blog/2012/09/14/use-perl-like-sed/"/>
-    <updated>2012-09-14T11:29:58-05:00</updated>
+    <updated>2012-09-14T12:29:58-04:00</updated>
     <id>http://jchain.github.com/blog/2012/09/14/use-perl-like-sed</id>
     <content type="html"><![CDATA[<p>Recently I wanted to use Perl and Bash to deal with a large number of files. I ended up needing in-line string substitution to create new shell commands. I vaguely had an idea that I should use ‘sed’ to do the text transform but by any chance I would like to use Perl. I rarely use Perl as one-liner. It turned out that this is the correct way to do so</p>
 <pre><code>find . -name &quot;*.java&quot; -print | perl -ne &#39;s/java/java.old/g &amp;&amp; print&#39;</code></pre>]]></content>

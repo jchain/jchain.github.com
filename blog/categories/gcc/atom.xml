@@ -4,7 +4,7 @@
   <title><![CDATA[Category: GCC | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/gcc/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[GCC-4.5.0 users, upgrade to 4.5.2 or newer]]></title>
     <link href="http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer/"/>
-    <updated>2011-05-14T01:56:58-05:00</updated>
+    <updated>2011-05-14T02:56:58-04:00</updated>
     <id>http://jchain.github.com/blog/2011/05/14/gcc-4-5-0-users-upgrade-to-4-5-2-or-newer</id>
     <content type="html"><![CDATA[<p>I’m debugging a complicated C++ program this week. It used a lot of STL containers, such as stl::map. To print the content of stl::map in GDB-7.x with Python<a href="http://sourceware.org/gdb/wiki/STLSupport">pretty-printing</a> enabled. I got error message like <a href="http://gcc.gnu.org/ml/libstdc++/2010-06/msg00128.html">this</a>. My original thought was it might be a bug in GDB, so I upgraded it to the latest version. But the error remained. Without pretty-printing, debugging C++ program is really a PITA. So I had to stop my work at hand and searched for solution online. After I read this <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=44645">bug report</a>, I realised that it was due to the bug in GCC. I did a simple test as mentioned in the bug report and found out that program compiled with GCC-4.5.0 would mess up the pretty-printing in GDB. After installing the lastest GCC-4.5.3, everything was OK.</p>]]></content>
   </entry>
@@ -24,7 +24,7 @@
   <entry>
     <title type="html"><![CDATA[colorgcc and ccache work together]]></title>
     <link href="http://jchain.github.com/blog/2011/01/07/colorgcc-and-ccache-work-together/"/>
-    <updated>2011-01-07T10:52:29-06:00</updated>
+    <updated>2011-01-07T11:52:29-05:00</updated>
     <id>http://jchain.github.com/blog/2011/01/07/colorgcc-and-ccache-work-together</id>
     <content type="html"><![CDATA[<p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
 <p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | A Coding Monkey's Blog]]></title>
   <link href="http://jchain.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://jchain.github.com/"/>
-  <updated>2014-03-10T16:43:45-05:00</updated>
+  <updated>2014-07-16T19:55:56-04:00</updated>
   <id>http://jchain.github.com/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Fly with vim airline]]></title>
     <link href="http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline/"/>
-    <updated>2013-07-17T11:41:20-05:00</updated>
+    <updated>2013-07-17T12:41:20-04:00</updated>
     <id>http://jchain.github.com/blog/2013/07/17/fly-with-vim-airline</id>
     <content type="html"><![CDATA[<p>I recently replaced my <a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a> with <a href="https://github.com/bling/vim-airline">vim-airline</a>. I like vim-airline so much that I can’t help spreading words about it.</p>
 <p>For those who don’t know what vim-powerline is. It is a Vim plugin that can make the statusline of Vim colorful and eye candy. When vim-powerline first came out, it caught on very quickly. The author of vim-powerline even re-wrote it in Python (the project <a href="https://github.com/Lokaltog/powerline">powerline</a>) to make it work for more applications (zsh, Tmux, ipython to name a few). But the current problems are</p>
@@ -55,7 +55,7 @@ let g:airline_linecolumn_prefix = &#39;⭡&#39;</code></pre>
   <entry>
     <title type="html"><![CDATA[Vim gets slow when editing LaTeX file]]></title>
     <link href="http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex/"/>
-    <updated>2012-12-26T04:10:00-06:00</updated>
+    <updated>2012-12-26T04:10:00-05:00</updated>
     <id>http://jchain.github.com/blog/2012/12/26/vim-gets-slow-when-editing-latex</id>
     <content type="html"><![CDATA[<p>Recently I have been working on editing multiple LaTeX files containing many lines and equations. I noticed there was an annoying slowdown when I moved the cursor around. CPU usage jumped to 100% so frequently that I almost lost patience to focus on the writing itself.</p>
 <p>After tweaking the Vim plugins and configurations for a while, I found out <code>set cursorline</code> and the built-in plugin <code>MatchParen</code> made Vim scrolling very slow. Some people seemed to have run into the same problem as mentioned <a href="http://haerench.blogspot.com/2012/12/cursorline-cursorcolumn-and-syntax.html">here</a> and <a href="https://bbs.archlinux.org/viewtopic.php?id=111647">here</a>. Some complained that Vim got slow when editing Ruby file. And I use Vim in terminal.</p>
@@ -77,7 +77,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Indent only XML file]]></title>
     <link href="http://jchain.github.com/blog/2011/12/15/indent-only-xml-file/"/>
-    <updated>2011-12-15T10:48:24-06:00</updated>
+    <updated>2011-12-15T11:48:24-05:00</updated>
     <id>http://jchain.github.com/blog/2011/12/15/indent-only-xml-file</id>
     <content type="html"><![CDATA[<p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
 <ul>
@@ -92,7 +92,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Search and replace in a visual selection]]></title>
     <link href="http://jchain.github.com/blog/2011/02/01/search-and-replace-in-a-visual-selection/"/>
-    <updated>2011-02-01T01:47:14-06:00</updated>
+    <updated>2011-02-01T02:47:14-05:00</updated>
     <id>http://jchain.github.com/blog/2011/02/01/search-and-replace-in-a-visual-selection</id>
     <content type="html"><![CDATA[<p>:%s/%Vold/NEW/g</p>]]></content>
   </entry>
@@ -100,7 +100,7 @@ set nocursorcolumn </code></pre>
   <entry>
     <title type="html"><![CDATA[Start Vim without loading vimrc]]></title>
     <link href="http://jchain.github.com/blog/2011/01/21/start-vim-without-loading-vimrc/"/>
-    <updated>2011-01-21T21:25:21-06:00</updated>
+    <updated>2011-01-21T22:25:21-05:00</updated>
     <id>http://jchain.github.com/blog/2011/01/21/start-vim-without-loading-vimrc</id>
     <content type="html"><![CDATA[<p>You can also start it without reading any of the initialization files (.vimrc, /etc/vim/vimrc) like this:</p>
 <pre><code>vim -u NONE file</code></pre>
