@@ -1,0 +1,3 @@
+autocmd FileType pandoc autocmd BufWritePre <buffer> :Trim
+
+" vim: set fdm=marker ft=vim sw=4 ts=4 tw=100 :
