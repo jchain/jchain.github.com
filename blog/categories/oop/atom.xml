@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OOP | A Coding Monkey's Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/oop/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2014-07-16T19:55:56-04:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Message passing in OOP?]]></title>
+    <link href="http://jchain.github.com/blog/2011/02/23/message-passing-in-oop/"/>
+    <updated>2011-02-23T14:57:55-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/02/23/message-passing-in-oop</id>
+    <content type="html"><![CDATA[<p><a href="http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models">http://en.wikipedia.org/wiki/Message_passing#Influences_on_other_programming_models</a></p>
+<blockquote>
+<p><a href="http://en.wikipedia.org/wiki/Alan_Kay">Alan Kay</a> has argued<a href="http://en.wikipedia.org/wiki/Message_passing#cite_note-0">[1]</a> that message passing is more important than objects in OOP, and that objects themselves are often over-emphasized.</p>
+</blockquote>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Message passing versus calling?]]></title>
+    <link href="http://jchain.github.com/blog/2011/02/23/message-passing-versus-calling/"/>
+    <updated>2011-02-23T14:48:30-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/02/23/message-passing-versus-calling</id>
+    <content type="html"><![CDATA[<p>My long term confusion about the message passing and calling is answered here: <a href="http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling">http://en.wikipedia.org/wiki/Message_passing#Message_passing_versus_calling</a></p>]]></content>
+  </entry>
+  
+</feed>

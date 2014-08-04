@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bash | A Coding Monkey's Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/bash/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2014-07-16T19:55:56-04:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Quickcd]]></title>
+    <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
+    <updated>2013-02-08T15:03:24-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
+    <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
+<h1 id="quickcd">quickcd</h1>
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change directories. It saves you a lot of keystrokes and enhances your productivity, especially when you navigate in many subdirectories with tricky names.</p>
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code. The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose the one you like most.</p>
+<h1 id="overview">Overview</h1>
+<p>quickcd enables you to use cd with partial directory names. For example:</p>
+<pre><code>$ cd box
+  =&gt; Dropbox
+$ cd ok
+  =&gt; Ebook</code></pre>
+<p>If there is more than one directory containing your cd path, you just need to type one more letter to take you to the target folder.</p>
+<pre><code>~ $ cd D
+Make a choice:
+[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
+a
+Desktop $</code></pre>
+<h1 id="why-rewrite">Why rewrite?</h1>
+<p>The differences:</p>
+<ol type="1">
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates are not always aligned.</p></li>
+<li><p>quickcd doesn’t support multi-level directory nagivation. Its main focus is current directory. fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
+</ol>
+<h1 id="setup">Setup</h1>
+<p>This following instruction are shamelessly copied from fuzzycd’s README.</p>
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines. This assumes you put fuzzycd in the ~/scripts/ directory.</p>
+<pre><code>export PATH=~/scripts/fuzzycd/:$PATH
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
+<p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the “cd” function (e.g. <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with other bash modification plugins, but it should be loaded last.</p>]]></content>
+  </entry>
+  
+</feed>

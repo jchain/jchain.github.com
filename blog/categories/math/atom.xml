@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Math | A Coding Monkey's Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/math/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2014-07-16T19:55:56-04:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octave: save a figure to a file]]></title>
+    <link href="http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file/"/>
+    <updated>2011-05-03T14:10:44-04:00</updated>
+    <id>http://jchain.github.com/blog/2011/05/03/octave-save-a-figure-to-a-file</id>
+    <content type="html"><![CDATA[<p>I’m playing around <a href="http://www.octave.org">Octave</a> recently. As many other open-source projects, the documentation is not complete, or more precisely speaking, not friendly to new user. When I want to save a picture to the disk, the documentation tells me to use <em>print()</em>, but I still need to try several times before get it straight. Here is my example.</p>
+<pre class="sourceCode matlab"><code class="sourceCode matlab">for i=<span class="fl">1</span>:<span class="fl">11</span>
+surf(x,y,ue((i-<span class="fl">1</span>)*<span class="fl">0.2</span>));
+filename = sprintf(&quot;us_t<span class="co">%d.png&quot;, i-1);</span>
+print(filename, <span class="st">&#39;-dpng&#39;</span>); <span class="co">% Note the quote</span>
+end</code></pre>
+<p>BTW: I’m very grateful for the high compatibility of Octave code with Matlab code.</p>]]></content>
+  </entry>
+  
+</feed>

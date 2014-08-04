@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Coding Monkey's Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="UCC(Unified Code Count) is developed by the researchers at USC in C++. It is cross-platform and supports a bunch of languages. The most impressive &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/page/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Coding Monkey's Blog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/11/two-source-code-line-counters-you-should-have/">Two Source Code Line Counters You Should Have</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-11T12:14:52-05:00" pubdate data-updated="true">Jan 11<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol type="1">
+<li><p><a href="http://sunset.usc.edu/research/CODECOUNT/">UCC</a>(Unified Code Count) is developed by the researchers at <a href="http://www.usc.edu">USC</a> in C++. It is cross-platform and supports a bunch of languages. The most impressive feature to me is that it can do code complexity analysis, which is very rare for a open-source code counter.</p></li>
+<li><p><a href="http://cloc.sourceforge.net/">CLOC</a>(Count Lines of Code ) is written in Perl. Lightweight, easy to use.</p></li>
+</ol>
+<p>So I would recommend every programmers to have both in their arsenal.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/01/07/colorgcc-and-ccache-work-together/">Colorgcc and Ccache Work Together</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-07T11:52:29-05:00" pubdate data-updated="true">Jan 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The plain and lengthy output of g++ was a hurt to eye when your code contains a lot of template programming. <a href="http://schlueters.de/colorgcc.html">colorgcc</a> can make life easier. It can work well with <a href="http://ccache.samba.org/">ccache</a> but needs a bit trick to connect them together. I would like to recommend the solution at</p>
+<p><a href="http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache">http://stackoverflow.com/questions/1995415/g-colorgcc-and-ccache</a></p>
+<p>I copy the main part right here:</p>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<h2>The Short Answer</h2>
+<p>Without patching <code>colorgcc.pl</code> itself, the easiest way to fix this is to write yourself a simple wrapper script for each command, calling <code>ccache</code> with the appropriate arguments for that command, and passing along the arguments the script received (effectively <a href="http://en.wikipedia.org/wiki/Currying">currying</a> the call to <code>ccache</code>.)</p>
+</blockquote>
+<p>E.g., for <strong>gcc</strong>:</p>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-gcc.sh:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;code&gt;#!/bin/bash
+ccache /usr/bin/gcc &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;code&gt;gcc: /usr/local/bin/ccache-gcc.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<p>and for <strong>g++</strong>:</p>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>/usr/local/bin/ccache-g++.sh:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;code&gt;#!/bin/bash
+ccache /usr/bin/g++ &quot;$@&quot;
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>~/.colorgcc:</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;code&gt;gcc: /usr/local/bin/ccache-g++.sh
+&lt;/code&gt;</code></pre>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<p>There are ways to clean this up so that you only use a single script, with symlinks for each variant, but those are beyond the scope of this answer, and I leave them to you as an excercise :-)</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/30/updated-to-libreoffice-3-3-and-tmux-1-4/">Updated to Libreoffice-3.3 and Tmux-1.4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-30T18:03:38-05:00" pubdate data-updated="true">Dec 30<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>Upgraded to<a href="http://www.libreoffice.org/">Libreoffice-3.3</a>. Many improvements can be seen.</p></li>
+<li><p>Upgraded to<a href="http://tmux.sourceforge.net/">tmux-1.4</a>. It works very well on openSUSE-11.1. It definitely beats GNU Screen(even Git version).</p></li>
+</ul></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/21/how-to-install-openoffice-3-without-root-privilege/">How to Install OpenOffice 3 Without Root Privilege</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-21T15:06:02-05:00" pubdate data-updated="true">Dec 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The default openoffice of my desktop Linux was aging and I just wanted to update to the latest openoffice-3.2. But my problem was I didn’t have the root privilege to do that. The official installer of OpenOffice failed again over again without notifying you that the reason of failure was the lack of root privilege. Finally I found this great <a href="http://www.oooforum.org/forum/viewtopic.phtml?t=26173">post</a>. I followed what it said and it worked like a charm. Only one thing I want to add: if you use color <em>ls</em>, use <strong>ls –color=never</strong> to disable the color output.</p>
+<ol type="1">
+<li><p>Download the installation package from OpenOffice website.</p></li>
+<li><p>Unzip it into a directory.</p></li>
+<li><p><strong>for i in <code>ls --color=never OOO320_m18_native_packed-1_en-US.9502/RPMS/*rpm</code>; do rpm2cpio $i | cpio -ivd; done</strong></p></li>
+<li><p>cd OOO320_m18_native_packed-1_en-US.9502/RPMS/opt/openoffice.org3/program/</p></li>
+<li><p>run ./soffice</p></li>
+<li><p>(option) create symbolic link to soffice.</p></li>
+<li><p>(option) set file association in Nautilus. Right click a doc and choose <strong>Properties-&gt;Open with -&gt; Add…</strong></p></li>
+</ol></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/08/convert-ogv-to-flv-in-linux/">Convert Ogv to Flv in Linux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-08T17:26:07-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use recordMyDesktop to grab the screen movie but its default format is in ogv. If you want to convert to Flash format locally you can use the following command. Feel free to add it in your bashrc. If I recall correctly, this method can produce the best conversion in Linux platform. Correct me if I’m wrong. Also I forgot the source the following tip. If you know it, let me know.</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Convert ogv to flv.</span>
+</span><span class='line'><span class="c"># Usage: ogv2flv input.ogv -o output.flv</span>
+</span><span class='line'><span class="c"># add -audiofile yoursound.wav if you need to replace the soundtrack alias </span>
+</span><span class='line'><span class="nv">ogv2flv</span><span class="o">=</span><span class="s1">&#39;mencoder -of lavf -oac mp3lame -lameopts abr:br=56 -srate 22050 -ovc lavc -lavcopts vcodec=flv:vbitrate=250:mbd=2:mv0:trell:v4mv:cbp:last_pred=3 -vf scale=640:480&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/06/iterative-closest-pointsicp-demo/">Iterative Closest points(ICP) Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-06T16:34:32-05:00" pubdate data-updated="true">Dec 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.youtube.com/watch?v=igb8mAJ6F5I">http://www.youtube.com/watch?v=igb8mAJ6F5I</a></p>
+<figure>
+<img src="http://zandyware.files.wordpress.com/2010/12/out.png" title="Benchmark of Iterative Closest Points with OpenMP" />
+</figure>
+<p>The Perl code generating the plot is listed below</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="c1">#!/usr/bin/perl</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">### Write running time  </span>
+</span><span class='line'><span class="nb">open</span> <span class="k">my</span> <span class="nv">$IN</span><span class="p">,</span> <span class="s">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s">&quot;benchmark.dat&quot;</span> <span class="ow">or</span> <span class="nb">die</span> <span class="vg">$!</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Data</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">@x</span><span class="p">;</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">@y</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="sr">&lt;$IN&gt;</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nb">chomp</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">my</span> <span class="p">(</span><span class="nv">$t1</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\s/</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">push</span> <span class="nv">@x</span><span class="p">,</span> <span class="nv">$t1</span><span class="p">;</span>
+</span><span class='line'>    <span class="nb">push</span> <span class="nv">@y</span><span class="p">,</span> <span class="nv">$t2</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create chart object and specify the properties of the chart</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">$chart</span> <span class="o">=</span> <span class="nn">Chart::</span><span class="n">Gnuplot</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
+</span><span class='line'>    <span class="n">output</span> <span class="o">=&gt;</span> <span class="s">&quot;out.eps&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">title</span>  <span class="o">=&gt;</span> <span class="s">&quot;Iterative Closest Points with Stanford Bunny&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">xlabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Number of threads&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">ylabel</span> <span class="o">=&gt;</span> <span class="s">&quot;Time(s)&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">boxwidth</span> <span class="o">=&gt;</span> <span class="s">&quot;0.8 relative&quot;</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create dataset object and specify the properties of the dataset</span>
+</span><span class='line'><span class="k">my</span> <span class="nv">$dataSet</span> <span class="o">=</span> <span class="nn">Chart::Gnuplot::</span><span class="n">DataSet</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">(</span>
+</span><span class='line'>    <span class="n">xdata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@x</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">ydata</span> <span class="o">=&gt;</span> <span class="o">\</span><span class="nv">@y</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">title</span> <span class="o">=&gt;</span> <span class="s">&quot;Time&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="c1">#style =&gt; &quot;linespoints&quot;,</span>
+</span><span class='line'>    <span class="n">style</span> <span class="o">=&gt;</span> <span class="s">&quot;boxes&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="n">fill</span> <span class="o">=&gt;</span> <span class="s">&quot;0.75&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Plot the data set on the chart</span>
+</span><span class='line'><span class="nv">$chart</span><span class="o">-&gt;</span><span class="n">plot2d</span><span class="p">(</span><span class="nv">$dataSet</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">##################################################</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Plot many data sets on a single chart</span>
+</span><span class='line'><span class="c1">#$chart-&gt;plot2d($dataSet1, $dataSet2, ...); </span>
+</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/05/using-openmp-with-cmake/">Using OpenMP With CMake</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-05T21:51:14-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Add the following lines into your CMakeLists.txt</p>
+<pre><code># Even though -fopenmp won&#39;t appear in the GUI options, it does take effect
+SET(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fopenmp&quot;)
+SET(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -fopenmp&quot;)</code></pre></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/24/backspace-and-delete-in-totalviews-xterm-commandline-interface/">Backspace and Delete in TotalView&#8217;s XTerm Commandline Interface</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-24T17:02:51-05:00" pubdate data-updated="true">Nov 24<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I used TotalView a lot but the keyboard backspace and delete keys were totally messed up. Luckily I found the solution in a great article as follows:</p>
+<p><a href="http://www.ibb.net/~anne/keyboard/keyboard.html">http://www.ibb.net/~anne/keyboard/keyboard.html</a></p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin/">Install Lighttpd as a Service in Cygwin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-11-23T23:40:44-05:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>cygrunsrv --install lighttpd --path /usr/sbin/lighttpd
+    --args &quot;-D -f /etc/lighttpd/lighttpd.conf&quot; --disp &quot;CYGWIN lighttpd&quot;</code></pre>
+<p>See more http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/27/shrink-the-file-size-of-a-pdf/">Shrink the File Size of a Pdf?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-27T01:32:06-04:00" pubdate data-updated="true">Apr 27<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Want to shrink the file size of a pdf? Use the following command. ebook has a good balance between the file size and the image quality. screen compresses the images too much.</p>
+<p><code>gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook[screen, ] -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
+<p><strong>-dPDFSETTINGS=</strong><em>configuration</em> Presets the “distiller parameters” to one of four predefined settings:</p>
+<ul>
+<li><p><strong>/screen</strong> selects low-resolution output similar to the Acrobat Distiller “Screen Optimized” setting.</p></li>
+<li><p><strong>/ebook</strong> selects medium-resolution output similar to the Acrobat Distiller “eBook” setting.</p></li>
+<li><p><strong>/printer</strong> selects output similar to the Acrobat Distiller “Print Optimized” setting.</p></li>
+<li><p><strong>/prepress</strong> selects output similar to Acrobat Distiller “Prepress Optimized” setting.</p></li>
+<li><p><strong>/default</strong> selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file.</p></li>
+</ul></div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/29/watch-netflix-in-linux/">Watch Netflix in Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/17/fly-with-vim-airline/">Fly With Vim Airline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tags</h1>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jchain">@jchain</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jchain',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section>
+	<h1 class="icon" data-icon="B">License</h1>
+	<p>
+	This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	</p>
+	<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+	</p>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zandy3';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

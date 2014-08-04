@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Build Feh from source and install to Home directory - A Coding Monkey's Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="Feh is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Coding Monkey's Blog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Build Feh From Source and Install to Home Directory</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T15:39:00-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://feh.finalrewind.org/"><code>Feh</code></a> is a lightweight image viewer for Linux. Its source code doesn’t ship the Autoconf script and only Makefile. The customization is done by modifying the file <code>config.mk</code>. In my case I would like to install it to my HOME directory. Plus, I have installed the dependency library <code>giblib</code> into HOME directory before so I have to specify the search path for compiler and linker. Here is what I got so far:</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+</pre></td><td class='code'><pre><code class='makefile'><span class='line'><span class="nv">PACKAGE</span> <span class="o">?=</span> feh
+</span><span class='line'>VERSION ?<span class="o">=</span> 2.8
+</span><span class='line'>
+</span><span class='line'><span class="c"># Prefix for all installed files</span>
+</span><span class='line'><span class="c"># PREFIX ?= /usr/local</span>
+</span><span class='line'>PREFIX ?<span class="o">=</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Directories for manuals, executables, docs, data, etc.</span>
+</span><span class='line'><span class="nv">main_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">DESTDIR</span><span class="k">}${</span><span class="nv">PREFIX</span><span class="k">}</span>
+</span><span class='line'><span class="nv">man_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/man
+</span><span class='line'><span class="nv">bin_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/bin
+</span><span class='line'><span class="nv">doc_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh
+</span><span class='line'><span class="nv">image_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/images
+</span><span class='line'><span class="nv">font_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/feh/fonts
+</span><span class='line'><span class="nv">example_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh/examples
+</span><span class='line'>
+</span><span class='line'><span class="c"># default CFLAGS</span>
+</span><span class='line'>CFLAGS ?<span class="o">=</span> -g -O2
+</span><span class='line'>CFLAGS +<span class="o">=</span> -Wall -Wextra -pedantic
+</span><span class='line'>
+</span><span class='line'>curl ?<span class="o">=</span> 1
+</span><span class='line'>debug ?<span class="o">=</span> 0
+</span><span class='line'><span class="nb">help</span> ?<span class="o">=</span> 0
+</span><span class='line'>xinerama ?<span class="o">=</span> 1
+</span><span class='line'>exif ?<span class="o">=</span> 0
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${curl},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBCURL
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lcurl
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_CURL</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${debug},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DDEBUG -O0
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span> . This is a debug build.
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_DEBUG</span> <span class="o">=</span>
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${help},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DINCLUDE_HELP
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${stat64},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -D_FILE_OFFSET_BITS<span class="o">=</span>64
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${xinerama},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBXINERAMA
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lXinerama
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_XINERAMA</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">ifeq (${exif},1)</span>
+</span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBEXIF
+</span><span class='line'>  LDLIBS +<span class="o">=</span> -lexif
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> enabled
+</span><span class='line'><span class="cp">else</span>
+</span><span class='line'>  <span class="nv">MAN_EXIF</span> <span class="o">=</span> disabled
+</span><span class='line'><span class="cp">endif</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Uncomment this to use dmalloc</span>
+</span><span class='line'><span class="c">#CFLAGS += -DWITH_DMALLOC</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span>
+</span><span class='line'>CFLAGS +<span class="o">=</span> -DPREFIX<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span><span class="se">\&quot;</span> <span class="se">\</span>
+</span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span> -I<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/include
+</span><span class='line'>
+</span><span class='line'><span class="c"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
+</span><span class='line'>LDLIBS +<span class="o">=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
+</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div></div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zandy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T15:39:00-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/" data-via="" data-counturl="http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/28/install-rcppoctave-if-octave/" title="Previous Post: Install RcppOctave if Octave is in user-defined directory">&laquo; Install RcppOctave if Octave is in user-defined directory</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/02/08/intro-quickcd/" title="Next Post: Introducing Quickcd">Introducing Quickcd &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/29/watch-netflix-in-linux/">Watch Netflix in Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/17/fly-with-vim-airline/">Fly With Vim Airline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tags</h1>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jchain">@jchain</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jchain',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section>
+	<h1 class="icon" data-icon="B">License</h1>
+	<p>
+	This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	</p>
+	<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+	</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zandy3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/';
+        var disqus_url = 'http://jchain.github.com/blog/2013/01/31/customized-feh-config-mk/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

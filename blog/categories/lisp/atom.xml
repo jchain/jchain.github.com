@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Lisp | A Coding Monkey's Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/lisp/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2014-07-16T19:55:56-04:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[sbcl mmap cannot allocate memory?]]></title>
+    <link href="http://jchain.github.com/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory/"/>
+    <updated>2011-01-28T14:28:53-05:00</updated>
+    <id>http://jchain.github.com/blog/2011/01/28/sbcl-mmap-cannot-allocate-memory</id>
+    <content type="html"><![CDATA[<p>Recently I want to give Common Lisp a try. After reading this great <a href="http://common-lisp.net/~dlw/LispSurvey.html">Common Lisp Implementation Survey</a>, I decided to go first with SBCL. After installing the binary package of SBCL-1.0.45 on my openSUSE-11.1 x86-64bit with 8Giga memory, I ran into this annoying error message when I started SBCL in terminal:</p>
+<blockquote>
+<p>mmap: Cannot allocate memory ensure_space: failed to validate 8589869056 bytes at 0x1000000000 (hint: Try “ulimit -a”; maybe you should increase memory limits.)</p>
+</blockquote>
+<p>I researched online for a while and finally I came up a solution(it worked for me at least). Solution: start sbcl like this</p>
+<blockquote>
+<p>sbcl –dynamic-space-size 2028 –core /local/vol00/software/lib/sbcl/sbcl.core</p>
+</blockquote>
+<p>I guess the reason to fail is that by default sbcl will allocate 8Giga MB memory on x86-64 bit platform, which is not permitted due to the physical memory limitation. So use –dynamic-space-size to change the setting, also use –core option if your sbcl installation is not in the default location.</p>]]></content>
+  </entry>
+  
+</feed>
