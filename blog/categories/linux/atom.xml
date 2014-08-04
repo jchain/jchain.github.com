@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
+  <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://jchain.github.com/"/>
+  <updated>2014-07-16T19:55:56-04:00</updated>
+  <id>http://jchain.github.com/</id>
+  <author>
+    <name><![CDATA[Zandy]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Use Juniper VPN Client under Fedora 20 x86-64]]></title>
+    <link href="http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/"/>
+    <updated>2014-03-10T11:59:00-04:00</updated>
+    <id>http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64</id>
+    <content type="html"><![CDATA[<p>This is my first time to use Juniper VPN to connect to the workplace from home. My computer runs Fedora 20 in 64bit and Firefox in 64bit. I had a hard time to establish a connection through the web portal. The client files were downloaded into</p>
+<pre><code>~/.juniper_networks</code></pre>
+<p>I followed the instructions listed <a href="http://tuxdna.wordpress.com/2013/07/04/juniper-networks-vpn-from-fedora-17-x86_64/">here</a>, <a href="https://github.com/rthill/jvpn">here</a>, <a href="https://github.com/rthill/jvpn">here</a> and <a href="http://www.scc.kit.edu/scc/net/juniper-vpn/linux/">here</a>. None of them worked. I got stuck by the error message in <code>ncsvc.log</code>like this:</p>
+<pre><code>ncapp.error Failed to authenticate with IVE.</code></pre>
+<p>Finally this <a href="http://techydodo.wordpress.com/2012/01/17/cracking-the-juniper-network-connect-problem-on-linux-64-bit/">blog post</a> saved my day. I confirmed it solved my issue. It turns out sometimes you have to use the web browser to make the connection. Here is what I did.</p>
+<ol type="1">
+<li>Install 32bit Opera</li>
+<li>Install 32bit JRE. Java plugin is stored in <code>/usr/java/default/i386/libnpjp2.so</code></li>
+<li>Type <code>about:plugins</code> in the address windows of Opera to find out where the plugins is located. In my case it is in <code>/usr/lib/mozilla/plugins</code> .</li>
+<li>Made a symbolic link of 32bit Java plugin to <code>/usr/lib/mozilla/plugins</code> .</li>
+<li>Re-visit the VPN login portal to set up the connection.</li>
+</ol>
+<p>You should see the VPN session window pop up and the connection is up. This is the simplest way to make everything work.</p>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
+    <link href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/"/>
+    <updated>2013-11-29T08:09:00-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux</id>
+    <content type="html"><![CDATA[<p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
+<p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
+<p>Only one thing I found worth mentioning this time is the update. If your Linux distribution updates the version of Wine and your Pipelight doesn’t work, my solution is to completely remove Wine and Pipelight and then reinstall them.</p>
+<p>You can how Netflix looks like in my Linux Firefox: <img src="https://db.tt/T0rNtnou" alt="alt" /></p>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
+    <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
+    <updated>2013-07-01T17:10:15-04:00</updated>
+    <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
+    <content type="html"><![CDATA[<p>Last night I didn’t resist the temptation to enter</p>
+<pre><code>sudo yum install fedora-upgrade </code></pre>
+<p>Viola, my journey to Fedora 19 began!</p>
+<p>Every time I upgraded my Linux to the latest release, either Ubuntu or Fedora, I would have to spent another day to tweak the new system to make it comfortable to use. The biggest challenge was surely the transition from GNOME 2 to 3. Two years have passed and I still can’t get used to the new UI. Accurately speaking, I really like the new UI elements in GNOME 3 but I just don’t like the ways that GNOME shell asks me to do things. I think GNOME shell is attractive for new users and especially good for tablet. But for a senior user, it is too obtrusive. It wanted to be smart but overdid.</p>
+<p>I appreciated the fallback mode that GNOME 3 provided. I turned off all the fancy animations and sticked to the old-fashioned UI. I used <a href="http://code.google.com/p/tint2/"><code>tint2</code></a> as the window list panel. In Fedora 18 with Gnome 3.6, the clock applet surprisingly had a memory leak issue. I disabled the clock applet and only used the <code>tint2</code> panel to show the time. However, sometimes, I missed the weather information.</p>
+<p>With the advent of GNOME 3.8, the fallback was sadly dropped and the 2D GNOME shell was so ugly that I had to make a change.</p>
+<p>I first tried <a href="http://xfce.org"><code>Xfce</code></a> and <code>MATE Desktop</code>. <code>MATE</code> failed to start on my Fedora 19. I realized that I was spoiled by the modern UI of GNOME 3 so the look and feel of <code>Xfce</code> (based on GTK+ 2) became intolerable. Thank God there is <a href="http://cinnamon.linuxmint.com/"><code>Cinnamon</code></a>. When Cinnamon was first released, I thought it was another flamboyant window manager but it turns out sleek and practical. The status bar is very compact but full of useful information. Window list? Check. Weather applet? Check. Start menu? Check. Transparency effect? Check. GNOME compatible? Check. I don’t need many. These are good enough. I’m so happy to settle down with Cinnamon.</p>
+<p>Some other issues with GNOME 3.8 are</p>
+<ol type="1">
+<li><p>The transparency of the background of GNOME Terminal can’t be set. Not a very big deal. But some users complained about it.</p></li>
+<li><p>The upgrade changed my wallpapers for the desktop and the GDM. I really wanted them to be kept.</p></li>
+<li><p>The theme is broken. Many guys complain about <a href="http://igurublog.wordpress.com/2012/11/05/gnome-et-al-rotting-in-threes/">that</a></p></li>
+</ol>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
+    <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
+    <updated>2013-06-01T16:37:24-04:00</updated>
+    <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
+    <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
+<p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
+<p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of <code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the setting in <code>.vimrc</code> from</p>
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\h\w*\|\h\w*::&#39;</code></pre>
+<p>to</p>
+<pre><code>let g:neocomplcache_omni_patterns.perl = &#39;\h\w*-&gt;\|\h\w*-&gt;\h\w*\|\h\w*::\|\h\w*::\h\w*&#39;</code></pre>
+<p>Make sure <code>omnifunc</code> is <code>PerlComplete</code>.</p>
+<p>A little explanation: <code>\h\w*-&gt;</code> will triger the popup window, <code>\h\w*-&gt;\h\w*</code> will complete as-you-type. The similar situation goes to <code>::</code> operator. But do remember that sometimes <code>::</code> won’t triger neocomplcache if the package is not based on the OO that perlomni supports. In this case, <code>C-X C-O</code> will always pop up the window. After this you should see someting like this:</p>
+<figure>
+<img src="https://dl.dropboxusercontent.com/u/309872/blog/2013-06-01-perlomni-in-vim.png" alt="alt" /><figcaption>alt</figcaption>
+</figure>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Quickcd]]></title>
+    <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
+    <updated>2013-02-08T15:03:24-05:00</updated>
+    <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
+    <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
+<h1 id="quickcd">quickcd</h1>
+<p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change directories. It saves you a lot of keystrokes and enhances your productivity, especially when you navigate in many subdirectories with tricky names.</p>
+<p>This script is inspired by <a href="https://github.com/philc/fuzzycd">fuzzycd</a>. Big thanks to the author for sharing his/her great code. The way of intercepting the system <code>cd</code> is genius. I recommend you to try both scripts and choose the one you like most.</p>
+<h1 id="overview">Overview</h1>
+<p>quickcd enables you to use cd with partial directory names. For example:</p>
+<pre><code>$ cd box
+  =&gt; Dropbox
+$ cd ok
+  =&gt; Ebook</code></pre>
+<p>If there is more than one directory containing your cd path, you just need to type one more letter to take you to the target folder.</p>
+<pre><code>~ $ cd D
+Make a choice:
+[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
+a
+Desktop $</code></pre>
+<h1 id="why-rewrite">Why rewrite?</h1>
+<p>The differences:</p>
+<ol type="1">
+<li><p>When your cd path contains capital letter quickcd will match case sensitively. This way can result in less matches. fuzzycd seems to do case insensitive match all the time.</p></li>
+<li><p><strong>quickcd prints out a well-formatted candidates</strong>. It fits the width of the terminal windows and the columns are aligned neatly. I worked really hard on making this right. fuzzycd candidates are not always aligned.</p></li>
+<li><p>quickcd doesn’t support multi-level directory nagivation. Its main focus is current directory. fuzzycd supports fuzzy jumps to multi-level directory but I rarely use this feature.</p></li>
+<li><p>quickcd is written in Perl. Yep, I like Perl! fuzzycd is written in Ruby.</p></li>
+</ol>
+<h1 id="setup">Setup</h1>
+<p>This following instruction are shamelessly copied from fuzzycd’s README.</p>
+<p>Modify your ~/.profile (or ~/.bashrc, depending your operating system) and add the following lines. This assumes you put fuzzycd in the ~/scripts/ directory.</p>
+<pre><code>export PATH=~/scripts/fuzzycd/:$PATH
+source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
+<p>This will effectively wrap the builtin bash cd command with the fuzzy cd command. Enjoy!</p>
+<p><em>Note</em>: If you have any other shell plugins which try to redefine the “cd” function (e.g. <a href="https://rvm.beginrescueend.com/rvm">rvm</a> does this), make sure that the <code>source ... fuzzycd_bash_wrapper.sh</code> line comes last in your bash profile. fuzzycd plays nicely with other bash modification plugins, but it should be loaded last.</p>]]></content>
+  </entry>
+  
+</feed>

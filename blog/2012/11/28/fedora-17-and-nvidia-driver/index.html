@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Install nVidia Driver on Fedora 17: A Non-typical Case - A Coding Monkey's Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Coding Monkey's Blog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Install nVidia Driver on Fedora 17: A Non-typical Case</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T02:10:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
+<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version. None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia. But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a kernel bug in the ext4 file system</p>
+<pre><code>kernel BUG at fs/ext4/extents.c</code></pre>
+<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news confirmed that the bug in the kernel was the culprit. After several sudden losses of my working sessions I couldn’t wait for any more seconds to update the kernel. And I had to make the Xorg server work too.</p>
+<p>It really bugged me that the nVidia driver didn’t work on my Fedora 17. I booted from Ubuntu Linux installed on an external USB disk. And the nVidia driver worked fine under it. There must be something wrong with <code>akmod-nvidia</code> or the official driver.</p>
+<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X server started this time. In my case, I didn’t need to do this:</p>
+<pre><code>Remove / disable nouveau drivers from kernel initramfs</code></pre>
+<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL library was not automatically loaded. The system still used the mesa GL to do the software rendering. A workaround is to put the following line in <code>.bashrc</code></p>
+<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH</code></pre>
+<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code> didn’t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here is what it looks right now.</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># RPM Fusion - nvidia-173xx-xorg.conf
+</span><span class='line'># 
+</span><span class='line'>Section "Monitor"
+</span><span class='line'>    # HorizSync source: edid, VertRefresh source: edid
+</span><span class='line'>    Identifier     "Monitor0"
+</span><span class='line'>    VendorName     "Unknown"
+</span><span class='line'>    ModelName      "DELL E228WFP"
+</span><span class='line'>    HorizSync       30.0 - 83.0
+</span><span class='line'>    VertRefresh     56.0 - 75.0
+</span><span class='line'>    Option         "DPMS"
+</span><span class='line'>EndSection
+</span><span class='line'>
+</span><span class='line'>Section "Device"
+</span><span class='line'>  Identifier  "Device0"
+</span><span class='line'>  Driver      "nvidia"
+</span><span class='line'>  Option      "AddARGBGLXVisuals" "true"
+</span><span class='line'>EndSection
+</span><span class='line'>
+</span><span class='line'>Section "Screen"
+</span><span class='line'>    Identifier     "Screen0"
+</span><span class='line'>    Device         "Device0"
+</span><span class='line'>    Monitor        "Monitor0"
+</span><span class='line'>    DefaultDepth    24
+</span><span class='line'>    Option         "TwinView" "1"
+</span><span class='line'>    Option         "TwinViewXineramaInfoOrder" "DFP-0"
+</span><span class='line'>    Option         "metamodes" "DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0"
+</span><span class='line'>    SubSection     "Display"
+</span><span class='line'>        Depth       24
+</span><span class='line'>    EndSubSection
+</span><span class='line'>EndSection</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div>
+<p>I’m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it will help you if you are facing the same problem.</p></div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zandy</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-28T02:10:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/" data-via="" data-counturl="http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/17/perl-one-liner-replace-text-in-mulple-files/" title="Previous Post: Perl one liner: replace text in mulple files">&laquo; Perl one liner: replace text in mulple files</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/26/vim-gets-slow-when-editing-latex/" title="Next Post: Vim gets slow when editing LaTeX file">Vim gets slow when editing LaTeX file &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/29/watch-netflix-in-linux/">Watch Netflix in Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/17/fly-with-vim-airline/">Fly With Vim Airline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tags</h1>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/jchain">@jchain</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jchain',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section>
+	<h1 class="icon" data-icon="B">License</h1>
+	<p>
+	This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	</p>
+	<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+	</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zandy3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/';
+        var disqus_url = 'http://jchain.github.com/blog/2012/11/28/fedora-17-and-nvidia-driver/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Coding Monkey's Blog</title>
+  <meta name="author" content="Zandy">
+
+  
+  <meta name="description" content="Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jchain.github.com/blog/page/4">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36085551-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">A Coding Monkey's Blog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/15/indent-only-xml-file/">Indent Only XML File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-15T11:48:24-05:00" pubdate data-updated="true">Dec 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Recently I have worked on editing XML files in Vim. These XML files are the documents of a software in DocBook style. Since they are maintained manually, the indentation is badly formatted. So before getting deeper, the very first thing to do was to re-indent the files. It turned out from a short Google search that the tools to get the job done could be:</p>
+<ul>
+<li><p><a href="http://ku1ik.com/2011/09/08/formatting-xml-in-vim-with-indent-command.html">xmllint</a></p></li>
+<li><p><a href="http://xmlindent.sourceforge.net/">xmlindent</a></p></li>
+<li><p><a href="http://www.kitebird.com/software/xmlformat/xmlformat.html">xmlformat</a></p></li>
+<li><p><a href="http://www.qualitybrain.com/?p=37">tidy</a></p></li>
+</ul>
+<p>xmllint, xmlindent and tidy seem to remove the empty lines I left intentionally, which is bad since I want to keep them for readability. xmlformat seems to provide such options to add blank lines but I didn’t have time to look into. So finally I only used ‘gg=G’ in Vim to format the XML file. This operation was only to indent the file without combining or removing any blank lines. That was just what I needed.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/02/quick-print-a-little-trick-for-gdb-setting/">Quick Print: A Little Trick for Gdb Setting</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-02T18:10:49-05:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I would like to share a little trick that I have adapted and used for a while. It is for <a href="en.wikipedia.org/wiki/GNU_Debugger">gdb</a>. Before your reading the rest of the post, and if you have no idea about the customization of gdb, please read <a href="http://zandyware.wordpress.com/2011/05/25/a-must-read-for-every-gdb-learner/">here</a></p>
+<p>If you use gdb frequently, chances are you have to type the command ‘print’ or ‘p’ to examine the value of variable many many times. A common case is like this: you type ‘p foo’ to see the value of ‘foo’. It turns out that ‘foo’ is a pointer, and you have to type ’p *foo’ again in the commandline. Or you have to type ‘ptype foo’ to find out the type definition of ‘foo’. Tedious. This small piece of gdb macro to make your life easier. Every time you type ‘p foo’, you just scroll up the history and type ‘1’, ‘p foo 1’ shows the dereferenced value, or typing ‘2’ gives you the type definition of ‘foo’. Copy and paste into your ~/.gdbinit</p>
+<div class="bogus-wrapper">
+<notextile>
+<figure class='code'><figcaption>
+<span></span>
+</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">define</span> <span class="n">p</span>
+</span><span class='line'> <span class="k">if</span> <span class="err">$</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>   <span class="k">print</span> <span class="err">$</span><span class="n">arg0</span>
+</span><span class='line'> <span class="k">else</span>
+</span><span class='line'>   <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>     <span class="k">print</span> <span class="o">*</span><span class="p">(</span><span class="err">$</span><span class="n">arg0</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">else</span>
+</span><span class='line'>     <span class="k">if</span> <span class="err">$</span><span class="n">arg1</span> <span class="o">==</span> <span class="mi">2</span>
+</span><span class='line'>       <span class="n">ptype</span> <span class="err">$</span><span class="n">arg0</span>
+</span><span class='line'>     <span class="n">end</span>
+</span><span class='line'>   <span class="n">end</span>
+</span><span class='line'> <span class="n">end</span>
+</span><span class='line'><span class="n">end</span>
+</span><span class='line'><span class="n">document</span> <span class="n">p</span>
+</span><span class='line'>   <span class="n">Print</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">information</span> <span class="n">quickly</span>
+</span><span class='line'><span class="n">end</span>
+</span></code></pre></td></tr></table></div></figure>
+</notextile>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/18/dont-show-the-hidden-files-in-gtk-application-open-file-dialog/">Don&#8217;t Show the Hidden Files in GTK+ Application Open File Dialog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-18T02:55:05-05:00" pubdate data-updated="true">Nov 18<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It is quite annoying when you open a file selection dialog in a typical GTK+ application a pile of hidden files and directories occupy the window. <strong>Solution:</strong> edit ~/.config/gtk-2.0/gtkfilechooser.ini to disable the option ‘ShowHidden’</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/14/arrow-keys-dont-work-properly-in-totalview-debugger/">Arrow Keys Don&#8217;t Work Properly in Totalview Debugger</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-14T17:21:23-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Totalview is a very powerful debugger for C/C++, Fortran languages, especially for debugging high performance programs. In this commandline interface(a new xterm window) no matter how hard I tried my arrow ‘Up’ key entered [[A char and ‘Down’ keys gave [[B char. What I really wanted was the ‘history-previous’ and ‘history-next’ in common Bash terminals. This type of malfunction really sucks when you debug a program through CLI. I thought at the beginning that it was due to curtain ‘mismatch’ between different ’TERM’s or xterm mis-configuration. Wired, arrow keys worked fine if I myself started xterm. I have tried many so-called key remap configurations for xterm, rxvt or vt100/102. None of them worked.</p>
+<p>Finally I realized that Totalview heavily relies on TCL. Its CLI is also built from TCL. So when I ran ‘tclsh’ in my Gnome terminal, pressing arrow keys misbehaved the exactly same way as in Totalview CLI. Therefore I continued the solution search online until I found <a href="http://utopia.knoware.nl/~hlub/rlwrap/">http://utopia.knoware.nl/~hlub/rlwrap/</a>. Simply run ‘rlwrap tclsh’ and ‘rlwrap tv8cli’ and the arrow keys worked like a charm.</p>
+<p>I further aliased ‘tv8cli’ as ‘rlwrap tv8cli’. But I still couldn’t make it work in Totalview’s GUI xterm CLI. Is there a way to do that?</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/09/midnight-commanders-new-user-data-directory/">Midnight Commander&#8217;s New User Data Directory</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-09T17:00:24-05:00" pubdate data-updated="true">Nov 9<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It seems that the user-specific data/config directory of midnight commander 4.8.x is under <span class="math"><em>H</em><em>O</em><em>M</em><em>E</em>/.<em>l</em><em>o</em><em>c</em><em>a</em><em>l</em>/<em>s</em><em>h</em><em>a</em><em>r</em><em>e</em>/<em>m</em><em>c</em><em>a</em><em>n</em><em>d</em></span>HOME/.config/mc. However the previous version(4.7.x) is looking for $HOME/.mc. You can verify that by typing</p>
+<pre><code>mc -F</code></pre>
+<p>Personally I don’t like this change since I prefer to a single directory for the convenience of storage and backup of my config files. Your skin setting probably take no effect after upgrading to 4.8.x. Place your skin files to <code>$HOME/.local/share/mc/skins</code> and modify <code>$HOME/.config/mc/ini</code></p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file/">Gnuplot: How to Skip the First Line in the Data File</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-08T23:23:38-05:00" pubdate data-updated="true">Nov 8<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It is very likely that the data file you are going to visualize has a one line header at the first line. Use ‘every’ keyword to skip the first line like this.</p>
+<pre><code>plot &quot;foo.dat&quot; every ::1 using 1:2 with lines</code></pre>
+<p>Similarly you can skip 2 or 3 or whatever lines using ‘every’</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/02/git-remove-a-file-from-version-control-but-not-delete-it-from-disk/">Git: Remove a File From Version Control but Not Delete It From Disk</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-02T16:38:28-04:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today’s tip has only one line</p>
+<pre><code>git rm --cached foo.bar</code></pre></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/21/octave-plot-legend-fontsize/">Octave Plot Legend Fontsize?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-21T02:50:36-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wanted to create a line plot in Octave today and saved it as a eps file. But no matter how hard I tried I simply couldn’t change the font size of the plot legend. It was too small in my document. There is already much discussion about it on the web. No tricks worked for me. Finally I realized that what I really cared about was the font size in file output not the gnuplot screen output. So I just tried ‘<strong>print(’foo.eps’,’-depsc’,’-F:14’)</strong>’. The option ‘-F:14’ set the default print fontsize to 14. It worked so far so good.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/14/gnu-parallell-make-best-use-of-your-multicore-computer/">GNU Parallell, Make Best Use of Your Multicore Computer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-14T20:13:16-04:00" pubdate data-updated="true">Oct 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In my research work, I have to run many many times of the same program with different parameters. I wrote bash files to make my life easier. But single process of bash is very slow considering I have a decent computer with 24 cpu cores. My old way to make better use of multicore CPU was to split my jobs into several separate bash files and run them simultaneously. You can imagine that it is far from productive when editing these files. They contain overwhelmingly repeated text.</p>
+<p>GNU <a href="http://www.gnu.org/s/parallel">parallel</a> comes to rescue. I first ran into this post <a href="http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/">http://pebblesinthesand.wordpress.com/2008/05/22/a-srcipt-for-running-processes-in-parallel-in-bash/</a>. But I quickly found GNU parallel was a better choice. Fully loaded with detailed documentation. Plus, it was written in Perl. As you may know, I’m a Perl fan:-). Now my batch file has become like this:</p>
+<pre><code>seq 1 100 | parallel -j 20 single_run.sh {}</code></pre>
+<p>Voilà!</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/10/07/initial-impressions-of-ubuntu-11-10-unity-and-gnome3/">Initial Impressions of Ubuntu 11.10 Unity and Gnome3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-07T17:35:46-04:00" pubdate data-updated="true">Oct 7<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>As the release of Ubuntu 11.04 is approaching, I took a bold move to upgrade my Ubuntu 11.04 to 11.10 last night. Maybe not that bold, since the Ubuntu 11.10 is supposed to be stable enough at this moment. I played around with Unity and Gnome3 each for a while and finally chose Unity as my default desktop manager.</p>
+<p>At the very beginning, my wireless didn’t work. It turned out that the wireless adapter drive was buggy with Linux kernel 3.x.x. After switching back to 2.8.x, wireless connection was alive. Both Unity and Gnome3 have impressive visual efftects at first glance. But after a while, especially in term of the usability, I would prefer Unity. Why?</p>
+<p>I like the title bar/top panel in Unity very much. It combines the functionality of the conventional window title bar and the top panel. Sure, it mimics Mac OSX but this feature save a lot of laptop screen real estate. While in Gnome3, a time applet seemingly takes up the whole top panel and you can’t place app shortcuts into it rendering itself less useful.</p>
+<p>Both desktop managers have dropped ‘Window List’ at the bottom. I have to say I need that back badly. I feel very uncomfortable without it showing. I have no idea how to switch between windows quickly if you have opened 10+ windows. ‘Alt+Tab’ is not the right solution. I even think of switching to tiling window manager like wmii, xmonad. Luckily someone suggests <a href="http://code.google.com/p/tint2/">tint2</a> as replacement. I will give it a try immediately when back home.</p></div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/5/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/3/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/29/watch-netflix-in-linux/">Watch Netflix in Linux</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/17/fly-with-vim-airline/">Fly With Vim Airline</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+</section>
+<section>
+  <h1>Tags</h1>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/jchain">@jchain</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'jchain',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+<section>
+	<h1 class="icon" data-icon="B">License</h1>
+	<p>
+	This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+	</p>
+	<p>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+	</p>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Zandy -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'zandy3';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
