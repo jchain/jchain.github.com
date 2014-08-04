@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Gnuplot | A Coding Monkey's Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/gnuplot/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2014-07-16T19:55:56-04:00</updated>
-  <id>http://jchain.github.com/</id>
+  <link href="http://jchain.github.io/blog/categories/gnuplot/atom.xml" rel="self"/>
+  <link href="http://jchain.github.io/"/>
+  <updated>2014-08-04T15:40:26-04:00</updated>
+  <id>http://jchain.github.io/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Gnuplot: how to skip the first line in the data file]]></title>
-    <link href="http://jchain.github.com/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file/"/>
+    <link href="http://jchain.github.io/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file/"/>
     <updated>2011-11-08T23:23:38-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file</id>
+    <id>http://jchain.github.io/blog/2011/11/08/gnuplot-how-to-skip-the-first-line-in-the-data-file</id>
     <content type="html"><![CDATA[<p>It is very likely that the data file you are going to visualize has a one line header at the first line. Use ‘every’ keyword to skip the first line like this.</p>
 <pre><code>plot &quot;foo.dat&quot; every ::1 using 1:2 with lines</code></pre>
 <p>Similarly you can skip 2 or 3 or whatever lines using ‘every’</p>]]></content>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | A Coding Monkey's Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2014-07-16T19:55:56-04:00</updated>
-  <id>http://jchain.github.com/</id>
+  <link href="http://jchain.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://jchain.github.io/"/>
+  <updated>2014-08-04T15:40:26-04:00</updated>
+  <id>http://jchain.github.io/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Use Juniper VPN Client under Fedora 20 x86-64]]></title>
-    <link href="http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/"/>
+    <link href="http://jchain.github.io/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/"/>
     <updated>2014-03-10T11:59:00-04:00</updated>
-    <id>http://jchain.github.com/blog/2014/03/10/use-juniper-vpn-under-fedora-x64</id>
+    <id>http://jchain.github.io/blog/2014/03/10/use-juniper-vpn-under-fedora-x64</id>
     <content type="html"><![CDATA[<p>This is my first time to use Juniper VPN to connect to the workplace from home. My computer runs Fedora 20 in 64bit and Firefox in 64bit. I had a hard time to establish a connection through the web portal. The client files were downloaded into</p>
 <pre><code>~/.juniper_networks</code></pre>
 <p>I followed the instructions listed <a href="http://tuxdna.wordpress.com/2013/07/04/juniper-networks-vpn-from-fedora-17-x86_64/">here</a>, <a href="https://github.com/rthill/jvpn">here</a>, <a href="https://github.com/rthill/jvpn">here</a> and <a href="http://www.scc.kit.edu/scc/net/juniper-vpn/linux/">here</a>. None of them worked. I got stuck by the error message in <code>ncsvc.log</code>like this:</p>
@@ -35,9 +35,9 @@
   
   <entry>
     <title type="html"><![CDATA[Watch Netflix in Linux]]></title>
-    <link href="http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux/"/>
+    <link href="http://jchain.github.io/blog/2013/11/29/watch-netflix-in-linux/"/>
     <updated>2013-11-29T08:09:00-05:00</updated>
-    <id>http://jchain.github.com/blog/2013/11/29/watch-netflix-in-linux</id>
+    <id>http://jchain.github.io/blog/2013/11/29/watch-netflix-in-linux</id>
     <content type="html"><![CDATA[<p>I had watched TV shows on <a href="http://www.hulu.com">Hulu</a> for a simple reason that it’s Flash-based so I could watch it in Linux. One thing I did’t like about Hulu is its high-frequency of ads. <a href="http://www.netflix.com">Netflix</a> has fewer ads but it builds its business on Silverlight plugin, which is generally exclusive for Windows and Mac OS. I’ve never imagined that I could be able to watch movies in Linux until I found <a href="http://fds-team.de/cms/articles/2013-08/pipelight-using-silverlight-in-linux-browsers.html">Pipelight</a>.</p>
 <p>Pipelight is a very smart project that makes use of <a href="http://www.winehq.org">Wine</a> to make Silverlight work in Linux web browser. The website of Pipelight has provides a very complete documentation on the installation for various Linux distributions. For me the installation for Fedora 19 was a breezy. Of course, you also need some Firefox <a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-overrider/">plugin</a> to make Netflix believe you are using Windows Firefox. When you first load Pipelight, Wine will automatically configure everything including downloading Silverlight. I like this plugin so much. I don’t think I will upgrade to Fedora 20 until Pipelight for that version is available.</p>
 <p>Only one thing I found worth mentioning this time is the update. If your Linux distribution updates the version of Wine and your Pipelight doesn’t work, my solution is to completely remove Wine and Pipelight and then reinstall them.</p>
@@ -46,9 +46,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fedora 19 and Gnome 3.8]]></title>
-    <link href="http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
+    <link href="http://jchain.github.io/blog/2013/07/01/fedora-19-and-gnome-3-8/"/>
     <updated>2013-07-01T17:10:15-04:00</updated>
-    <id>http://jchain.github.com/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
+    <id>http://jchain.github.io/blog/2013/07/01/fedora-19-and-gnome-3-8</id>
     <content type="html"><![CDATA[<p>Last night I didn’t resist the temptation to enter</p>
 <pre><code>sudo yum install fedora-upgrade </code></pre>
 <p>Viola, my journey to Fedora 19 began!</p>
@@ -66,9 +66,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fix Neocomplcache to Support Perl Complete]]></title>
-    <link href="http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
+    <link href="http://jchain.github.io/blog/2013/06/01/fix-neocomplcache-perlomni/"/>
     <updated>2013-06-01T16:37:24-04:00</updated>
-    <id>http://jchain.github.com/blog/2013/06/01/fix-neocomplcache-perlomni</id>
+    <id>http://jchain.github.io/blog/2013/06/01/fix-neocomplcache-perlomni</id>
     <content type="html"><![CDATA[<p>I have long been jealous about the great auto-complete feature of Python in Vim. With the wonderful plugin <a href="https://github.com/Shougo/neocomplcache.vim"><code>neocomplcache</code></a>, once you type <code>.</code> after an object, the memeber methods will pop up.</p>
 <p>I want this feature for Perl when I type <code>-&gt;</code>. Actually, until today haven’t I realized that I already own at my finger tip. The answer is <code>neocomplcache</code> and <a href="https://github.com/c9s/perlomni.vim"><code>perlomni</code></a>.</p>
 <p>The installation of <code>neocomplcache</code> and <code>perlomni</code> is easy. If you use the settings from the help of <code>neocomplcache</code>, the key part to triger <code>neocomplcache</code> omni-complete by <code>-&gt;</code> is to change the setting in <code>.vimrc</code> from</p>
@@ -84,9 +84,9 @@
   
   <entry>
     <title type="html"><![CDATA[Introducing Quickcd]]></title>
-    <link href="http://jchain.github.com/blog/2013/02/08/intro-quickcd/"/>
+    <link href="http://jchain.github.io/blog/2013/02/08/intro-quickcd/"/>
     <updated>2013-02-08T15:03:24-05:00</updated>
-    <id>http://jchain.github.com/blog/2013/02/08/intro-quickcd</id>
+    <id>http://jchain.github.io/blog/2013/02/08/intro-quickcd</id>
     <content type="html"><![CDATA[<p>I just published the code of <code>quickcd</code> on github. Check it out at <a href="https://github.com/jchain/quickcd">https://github.com/jchain/quickcd</a></p>
 <h1 id="quickcd">quickcd</h1>
 <p>A rewrite of <a href="https://github.com/philc/fuzzycd">fuzzycd</a> in Perl. You only need to type partial directory names to change directories. It saves you a lot of keystrokes and enhances your productivity, especially when you navigate in many subdirectories with tricky names.</p>

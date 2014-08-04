@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Cygwin | A Coding Monkey's Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/cygwin/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2014-07-16T19:55:56-04:00</updated>
-  <id>http://jchain.github.com/</id>
+  <link href="http://jchain.github.io/blog/categories/cygwin/atom.xml" rel="self"/>
+  <link href="http://jchain.github.io/"/>
+  <updated>2014-08-04T15:40:26-04:00</updated>
+  <id>http://jchain.github.io/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,17 +15,17 @@
   
   <entry>
     <title type="html"><![CDATA[Use command 'reset' to reset your terminal display when output is garbled.]]></title>
-    <link href="http://jchain.github.com/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled/"/>
+    <link href="http://jchain.github.io/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled/"/>
     <updated>2011-07-26T17:03:49-04:00</updated>
-    <id>http://jchain.github.com/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled</id>
+    <id>http://jchain.github.io/blog/2011/07/26/use-command-reset-to-reset-your-terminal-display-when-output-is-garbled</id>
     <content type="html"><![CDATA[<p>I feel shamed that I haven’t found this simple command for a decade. Previously, I just closed the window or the terminal and re-opened. But this ‘reset’ command is the right way to do. Try it next time when your terminal display looks funny and out of control.</p>]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Wired MinGW Make failure problem]]></title>
-    <link href="http://jchain.github.com/blog/2011/03/28/wired-mingw-make-failure-problem/"/>
+    <link href="http://jchain.github.io/blog/2011/03/28/wired-mingw-make-failure-problem/"/>
     <updated>2011-03-28T02:47:41-04:00</updated>
-    <id>http://jchain.github.com/blog/2011/03/28/wired-mingw-make-failure-problem</id>
+    <id>http://jchain.github.io/blog/2011/03/28/wired-mingw-make-failure-problem</id>
     <content type="html"><![CDATA[<p>Today when I tried to build wxWidgets with MinGW, I kept running into this wired problem.</p>
 <blockquote>
 <p>process_begin: CreateProcess(….) failed. make (e=2): The system cannot find the file specified.</p>
@@ -36,17 +36,17 @@
   
   <entry>
     <title type="html"><![CDATA[Linux 'ldd' equivalence on Cygwin?]]></title>
-    <link href="http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/"/>
+    <link href="http://jchain.github.io/blog/2011/02/06/linux-ldd-equivalence-on-cygwin/"/>
     <updated>2011-02-06T13:25:27-05:00</updated>
-    <id>http://jchain.github.com/blog/2011/02/06/linux-ldd-equivalence-on-cygwin</id>
+    <id>http://jchain.github.io/blog/2011/02/06/linux-ldd-equivalence-on-cygwin</id>
     <content type="html"><![CDATA[<p>Run “cygcheck” and see if all DLLs it requires can be found. I used it on Cygwin to solve a shared library missing problem when I started octave. The lapack library(.dll) was not loaded because of its path was not in $PATH.</p>]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Install lighttpd as a service in Cygwin]]></title>
-    <link href="http://jchain.github.com/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin/"/>
+    <link href="http://jchain.github.io/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin/"/>
     <updated>2010-11-23T23:40:44-05:00</updated>
-    <id>http://jchain.github.com/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin</id>
+    <id>http://jchain.github.io/blog/2010/11/23/install-lighttpd-as-a-service-in-cygwin</id>
     <content type="html"><![CDATA[<pre><code>cygrunsrv --install lighttpd --path /usr/sbin/lighttpd
     --args &quot;-D -f /etc/lighttpd/lighttpd.conf&quot; --disp &quot;CYGWIN lighttpd&quot;</code></pre>
 <p>See more http://www.cygwin.com/ml/cygwin-apps/2004-09/msg00115.html</p>]]></content>

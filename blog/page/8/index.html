@@ -9,7 +9,7 @@
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="In the recent Perl hacking, I used GD package a lot to do image processing like region labeling and border tracing. I used GD to access the pixels. I &hellip;">
+  <meta name="description" content="A good article to read. It made me to rethink the GUI programming with event-driven pattern. http://www.drdobbs.com/184401643">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com/blog/page/8">
+  <link rel="canonical" href="http://jchain.github.io/blog/page/8">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
@@ -60,7 +60,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input type="hidden" name="q" value="site:jchain.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -75,6 +75,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/02/22/recommend-to-read-who-moved-my-state/">Recommend to Read: Who Moved My State?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-02-22T22:21:40-05:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A good article to read. It made me to rethink the GUI programming with event-driven pattern.</p>
+<p><a href="http://www.drdobbs.com/184401643">http://www.drdobbs.com/184401643</a></p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -336,7 +372,9 @@
 <notextile>
 <figure class='code'><figcaption>
 <span></span>
-</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</figcaption>
+<div class="highlight">
+<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -364,7 +402,9 @@
 </span><span class='line'> <span class="p">}</span>
 </span><span class='line'> <span class="k">return</span> <span class="nb">wantarray</span><span class="p">?</span> <span class="nv">@strings</span> <span class="p">:</span> <span class="nv">$strings</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+</span></code></pre></td></tr></table>
+</div>
+</figure>
 </notextile>
 </div>
 <p>Credit due to <a href="http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl">http://stackoverflow.com/questions/3707262/how-can-i-quote-a-long-string-in-perl</a></p>
@@ -445,55 +485,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/12/wired-unicode-problem-in-source-code-file/">Wired Unicode Problem in Source Code File</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-12T17:27:22-05:00" pubdate data-updated="true">Jan 12<span>th</span>, 2011</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I ran into a very wired problem when I was trying to compile a C++ source file. What I received was like this:</p>
-<blockquote>
-<p>Evaluator.h:1: error: stray ‘57’ in program Evaluator.h:1: error: stray ‘73’ in program Evaluator.h:1: error: stray ‘77’ in program Evaluator.h:1: error: stray ‘#’ in program</p>
-</blockquote>
-<p>I googled this error and it turned out to be there were some invisible Unicode characters in the source file. I guessed that our team were using different editors and operating systems, and someone  accidentally inserted one or two unicode characters. It was so bad that they were invisible!</p>
-<p>The first line was a comment so I deleted the whole line and retyped. But the build was still there! So so wired. I used Linux command-line tool ‘file’ to detect the type of the source file</p>
-<blockquote>
-<p>Evaluatore.h: UTF-8 Unicode (with BOM) C program text</p>
-</blockquote>
-<p>But for the other files in the same directory, ‘file’ told me that</p>
-<blockquote>
-<p>ASCII C program text</p>
-</blockquote>
-<p>Yes, I NEED ASCII file encoding! I tried gedit and iconv but somehow they both complained the conversion. So I came up the final idea, use command-line tool ‘cat’ to** dump it to the terminal screen** and copy whole content without the first blank space and paste into a new file. It worked. If you copy and paste whole dumped content you would see the visible unicode. Delete it.</p>
-<p>When I dumped the file, I saw an unexpected blank space at the very front of the first line. I thought it was the culprit. I also noticed that** ‘cat foo.h &gt; bar.h’ didn’t get rid of the invisible character**.  Copy and Paste!</p></div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/9/">&larr; Older</a>
@@ -511,6 +502,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/08/04/fix-octave-cygwin-startup-issue/">Fix the Loading Dll Issue of Octave Cygwin</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
       </li>
     
@@ -526,19 +521,15 @@
         <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (6)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
 </section>
 <section>
   <h1>Tags</h1>
-    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 108.78048780487805%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
 </section>
 
 <section>

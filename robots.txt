@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://jchain.github.com/sitemap.xml 
+Sitemap: http://jchain.github.io/sitemap.xml 

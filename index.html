@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-My Octopress Page is coming soon &hellip;
-=======
 
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
@@ -12,7 +9,7 @@ My Octopress Page is coming soon &hellip;
   <meta name="author" content="Zandy">
 
   
-  <meta name="description" content="This is my first time to use Juniper VPN to connect to the workplace from home. My computer runs Fedora 20 in 64bit and Firefox in 64bit. I had a &hellip;">
+  <meta name="description" content="Have you run into this loading problem when you start Octave in Cygwin recently? If yes, you are not alone. [zandy@cygwin] ~ $ octave /usr/bin/octave &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ My Octopress Page is coming soon &hellip;
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jchain.github.com">
+  <link rel="canonical" href="http://jchain.github.io">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Coding Monkey's Blog" type="application/atom+xml">
@@ -63,7 +60,7 @@ My Octopress Page is coming soon &hellip;
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:jchain.github.com" />
+    <input type="hidden" name="q" value="site:jchain.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -78,6 +75,62 @@ My Octopress Page is coming soon &hellip;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/04/fix-octave-cygwin-startup-issue/">Fix the Loading Dll Issue of Octave Cygwin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-04T09:49:00-04:00" pubdate data-updated="true">Aug 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Have you run into this loading problem when you start Octave in Cygwin recently? If yes, you are not alone.</p>
+<pre><code>[zandy@cygwin] ~ $ octave
+/usr/bin/octave-cli-3.8.1.exe: error while loading shared libraries: ?: cannot open shared
+object file: No such file or directory</code></pre>
+<h2 id="diagnose">Diagnose:</h2>
+<pre><code>[zandy@cygwin] ~ $ cygcheck /usr/bin/octave-cli-3.8.1.exe
+C:\cygwin\bin\octave-cli-3.8.1.exe
+cygcheck: track_down: could not find cygblas-0.dll
+cygcheck: track_down: could not find cygblas-0.dll
+cygcheck: track_down: could not find cyglapack-0.dll
+cygcheck: track_down: could not find cyglapack-0.dll
+cygcheck: track_down: could not find cygblas-0.dll
+cygcheck: track_down: could not find cyglapack-0.dll
+cygcheck: track_down: could not find cygblas-0.dll
+cygcheck: track_down: could not find cyglapack-0.dll</code></pre>
+<p>It looks like Octave cannot find the shared libraries of <code>blas</code> and <code>lapack</code> but they actually have been installed.</p>
+<h2 id="solution">Solution:</h2>
+<p>The loading issue is cause by the fact that <code>cygblas-0.dll</code> and <code>cyglapack-0.dll</code> were accidentally installed into <code>/usr/lib/lapack</code>. According to the <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Using_ld_the_GNU_Linker/win32.html">Cygwin documentation</a>, Cygwin looks for DLL’s by searching the directories defined in the environment variable <code>PATH</code>. The default <code>PATH</code> doesn’t include <code>/usr/lib/lapack</code>. Therefore, the solution is either</p>
+<pre><code>cp /usr/lib/lapack/*.dll /bin</code></pre>
+<p>or</p>
+<pre><code>export $PATH=/usr/lib/lapack:$PATH</code></pre>
+<!-- vim: set fdm=expr ft=pandoc sw=4 ts=4 tw=100 : --></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -363,7 +416,9 @@ $ cd ok
 <p>If there is more than one directory containing your cd path, you just need to type one more letter to take you to the target folder.</p>
 <div class="bogus-wrapper">
 <notextile>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'>
+<div class="highlight">
+<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -372,7 +427,9 @@ $ cd ok
 </span><span class='line'>Make a choice:
 </span><span class='line'>[a] Desktop  [b] Documents  [c] Downloads  [d] Dropbox
 </span><span class='line'>a
-</span><span class='line'>Desktop $</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>Desktop $</span></code></pre></td></tr></table>
+</div>
+</figure>
 </notextile>
 </div>
 <h1 id="why-rewrite">Why rewrite?</h1>
@@ -429,7 +486,9 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 <notextile>
 <figure class='code'><figcaption>
 <span></span>
-</figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</figcaption>
+<div class="highlight">
+<table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -506,11 +565,11 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 <span class='line-number'>75</span>
 <span class='line-number'>76</span>
 </pre></td><td class='code'><pre><code class='makefile'><span class='line'><span class="nv">PACKAGE</span> <span class="o">?=</span> feh
-</span><span class='line'>VERSION ?<span class="o">=</span> 2.8
+</span><span class='line'><span class="nv">VERSION</span> <span class="o">?=</span> 2.8
 </span><span class='line'>
 </span><span class='line'><span class="c"># Prefix for all installed files</span>
 </span><span class='line'><span class="c"># PREFIX ?= /usr/local</span>
-</span><span class='line'>PREFIX ?<span class="o">=</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
+</span><span class='line'><span class="nv">PREFIX</span> <span class="o">?=</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="c"># Directories for manuals, executables, docs, data, etc.</span>
 </span><span class='line'><span class="nv">main_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">DESTDIR</span><span class="k">}${</span><span class="nv">PREFIX</span><span class="k">}</span>
@@ -522,14 +581,14 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 </span><span class='line'><span class="nv">example_dir</span> <span class="o">=</span> <span class="k">${</span><span class="nv">main_dir</span><span class="k">}</span>/share/doc/feh/examples
 </span><span class='line'>
 </span><span class='line'><span class="c"># default CFLAGS</span>
-</span><span class='line'>CFLAGS ?<span class="o">=</span> -g -O2
-</span><span class='line'>CFLAGS +<span class="o">=</span> -Wall -Wextra -pedantic
+</span><span class='line'><span class="nv">CFLAGS</span> <span class="o">?=</span> -g -O2
+</span><span class='line'><span class="nv">CFLAGS</span> <span class="o">+=</span> -Wall -Wextra -pedantic
 </span><span class='line'>
-</span><span class='line'>curl ?<span class="o">=</span> 1
-</span><span class='line'>debug ?<span class="o">=</span> 0
-</span><span class='line'><span class="nb">help</span> ?<span class="o">=</span> 0
-</span><span class='line'>xinerama ?<span class="o">=</span> 1
-</span><span class='line'>exif ?<span class="o">=</span> 0
+</span><span class='line'><span class="nv">curl</span> <span class="o">?=</span> 1
+</span><span class='line'><span class="nv">debug</span> <span class="o">?=</span> 0
+</span><span class='line'><span class="nv">help</span> <span class="o">?=</span> 0
+</span><span class='line'><span class="nv">xinerama</span> <span class="o">?=</span> 1
+</span><span class='line'><span class="nv">exif</span> <span class="o">?=</span> 0
 </span><span class='line'>
 </span><span class='line'><span class="cp">ifeq (${curl},1)</span>
 </span><span class='line'>  CFLAGS +<span class="o">=</span> -DHAVE_LIBCURL
@@ -576,12 +635,14 @@ source ~/scripts/fuzzycd/fuzzycd_bash_wrapper.sh</code></pre>
 </span><span class='line'>
 </span><span class='line'><span class="c"># CFLAGS += -DPREFIX=\&quot;${PREFIX}\&quot; \</span>
 </span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span>
-</span><span class='line'>CFLAGS +<span class="o">=</span> -DPREFIX<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span><span class="se">\&quot;</span> <span class="se">\</span>
+</span><span class='line'><span class="nv">CFLAGS</span> <span class="o">+=</span> -DPREFIX<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span><span class="se">\&quot;</span> <span class="se">\</span>
 </span><span class='line'>  -DPACKAGE<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">PACKAGE</span><span class="k">}</span><span class="se">\&quot;</span> -DVERSION<span class="o">=</span><span class="se">\&quot;</span><span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span><span class="se">\&quot;</span> -I<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/include
 </span><span class='line'>
 </span><span class='line'><span class="c"># LDLIBS += -lm -lpng -lX11 -lImlib2 -lgiblib</span>
-</span><span class='line'>LDLIBS +<span class="o">=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="nv">LDLIBS</span> <span class="o">+=</span> -lm -lpng -lX11 -lImlib2 -lgiblib -L<span class="k">${</span><span class="nv">PREFIX</span><span class="k">}</span>/lib64/
+</span></code></pre></td></tr></table>
+</div>
+</figure>
 </notextile>
 </div></div>
   
@@ -690,115 +751,6 @@ set nocursorcolumn </code></pre>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/28/fedora-17-and-nvidia-driver/">Install nVidia Driver on Fedora 17: A Non-typical Case</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-28T02:10:00-05:00" pubdate data-updated="true">Nov 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Finally I succeeded in installing the nVidia driver on my old Dell Inspiron 530 geared an old nVidia 8300 GS video card running Fedora 17 i386. Here is a quick recap on my journey with Fedora 17.</p>
-<p>I started constantly using Fedora 17 half a year ago. I had used the default open source nVidia driver <code>nouveau</code> happily until the system updated the kernel from the 3.3.4 to some newer version. None of these newer kernels worked well with the <code>nouveau</code> driver. A common issue was the mouse was drawn as a big block and the GUI color was totally garbage. I tried to install the nVidia driver either according to <a href="http://www.if-not-true-then-false.com/2012/fedora-17-nvidia-guide/">what it said</a> or using the installer from the official website of nVidia. But neither way worked. I could see the mouse was spinning but the whole system kept froze. So I excluded the kernel update in <code>yum.conf</code> under <code>/etc</code>. Everything was fine until one day my Fedora Linux suddenly crashed with a kernel panic error. The traceback message indicated it was about a kernel bug in the ext4 file system</p>
-<pre><code>kernel BUG at fs/ext4/extents.c</code></pre>
-<p>Initially I thought it could be due to certain bad blocks on my hard drive. But soon the hacker news confirmed that the bug in the kernel was the culprit. After several sudden losses of my working sessions I couldn’t wait for any more seconds to update the kernel. And I had to make the Xorg server work too.</p>
-<p>It really bugged me that the nVidia driver didn’t work on my Fedora 17. I booted from Ubuntu Linux installed on an external USB disk. And the nVidia driver worked fine under it. There must be something wrong with <code>akmod-nvidia</code> or the official driver.</p>
-<p>Accidentally I found the solution. It appeared that my 8300GS card was not supported very well in the recent 3xx driver. I guess this type was not very common. I tried <code>akmod-nvidia-173xx</code> and X server started this time. In my case, I didn’t need to do this:</p>
-<pre><code>Remove / disable nouveau drivers from kernel initramfs</code></pre>
-<p>The remaining issue was the OpenGL apps were indirectly rendered. It was due to the nVidia GL library was not automatically loaded. The system still used the mesa GL to do the software rendering. A workaround is to put the following line in <code>.bashrc</code></p>
-<pre><code>export LD_LIBRARY_PATH=/usr/lib/nvidia:$LD_LIBRARY_PATH</code></pre>
-<p>Another problem was the dual displays. The default <code>xorg.conf</code> generated by <code>akmod-nvidia-173xx</code> didn’t support the twin views. Additionally, <code>nvidia-settings</code> complained the X11 driver was too old to be configured. Fortunately I had a copy of working <code>xorg.conf</code> at my Ubuntu partition. And here is what it looks right now.</p>
-<div class="bogus-wrapper">
-<notextile>
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># RPM Fusion - nvidia-173xx-xorg.conf
-</span><span class='line'># 
-</span><span class='line'>Section "Monitor"
-</span><span class='line'>    # HorizSync source: edid, VertRefresh source: edid
-</span><span class='line'>    Identifier     "Monitor0"
-</span><span class='line'>    VendorName     "Unknown"
-</span><span class='line'>    ModelName      "DELL E228WFP"
-</span><span class='line'>    HorizSync       30.0 - 83.0
-</span><span class='line'>    VertRefresh     56.0 - 75.0
-</span><span class='line'>    Option         "DPMS"
-</span><span class='line'>EndSection
-</span><span class='line'>
-</span><span class='line'>Section "Device"
-</span><span class='line'>  Identifier  "Device0"
-</span><span class='line'>  Driver      "nvidia"
-</span><span class='line'>  Option      "AddARGBGLXVisuals" "true"
-</span><span class='line'>EndSection
-</span><span class='line'>
-</span><span class='line'>Section "Screen"
-</span><span class='line'>    Identifier     "Screen0"
-</span><span class='line'>    Device         "Device0"
-</span><span class='line'>    Monitor        "Monitor0"
-</span><span class='line'>    DefaultDepth    24
-</span><span class='line'>    Option         "TwinView" "1"
-</span><span class='line'>    Option         "TwinViewXineramaInfoOrder" "DFP-0"
-</span><span class='line'>    Option         "metamodes" "DFP: nvidia-auto-select +0+0, CRT: nvidia-auto-select +1680+0"
-</span><span class='line'>    SubSection     "Display"
-</span><span class='line'>        Depth       24
-</span><span class='line'>    EndSubSection
-</span><span class='line'>EndSection</span></code></pre></td></tr></table></div></figure>
-</notextile>
-</div>
-<p>I’m so excited to have my Fedora back in good shape and I want share my story with you. Hopefully it will help you if you are facing the same problem.</p></div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -812,6 +764,10 @@ set nocursorcolumn </code></pre>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/08/04/fix-octave-cygwin-startup-issue/">Fix the Loading Dll Issue of Octave Cygwin</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/10/use-juniper-vpn-under-fedora-x64/">Use Juniper VPN Client Under Fedora 20 X86-64</a>
@@ -829,19 +785,15 @@ set nocursorcolumn </code></pre>
         <a href="/blog/2013/07/01/fedora-19-and-gnome-3-8/">Fedora 19 and Gnome 3.8</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/06/01/fix-neocomplcache-perlomni/">Fix Neocomplcache to Support Perl Complete</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (5)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/bash/'>Bash (1)</a></li><li><a href='/blog/categories/c-plus-plus/'>C++ (3)</a></li><li><a href='/blog/categories/c-slash-c-plus-plus/'>C/C++ (10)</a></li><li><a href='/blog/categories/cmake/'>CMake (1)</a></li><li><a href='/blog/categories/cygwin/'>Cygwin (4)</a></li><li><a href='/blog/categories/dev/'>Dev (2)</a></li><li><a href='/blog/categories/gcc/'>GCC (2)</a></li><li><a href='/blog/categories/gdb/'>GDB (3)</a></li><li><a href='/blog/categories/git/'>Git (4)</a></li><li><a href='/blog/categories/gnome/'>GNOME (4)</a></li><li><a href='/blog/categories/gnuplot/'>Gnuplot (1)</a></li><li><a href='/blog/categories/java/'>Java (1)</a></li><li><a href='/blog/categories/latex/'>Latex (4)</a></li><li><a href='/blog/categories/linux/'>Linux (41)</a></li><li><a href='/blog/categories/lisp/'>Lisp (1)</a></li><li><a href='/blog/categories/math/'>Math (1)</a></li><li><a href='/blog/categories/octave/'>Octave (6)</a></li><li><a href='/blog/categories/oop/'>OOP (2)</a></li><li><a href='/blog/categories/openmp/'>OpenMP (2)</a></li><li><a href='/blog/categories/perl/'>Perl (12)</a></li><li><a href='/blog/categories/r/'>R (1)</a></li><li><a href='/blog/categories/subversion/'>Subversion (1)</a></li><li><a href='/blog/categories/uncategorized/'>Uncategorized (1)</a></li><li><a href='/blog/categories/vim/'>Vim (5)</a></li><li><a href='/blog/categories/web/'>Web (1)</a></li><li><a href='/blog/categories/wxwidgets/'>wxWidgets (1)</a></li></ul>
 </section>
 <section>
   <h1>Tags</h1>
-    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 107.3170731707317%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/bash' style='font-size: 101.46341463414635%'>Bash</a> <a href='/blog/categories/c-plus-plus' style='font-size: 104.39024390243902%'>C++</a> <a href='/blog/categories/c-slash-c-plus-plus' style='font-size: 114.63414634146342%'>C/C++</a> <a href='/blog/categories/cmake' style='font-size: 101.46341463414635%'>CMake</a> <a href='/blog/categories/cygwin' style='font-size: 105.85365853658537%'>Cygwin</a> <a href='/blog/categories/dev' style='font-size: 102.92682926829268%'>Dev</a> <a href='/blog/categories/gcc' style='font-size: 102.92682926829268%'>GCC</a> <a href='/blog/categories/gdb' style='font-size: 104.39024390243902%'>GDB</a> <a href='/blog/categories/git' style='font-size: 105.85365853658537%'>Git</a> <a href='/blog/categories/gnome' style='font-size: 105.85365853658537%'>GNOME</a> <a href='/blog/categories/gnuplot' style='font-size: 101.46341463414635%'>Gnuplot</a> <a href='/blog/categories/java' style='font-size: 101.46341463414635%'>Java</a> <a href='/blog/categories/latex' style='font-size: 105.85365853658537%'>Latex</a> <a href='/blog/categories/linux' style='font-size: 160.0%'>Linux</a> <a href='/blog/categories/lisp' style='font-size: 101.46341463414635%'>Lisp</a> <a href='/blog/categories/math' style='font-size: 101.46341463414635%'>Math</a> <a href='/blog/categories/octave' style='font-size: 108.78048780487805%'>Octave</a> <a href='/blog/categories/oop' style='font-size: 102.92682926829268%'>OOP</a> <a href='/blog/categories/openmp' style='font-size: 102.92682926829268%'>OpenMP</a> <a href='/blog/categories/perl' style='font-size: 117.5609756097561%'>Perl</a> <a href='/blog/categories/r' style='font-size: 101.46341463414635%'>R</a> <a href='/blog/categories/subversion' style='font-size: 101.46341463414635%'>Subversion</a> <a href='/blog/categories/uncategorized' style='font-size: 101.46341463414635%'>Uncategorized</a> <a href='/blog/categories/vim' style='font-size: 107.3170731707317%'>Vim</a> <a href='/blog/categories/web' style='font-size: 101.46341463414635%'>Web</a> <a href='/blog/categories/wxwidgets' style='font-size: 101.46341463414635%'>wxWidgets</a> </span>
 </section>
 
 <section>
@@ -935,4 +887,3 @@ set nocursorcolumn </code></pre>
 
 </body>
 </html>
->>>>>>> 097b9aaa02dad8df23f86023e422355bddc35ab8

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: R | A Coding Monkey's Blog]]></title>
-  <link href="http://jchain.github.com/blog/categories/r/atom.xml" rel="self"/>
-  <link href="http://jchain.github.com/"/>
-  <updated>2014-07-16T19:55:56-04:00</updated>
-  <id>http://jchain.github.com/</id>
+  <link href="http://jchain.github.io/blog/categories/r/atom.xml" rel="self"/>
+  <link href="http://jchain.github.io/"/>
+  <updated>2014-08-04T15:40:26-04:00</updated>
+  <id>http://jchain.github.io/</id>
   <author>
     <name><![CDATA[Zandy]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Install RcppOctave if Octave is in user-defined directory]]></title>
-    <link href="http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave/"/>
+    <link href="http://jchain.github.io/blog/2013/01/28/install-rcppoctave-if-octave/"/>
     <updated>2013-01-28T23:43:00-05:00</updated>
-    <id>http://jchain.github.com/blog/2013/01/28/install-rcppoctave-if-octave</id>
+    <id>http://jchain.github.io/blog/2013/01/28/install-rcppoctave-if-octave</id>
     <content type="html"><![CDATA[<p>Even though I have been very busy these days I think I should try to get at least one post published per month. My recent job involved a lot of data analysis and statistical computing. I pushed myself to get familiar with <a href="http://www.r-project.org">R</a> because some packages from R are indispensable for my work. Meanwhile I also wanted to reuse my existing <a href="http://www.octave.org">Octave</a> code. Luckily I get the best of both worlds by using <a href="http://cran.r-project.org/web/packages/RcppOctave/">RcppOctave</a> which is a bridging package connecting the R and Octave sessions.</p>
 <p>I compiled the latest Octave on the server and installed in my home directory. When installing <code>RcppOctave</code> in R by running</p>
 <pre><code>install.packages(&#39;RcppOctave&#39;) </code></pre>
